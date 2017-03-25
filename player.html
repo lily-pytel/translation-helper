@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css" media="screen">
+body {
+    font-family: sans-serif;
+}
+
+td, th {
+    text-align: center;
+}
+    </style>
+    <script src="jquery.js"></script>
+    <script>
+/*
+ * jQuery plugin: fieldSelection - v0.1.1 - last change: 2006-12-16
+ * (c) 2006 Alex Brem <alex@0xab.cd> - http://blog.0xab.cd
+ */
+(function() {var fieldSelection={getSelection:function() {var e=(this.jquery)?this[0]:this;return(('selectionStart'in e&&function() {var l=e.selectionEnd-e.selectionStart;return{start:e.selectionStart,end:e.selectionEnd,length:l,text:e.value.substr(e.selectionStart,l)}})||(document.selection&&function() {e.focus();var r=document.selection.createRange();if(r===null) {return{start:0,end:e.value.length,length:0}}var re=e.createTextRange();var rc=re.duplicate();re.moveToBookmark(r.getBookmark());rc.setEndPoint('EndToStart',re);return{start:rc.text.length,end:rc.text.length+r.text.length,length:r.text.length,text:r.text}})||function() {return null})()},replaceSelection:function() {var e=(typeof this.id=='function')?this.get(0):this;var text=arguments[0]||'';return(('selectionStart'in e&&function() {e.value=e.value.substr(0,e.selectionStart)+text+e.value.substr(e.selectionEnd,e.value.length);return this})||(document.selection&&function() {e.focus();document.selection.createRange().text=text;return this})||function() {e.value+=text;return jQuery(e)})()}};jQuery.each(fieldSelection,function(i) {jQuery.fn[i]=this})})();
+    </script>
+
+<script>
+
+var Player = null
+var Editor = null
+var PlaybackRateControl = null
+
+var LineLength = 29
+var SpaceBar = 32
+var LeftArrow = 37
+var UpArrow = 38
+var RightArrow = 39
+var DownArrow = 40
+var SKey = 83
+
+
+var Configuration = {
+    playbackRate: 1.0,
+}
+
+function finalErrorCheck(editor) {
+    var matches
+    ,   text = editor.val();
+
+    for (var i = 0; i < commonErrors.length; i++) {
+        matches = text.match(commonErrors[i].matchWith);
+
+        if (matches) {
+            console.log("Found " + matches.length + " matches for " + commonErrors[i].matchWith);
+        }
+    }
+
+    console.log("Finished final check");
+}
+
+function fixCommonErrors(editor) {
+    var text = editor.val();
+
+    for (var i = 0; i < commonErrors.length; i++) {
+        text = text.replace(commonErrors[i].matchWith, function(match) {
+            console.log("replaced " + match + " with " + commonErrors[i].replaceWith);
+            return commonErrors[i].replaceWith;
+        })
+    }
+
+    editor.val(text);
+}
+
+function seek(videoPlayer, value) {
+    var seekToTime = videoPlayer.currentTime + value;
+    if( seekToTime < 0 || seekToTime > videoPlayer.duration ) 
+        return;
+
+    videoPlayer.currentTime = seekToTime;
+}
+
+
+function saveVideoState(videoPlayer){
+    localStorage.videoFile = videoPlayer.currentSrc
+    localStorage.videoLocation = videoPlayer.currentTime
+    console.log(localStorage.videoLocation)
+}
+
+function saveBuffer(editor) {
+    localStorage.savedBuffer = editor.val()
+}
+
+function saveBufferRecovery(editor) {
+    var val = editor.val()
+    if(val.trim().length > 1) {
+        localStorage.recoveryBuffer = val
+    }
+}
+
+function loadBuffer(editor) {
+    editor.val(localStorage.savedBuffer)
+}
+
+function loadVideoState(videoPlayer){
+    if (localStorage.videoFile === videoPlayer.src){
+        videoPlayer.currentTime = parseFloat(localStorage.videoLocation)
+    }
+}
+
+function loadBufferFromRecovery(editor) {
+    editor.val(localStorage.recoveryBuffer)
+}
+
+function clearSavedBuffer() {
+    localStorage.saveBuffer = ""
+}
+
+function saveConfiguration() {
+    localStorage.playbackRate = Configuration.playbackRate
+}
+
+function loadConfiguration() {
+    var playbackRate = localStorage.playbackRate
+    Configuration.playbackRate = (playbackRate === undefined) ? 1.0 : parseFloat(playbackRate)
+
+    applyConfiguration()
+}
+
+function applyConfiguration() {
+    Player.playbackRate = Configuration.playbackRate
+    PlaybackRateControl.val(Player.playbackRate)
+}
+
+
+$(function() {
+    Player = $("#player video")[0]
+    Editor = $("#editor textarea")
+    PlaybackRateControl = $("#playback-rate-control")
+
+    PlaybackRateControl.change(function(e) {
+        Configuration.playbackRate = parseFloat(this.value)
+        saveConfiguration()
+        applyConfiguration()
+    })
+
+    loadBuffer(Editor)
+    loadConfiguration()
+    loadVideoState(Player)
+    // Main Loop, Dispatching Events on Key
+    $(document).keydown(function(e) {
+        if (e.ctrlKey) {
+            switch (e.keyCode) {
+                case SKey: {
+                    e.preventDefault()
+                    break;
+                }
+            }
+        }
+        else if(e.altKey) {
+            switch (e.keyCode) {
+                case LeftArrow: {
+                    seek(Player, -5)
+                    break
+                }
+                case RightArrow: {
+                    seek(Player, +5)
+                    break
+                }
+                case DownArrow:
+                case UpArrow:
+                case SpaceBar: {
+                    if(Player.paused) {
+                        Player.play()
+                    } else {
+                        Player.pause()
+                    }
+                    break
+                }
+
+            }
+        }
+    })
+
+    setInterval(function cacheBufferForRecovery() {
+        saveBufferRecovery(Editor)
+    }, 1000)
+
+    $(window).unload(function(e) {
+        saveBuffer(Editor)
+        saveConfiguration()
+        saveVideoState(Player)
+    })
+})
+
+var commonErrors = [
+    {
+        matchWith: /אחות שלך/g,
+        replaceWith: "אחותך"
+    }, {
+        matchWith: /אח שלך/g,
+        replaceWith: "אחיך"
+    }, {
+        matchWith: /אחות שלי/g,
+        replaceWith: "אחותי"
+    }, {
+        matchWith: /משום ש/g,
+        replaceWith: "כי "
+    }, {
+        matchWith: /בגלל ש/g,
+        replaceWith: "כי "
+    }, {
+        matchWith: /בכול מקרה/g,
+        replaceWith: "בכל מקרה"
+    }, {
+        matchWith: /כול הלב/g,
+        replaceWith: "כל הלב"
+    }, {
+        matchWith: /כול לבי/g,
+        replaceWith: "כל הלב"
+    }, {
+        matchWith: /בכול פעם/g,
+        replaceWith: "בכל פעם"
+    }, {
+        matchWith: /בכול מקום/g,
+        replaceWith: "בכל מקום"
+    }, {
+        matchWith: /תסתכל אליי/g,
+        replaceWith: "תסתכל עליי"
+    }, {
+        matchWith: /תסתכלי אליי/g,
+        replaceWith: "תסתכלי עליי"
+    }, {
+        matchWith: /להגיד/g,
+        replaceWith: "לומר"
+    }, {
+        matchWith: /סינטיה/g,
+        replaceWith: "סינתיה"
+    }, {
+        matchWith: /חייגת/g,
+        replaceWith: "התקשרת"
+    }, {
+        matchWith: /חייגת/g,
+        replaceWith: "תתקשר"
+    }, {
+        matchWith: /אגיד/g,
+        replaceWith: "אומר"
+    }, {
+        matchWith: /\.\-/g,
+        replaceWith: "\. \-"
+    }, {
+        matchWith: /\?\-/g,
+        replaceWith: "\? \-"
+    }, {
+        matchWith: /  +/g,
+        replaceWith: " "
+    }, {
+        matchWith: /\n +/g,
+        replaceWith: "\n"
+    }, {
+        matchWith: / +\n/g,
+        replaceWith: "\n"
+    }, {
+        matchWith: /מה זאת אומרת ש/g,
+        replaceWith: "מה פתאום "
+    }, {
+        matchWith: /מה זאת אומרת/g,
+        replaceWith: "מה פתאום"
+    }, {
+        matchWith: /מעולם לא/g,
+        replaceWith: "אף פעם לא"
+    }, {
+        matchWith: /לעולם לא/g,
+        replaceWith: "אף פעם לא"
+    }, {
+        matchWith: /אלף פעמים/g,
+        replaceWith: "אלף פעם"
+    }, {
+        matchWith: /או שלא\?/g,
+        replaceWith: "או לא\?"
+    }, {
+        matchWith: /אקוגרפיה/g,
+        replaceWith: "אולטרה סאונד"
+    }, {
+        matchWith: /גורלה של אווה/g,
+        replaceWith: "הגורל של אווה"
+    }, {
+        matchWith: /בגלל ש/g,
+        replaceWith: "כי "
+    }, {
+        matchWith: /איתך/g,
+        replaceWith: "אתך"
+    }, {
+        matchWith: /איתו/g,
+        replaceWith: "אתו"
+    }, {
+        matchWith: /איתנו/g,
+        replaceWith: "אתנו"
+    }, {
+        matchWith: /עכשיו ש/g,
+        replaceWith: "עכשיו כש"
+    }, {
+        matchWith: /העיקר ש/g,
+        replaceWith: "העיקר הוא ש"
+    }, {
+        matchWith: /האמת ש/g,
+        replaceWith: "האמת היא ש"
+    }, {
+        matchWith: /עדיין אתה/g,
+        replaceWith: "אתה עדיין"
+    }, {
+        matchWith: /עדיין את/g,
+        replaceWith: "את עדיין"
+    }, {
+        matchWith: /עדיין אני/g,
+        replaceWith: "אני עדיין"
+    }, {
+        matchWith: /מסתיים/g,
+        replaceWith: "נגמר"
+    }, {
+        matchWith: /הסתיים/g,
+        replaceWith: "נגמר"
+    }, {
+        matchWith: /די-אן-איי/g,
+        replaceWith: 'דנ"א'
+    }, {
+        matchWith: /כול זה/g,
+        replaceWith: "כל זה"
+    }, {
+        matchWith: /אבוא מיד/g,
+        replaceWith: "מיד אבוא"
+    }, {
+        matchWith: /באמת זה/g,
+        replaceWith: "זה באמת"
+    }, {
+        matchWith: /באמת אני/g,
+        replaceWith: "אני באמת"
+    }, {
+        matchWith: /באמת אתה/g,
+        replaceWith: "אתה באמת"
+    }, {
+        matchWith: /באמת את/g,
+        replaceWith: "את באמת"
+    }, {
+        matchWith: /יום יבוא ו/g,
+        replaceWith: "יום אחד "
+    }, {
+        matchWith: /למותה של/g,
+        replaceWith: "למוות של"
+    }, {
+        matchWith: /למותו של/g,
+        replaceWith: "למוות של"
+    }, {
+        matchWith: /כמה שמהר יותר/g,
+        replaceWith: "בהקדם האפשרי"
+    }, {
+        matchWith: /לכול דבר/g,
+        replaceWith: "לכל דבר"
+    }, {
+        matchWith: /אחזור מיד/g,
+        replaceWith: "מיד אשוב"
+    }, {
+        matchWith: /כול דבר/g,
+        replaceWith: "כל דבר"
+    }, {
+        matchWith: /כול יום/g,
+        replaceWith: "כל יום"
+    }, {
+        matchWith: /אני מפציר בך/g,
+        replaceWith: "אני מתחנן"
+    }, {
+        matchWith: /אני מפצירה בך/g,
+        replaceWith: "אני מתחננת"
+    }, {
+        matchWith: /אחוזים/g,
+        replaceWith: "אחוז"
+    }, {
+        matchWith: /דולרים/g,
+        replaceWith: "דולר"
+    }, {
+        matchWith: /ככה זה נראה./g,
+        replaceWith: "כך נראה"
+    }, {
+        matchWith: /סוף-סוף/g,
+        replaceWith: "סוף סוף"
+    }, {
+        matchWith: /בכול רגע/g,
+        replaceWith: "בכל רגע"
+    }, {
+        matchWith: /\.\.\.\?/g,
+        replaceWith: "..."
+    }, {
+        matchWith: /טביעות אצבעות/g,
+        replaceWith: "טביעות אצבע"
+    }, {
+        matchWith: /אותו הדבר/g,
+        replaceWith: "אותו דבר"
+    }, {
+        matchWith: /האחד את השני/g,
+        replaceWith: "אחד את השני"
+    }, {
+        matchWith: /האחד לשני/g,
+        replaceWith: "אחד לשני"
+    }, {
+        matchWith: /טביעות האצבעות/g,
+        replaceWith: "טביעות האצבע"
+    }, {
+        matchWith: /פעם אחרי פעם/g,
+        replaceWith: "פעם אחר פעם"
+    }, {
+        matchWith: /יש לי לעשות המון/g,
+        replaceWith: "אני עסוק מאוד"
+    }, {
+        matchWith: /בטח אתה/g,
+        replaceWith: "אתה בטח"
+    }, {
+        matchWith: /יש לי לומר לך משהו/g,
+        replaceWith: "יש לי משהו לומר לך"
+    }, {
+        matchWith: /ברוך בואך/g,
+        replaceWith: "ברוך הבא"
+    }, {
+        matchWith: /שלא בנוח/g,
+        replaceWith: "לא בנוח"
+    }, {
+        matchWith: /כל רצוני הוא/g,
+        replaceWith: "אני רק רוצה"
+    }, {
+        matchWith: /כל רצוני/g,
+        replaceWith: "אני רק רוצה"
+    }, {
+        matchWith: /מחוסר הכרה/g,
+        replaceWith: "חסר הכרה"
+    }, {
+        matchWith: /ויהיה מה/g,
+        replaceWith: "ויהי מה"
+    }, {
+        matchWith: /תאמרי לי/g,
+        replaceWith: "תגידי לי"
+    }, {
+        matchWith: /תאמר לי/g,
+        replaceWith: "תגיד לי"
+    }, {
+        matchWith: /תשמע אותי/g,
+        replaceWith: "תקשיב לי"
+    }, {
+        matchWith: /תמיד אתה /g,
+        replaceWith: "אתה תמיד "
+    }, {
+        matchWith: /תמיד אני /g,
+        replaceWith: "אני תמיד "
+    }, {
+        matchWith: /תמיד את /g,
+        replaceWith: "את תמיד "
+    }, {
+        matchWith: /כפי /g,
+        replaceWith: "כמו "
+    }, {
+        matchWith: /נאמר לי/g,
+        replaceWith: "אמרו לי"
+    }, {
+        matchWith: /מיליוני/g,
+        replaceWith: "מיליון"
+    }, {
+        matchWith: /תאמר/g,
+        replaceWith: "תגיד"
+    }, {
+        matchWith: /לא עדיין/g,
+        replaceWith: "עדיין לא"
+    }, {
+        matchWith: /המן זמן/g,
+        replaceWith: "המון זמן"
+    }, {
+        matchWith: /ידוע לנו/g,
+        replaceWith: "אנחנו יודעים"
+    }, {
+        matchWith: /ידוע לכם/g,
+        replaceWith: "אתם יודעים"
+    }, {
+        matchWith: /ידוע לכן/g,
+        replaceWith: "אתן יודעות"
+    }, {
+        matchWith: /קסטייה/g,
+        replaceWith: "קסטיליה"
+    }, {
+        matchWith: /תחיי המלך/g,
+        replaceWith: "יחי המלך"
+    }, {
+        matchWith: /מיד אחרי ש/g,
+        replaceWith: "ברגע ש"
+    }, {
+        matchWith: /עכשיו מה נעשה/g,
+        replaceWith: "מה נעשה עכשיו"
+    }, {
+        matchWith: /אלפונסו אחיה/g,
+        replaceWith: "אחיה אלפונסו"
+    }, {
+        matchWith: /אלפונסו אחי/g,
+        replaceWith: "אחי אלפונסו"
+    }, {
+        matchWith: /מהלך|מהלכים/g,
+        replaceWith: "אסטרטגיה"
+    }, {
+        matchWith: /מו"מ/g,
+        replaceWith: "משא ומתן"
+    }, {
+        matchWith: /אתה לא בטעם שלי/g,
+        replaceWith: "אתה לא הטעם שלי"
+    }, {
+        matchWith: /פרננדו הבן שלו/g,
+        replaceWith: "הבן שלו פרננדו"
+    }, {
+        matchWith: /מותה|מותו של/g,
+        replaceWith: "המוות של"
+    }, {
+        matchWith: /התור שלך/g,
+        replaceWith: "תורך"
+    }, {
+        matchWith: /ככה יהיה/g,
+        replaceWith: "כך יהיה"
+    }, {
+        matchWith: /יש לי בשבילך משהו/g,
+        replaceWith: "יש לי משהו בשבילך"
+    }, {
+        matchWith: /צ'קון/g,
+        replaceWith: "צ'אקון"
+    }, {
+        matchWith: /אנריקז/g,
+        replaceWith: "אנריקס"
+    }, {
+        matchWith: /באטריס/g,
+        replaceWith: "ביאטריס"
+    }, {
+        matchWith: /בלטרן/g,
+        replaceWith: "בלטראן"
+    }, {
+        matchWith: /אסטורייס/g,
+        replaceWith: "אסטוריאס"
+    }, {
+        matchWith: /גויינה/g,
+        replaceWith: "גויאנה"
+    }, {
+        matchWith: /ככה אעשה/g,
+        replaceWith: "כך אעשה"
+    }, {
+        matchWith: /ככה יהיה/g,
+        replaceWith: "כך יהיה"
+    }, {
+        matchWith: /בטח זה מה שקרה/g,
+        replaceWith: "זה בטח מה שקרה"
+    }, {
+        matchWith: /יש לעשות המון/g,
+        replaceWith: "יש הרבה עבודה"
+    }, {
+        matchWith: /יהיה חסר/g,
+        replaceWith: "יחסר"
+    }, {
+        matchWith: /יהיו חסרים/g,
+        replaceWith: "יחסרו"
+    }, {
+        matchWith: /פרננדו המלך/g,
+        replaceWith: "המלך פרננדו"
+    }, {
+        matchWith: /אלפונסו המלך/g,
+        replaceWith: "המלך אלפונסו"
+    }, {
+        matchWith: /לואיס המלך/g,
+        replaceWith: "המלך לואיס"
+    }, {
+        matchWith: /איסבל המלכה/g,
+        replaceWith: "המלכה איסבל"
+    }, {
+        matchWith: /יחי המלכה/g,
+        replaceWith: "תחי המלכה"
+    }, {
+        matchWith: /יחי קסטיליה/g,
+        replaceWith: "תחי קסטיליה"
+    }, {
+        matchWith: /תחיי פרננדו/g,
+        replaceWith: "יחי פרננדו"
+    }, {
+        matchWith: /ככול/g,
+        replaceWith: "ככל"
+    }, {
+        matchWith: /ברירה/g,
+        replaceWith: "בררה"
+    }, {
+        matchWith: /קורבן/g,
+        replaceWith: "קרבן"
+    }, {
+        matchWith: /מאשר אלו/g,
+        replaceWith: "מאלו"
+    }, {
+        matchWith: /מיסים/g,
+        replaceWith: "מסים"
+    }, {
+        matchWith: /דוגמא/g,
+        replaceWith: "דוגמה"
+    }, {
+        matchWith: /תרגום :/g,
+        replaceWith: "תרגום:"
+    }, {
+        matchWith: /לאוהב/g,
+        replaceWith: "לאהוב"
+    }, {
+        matchWith: /רחוקים כמה שיותר/g,
+        replaceWith: "כמה שיותר רחוק"
+    }, {
+        matchWith: /החטא של הבשר/g,
+        replaceWith: "חטא הבשר"
+    }, {
+        matchWith: /הוראות מפורשת/g,
+        replaceWith: "הוראות מפורשות"
+    }, {
+        matchWith: /סיכוים/g,
+        replaceWith: "סיכויים"
+    }, {
+        matchWith: /גרדנה/g,
+        replaceWith: "גרנדה"
+    }, {
+        matchWith: /תחיי/g,
+        replaceWith: "תחי"
+    }, {
+        matchWith: /גיבורותיי/g,
+        replaceWith: "גבירותיי"
+    }, {
+        matchWith: /פלנדס/g,
+        replaceWith: "פלנדריה"
+    }, {
+        matchWith: /בורגוניה/g,
+        replaceWith: "בורגונדי"
+    }, {
+        matchWith: /סרדניה/g,
+        replaceWith: "סרדיניה"
+    }, {
+        matchWith: /ווסקו דה גמה/g,
+        replaceWith: "ואסקו דה גאמה"
+    }, {
+        matchWith: /אסטורייס/g,
+        replaceWith: "אסטוריאס"
+    }, {
+        matchWith: /נפולי/g,
+        replaceWith: "נאפולי"
+    }, {
+        matchWith: /רוסיידון|רוסידון|רוסליון/g,
+        replaceWith: "רוסיון"
+    }, {
+        matchWith: /הספקת אש/g,
+        replaceWith: "הפסקת אש"
+    }, {
+        matchWith: /תנובה/g,
+        replaceWith: "תבונה"
+    }, {
+        matchWith: /אוקיאנוס/g,
+        replaceWith: "אוקינוס"
+    }, {
+        matchWith: /בפרק הקודם של איסבל/g,
+        replaceWith: 'בפרק הקודם של "איסבל":'
+    }, {
+        matchWith: /בפרק הבא באיסבל/g,
+        replaceWith: 'בפרק הבא של "איסבל":'
+    }, {
+        matchWith: /מילאן/g,
+        replaceWith: 'מילאנו'
+    }, {
+        matchWith: /צפרת/g,
+        replaceWith: 'צרפת'
+    }, {
+        matchWith: /כף המוזנים/g,
+        replaceWith: 'כף המאזניים'
+    }, {
+        matchWith: /מחלקות/g,
+        replaceWith: 'מחלוקות'
+    }, {
+        matchWith: /גברת,/g,
+        replaceWith: 'גברתי,'
+    }, {
+        matchWith: /דבר לא יקרה לו/g,
+        replaceWith: 'לא יקרה לו כלום'
+    }, {
+        matchWith: /דבר לא יקרה לה/g,
+        replaceWith: 'לא יקרה לה כלום'
+    }, {
+        matchWith: /לנשות/g,
+        replaceWith: 'לשנות'
+    }, {
+        matchWith: /התחליתי/g,
+        replaceWith: 'התחלתי'
+    }, {
+        matchWith: /תגבורות/g,
+        replaceWith: 'תגבורת'
+    }, {
+        matchWith: /עם צרפת שלום/g,
+        replaceWith: 'שלום עם צרפת'
+    }, {
+        matchWith: /הטוב יותר/g,
+        replaceWith: 'הטוב ביותר'
+    }, {
+        matchWith: /הטובה יותר/g,
+        replaceWith: 'הטובה ביותר'
+    }, {
+        matchWith: /נחזור לבית/g,
+        replaceWith: 'נחזור הביתה'
+    }, {
+        matchWith: /לחזור לבית/g,
+        replaceWith: 'לחזור הביתה'
+    }, {
+        matchWith: /לדואג/g,
+        replaceWith: 'לדאוג'
+    }, {
+        matchWith: /החובה שלה/g,
+        replaceWith: 'חובתה'
+    }, {
+        matchWith: /החובה שלו/g,
+        replaceWith: 'חובתו'
+    }, {
+        matchWith: /את הדרך/g,
+        replaceWith: 'דרך'
+    }, {
+        matchWith: /אנריקה/g,
+        replaceWith: 'הנרי'
+    }, {
+        matchWith: /בלטרנחה/g,
+        replaceWith: 'בלטארנחה'
+    }, {
+        matchWith: /גברת,/g,
+        replaceWith: 'גברתי,'
+    }, {
+        matchWith: /גברת\./g,
+        replaceWith: 'גברתי.'
+    }, {
+        matchWith: /סנטמריה/g,
+        replaceWith: 'סנטה מריה'
+    }, {
+        matchWith: /שיכורה קצת/g,
+        replaceWith: 'קצת שיכורה'
+    }, {
+        matchWith: /שיכור קצת/g,
+        replaceWith: 'קצת שיכור'
+    }, {
+        matchWith: /איסמעל|איסמעיל/g,
+        replaceWith: 'איסמאל'
+    }, {
+        matchWith: /אטון/g,
+        replaceWith: 'אוטון'
+    }, {
+        matchWith: /מה השם שלך/g,
+        replaceWith: 'איך קוראים לך'
+    }, {
+        matchWith: /דרך אגב\./g,
+        replaceWith: 'דרך אגב,'
+    }, {
+        matchWith: /וויז'גס/g,
+        replaceWith: 'וייגס'
+    }, {
+        matchWith: /כלפיך טובה/g,
+        replaceWith: 'טובה כלפיך'
+    }, {
+        matchWith: /היגע הזמן/g,
+        replaceWith: 'הגיע הזמן'
+    }, {
+        matchWith: /המאבטחים/g,
+        replaceWith: 'שומרי הראש'
+    }, {
+        matchWith: /מאבטחים/g,
+        replaceWith: 'שומרי ראש'
+    }, {
+        matchWith: /מאבטח/g,
+        replaceWith: 'שומר ראש'
+    }, {
+        matchWith: /ורקרוז/g,
+        replaceWith: 'ורקרוס'
+    }, {
+        matchWith: /רק זה\?/g,
+        replaceWith: 'זה הכול?'
+    }, {
+        matchWith: /בשבילנו זה קשה/g,
+        replaceWith: 'זה קשה לנו'
+    }, {
+        matchWith: /תשמע היטב/g,
+        replaceWith: 'תקשיב טוב'
+    }, {
+        matchWith: /תשמעי היטב/g,
+        replaceWith: 'תקשיבי טוב'
+    }, {
+        matchWith: /תשמעי אותי/g,
+        replaceWith: 'תקשיבי לי'
+    }, {
+        matchWith: /תתקמצני עם/g,
+        replaceWith: "תתקמצני על"
+    }, {
+        matchWith: /איך\?/g,
+        replaceWith: "מה?"
+    }, {
+        matchWith: /צ'וצ'ימילקו/g,
+        replaceWith: "סוצ'ימילקו"
+    }, {
+        matchWith: /מרחקת/g,
+        replaceWith: 'מרקחת'
+    }, {
+        matchWith: /עכשיו מה עשיתי/g,
+        replaceWith: 'מה עשיתי הפעם'
+    }
+];
+
+</script>
+</head>
+<body>
+    <div>
+        <div id='player' style="float: left;">
+            <video src="SSL47.MP4" autobuffer height="100px" controls></video>
+            <br />
+            <input type='number' id='playback-rate-control' />
+        </div>
+        <div id='editor' style="float: left; margin-left: 15px;">
+            <textarea cols=30 rows=40 wrap="hard" dir='rtl'
+                      style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
+        </div>
+        <br />
+        <div id='info'>
+            <button onclick='saveBuffer(Editor);'>Save Buffer</button>
+            <button onclick="loadBuffer(Editor);">Load Buffer</button>
+            <button onclick="loadBufferFromRecovery(Editor);">Load (Recovery)</button>
+            <button onclick="fixCommonErrors(Editor);">Fix Common Errors</button>
+            <button onclick="finalErrorCheck(Editor)">Final Error Check</button>
+            <div id='editor-stats'>
+                <span id='line-length'></span>
+            </div>
+            <div style='text-align: left;'>
+                <h4>Hotkeys</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><kbd>Alt+&darr; | Alt+&uarr; | Ctrl+Space</kbd></td>
+                            <td>Pause</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>Alt+&larr;</kbd></td>
+                            <td>Rewind 10 milliseconds</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>Alt+&rarr;</kbd></td>
+                            <td>Fastforward 10 milliseconds</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</html>
+
+
+
