@@ -798,15 +798,30 @@ var commonErrors = [
     }, {
         matchWith: /עכשיו מה עשיתי/g,
         replaceWith: 'מה עשיתי הפעם'
+    }, {
+        matchWith: /מה הייתי אמור/g,
+        replaceWith: 'מה אני אמור'
+    }, {
+        matchWith: /זה יהיה ככה|ככה זה יהיה/g,
+        replaceWith: 'כך יהיה'
+    }, {
+        matchWith: /לנוסע/g,
+        replaceWith: 'לנסוע'
+    }, {
+        matchWith: /לא צלח/g,
+        replaceWith: 'לא הצליח'
+    }, {
+        matchWith: / באמת /g,
+        replaceWith: ''
     }
 ];
-
+ 
 </script>
 </head>
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="SSL47.MP4" autobuffer height="100px" controls></video>
+            <video src="Los Ricos no Piden Permiso 199.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
         </div>
