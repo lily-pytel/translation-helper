@@ -616,8 +616,8 @@ var commonErrors = [
         matchWith: /גרדנה/g,
         replaceWith: "גרנדה"
     }, {
-        matchWith: /תחיי/g,
-        replaceWith: "תחי"
+        matchWith: /תחיי /g,
+        replaceWith: "תחי "
     }, {
         matchWith: /גיבורותיי/g,
         replaceWith: "גבירותיי"
@@ -813,15 +813,40 @@ var commonErrors = [
     }, {
         matchWith: / באמת /g,
         replaceWith: ''
+    }, {
+        matchWith: /אנז'י|אנח'י/g,
+        replaceWith: "אנג'י"
+    }, {
+        matchWith: /בנח'י|בנז'י/g,
+        replaceWith: "בנג'"
+    }, {
+        matchWith: /כמעט ואנג'י/g,
+        replaceWith: "אנג'י כמעט"
+    }, {
+        matchWith: /זה כול /g,
+        replaceWith: "זה כל "
+    }, {
+        matchWith: /אוהבי,/g,
+        replaceWith: "אהוביץ,"
+    }, {
+        matchWith: /כמעט ו/g,
+        replaceWith: "כמעט "
+    }, {
+        matchWith: /לסבול שוב/g,
+        replaceWith: "לשוב לסבול"
+    }, {
+        matchWith: /כסף רב/g,
+        replaceWith: "הרבה כסף"
     }
-];
+]; 
+
  
 </script>
 </head>
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Los Ricos no Piden Permiso 199.MP4" autobuffer height="100px" controls></video>
+            <video src="SSL48.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
         </div>
