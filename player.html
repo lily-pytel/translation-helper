@@ -739,7 +739,7 @@ var commonErrors = [
         matchWith: /איסמעל|איסמעיל/g,
         replaceWith: 'איסמאל'
     }, {
-        matchWith: /אטון/g,
+        matchWith: /אטון|אוטן/g,
         replaceWith: 'אוטון'
     }, {
         matchWith: /מה השם שלך/g,
@@ -840,6 +840,9 @@ var commonErrors = [
     }, {
         matchWith: /צ'יביס|צי'ביס/g,
         replaceWith: "צ'יוויס"
+    }, {
+        matchWith: /כול מקום/g,
+        replaceWith: "כל מקום"
     }
 ]; 
 
@@ -849,7 +852,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="SSL48.MP4" autobuffer height="100px" controls></video>
+            <video src="ADC66.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
         </div>
