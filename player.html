@@ -328,18 +328,6 @@ var commonErrors = [
         matchWith: /אבוא מיד/g,
         replaceWith: "מיד אבוא"
     }, {
-        matchWith: /באמת זה/g,
-        replaceWith: "זה באמת"
-    }, {
-        matchWith: /באמת אני/g,
-        replaceWith: "אני באמת"
-    }, {
-        matchWith: /באמת אתה/g,
-        replaceWith: "אתה באמת"
-    }, {
-        matchWith: /באמת את/g,
-        replaceWith: "את באמת"
-    }, {
         matchWith: /יום יבוא ו/g,
         replaceWith: "יום אחד "
     }, {
@@ -812,7 +800,7 @@ var commonErrors = [
         replaceWith: 'לא הצליח'
     }, {
         matchWith: / באמת /g,
-        replaceWith: ''
+        replaceWith: ' '
     }, {
         matchWith: /אנז'י|אנח'י/g,
         replaceWith: "אנג'י"
@@ -843,7 +831,10 @@ var commonErrors = [
     }, {
         matchWith: /כול מקום/g,
         replaceWith: "כל מקום"
-    }
+    }, {
+        matchWith: /תשמע./g,
+        replaceWith: "תקשיב,"
+    }    
 ]; 
 
  
@@ -852,7 +843,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="ADC66.MP4" autobuffer height="100px" controls></video>
+            <video src="ADC67.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
         </div>
