@@ -832,10 +832,16 @@ var commonErrors = [
         matchWith: /כול מקום/g,
         replaceWith: "כל מקום"
     }, {
-        matchWith: /תשמע./g,
+        matchWith: /תשמע\./g,
         replaceWith: "תקשיב,"
-    }    
-]; 
+    }, {
+        matchWith: /שאגלה לך משהו\?/g,
+        replaceWith: "לגלות לך משהו?"
+    }, {
+        matchWith: /בכול זאת/g,
+        replaceWith: "בכל זאת?"
+    }
+];
 
  
 </script>
