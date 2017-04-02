@@ -265,10 +265,7 @@ var commonErrors = [
         matchWith: /מה זאת אומרת/g,
         replaceWith: "מה פתאום"
     }, {
-        matchWith: /מעולם לא/g,
-        replaceWith: "אף פעם לא"
-    }, {
-        matchWith: /לעולם לא/g,
+        matchWith: /מעולם לא|לעולם לא/g,
         replaceWith: "אף פעם לא"
     }, {
         matchWith: /אלף פעמים/g,
@@ -852,8 +849,20 @@ var commonErrors = [
     }, {
         matchWith: /ל-וילסון/g,
         replaceWith: "לווילסון"
+    }, {
+        matchWith: /אלף דברים בראש/g,
+        replaceWith: "אלף דברים על הראש"
+    }, {
+        matchWith: /משבר גיל המערב/g,
+        replaceWith: "משבר גיל המעבר"
+    }, {
+        matchWith: /צ'ילקליס/g,
+        replaceWith: "צ'ילקילס"
+    }, {
+        matchWith: /אני לא אשם ש|אני לא אשמה ש/g,
+        replaceWith: "זאת לא אשמתי ש"
     }
-];  
+];   
 
   
 </script>
