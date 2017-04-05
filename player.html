@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html5>
 <html>
 <head>
     <meta charset="utf-8">
@@ -13,6 +13,17 @@ body {
 td, th {
     text-align: center;
 }
+
+.error-highlight {
+    background: yellow;
+}
+
+.error-highlight-container {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: beige;
+}
+
     </style>
     <script src="jquery.js"></script>
     <script>
@@ -131,6 +142,136 @@ function applyConfiguration() {
 }
 
 
+function tokenize() {
+    let text = Editor.val()
+    let pattern = /([^\.!\?\n]+[\.!\?\n]+)/g
+    let tokens = text.split(pattern)
+    let outTokens = []
+    let i = 0
+    for(let tok of tokens) {
+        outTokens.push({text: tok, index: i++})
+    }
+    return outTokens
+}
+
+
+function serializeTokens(tokens) {
+    let strings = []
+    for(let tok of tokens) {
+        strings.push(tok.text)
+    }
+    return strings.join("")
+}
+
+
+var defaultFix = {
+    matchWith: /lorem/i,
+    replaceWith: "bla-bla-bla"
+}
+
+
+class ErrorTokenManager {
+    constructor() {
+        this.tokens = tokenize()
+    }
+
+    save() {
+        Editor.val(serializeTokens(this.tokens))
+    }
+
+    findErrorContainingTokens(fixer) {
+        let i = 0
+        let tokens = []
+        let pattern = fixer.matchWith
+        for(let tok of this.tokens) {
+            if (pattern.test(tok.text)) {
+                tokens.push(new ErrorTokenContext(fixer, tok))
+            }
+            i++
+        }
+        return tokens
+    }
+
+    renderForPattern(pattern){
+        let contexts = this.findErrorContainingTokens(pattern)
+        let container = $("#error-fix-display-container")
+        let self = this
+        container.empty()
+        for (let ctx of contexts) {
+            container.append(ctx.render())
+        }
+        let commitFixBtn = $("<button>Apply</button>")
+        commitFixBtn.click(function() {
+            self.save()
+            container.empty()
+        })
+        container.append(commitFixBtn)
+    }
+}
+
+
+class ErrorTokenContext {
+    constructor(fixer, token){
+        this.fixer = fixer
+        this.token = token
+        this.token.fixedText = token.text
+        this.token.doFix = false
+        this.token.fixedText = this.token.fixedText.replace(
+            fixer.matchWith,
+            function(match) {
+                return fixer.replaceWith;
+            })
+        this.element = null
+    }
+
+    render() {
+        let element = $("<div></div>").addClass("error-highlight-container")
+        let self = this
+        this.renderInto(element)
+        element.click(function(e){
+            console.log("Fixing " + self.token.text)
+            self.fix()
+            self.element.empty()
+            self.renderInto(self.element)
+        })
+        this.element = element
+        return element
+    }
+
+    renderInto(element) {
+        let pattern = new RegExp(
+            "(" + this.fixer.matchWith.source + ")",
+            this.fixer.matchWith.flags)
+        let parts = this.token.text.split(pattern)
+        let fmtParts = []
+        let i = 0
+        let self = this
+        while(i < parts.length) {
+            fmtParts.push($("<span></span>").html(parts[i++]))
+            let highlightSpan = $("<span></span>").addClass("error-highlight").html(parts[i++])
+            fmtParts.push(highlightSpan)
+            fmtParts.push($("<span></span>").html(parts[i++]))
+        }
+        element.append(fmtParts)
+    }
+
+    fix() {
+        if (this.token.doFix) {
+            let temp = this.token.text
+            this.token.text = this.token.fixedText
+            this.token.fixedText = temp
+            this.token.doFix = true;
+        } else {
+            let temp = this.token.text
+            this.token.text = this.token.fixedText
+            this.token.fixedText = temp
+            this.token.doFix = false;
+        }
+        console.log(this)
+    }
+}
+
+
 $(function() {
     Player = $("#player video")[0]
     Editor = $("#editor textarea")
@@ -184,10 +325,22 @@ $(function() {
         saveBufferRecovery(Editor)
     }, 1000)
 
-    $(window).unload(function(e) {
+    $(window).on("unload", function(e) {
         saveBuffer(Editor)
         saveConfiguration()
         saveVideoState(Player)
+    })
+
+    $("#highlight-matches").click(function(){
+        let matchWith = $("#fix-pattern").val()
+        let replaceWith = $("#replace-with").val()
+        matchWith = new RegExp(matchWith, 'g')
+        let fixer = {
+            "matchWith": matchWith,
+            "replaceWith": replaceWith
+        }
+        let errorManager = new ErrorTokenManager()
+        errorManager.renderForPattern(fixer)
     })
 })
 
@@ -876,6 +1029,15 @@ var commonErrors = [
             <video src="AMO DESPERTAR CONTIGO 77.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
+            <div>
+                <input id="fix-pattern" type="text" name="fix-pattern" style="width:95px;margin-top: 5px;"/>
+                <input id="replace-with" type="text" name="replace-with" style="width:95px;margin-top: 5px;"/>
+                <br>
+                <button id="highlight-matches" style="margin-top: 5px;">Highlight</button>
+                <div id='error-fix-display-container'>
+                    
+                </div>
+            </div>
         </div>
         <div id='editor' style="float: left; margin-left: 15px;">
             <textarea cols=30 rows=40 wrap="hard" dir='rtl'
