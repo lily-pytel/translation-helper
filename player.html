@@ -27,14 +27,6 @@ td, th {
     </style>
     <script src="jquery.js"></script>
     <script>
-/*
- * jQuery plugin: fieldSelection - v0.1.1 - last change: 2006-12-16
- * (c) 2006 Alex Brem <alex@0xab.cd> - http://blog.0xab.cd
- */
-(function() {var fieldSelection={getSelection:function() {var e=(this.jquery)?this[0]:this;return(('selectionStart'in e&&function() {var l=e.selectionEnd-e.selectionStart;return{start:e.selectionStart,end:e.selectionEnd,length:l,text:e.value.substr(e.selectionStart,l)}})||(document.selection&&function() {e.focus();var r=document.selection.createRange();if(r===null) {return{start:0,end:e.value.length,length:0}}var re=e.createTextRange();var rc=re.duplicate();re.moveToBookmark(r.getBookmark());rc.setEndPoint('EndToStart',re);return{start:rc.text.length,end:rc.text.length+r.text.length,length:r.text.length,text:r.text}})||function() {return null})()},replaceSelection:function() {var e=(typeof this.id=='function')?this.get(0):this;var text=arguments[0]||'';return(('selectionStart'in e&&function() {e.value=e.value.substr(0,e.selectionStart)+text+e.value.substr(e.selectionEnd,e.value.length);return this})||(document.selection&&function() {e.focus();document.selection.createRange().text=text;return this})||function() {e.value+=text;return jQuery(e)})()}};jQuery.each(fieldSelection,function(i) {jQuery.fn[i]=this})})();
-    </script>
-
-<script>
 
 var Player = null
 var Editor = null
@@ -163,12 +155,37 @@ function serializeTokens(tokens) {
     return strings.join("")
 }
 
+FIX_VERBOSE = true;
 
-var defaultFix = {
-    matchWith: /lorem/i,
-    replaceWith: "bla-bla-bla"
+class Fix {
+    constructor(matchWith, replaceWith) {
+        this.matchWith = matchWith
+        this.replaceWith = replaceWith
+    }
+
+    fix(text) {
+        let self = this
+        return text.replace(this.matchWith, function(match) {
+            if (FIX_VERBOSE) {
+                console.log("replaced " + match + " with " + self.replaceWith);
+            }
+            return commonErrors[i].replaceWith;
+        })
+    }
+
+    test(text) {
+        matches = text.match(this.matchWith);
+
+        if (matches && FIX_VERBOSE) {
+            console.log("Found " + matches.length + " matches for " + this.matchWith);
+        }
+        return matches
+    }
+
+    static build(obj) {
+        return new Fix(obj.matchWith, obj.replaceWith)
+    }
 }
-
 
 class ErrorTokenManager {
     constructor() {
@@ -200,11 +217,14 @@ class ErrorTokenManager {
         for (let ctx of contexts) {
             container.append(ctx.render())
         }
+        $("#match-count").html(`${contexts.length} Matches`)
+
         let commitFixBtn = $("<button>Apply</button>")
         commitFixBtn.click(function() {
             self.save()
             container.empty()
-        })
+            $("#match-count").html("")
+        }).css("margin-top", "3px")
         container.append(commitFixBtn)
     }
 }
@@ -272,6 +292,37 @@ class ErrorTokenContext {
 }
 
 
+function initHighlighter() {
+    $("#highlight-matches").click(function(){
+        let matchWith = $("#fix-pattern").val()
+        let replaceWith = $("#replace-with").val()
+        matchWith = new RegExp(matchWith, 'g')
+        let fixer = new Fix(matchWith, replaceWith)
+        let errorManager = new ErrorTokenManager()
+        errorManager.renderForPattern(fixer)
+    })
+
+    let fixerSelect = $("#common-error-select")
+    let i = 0
+    for(let fixer of commonErrors) {
+        let fixerOpt = $("<option></option>")
+        let label = `${fixer.replaceWith} &rarr; ${fixer.matchWith.source}`
+        if(label.length > 30) {
+            label = label.slice(0, 27) + "..."
+        }
+        fixerOpt.attr("value", i++)
+        fixerOpt.html(label)
+        fixerSelect.append(fixerOpt)
+    }
+    fixerSelect.change(function(e) {
+        let index = parseInt(this.value)
+        let fixer = commonErrors[index]
+        $("#fix-pattern").val(fixer.matchWith.source)
+        $("#replace-with").val(fixer.replaceWith)
+    })
+}
+
+
 $(function() {
     Player = $("#player video")[0]
     Editor = $("#editor textarea")
@@ -331,17 +382,7 @@ $(function() {
         saveVideoState(Player)
     })
 
-    $("#highlight-matches").click(function(){
-        let matchWith = $("#fix-pattern").val()
-        let replaceWith = $("#replace-with").val()
-        matchWith = new RegExp(matchWith, 'g')
-        let fixer = {
-            "matchWith": matchWith,
-            "replaceWith": replaceWith
-        }
-        let errorManager = new ErrorTokenManager()
-        errorManager.renderForPattern(fixer)
-    })
+    initHighlighter()
 })
 
 var commonErrors = [
@@ -1018,7 +1059,7 @@ var commonErrors = [
         matchWith: /אני מודאג ממנו/g,
         replaceWith: "אני דואג לו"
     }
-];   
+].map(Fix.build);   
 
   
 </script>
@@ -1030,10 +1071,13 @@ var commonErrors = [
             <br />
             <input type='number' id='playback-rate-control' />
             <div>
-                <input id="fix-pattern" type="text" name="fix-pattern" style="width:95px;margin-top: 5px;"/>
-                <input id="replace-with" type="text" name="replace-with" style="width:95px;margin-top: 5px;"/>
+                <input id="fix-pattern" type="text" name="fix-pattern" placeholder="Match" style="width:95px;margin-top: 5px;"/>
+                <input id="replace-with" type="text" name="replace-with" placeholder="Replace" style="width:95px;margin-top: 5px;"/>
                 <br>
-                <button id="highlight-matches" style="margin-top: 5px;">Highlight</button>
+                <div style='font-size: 0.7em;margin-top: 3px;'>Common Errors To Highlight</div>
+                <select id='common-error-select' style='margin-top: 5px;'>
+                </select><br>
+                <button id="highlight-matches" style="margin-top: 5px;">Highlight</button> <span id='match-count'></span>
                 <div id='error-fix-display-container'>
                     
                 </div>
