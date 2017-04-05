@@ -6,23 +6,47 @@
     <title></title>
     <link rel="stylesheet" href="">
     <style type="text/css" media="screen">
-body {
-    font-family: sans-serif;
-}
+        body {
+            font-family: sans-serif;
+        }
 
-td, th {
-    text-align: center;
-}
+        td, th {
+            text-align: center;
+        }
 
-.error-highlight {
-    background: yellow;
-}
+        .error-highlight {
+            background: yellow;
+        }
 
-.error-highlight-container {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background: beige;
-}
+        .error-highlight-container {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            background: beige;
+            direction: rtl;
+        }
+
+        #options-section {
+            padding: 20px 5px 20px 5px;
+            max-width: 150px;
+        }
+
+        #options-section button {
+            margin-bottom: 5px;
+        }
+
+        #hotkeys-info {
+            max-width: 260px;
+            float: right;
+        }
+
+        #common-errors-area {
+            padding: 0px 5px 0px 5px;
+            max-width: 150px;
+        }
+
+        #common-error-select {
+            max-width: 160px;
+        }
 
     </style>
     <script src="jquery.js"></script>
@@ -684,9 +708,6 @@ var commonErrors = [
         matchWith: /אתה לא בטעם שלי/g,
         replaceWith: "אתה לא הטעם שלי"
     }, {
-        matchWith: /פרננדו הבן שלו/g,
-        replaceWith: "הבן שלו פרננדו"
-    }, {
         matchWith: /מותה|מותו של/g,
         replaceWith: "המוות של"
     }, {
@@ -699,23 +720,11 @@ var commonErrors = [
         matchWith: /יש לי בשבילך משהו/g,
         replaceWith: "יש לי משהו בשבילך"
     }, {
-        matchWith: /צ'קון/g,
-        replaceWith: "צ'אקון"
-    }, {
         matchWith: /אנריקז/g,
         replaceWith: "אנריקס"
     }, {
         matchWith: /באטריס/g,
         replaceWith: "ביאטריס"
-    }, {
-        matchWith: /בלטרן/g,
-        replaceWith: "בלטראן"
-    }, {
-        matchWith: /אסטורייס/g,
-        replaceWith: "אסטוריאס"
-    }, {
-        matchWith: /גויינה/g,
-        replaceWith: "גויאנה"
     }, {
         matchWith: /ככה אעשה/g,
         replaceWith: "כך אעשה"
@@ -740,12 +749,6 @@ var commonErrors = [
     }, {
         matchWith: /אלפונסו המלך/g,
         replaceWith: "המלך אלפונסו"
-    }, {
-        matchWith: /לואיס המלך/g,
-        replaceWith: "המלך לואיס"
-    }, {
-        matchWith: /איסבל המלכה/g,
-        replaceWith: "המלכה איסבל"
     }, {
         matchWith: /יחי המלכה/g,
         replaceWith: "תחי המלכה"
@@ -800,27 +803,6 @@ var commonErrors = [
     }, {
         matchWith: /גיבורותיי/g,
         replaceWith: "גבירותיי"
-    }, {
-        matchWith: /פלנדס/g,
-        replaceWith: "פלנדריה"
-    }, {
-        matchWith: /בורגוניה/g,
-        replaceWith: "בורגונדי"
-    }, {
-        matchWith: /סרדניה/g,
-        replaceWith: "סרדיניה"
-    }, {
-        matchWith: /ווסקו דה גמה/g,
-        replaceWith: "ואסקו דה גאמה"
-    }, {
-        matchWith: /אסטורייס/g,
-        replaceWith: "אסטוריאס"
-    }, {
-        matchWith: /נפולי/g,
-        replaceWith: "נאפולי"
-    }, {
-        matchWith: /רוסיידון|רוסידון|רוסליון/g,
-        replaceWith: "רוסיון"
     }, {
         matchWith: /הספקת אש/g,
         replaceWith: "הפסקת אש"
@@ -1067,10 +1049,17 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="AMO DESPERTAR CONTIGO 77.MP4" autobuffer height="100px" controls></video>
+            <video src="AMO DESPERTAR CONTIGO 78.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
-            <div>
+            <div id="options-section">
+                <button onclick='saveBuffer(Editor);'>Save Buffer</button>
+                <button onclick="loadBuffer(Editor);">Load Buffer</button>
+                <button onclick="loadBufferFromRecovery(Editor);">Load (Recovery)</button>
+                <button onclick="fixCommonErrors(Editor);">Fix Common Errors</button>
+                <button onclick="finalErrorCheck(Editor)">Final Error Check</button>
+            </div>
+            <div id="common-errors-area">
                 <input id="fix-pattern" type="text" name="fix-pattern" placeholder="Match" style="width:95px;margin-top: 5px;"/>
                 <input id="replace-with" type="text" name="replace-with" placeholder="Replace" style="width:95px;margin-top: 5px;"/>
                 <br>
@@ -1081,6 +1070,7 @@ var commonErrors = [
                 <div id='error-fix-display-container'>
                     
                 </div>
+                <br>
             </div>
         </div>
         <div id='editor' style="float: left; margin-left: 15px;">
@@ -1088,40 +1078,30 @@ var commonErrors = [
                       style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
         </div>
         <br />
-        <div id='info'>
-            <button onclick='saveBuffer(Editor);'>Save Buffer</button>
-            <button onclick="loadBuffer(Editor);">Load Buffer</button>
-            <button onclick="loadBufferFromRecovery(Editor);">Load (Recovery)</button>
-            <button onclick="fixCommonErrors(Editor);">Fix Common Errors</button>
-            <button onclick="finalErrorCheck(Editor)">Final Error Check</button>
-            <div id='editor-stats'>
-                <span id='line-length'></span>
-            </div>
-            <div style='text-align: left;'>
-                <h4>Hotkeys</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Key</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><kbd>Alt+&darr; | Alt+&uarr; | Ctrl+Space</kbd></td>
-                            <td>Pause</td>
-                        </tr>
-                        <tr>
-                            <td><kbd>Alt+&larr;</kbd></td>
-                            <td>Rewind 10 milliseconds</td>
-                        </tr>
-                        <tr>
-                            <td><kbd>Alt+&rarr;</kbd></td>
-                            <td>Fastforward 10 milliseconds</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div id='hotkeys-info'>
+            <h4>Hotkeys</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><kbd>Alt+&darr; | Alt+&uarr; | Ctrl+Space</kbd></td>
+                        <td>Pause</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Alt+&larr;</kbd></td>
+                        <td>Rewind 10 milliseconds</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Alt+&rarr;</kbd></td>
+                        <td>Fastforward 10 milliseconds</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </html>
