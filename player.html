@@ -48,6 +48,10 @@
             max-width: 160px;
         }
 
+        #fixes-section {
+            font-size: 12px;
+        }
+
     </style>
     <script src="jquery.js"></script>
     <script>
@@ -71,30 +75,35 @@ var Configuration = {
 
 function finalErrorCheck(editor) {
     var matches
-    ,   text = editor.val();
+    ,   text = editor.val()
+    ,   message = '';
 
     for (var i = 0; i < commonErrors.length; i++) {
         matches = text.match(commonErrors[i].matchWith);
 
         if (matches) {
-            console.log("Found " + matches.length + " matches for " + commonErrors[i].matchWith);
+            message += "Found <b>" + matches.length + "</b> match(es) for <b>" + commonErrors[i].matchWith + "</b><br>";
         }
     }
 
-    console.log("Finished final check");
+    message += "Finished final check";
+    $('#fixes-section').html(message);
 }
 
 function fixCommonErrors(editor) {
-    var text = editor.val();
+    var text = editor.val()
+    ,   message = '';
 
     for (var i = 0; i < commonErrors.length; i++) {
         text = text.replace(commonErrors[i].matchWith, function(match) {
-            console.log("replaced " + match + " with " + commonErrors[i].replaceWith);
+            message += "Replaced <b>" + match + "</b> with <b>" + commonErrors[i].replaceWith + "</b><br>";
             return commonErrors[i].replaceWith;
         })
     }
 
     editor.val(text);
+    message += "Finished auto fixes";
+    $('#fixes-section').html(message);   
 }
 
 function seek(videoPlayer, value) {
@@ -497,9 +506,6 @@ var commonErrors = [
     }, {
         matchWith: /גורלה של אווה/g,
         replaceWith: "הגורל של אווה"
-    }, {
-        matchWith: /בגלל ש/g,
-        replaceWith: "כי "
     }, {
         matchWith: /איתך/g,
         replaceWith: "אתך"
@@ -1040,6 +1046,9 @@ var commonErrors = [
     }, {
         matchWith: /אני מודאג ממנו/g,
         replaceWith: "אני דואג לו"
+    }, {
+        matchWith: /פרידה הדודה/g,
+        replaceWith: "דודה פרידה"
     }
 ].map(Fix.build);   
 
@@ -1077,7 +1086,8 @@ var commonErrors = [
             <textarea cols=30 rows=40 wrap="hard" dir='rtl'
                       style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
         </div>
-        <br />
+        <div id="fixes-section" style="float: left; margin-left: 15px">
+        </div>
         <div id='hotkeys-info'>
             <h4>Hotkeys</h4>
             <table>
