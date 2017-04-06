@@ -114,7 +114,6 @@ function seek(videoPlayer, value) {
     videoPlayer.currentTime = seekToTime;
 }
 
-
 function saveVideoState(videoPlayer){
     localStorage.videoFile = videoPlayer.currentSrc
     localStorage.videoLocation = videoPlayer.currentTime
@@ -1049,7 +1048,13 @@ var commonErrors = [
     }, {
         matchWith: /פרידה הדודה/g,
         replaceWith: "דודה פרידה"
-    }
+    }, {
+        matchWith: /אני צריך את העזרה שלך/g,
+        replaceWith: "אני זקוק לעזרתך"
+    }, {
+        matchWith: /נתיקה/g,
+        replaceWith: "ניתקה"
+    } 
 ].map(Fix.build);   
 
   
