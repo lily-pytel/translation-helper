@@ -1054,6 +1054,12 @@ var commonErrors = [
     }, {
         matchWith: /נתיקה/g,
         replaceWith: "ניתקה"
+    }, {
+        matchWith: /השומר ראש/g,
+        replaceWith: "שומר הראש"
+    }, {
+        matchWith: /אוגסטין/g,
+        replaceWith: "אגוסטין"
     } 
 ].map(Fix.build);   
 
@@ -1063,7 +1069,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="AMO DESPERTAR CONTIGO 78.MP4" autobuffer height="100px" controls></video>
+            <video src="LRNPP213.MP4" autobuffer height="120px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
@@ -1082,7 +1088,7 @@ var commonErrors = [
                 </select><br>
                 <button id="highlight-matches" style="margin-top: 5px;">Highlight</button> <span id='match-count'></span>
                 <div id='error-fix-display-container'>
-                    
+                
                 </div>
                 <br>
             </div>
