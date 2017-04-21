@@ -659,6 +659,9 @@ var commonErrors = [
         matchWith: /תמיד את /g,
         replaceWith: "את תמיד "
     }, {
+        matchWith: /תמיד היא /g,
+        replaceWith: "היא תמיד "
+    }, {
         matchWith: /כפי /g,
         replaceWith: "כמו "
     }, {
@@ -1063,16 +1066,33 @@ var commonErrors = [
     }, {
         matchWith: /טובה הרבה יותר/g,
         replaceWith: "הרבה יותר טובה"
+    }, {
+        matchWith: /כול אחד/g,
+        replaceWith: "כל אחד"
+    }, {
+        matchWith: /אתה צודק בזה/g,
+        replaceWith: "בזה אתה צודק"
+    }, {
+        matchWith: /צעד-צעד/g,
+        replaceWith: "צעד אחר צעד"
+    }, {
+        matchWith: /כאילו זאת עצובה קצת, לא\?/g,
+        replaceWith: "היא קצת עצובה, לא?"
+    }, {
+        matchWith: /צבע חסר להן/g,
+        replaceWith: "חסר להן צבע"
+    }, {
+        matchWith: /הגורע מכול/g,
+        replaceWith: "הגרוע מכול"
     }
-].map(Fix.build);   
-
+].map(Fix.build);    
   
 </script>
 </head>
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="LRNPP213.MP4" autobuffer height="120px" controls></video>
+            <video src="AMO DESPERTAR CONTIGO 88.MP4" autobuffer height="120px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
