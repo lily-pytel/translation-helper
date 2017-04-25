@@ -1013,7 +1013,10 @@ var commonErrors = [
         matchWith: /כול מקום/g,
         replaceWith: "כל מקום"
     }, {
-        matchWith: /תשמע\./g,
+        matchWith: /תשמעי\,|תשמעי\./g,
+        replaceWith: "תקשיבי,"
+    }, {
+        matchWith: /תשמע\.|תשמע\,/g,
         replaceWith: "תקשיב,"
     }, {
         matchWith: /שאגלה לך משהו\?/g,
@@ -1084,6 +1087,9 @@ var commonErrors = [
     }, {
         matchWith: /הגורע מכול/g,
         replaceWith: "הגרוע מכול"
+    }, {
+        matchWith: /לצאת מיד מפה/g,
+        replaceWith: "לצאת מפה מיד"
     }
 ].map(Fix.build);    
   
@@ -1092,7 +1098,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="AMO DESPERTAR CONTIGO 88.MP4" autobuffer height="120px" controls></video>
+            <video src="AMO DESPERTAR CONTIGO 91.MP4" autobuffer height="120px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
