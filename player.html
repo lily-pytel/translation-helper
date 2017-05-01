@@ -1091,8 +1091,11 @@ var commonErrors = [
         matchWith: /לצאת מיד מפה/g,
         replaceWith: "לצאת מפה מיד"
     }, {
-        matchWith: /מרסאיל/g,
-        replaceWith: "מרסיאל"
+        matchWith: /האחד על השני/g,
+        replaceWith: "אחד על השני"
+    }, {
+        matchWith: /מה קורה ש/g,
+        replaceWith: "למה "
     }
 ].map(Fix.build);    
   
@@ -1101,7 +1104,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="LOS RICOS NO PIDEN PERMISO 223.MP4" autobuffer height="120px" controls></video>
+            <video src="LOS RICOS NO PIDEN PERMISO 225.MP4" autobuffer height="120px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
