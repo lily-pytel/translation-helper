@@ -647,9 +647,6 @@ var commonErrors = [
         matchWith: /תאמר לי/g,
         replaceWith: "תגיד לי"
     }, {
-        matchWith: /תשמע אותי/g,
-        replaceWith: "תקשיב לי"
-    }, {
         matchWith: /תמיד אתה /g,
         replaceWith: "אתה תמיד "
     }, {
@@ -944,8 +941,11 @@ var commonErrors = [
         matchWith: /בשבילנו זה קשה/g,
         replaceWith: 'זה קשה לנו'
     }, {
-        matchWith: /תשמע היטב/g,
+        matchWith: /תשמע היטב|תשמע משהו/g,
         replaceWith: 'תקשיב טוב'
+    }, {
+        matchWith: /אתה שומע את עצמך\?/,
+        replaceWith: "אתה מקשיב לעצמך?"
     }, {
         matchWith: /תשמעי היטב/g,
         replaceWith: 'תקשיבי טוב'
@@ -1096,6 +1096,27 @@ var commonErrors = [
     }, {
         matchWith: /מה קורה ש/g,
         replaceWith: "למה "
+    }, {
+        matchWith: /אנחנו בשביל זה פה/g,
+        replaceWith: "בשביל זה אנחנו פה"
+    }, {
+        matchWith: /עכשיו מי זה\?/g,
+        replaceWith: "מי זה הפעם?"
+    }, {
+        matchWith: /תביא כפה/g,
+        replaceWith: "תביא כיף"
+    }, {
+        matchWith: /ברוכות הבאות/g,
+        replaceWith: "ברוך הבא"
+    }, {
+        matchWith: /או מה חשבת\?/g,
+        replaceWith: "מה חשבת,"
+    }, {
+        matchWith: /^אז|\? אז|\. אז/gm,
+        replaceWith: ""
+    }, {
+        matchWith: /אני בשביל לשמור עלייך פה/g,
+        replaceWith: "אני פה בשביל לשמור עלייך"
     }
 ].map(Fix.build);    
   
@@ -1104,7 +1125,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="LOS RICOS NO PIDEN PERMISO 225.MP4" autobuffer height="120px" controls></video>
+            <video src="AMO DESPERTAR CONTIGO 112.MP4" autobuffer height="120px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
