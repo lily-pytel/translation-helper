@@ -1112,11 +1112,17 @@ var commonErrors = [
         matchWith: /או מה חשבת\?/g,
         replaceWith: "מה חשבת,"
     }, {
-        matchWith: /^אז|\? אז|\. אז/gm,
+        matchWith: /^אז |\? אז |\. אז /gm,
         replaceWith: ""
     }, {
         matchWith: /אני בשביל לשמור עלייך פה/g,
         replaceWith: "אני פה בשביל לשמור עלייך"
+    }, {
+        matchWith: /אתה מדבר ברצינות\?/g,
+        replaceWith: "אתה רציני?"
+    }, {
+        matchWith: /את מדברת ברצינות\?/g,
+        replaceWith: "את רצינית?"
     }
 ].map(Fix.build);    
   
@@ -1125,7 +1131,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="AMO DESPERTAR CONTIGO 112.MP4" autobuffer height="120px" controls></video>
+            <video src="AMO DESPERTAR CONTIGO 120.MP4" autobuffer height="120px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
