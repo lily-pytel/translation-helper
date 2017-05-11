@@ -1123,7 +1123,13 @@ var commonErrors = [
     }, {
         matchWith: /את מדברת ברצינות\?/g,
         replaceWith: "את רצינית?"
-    }
+    }, {
+        matchWith: /זמן רב יותר/g,
+        replaceWith: "הרבה יותר זמן"
+    }, {
+        matchWith: /עם כל הכבוד/g,
+        replaceWith: "בכל הכבוד"
+    } 
 ].map(Fix.build);    
   
 </script>
@@ -1131,7 +1137,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="AMO DESPERTAR CONTIGO 120.MP4" autobuffer height="120px" controls></video>
+            <video src="AMO DESPERTAR CONTIGO 121.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
