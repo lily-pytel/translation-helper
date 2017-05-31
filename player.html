@@ -1115,8 +1115,14 @@ var commonErrors = [
         matchWith: /או מה חשבת\?/g,
         replaceWith: "מה חשבת,"
     }, {
-        matchWith: /^אז |\? אז |\. אז /gm,
-        replaceWith: ""
+        matchWith: /^אז /gm,
+        replaceWith: " "
+    }, {
+        matchWith: /\. אז /gm,
+        replaceWith: ". "
+    }, {
+        matchWith: /\? אז /gm,
+        replaceWith: "? "
     }, {
         matchWith: /אני בשביל לשמור עלייך פה/g,
         replaceWith: "אני פה בשביל לשמור עלייך"
@@ -1189,6 +1195,27 @@ var commonErrors = [
     }, {
         matchWith: /עכשיו מה היא עשתה/g,
         replaceWith: "מה היא עשתה הפעם"
+    }, {
+        matchWith: /עמוק פנימה/g,
+        replaceWith: "עמוק בפנים"
+    }, {
+        matchWith: /מה פתאום שתלכי/g,
+        replaceWith: "מה פתאום את הולכת"
+    }, {
+        matchWith: /מה פתאום שתלך/g,
+        replaceWith: "מה פתאום אתה הולך"
+    }, {
+        matchWith: /כשאתה מצפה לזה פחות/g,
+        replaceWith: "כשאתה לא מצפה לזה"
+    }, {
+        matchWith: /שסופר לי/g,
+        replaceWith: "ששמעתי"
+    }, {
+        matchWith: /בדיוק זה מה/g,
+        replaceWith: "זה בדיוק מה"
+    }, {
+        matchWith: /אילו הייתי במקום שלך/g,
+        replaceWith: "במקומך"
     }
 ].map(Fix.build);    
   
@@ -1197,7 +1224,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="SILVANA SIN LANA 102.MP4" autobuffer height="100px" controls></video>
+            <video src="SILVANA SIN LANA 113.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
