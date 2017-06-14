@@ -1231,6 +1231,27 @@ var commonErrors = [
     }, {
         matchWith: /אורחים היו לנו היום/g,
         replaceWith: "היו לנו אורחים היום"
+    }, {
+        matchWith: /אלוורדו/g,
+        replaceWith: "אלברדו"
+    }, {
+        matchWith: /השם שלו הוא/g,
+        replaceWith: "קוראים לו"
+    }, {
+        matchWith: /השם שלה הוא/g,
+        replaceWith: "קוראים לה"
+    }, {
+        matchWith: /מתחשק/g,
+        replaceWith: "בא"
+    }, {
+        matchWith: /האהבה שאחריי/g,
+        replaceWith: "האהבה שאחרי"
+    }, {
+        matchWith: /בדיוק הגעת בזמן/g,
+        replaceWith: "הגעת בדיוק בזמן"
+    }, {
+        matchWith: /נכחה/g,
+        replaceWith: "נחכה"
     }
 ].map(Fix.build);    
   
@@ -1239,7 +1260,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="AMAR DESPUES DE AMAR 38.MP4" autobuffer height="100px" controls></video>
+            <video src="AMAR DESPUES DE AMAR 41.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
