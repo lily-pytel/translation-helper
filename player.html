@@ -428,6 +428,9 @@ var commonErrors = [
         matchWith: /אחות שלי/g,
         replaceWith: "אחותי"
     }, {
+        matchWith: /אח שלי/g,
+        replaceWith: "אחי"
+    }, {
         matchWith: /משום ש/g,
         replaceWith: "כי "
     }, {
@@ -503,17 +506,14 @@ var commonErrors = [
         matchWith: /אקוגרפיה/g,
         replaceWith: "אולטרה סאונד"
     }, {
-        matchWith: /גורלה של אווה/g,
-        replaceWith: "הגורל של אווה"
+        matchWith: /אתך/g,
+        replaceWith: "איתך"
     }, {
-        matchWith: /איתך/g,
-        replaceWith: "אתך"
+        matchWith: /אתו/g,
+        replaceWith: "איתו"
     }, {
-        matchWith: /איתו/g,
-        replaceWith: "אתו"
-    }, {
-        matchWith: /איתנו/g,
-        replaceWith: "אתנו"
+        matchWith: /אתנו/g,
+        replaceWith: "איתנו"
     }, {
         matchWith: /עכשיו ש/g,
         replaceWith: "עכשיו כש"
@@ -542,10 +542,7 @@ var commonErrors = [
         matchWith: /עדיין זה/g,
         replaceWith: "זה עדיין"
     }, {
-        matchWith: /מסתיים/g,
-        replaceWith: "נגמר"
-    }, {
-        matchWith: /הסתיים/g,
+        matchWith: /מסתיים|הסתיים/g,
         replaceWith: "נגמר"
     }, {
         matchWith: /די-אן-איי/g,
@@ -568,9 +565,6 @@ var commonErrors = [
     }, {
         matchWith: /כמה שמהר יותר/g,
         replaceWith: "בהקדם האפשרי"
-    }, {
-        matchWith: /לכול דבר/g,
-        replaceWith: "לכל דבר"
     }, {
         matchWith: /אחזור מיד/g,
         replaceWith: "מיד אשוב"
@@ -695,9 +689,6 @@ var commonErrors = [
         matchWith: /ידוע לכן/g,
         replaceWith: "אתן יודעות"
     }, {
-        matchWith: /קסטייה/g,
-        replaceWith: "קסטיליה"
-    }, {
         matchWith: /תחיי המלך/g,
         replaceWith: "יחי המלך"
     }, {
@@ -734,12 +725,6 @@ var commonErrors = [
         matchWith: /יש לי בשבילך משהו/g,
         replaceWith: "יש לי משהו בשבילך"
     }, {
-        matchWith: /אנריקז/g,
-        replaceWith: "אנריקס"
-    }, {
-        matchWith: /באטריס/g,
-        replaceWith: "ביאטריס"
-    }, {
         matchWith: /ככה אעשה/g,
         replaceWith: "כך אעשה"
     }, {
@@ -758,35 +743,23 @@ var commonErrors = [
         matchWith: /יהיו חסרים/g,
         replaceWith: "יחסרו"
     }, {
-        matchWith: /פרננדו המלך/g,
-        replaceWith: "המלך פרננדו"
-    }, {
-        matchWith: /אלפונסו המלך/g,
-        replaceWith: "המלך אלפונסו"
-    }, {
         matchWith: /יחי המלכה/g,
         replaceWith: "תחי המלכה"
-    }, {
-        matchWith: /יחי קסטיליה/g,
-        replaceWith: "תחי קסטיליה"
-    }, {
-        matchWith: /תחיי פרננדו/g,
-        replaceWith: "יחי פרננדו"
     }, {
         matchWith: /ככול/g,
         replaceWith: "ככל"
     }, {
-        matchWith: /ברירה/g,
-        replaceWith: "בררה"
+        matchWith: /בררה/g,
+        replaceWith: "ברירה"
     }, {
-        matchWith: /קורבן/g,
-        replaceWith: "קרבן"
+        matchWith: /קרבן/g,
+        replaceWith: "קורבן"
     }, {
         matchWith: /מאשר אלו/g,
         replaceWith: "מאלו"
     }, {
-        matchWith: /מיסים/g,
-        replaceWith: "מסים"
+        matchWith: /מסים/g,
+        replaceWith: "מיסים"
     }, {
         matchWith: /דוגמא/g,
         replaceWith: "דוגמה"
@@ -812,9 +785,6 @@ var commonErrors = [
         matchWith: /גרדנה/g,
         replaceWith: "גרנדה"
     }, {
-        matchWith: /תחיי /g,
-        replaceWith: "תחי "
-    }, {
         matchWith: /גיבורותיי/g,
         replaceWith: "גבירותיי"
     }, {
@@ -826,18 +796,6 @@ var commonErrors = [
     }, {
         matchWith: /אוקיאנוס/g,
         replaceWith: "אוקינוס"
-    }, {
-        matchWith: /בפרק הקודם של איסבל/g,
-        replaceWith: 'בפרק הקודם של "איסבל":'
-    }, {
-        matchWith: /בפרק הבא באיסבל/g,
-        replaceWith: 'בפרק הבא של "איסבל":'
-    }, {
-        matchWith: /מילאן/g,
-        replaceWith: 'מילאנו'
-    }, {
-        matchWith: /צפרת/g,
-        replaceWith: 'צרפת'
     }, {
         matchWith: /כף המוזנים/g,
         replaceWith: 'כף המאזניים'
@@ -863,9 +821,6 @@ var commonErrors = [
         matchWith: /תגבורות/g,
         replaceWith: 'תגבורת'
     }, {
-        matchWith: /עם צרפת שלום/g,
-        replaceWith: 'שלום עם צרפת'
-    }, {
         matchWith: /הטוב יותר/g,
         replaceWith: 'הטוב ביותר'
     }, {
@@ -890,20 +845,8 @@ var commonErrors = [
         matchWith: /את הדרך/g,
         replaceWith: 'דרך'
     }, {
-        matchWith: /אנריקה/g,
-        replaceWith: 'הנרי'
-    }, {
-        matchWith: /בלטרנחה/g,
-        replaceWith: 'בלטארנחה'
-    }, {
-        matchWith: /גברת,/g,
-        replaceWith: 'גברתי,'
-    }, {
         matchWith: /גברת\./g,
         replaceWith: 'גברתי.'
-    }, {
-        matchWith: /סנטמריה/g,
-        replaceWith: 'סנטה מריה'
     }, {
         matchWith: /שיכורה קצת/g,
         replaceWith: 'קצת שיכורה'
@@ -911,17 +854,11 @@ var commonErrors = [
         matchWith: /שיכור קצת/g,
         replaceWith: 'קצת שיכור'
     }, {
-        matchWith: /איסמעל|איסמעיל/g,
-        replaceWith: 'איסמאל'
-    }, {
         matchWith: /מה השם שלך/g,
         replaceWith: 'איך קוראים לך'
     }, {
         matchWith: /דרך אגב\./g,
         replaceWith: 'דרך אגב,'
-    }, {
-        matchWith: /וויז'גס/g,
-        replaceWith: 'וייגס'
     }, {
         matchWith: /כלפיך טובה/g,
         replaceWith: 'טובה כלפיך'
@@ -937,9 +874,6 @@ var commonErrors = [
     }, {
         matchWith: /מאבטח/g,
         replaceWith: 'שומר ראש'
-    }, {
-        matchWith: /ורקרוז/g,
-        replaceWith: 'ורקרוס'
     }, {
         matchWith: /רק זה\?/g,
         replaceWith: 'זה הכול?'
@@ -971,9 +905,6 @@ var commonErrors = [
         matchWith: /איך\?/g,
         replaceWith: "מה?"
     }, {
-        matchWith: /צ'וצ'ימילקו/g,
-        replaceWith: "סוצ'ימילקו"
-    }, {
         matchWith: /מרחקת/g,
         replaceWith: 'מרקחת'
     }, {
@@ -995,15 +926,6 @@ var commonErrors = [
         matchWith: / באמת /g,
         replaceWith: ' '
     }, {
-        matchWith: /אנז'י|אנח'י/g,
-        replaceWith: "אנג'י"
-    }, {
-        matchWith: /בנח'י|בנז'י/g,
-        replaceWith: "בנג'"
-    }, {
-        matchWith: /כמעט ואנג'י/g,
-        replaceWith: "אנג'י כמעט"
-    }, {
         matchWith: /זה כול /g,
         replaceWith: "זה כל "
     }, {
@@ -1018,9 +940,6 @@ var commonErrors = [
     }, {
         matchWith: /כסף רב/g,
         replaceWith: "הרבה כסף"
-    }, {
-        matchWith: /צ'יביס|צי'ביס/g,
-        replaceWith: "צ'יוויס"
     }, {
         matchWith: /כול מקום/g,
         replaceWith: "כל מקום"
@@ -1037,17 +956,11 @@ var commonErrors = [
         matchWith: /בכול זאת/g,
         replaceWith: "בכל זאת"
     }, {
-        matchWith: /טיטיאנה/g,
-        replaceWith: "טטיאננ"
-    }, {
         matchWith: /השומר הראש/g,
         replaceWith: "שומר הראש"
     }, {
         matchWith: /זאת הייתה בצחוק/g,
         replaceWith: "זה היה בצחוק"
-    }, {
-        matchWith: /ל-וילסון/g,
-        replaceWith: "לווילסון"
     }, {
         matchWith: /אלף דברים בראש/g,
         replaceWith: "אלף דברים על הראש"
@@ -1075,9 +988,6 @@ var commonErrors = [
     }, {
         matchWith: /השומר ראש/g,
         replaceWith: "שומר הראש"
-    }, {
-        matchWith: /אוגסטין/g,
-        replaceWith: "אגוסטין"
     }, {
         matchWith: /טובה הרבה יותר/g,
         replaceWith: "הרבה יותר טובה"
@@ -1232,9 +1142,6 @@ var commonErrors = [
         matchWith: /אורחים היו לנו היום/g,
         replaceWith: "היו לנו אורחים היום"
     }, {
-        matchWith: /אלוורדו/g,
-        replaceWith: "אלברדו"
-    }, {
         matchWith: /השם שלו הוא/g,
         replaceWith: "קוראים לו"
     }, {
@@ -1252,6 +1159,39 @@ var commonErrors = [
     }, {
         matchWith: /נכחה/g,
         replaceWith: "נחכה"
+    }, {
+        matchWith: /אמנם/g,
+        replaceWith: "אומנם"
+    }, {
+        matchWith: /תכנית/g,
+        replaceWith: "תוכנית"
+    }, {
+        matchWith: /אמנות/g,
+        replaceWith: "אומנות"
+    }, {
+        matchWith: /אוניה/g,
+        replaceWith: "אונייה"
+    }, {
+        matchWith: /צהריים|צהרים/g,
+        replaceWith: "צוהריים"
+    }, {
+        matchWith: /למחרת/g,
+        replaceWith: "מוחרת"
+    }, {
+        matchWith: /הנה /g,
+        replaceWith: "הינה "
+    }, {
+        matchWith: /אמתי/g,
+        replaceWith: "אמיתי"
+    }, {
+        matchWith: /ססמה/g,
+        replaceWith: "סיסמה"
+    }, {
+        matchWith: /גניבה/g,
+        replaceWith: "גנבה"
+    }, {
+        matchWith: /שרפה/g,
+        replaceWith: "שריפה"
     }
 ].map(Fix.build);    
   
