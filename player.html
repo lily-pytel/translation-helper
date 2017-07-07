@@ -536,6 +536,12 @@ var commonErrors = [
         matchWith: /עדיין הוא/g,
         replaceWith: "הוא עדיין"
     }, {
+        matchWith: /אפילו היא/g,
+        replaceWith: "היא אפילו"
+    }, {
+        matchWith: /אפילו הוא/g,
+        replaceWith: "הוא אפילו"
+    }, {
         matchWith: /עדיין היא/g,
         replaceWith: "היא עדיין"
     }, {
@@ -727,9 +733,6 @@ var commonErrors = [
     }, {
         matchWith: /ככה אעשה/g,
         replaceWith: "כך אעשה"
-    }, {
-        matchWith: /ככה יהיה/g,
-        replaceWith: "כך יהיה"
     }, {
         matchWith: /בטח זה מה שקרה/g,
         replaceWith: "זה בטח מה שקרה"
@@ -1151,9 +1154,6 @@ var commonErrors = [
         matchWith: /מתחשק/g,
         replaceWith: "בא"
     }, {
-        matchWith: /האהבה שאחריי/g,
-        replaceWith: "האהבה שאחרי"
-    }, {
         matchWith: /בדיוק הגעת בזמן/g,
         replaceWith: "הגעת בדיוק בזמן"
     }, {
@@ -1187,17 +1187,41 @@ var commonErrors = [
         matchWith: /ססמה/g,
         replaceWith: "סיסמה"
     }, {
-        matchWith: /גניבה/g,
-        replaceWith: "גנבה"
-    }, {
         matchWith: /שרפה/g,
         replaceWith: "שריפה"
+    }, {
+        matchWith: /אין לך מושג איך ש/g,
+        replaceWith: "אין לך מושג כמה "
+    }, {
+        matchWith: /שתדעי לך/g,
+        replaceWith: "תדעי לך"
+    }, {
+        matchWith: /כול מה ש/g,
+        replaceWith: "כל מה ש"
     }, {
         matchWith: /נצ'ו/g,
         replaceWith: "נאצ'ו"
     }, {
+        matchWith: /נצ'יט/g,
+        replaceWith: "נאצ'יט"
+    }, {
         matchWith: /מריה טרסה/g,
         replaceWith: "מריה תרסה"
+    }, {
+        matchWith: /מה אני יודעת|מה אני יודע/g,
+        replaceWith: "מאין לי לדעת"
+    }, {
+        matchWith: /קשה בשביל/g,
+        replaceWith: "קשה ל"
+    }, {
+        matchWith: /לבקש ממך/g,
+        replaceWith: "לבקש"
+    }, {
+        matchWith: /או ש/g,
+        replaceWith: "אחרת"
+    }, {
+        matchWith: /אני מתקשה/g,
+        replaceWith: "קשה"
     }
 ].map(Fix.build);    
   
@@ -1231,7 +1255,7 @@ var commonErrors = [
             </div>
         </div>
         <div id='editor' style="float: left; margin-left: 15px;">
-            <textarea cols=30 rows=40 wrap="hard" dir='rtl'
+            <textarea cols=29 rows=37 wrap="hard" dir='rtl'
                       style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
         </div>
         <div id="fixes-section" style="float: left; margin-left: 15px">
