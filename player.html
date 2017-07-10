@@ -1218,10 +1218,25 @@ var commonErrors = [
         replaceWith: "לבקש"
     }, {
         matchWith: /או ש/g,
-        replaceWith: "אחרת"
+        replaceWith: "אחרת "
     }, {
         matchWith: /אני מתקשה/g,
         replaceWith: "קשה"
+    }, {
+        matchWith: /הכל/g,
+        replaceWith: "הכול"
+    }, {
+        matchWith: /היא מתקשה/g,
+        replaceWith: "קשה להן"
+    }, {
+        matchWith: /טבלט/g,
+        replaceWith: "טאבלט"
+    }, {
+        matchWith: /פסיכופט/g,
+        replaceWith: "פסיכי"
+    }, {
+        matchWith: / כל כך/g,
+        replaceWith: " כל-כך"
     }
 ].map(Fix.build);    
   
@@ -1230,7 +1245,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Senores Papis 35.MP4" autobuffer height="100px" controls></video>
+            <video src="Senores Papis 37.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
