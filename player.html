@@ -1237,6 +1237,12 @@ var commonErrors = [
     }, {
         matchWith: / כל כך/g,
         replaceWith: " כל-כך"
+    }, {
+        matchWith: /אלוורס|אלברס/g,
+        replaceWith: " אלוורז"
+    }, {
+        matchWith: /לוקיטס/g,
+        replaceWith: "לוקיטאס"
     }
 ].map(Fix.build);    
   
