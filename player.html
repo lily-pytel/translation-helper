@@ -1259,8 +1259,29 @@ var commonErrors = [
         matchWith: /מבטיח לי/g,
         replaceWith: "מבטיח"
     }, {
+        matchWith: /נשבעת לך/g,
+        replaceWith: "נשבעת"
+    }, {
+        matchWith: /נשבע ךל/g,
+        replaceWith: "נשבע"
+    }, {
+        matchWith: /נשבעת לי/g,
+        replaceWith: "נשבעת"
+    }, {
+        matchWith: /נשבע לי/g,
+        replaceWith: "נשבע"
+    }, {
         matchWith: /אסטרייה/g,
         replaceWith: "אסטרז'ה"
+    }, {
+        matchWith: /אסטרייס/g,
+        replaceWith: "אסטרז'ס"
+    }, {
+        matchWith: /באמת שכן/g,
+        replaceWith: "האמת היא שכן"
+    }, {
+        matchWith: /מירדנה/g,
+        replaceWith: "מירנדה"
     }
 ].map(Fix.build);    
   
@@ -1269,7 +1290,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Las Estrellas  2.MP4" autobuffer height="120px" controls></video>
+            <video src="Las Estrellas  3.MP4" autobuffer height="120px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
