@@ -1241,7 +1241,7 @@ var commonErrors = [
         matchWith: /אלוורס|אלברס/g,
         replaceWith: " אלוורז"
     }, {
-        matchWith: /לוקיטס/g,
+        matchWith: /לוקיטס|לקיטאס/g,
         replaceWith: "לוקיטאס"
     }, {
         matchWith: /איגסניו/g,
@@ -1282,7 +1282,40 @@ var commonErrors = [
     }, {
         matchWith: /מירדנה/g,
         replaceWith: "מירנדה"
-    }
+    }, {
+        matchWith: /אני אומרת לך ברצינות/g,
+        replaceWith: "אני רצינית"
+    }, {
+        matchWith: /סקוטר/g,
+        replaceWith: "קורקינט"
+    }, {
+        matchWith: /הביעה/g,
+        replaceWith: "בעיה"
+    }, {
+        matchWith: /מיד כש/g,
+        replaceWith: "ברגע ש"
+    }, {
+        matchWith: /מיד/g,
+        replaceWith: "מייד"
+    }, {
+        matchWith: /תמייד/g,
+        replaceWith: "תמיד"
+    }, {
+        matchWith: /עמייד/g,
+        replaceWith: "עמיד"
+    }, {
+        matchWith: /מיידע/g,
+        replaceWith: "מידע"
+    }, {
+        matchWith: /צמייד/g,
+        replaceWith: "צמיד"
+    }, {
+        matchWith: /וייה ריקה/g,
+        replaceWith: "וייריקה"
+    }, {
+        matchWith: /פעלתי ככה/g,
+        replaceWith: "עשיתי את זה"
+    } 
 ].map(Fix.build);    
   
 </script>
@@ -1290,7 +1323,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Las Estrellas  3.MP4" autobuffer height="120px" controls></video>
+            <video src="Senores Papis 67.MP4" autobuffer height="120px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
