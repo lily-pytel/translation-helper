@@ -1238,8 +1238,8 @@ var commonErrors = [
         matchWith: / כל כך/g,
         replaceWith: " כל-כך"
     }, {
-        matchWith: /אלוורס|אלברס/g,
-        replaceWith: " אלוורז"
+        matchWith: /אלוורס|אלוורז/g,
+        replaceWith: "אלברס"
     }, {
         matchWith: /לוקיטס/g,
         replaceWith: "לוקיטאס"
@@ -1282,6 +1282,18 @@ var commonErrors = [
     }, {
         matchWith: /מירדנה/g,
         replaceWith: "מירנדה"
+    }, {
+        matchWith: /לבקש סליחה ממנה/g,
+        replaceWith: "לבקש ממנה סליחה"
+    }, {
+        matchWith: /באם תרצה אחרת לא|באם תרצה או שלא/g,
+        replaceWith: "גם אם זה לא נראה לך"
+    }, {
+        matchWith: /שישה חודשים/g,
+        replaceWith: "חצי שנה"
+    }, {
+        matchWith: /וריחיניה/g,
+        replaceWith: "וירחיניה"
     }
 ].map(Fix.build);    
   
@@ -1290,7 +1302,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Las Estrellas  3.MP4" autobuffer height="120px" controls></video>
+            <video src="Las Estrellas 5.MP4" autobuffer height="120px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
