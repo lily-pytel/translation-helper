@@ -1333,6 +1333,27 @@ var commonErrors = [
     }, {
         matchWith: /זאת הסיבה ש/g,
         replaceWith: "בגלל זה "
+    }, {
+        matchWith: /אם יהיה משהו/g,
+        replaceWith: "אם יהיה שינוי"
+    }, {
+        matchWith: /ולכן/g,
+        replaceWith: "אז"
+    }, {
+        matchWith: /מה השם שלה\?/g,
+        replaceWith: "איך קוראים לה?"
+    }, {
+        matchWith: /מה השם שלו\?/g,
+        replaceWith: "איך קוראים לו?"
+    }, {
+        matchWith: /השם שלה/g,
+        replaceWith: "קוראים לה"
+    }, {
+        matchWith: /השם שלו/g,
+        replaceWith: "קוראים לו"
+    }, {
+        matchWith: /לוירחינה/g,
+        replaceWith: "לוןירחינה"
     }
 ].map(Fix.build);    
   
@@ -1341,7 +1362,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Las Estrellas 7.MP4" autobuffer height="100px" controls></video>
+            <video src="Las Estrellas 8.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
