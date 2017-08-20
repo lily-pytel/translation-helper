@@ -1327,7 +1327,16 @@ var commonErrors = [
     }, {
         matchWith: /פעלתי ככה/g,
         replaceWith: "עשיתי את זה"
-    } 
+    }, {
+        matchWith: /הזדמנות נוספת/g,
+        replaceWith: "עוד הזדמנות"
+    }, {
+        matchWith: /כמה שעות קודם/g,
+        replaceWith: "כמה שעות לפני כן"
+    }, {
+        matchWith: /לוירחיניה/g,
+        replaceWith: "לווירחיניה"
+    }
 ].map(Fix.build);    
   
 </script>
@@ -1335,7 +1344,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Las Estrellas 5.MP4" autobuffer height="120px" controls></video>
+            <video src="Las Estrellas 7.MP4" autobuffer height="120px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
