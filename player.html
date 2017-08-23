@@ -1369,6 +1369,12 @@ var commonErrors = [
     }, {
         matchWith: /השם שלי/g,
         replaceWith: "קוראים לי"
+    }, {
+        matchWith: /משלמים לי בשביל זה/g,
+        replaceWith: "משלמים לי על זה"
+    }, {
+        matchWith: /זה נדמה לי אחרת/g,
+        replaceWith: "נדמה לי או ש"
     } 
 ].map(Fix.build);    
   
@@ -1377,7 +1383,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Las Estrellas 9.MP4" autobuffer height="100px" controls></video>
+            <video src="Las Estrellas 10.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
