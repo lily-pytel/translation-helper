@@ -1061,6 +1061,9 @@ var commonErrors = [
         matchWith: /אני מדבר ברצינות/,
         replaceWith: "אני רציני"
     }, {
+        matchWith: /הוא מדבר ברצינות/,
+        replaceWith: "הוא רציני"
+    }, {
         matchWith: /זמן רב יותר/g,
         replaceWith: "הרבה יותר זמן"
     }, {
@@ -1375,7 +1378,31 @@ var commonErrors = [
     }, {
         matchWith: /זה נדמה לי אחרת/g,
         replaceWith: "נדמה לי או ש"
-    } 
+    }, {
+        matchWith: /לבלות את הלילה איתך/g,
+        replaceWith: "לבלות איתך את הלילה"
+    }, {
+        matchWith: /המון לעשות/g,
+        replaceWith: "המון דברים לעשות"
+    }, {
+        matchWith: /אני כבר טוב יותר/g,
+        replaceWith: "המצב שלי השתפר"
+    }, {
+        matchWith: /משלמים לי בשביל זה/g,
+        replaceWith: "משלמים לי על זה"
+    }, {
+        matchWith: /כמה ש/g,
+        replaceWith: "כמה "
+    }, {
+        matchWith: /כמה יל/g,
+        replaceWith: "כמה שיל"
+    }, {
+        matchWith: /כמה ידוע ל/g,
+        replaceWith: "כמה שידוע ל"
+    }, {
+        matchWith: /סוף, סוף/g,
+        replaceWith: "סוף סוף"
+    }
 ].map(Fix.build);    
   
 </script>
@@ -1383,7 +1410,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Las Estrellas 10.MP4" autobuffer height="100px" controls></video>
+            <video src="Senores Papis 71.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
