@@ -1332,10 +1332,16 @@ var commonErrors = [
         replaceWith: "עשיתי את זה"
     }, {
         matchWith: /כמה שעות קודם/g,
-        replaceWith: "כמה שעות לפני כן"
+        replaceWith: "כמה שעות קודם לכן"
     }, {
         matchWith: /לוירחיניה/g,
         replaceWith: "לווירחיניה"
+    }, {
+        matchWith: /שוירחיניה/g,
+        replaceWith: "שווירחיניה"
+    }, {
+        matchWith: /בוירחיניה/g,
+        replaceWith: "בווירחיניה"
     }, {
         matchWith: /הזדמנות נוספת/g,
         replaceWith: "עוד הזדמנות"
@@ -1391,9 +1397,6 @@ var commonErrors = [
         matchWith: /משלמים לי בשביל זה/g,
         replaceWith: "משלמים לי על זה"
     }, {
-        matchWith: /כמה ש/g,
-        replaceWith: "כמה "
-    }, {
         matchWith: /כמה יל/g,
         replaceWith: "כמה שיל"
     }, {
@@ -1402,6 +1405,27 @@ var commonErrors = [
     }, {
         matchWith: /סוף, סוף/g,
         replaceWith: "סוף סוף"
+    }, {
+        matchWith: /הוכלת/g,
+        replaceWith: "הולכת"
+    }, {
+        matchWith: /ביתר בעולם/g,
+        replaceWith: "ביותר בעולם"
+    }, {
+        matchWith: /אותכם/g,
+        replaceWith: "אתכם"
+    }, {
+        matchWith: /אותכן/g,
+        replaceWith: "אתכן"
+    }, {
+        matchWith: /סיבה שבגינה/g,
+        replaceWith: "סיבה שבגללה"
+    }, {
+        matchWith: /סיבות שבגינן/g,
+        replaceWith: "סיבות שבגללן"
+    }, {
+        matchWith: /קל יותר בשבילך/g,
+        replaceWith: "יותר קל לך"
     }
 ].map(Fix.build);    
   
@@ -1410,7 +1434,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Senores Papis 71.MP4" autobuffer height="100px" controls></video>
+            <video src="Las Estrellas 28.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
