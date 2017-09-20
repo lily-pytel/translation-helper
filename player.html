@@ -593,7 +593,7 @@ var commonErrors = [
         matchWith: /דולרים/g,
         replaceWith: "דולר"
     }, {
-        matchWith: /ככה זה נראה./g,
+        matchWith: /ככה זה נראה/g,
         replaceWith: "כך נראה"
     }, {
         matchWith: /סוף-סוף/g,
@@ -1220,9 +1220,6 @@ var commonErrors = [
         matchWith: /לבקש ממך/g,
         replaceWith: "לבקש"
     }, {
-        matchWith: /או ש/g,
-        replaceWith: "אחרת "
-    }, {
         matchWith: /אני מתקשה/g,
         replaceWith: "קשה"
     }, {
@@ -1283,7 +1280,7 @@ var commonErrors = [
         matchWith: /באמת שכן/g,
         replaceWith: "האמת היא שכן"
     }, {
-        matchWith: /מירדנה/g,
+        matchWith: /מירדנה|מרינדה/g,
         replaceWith: "מירנדה"
     }, {
         matchWith: /לבקש סליחה ממנה/g,
@@ -1315,6 +1312,9 @@ var commonErrors = [
     }, {
         matchWith: /תמייד/g,
         replaceWith: "תמיד"
+    }, {
+        matchWith: /תלמייד/g,
+        replaceWith: "תלמיד"
     }, {
         matchWith: /עמייד/g,
         replaceWith: "עמיד"
@@ -1394,6 +1394,9 @@ var commonErrors = [
         matchWith: /כמה ש/g,
         replaceWith: "כמה "
     }, {
+        matchWith: /כמה עות/g,
+        replaceWith: "כמה שעות"
+    }, {
         matchWith: /כמה יל/g,
         replaceWith: "כמה שיל"
     }, {
@@ -1402,6 +1405,33 @@ var commonErrors = [
     }, {
         matchWith: /סוף, סוף/g,
         replaceWith: "סוף סוף"
+    }, {
+        matchWith: /אחרת לי/g,
+        replaceWith: "או שלי"
+    }, {
+        matchWith: /נדיה/g,
+        replaceWith: "נאדיה"
+    }, {
+        matchWith: /סחור, סחור/g,
+        replaceWith: "סחור סחור"
+    }, {
+        matchWith: /כמה יותר מהר/g,
+        replaceWith: "בהקדם האפשרי"
+    }, {
+        matchWith: /אותכם/g,
+        replaceWith: "אתכם"
+    }, {
+        matchWith: /איתכן/g,
+        replaceWith: "אתכן"
+    }, {
+        matchWith: /ככה, ככה/g,
+        replaceWith: "לא משהו"
+    }, {
+        matchWith: /קשה בשבילי/g,
+        replaceWith: "קשה לי"
+    }, {
+        matchWith: /עבר לי בראש/g,
+        replaceWith: "עלה בדעתי"
     }
 ].map(Fix.build);    
   
@@ -1410,7 +1440,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Senores Papis 71.MP4" autobuffer height="100px" controls></video>
+            <video src="Senores Papis 99.MP4" autobuffer height="120px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
@@ -1435,7 +1465,7 @@ var commonErrors = [
             </div>
         </div>
         <div id='editor' style="float: left; margin-left: 15px;">
-            <textarea cols=29 rows=37 wrap="hard" dir='rtl'
+            <textarea cols=30 rows=37 wrap="hard" dir='rtl'
                       style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
         </div>
         <div id="fixes-section" style="float: left; margin-left: 15px">
