@@ -494,9 +494,6 @@ var commonErrors = [
         matchWith: /מה זאת אומרת/g,
         replaceWith: "מה פתאום"
     }, {
-        matchWith: /מעולם לא|לעולם לא/g,
-        replaceWith: "אף פעם לא"
-    }, {
         matchWith: /אלף פעמים/g,
         replaceWith: "אלף פעם"
     }, {
@@ -926,9 +923,6 @@ var commonErrors = [
         matchWith: /לא צלח/g,
         replaceWith: 'לא הצליח'
     }, {
-        matchWith: / באמת /g,
-        replaceWith: ' '
-    }, {
         matchWith: /זה כול /g,
         replaceWith: "זה כל "
     }, {
@@ -1036,15 +1030,6 @@ var commonErrors = [
     }, {
         matchWith: /או מה חשבת\?/g,
         replaceWith: "מה חשבת,"
-    }, {
-        matchWith: /^אז /gm,
-        replaceWith: " "
-    }, {
-        matchWith: /\. אז /gm,
-        replaceWith: ". "
-    }, {
-        matchWith: /\? אז /gm,
-        replaceWith: "? "
     }, {
         matchWith: /אני בשביל לשמור עלייך פה/g,
         replaceWith: "אני פה בשביל לשמור עלייך"
@@ -1154,6 +1139,9 @@ var commonErrors = [
         matchWith: /השם שלה הוא/g,
         replaceWith: "קוראים לה"
     }, {
+        matchWith: /מה קוראים לו/g,
+        replaceWith: "איך קוראים לו"
+    }, {
         matchWith: /מתחשק/g,
         replaceWith: "בא"
     }, {
@@ -1180,9 +1168,6 @@ var commonErrors = [
     }, {
         matchWith: /למחרת/g,
         replaceWith: "מוחרת"
-    }, {
-        matchWith: /הנה /g,
-        replaceWith: "הינה "
     }, {
         matchWith: /אמתי/g,
         replaceWith: "אמיתי"
@@ -1456,6 +1441,54 @@ var commonErrors = [
     }, {
         matchWith: /קל יותר בשבילך/g,
         replaceWith: "יותר קל לך"
+    }, {
+        matchWith: /אל תגידי לי דבר/g,
+        replaceWith: "אל תגידי כלום"
+    }, {
+        matchWith: /אל תגיד לי דבר/g,
+        replaceWith: "אל תגיד כלום"
+    }, {
+        matchWith: /אין חי בעיה/g,
+        replaceWith: "אין לי בעיה"
+    }, {
+        matchWith: /וכאז/g,
+        replaceWith: "וכולכן"
+    }, {
+        matchWith: /את אותו דבר/g,
+        replaceWith: "אותו דבר"
+    }, {
+        matchWith: /לא דיברת מילה/g,
+        replaceWith: "לא אמרת מילה"
+    }, {
+        matchWith: /אני נשבעת לך שלא ייאמן|אני נשבע לך שלא ייאמן/g,
+        replaceWith: "בחיי שזה לא ייאמן"
+    }, {
+        matchWith: /לבקש סליחה ממך/g,
+        replaceWith: "לבקש ממך סליחה"
+    }, {
+        matchWith: /לבקש טובה ממך/g,
+        replaceWith: "לבקש ממך טובה"
+    }, {
+        matchWith: /זה מה שאני אוהב ביותר/g,
+        replaceWith: "זה מה שאני הכי אוהב"
+    }, {
+        matchWith: /שאני אוהב יותר/g,
+        replaceWith: "שאני הכי אוהב"
+    }, {
+        matchWith: /תעשי טובה בשבילי/g,
+        replaceWith: "תעשי לי טובה"
+    }, {
+        matchWith: /לא קל בשבילי/g,
+        replaceWith: "לא קל לי"
+    }, {
+        matchWith: /ריח הדבש/g,
+        replaceWith: "ירח הדבש"
+    }, {
+        matchWith: /ריח דבש/g,
+        replaceWith: "ירח דבש"
+    }, {
+        matchWith: /כי אחרת/g,
+        replaceWith: "אחרת"
     }
 ].map(Fix.build);    
   
@@ -1464,7 +1497,7 @@ var commonErrors = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Senores Papis 100.MP4" autobuffer height="100px" controls></video>
+            <video src="Senores Papis 110.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
