@@ -1277,7 +1277,7 @@ var commonErrors = [
         matchWith: /שישה חודשים/g,
         replaceWith: "חצי שנה"
     }, {
-        matchWith: /וריחיניה/g,
+        matchWith: /וריחיניה|וירחניה/g,
         replaceWith: "וירחיניה"
     }, {
         matchWith: /אני אומרת לך ברצינות/g,
@@ -1489,6 +1489,12 @@ var commonErrors = [
     }, {
         matchWith: /כי אחרת/g,
         replaceWith: "אחרת"
+    }, {
+        matchWith: /יום נוסף/g,
+        replaceWith: "עוד יום"
+    }, {
+        matchWith: /אין לי מה לומר לך יותר/g,
+        replaceWith: "אין לי עוד מה לומר לך"
     }
 ].map(Fix.build);    
   
