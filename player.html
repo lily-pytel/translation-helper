@@ -49,7 +49,24 @@
         }
 
         #fixes-section {
-            font-size: 12px;
+            height: 570px;
+            width: 350px;
+            overflow: auto;
+        }
+
+        .auto-fixes-table {
+            float: right;
+            border-collapse: collapse;
+            border: 1px solid #afafaf;
+        }
+
+        .auto-fixes-table td {
+            direction: rtl;
+            font-size: 10px;
+            text-align: right;
+            padding: 5px 10px 5px 10px;
+            border-top: 1px solid #afafaf;
+            border-bottom: 1px solid #afafaf;
         }
 
     </style>
@@ -92,17 +109,26 @@ function finalErrorCheck(editor) {
 
 function fixCommonErrors(editor) {
     var text = editor.val()
-    ,   message = '';
+    ,   message = ''
+    ,   lines = text.split('\n');
 
     for (var i = 0; i < commonErrors.length; i++) {
-        text = text.replace(commonErrors[i].matchWith, function(match) {
-            message += "Replaced <b>" + match + "</b> with <b>" + commonErrors[i].replaceWith + "</b><br>";
-            return commonErrors[i].replaceWith;
-        })
+        for (var j = 0; j < lines.length; j++) {
+            lines[j] = lines[j].replace(commonErrors[i].matchWith, function(match) {
+                message += "<tr>"
+                message += `<td>${match}</td><td>${commonErrors[i].replaceWith}</td><td>${lines[j]}</td>`
+                message += "</tr>"
+                return commonErrors[i].replaceWith;
+            })
+        }
     }
 
+    text = lines.reduce(function(acc, line) {
+        return acc + line + "\n";
+    }, "")
+
     editor.val(text);
-    message += "Finished auto fixes";
+    message = `<table class="auto-fixes-table">${message}</table>`;
     $('#fixes-section').html(message);   
 }
 
@@ -1573,6 +1599,9 @@ var commonErrors = [
     }, {
         matchWith: /מעולם לא|לעולם לא/g,
         replaceWith: "אף פעם לא"
+    }, {
+        matchWith: /זה תור שלי/g,
+        replaceWith: "זה התור שלי"
     }
 ].map(Fix.build);    
   
