@@ -1261,8 +1261,8 @@ var commonErrors = [
         matchWith: /פסיכופט/g,
         replaceWith: "פסיכי"
     }, {
-        matchWith: / כל כך/g,
-        replaceWith: " כל-כך"
+        matchWith: /כל כך/g,
+        replaceWith: "כל-כך"
     }, {
         matchWith: /אלוורס|אלוורז/g,
         replaceWith: "אלברס"
@@ -1668,7 +1668,28 @@ var commonErrors = [
     }, {
         matchWith: /מתסדרת/g,
         replaceWith: "מסתדרת"
-    } 
+    }, {
+        matchWith: /התשנה/g,
+        replaceWith: "השתנה"
+    }, {
+        matchWith: /משרה לו/g,
+        replaceWith: "מרשה לו"
+    }, {
+        matchWith: /משרה לה/g,
+        replaceWith: "מרשה לה"
+    }, {
+        matchWith: /להחזיק לך ביד/g,
+        replaceWith: "להחזיק לך את היד"
+    }, {
+        matchWith: /זה מציק לך ש/g,
+        replaceWith: "מציק לך ש"
+    }, {
+        matchWith: /עכשיו אני עסוקה קצת/g,
+        replaceWith: "אני קצת עסוקה כרגע"
+    }, {
+        matchWith: /רק דקה/g,
+        replaceWith: "רק רגע"
+    }
 ].map(Fix.build);    
   
 </script>
