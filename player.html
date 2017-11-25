@@ -1653,7 +1653,22 @@ var commonErrors = [
     }, {
         matchWith: /לפחות אפשר/g,
         replaceWith: "אפשר לפחות"
-    }
+    }, {
+        matchWith: /תירוץ כדי/g,
+        replaceWith: "תירוץ"
+    }, {
+        matchWith: /לא באלי/g,
+        replaceWith: "לא בא לי"
+    }, {
+        matchWith: /,,/g,
+        replaceWith: ","
+    }, {
+        matchWith: /באתי מלהיפגש/g,
+        replaceWith: "באתי מפגישה"
+    }, {
+        matchWith: /מתסדרת/g,
+        replaceWith: "מסתדרת"
+    } 
 ].map(Fix.build);    
   
 </script>
