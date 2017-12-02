@@ -1246,6 +1246,9 @@ var commonErrors = [
         matchWith: /הכולבה/g,
         replaceWith: "הכלבה"
     }, {
+        matchWith: /הכולב/g,
+        replaceWith: "הכלב"
+    }, {
         matchWith: /מהכולא/g,
         replaceWith: "מהכלא"
     }, {
@@ -1689,6 +1692,21 @@ var commonErrors = [
     }, {
         matchWith: /רק דקה/g,
         replaceWith: "רק רגע"
+    }, {
+        matchWith: /גרמנו בטוב|גמרנו בטוב/g,
+        replaceWith: "סיימנו טוב"
+    }, {
+        matchWith: /איך שהוא הסתכל עליי/g,
+        replaceWith: "איך הוא הסתכל עליי"
+    }, {
+        matchWith: /גורעים/g,
+        replaceWith: "גרועים"
+    }, {
+        matchWith: /שמת מסכה על עצמך/g,
+        replaceWith: "שמת על עצמך מסכה"
+    }, {
+        matchWith: /לשכנע אותך על משהו/g,
+        replaceWith: "לשכנע אותך במשהו"
     }
 ].map(Fix.build);    
   
