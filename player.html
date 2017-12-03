@@ -49,7 +49,7 @@
         }
 
         #fixes-section {
-            height: 570px;
+            height: 590px;
             width: 350px;
             overflow: auto;
         }
@@ -110,13 +110,15 @@ function finalErrorCheck(editor) {
 function fixCommonErrors(editor) {
     var text = editor.val()
     ,   message = ''
-    ,   lines = text.split('\n');
+    ,   lines = text.split('\n')
+    ,   charCounter = 0;
 
     for (var i = 0; i < commonErrors.length; i++) {
         for (var j = 0; j < lines.length; j++) {
             lines[j] = lines[j].replace(commonErrors[i].matchWith, function(match) {
+                lineLocation = findCharNumber(text, j);
                 message += "<tr>"
-                message += `<td>${match}</td><td>${commonErrors[i].replaceWith}</td><td>${lines[j]}</td>`
+                message += `<td onClick="goToLine(${lineLocation})">${match}</td><td>${commonErrors[i].replaceWith}</td><td>${lines[j]}</td>`
                 message += "</tr>"
                 return commonErrors[i].replaceWith;
             })
@@ -130,6 +132,35 @@ function fixCommonErrors(editor) {
     editor.val(text);
     message = `<table class="auto-fixes-table">${message}</table>`;
     $('#fixes-section').html(message);   
+}
+
+function findCharNumber(text, lineNum) {
+    var lines = text.split('\n')
+    ,   charCount = 0;
+
+    for (var i = 0; i < lineNum; i++) {
+        var currLineLength = lines[i].length 
+        charCount += currLineLength + 1;
+    }
+
+    return charCount;
+}
+
+function goToLine(selectionStart) {
+    var input = document.getElementById("editor-textarea");
+    input.focus();
+    input.setSelectionRange(selectionStart, selectionStart + 1, "forward");
+    
+    // we need to know at which row our selection starts
+    var charsPerRow = input.cols;
+    var selectionRow = (selectionStart - (selectionStart % charsPerRow)) / charsPerRow;
+
+    // we need to scroll to this row but scrolls are in pixels,
+    // so we need to know a row's height, in pixels
+    var lineHeight = input.clientHeight / input.rows;
+
+    // scroll !!
+    input.scrollTop = lineHeight * selectionRow;
 }
 
 function seek(videoPlayer, value) {
@@ -1408,6 +1439,9 @@ var commonErrors = [
         matchWith: /השם שלי/g,
         replaceWith: "קוראים לי"
     }, {
+        matchWith: /את קוראים לי/g,
+        replaceWith: "איך קוראים לי"
+    }, {
         matchWith: /משלמים לי בשביל זה/g,
         replaceWith: "משלמים לי על זה"
     }, {
@@ -1707,6 +1741,33 @@ var commonErrors = [
     }, {
         matchWith: /לשכנע אותך על משהו/g,
         replaceWith: "לשכנע אותך במשהו"
+    }, {
+        matchWith: /גם יש לי/g,
+        replaceWith: "גם לי יש"
+    }, {
+        matchWith: /זה נשמע מוזר מה שאת אומרת/g,
+        replaceWith: "מה שאת אומרת נשמע מוזר"
+    }, {
+        matchWith: /בגין/g,
+        replaceWith: "על"
+    }, {
+        matchWith: /להוות/g,
+        replaceWith: "להיות"
+    }, {
+        matchWith: /אני עייפה קצת/g,
+        replaceWith: "אני קצת עייפה"
+    }, {
+        matchWith: /רוגעה/g,
+        replaceWith: "רגועה"
+    }, {
+        matchWith: /על ידיד/g,
+        replaceWith: "על ידי"
+    }, {
+        matchWith: /סלילה/g,
+        replaceWith: "סליחה"
+    }, {
+        matchWith: /נשיק /g,
+        replaceWith: "נישק "
     }
 ].map(Fix.build);    
   
@@ -1740,7 +1801,7 @@ var commonErrors = [
             </div>
         </div>
         <div id='editor' style="float: left; margin-left: 15px;">
-            <textarea cols=30 rows=37 wrap="hard" dir='rtl'
+            <textarea id="editor-textarea" cols=30 rows=37 wrap="hard" dir='rtl'
                       style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
         </div>
         <div id="fixes-section" style="float: left; margin-left: 15px">
