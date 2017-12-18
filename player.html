@@ -1160,7 +1160,7 @@ var commonErrors = [
         matchWith: /יום רע היה לך/g,
         replaceWith: "היה לך יום רע"
     }, {
-        matchWith: /אין על מה לדבר יותר/g,
+        matchWith: /אין על מה לדבר יותר|אין מה לדבר יותר/g,
         replaceWith: "אין על מה לדבר"
     }, {
         matchWith: /עכשיו מה היא עשתה/g,
@@ -1768,6 +1768,21 @@ var commonErrors = [
     }, {
         matchWith: /נשיק /g,
         replaceWith: "נישק "
+    }, {
+        matchWith: /המתכונת/g,
+        replaceWith: "מתכון"
+    }, {
+        matchWith: /אחרי המשרד/g,
+        replaceWith: "אחרי העבודה"
+    }, {
+        matchWith: /יום יבוא ש/g,
+        replaceWith: "יום אחד "
+    }, {
+        matchWith: /נהרוג את העצמנו/g,
+        replaceWith: "נהרוג אחד את השני"
+    }, {
+        matchWith: /אני עייף קצת/g,
+        replaceWith: "אני קצת עייף"
     }
 ].map(Fix.build);    
   
