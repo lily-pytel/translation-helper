@@ -116,9 +116,8 @@ function fixCommonErrors(editor) {
     for (var i = 0; i < commonErrors.length; i++) {
         for (var j = 0; j < lines.length; j++) {
             lines[j] = lines[j].replace(commonErrors[i].matchWith, function(match) {
-                lineLocation = findCharNumber(text, j);
                 message += "<tr>"
-                message += `<td onClick="goToLine(${lineLocation})">${match}</td><td>${commonErrors[i].replaceWith}</td><td>${lines[j]}</td>`
+                message += `<td onClick="goToLine(${j})">${match}</td><td>${commonErrors[i].replaceWith}</td><td>${lines[j]}</td>`
                 message += "</tr>"
                 return commonErrors[i].replaceWith;
             })
@@ -139,28 +138,29 @@ function findCharNumber(text, lineNum) {
     ,   charCount = 0;
 
     for (var i = 0; i < lineNum; i++) {
-        var currLineLength = lines[i].length 
+        var currLineLength = lines[i].length
         charCount += currLineLength + 1;
     }
 
     return charCount;
 }
 
-function goToLine(selectionStart) {
-    var input = document.getElementById("editor-textarea");
-    input.focus();
-    input.setSelectionRange(selectionStart, selectionStart + 1, "forward");
+function goToLine(lineNum) {
+    var input = document.getElementById("editor-textarea")
+    const selectionStart = findCharNumber(input.value, lineNum)
+    input.focus()
+    input.setSelectionRange(selectionStart, selectionStart + 10, "forward")
     
-    // we need to know at which row our selection starts
-    var charsPerRow = input.cols;
-    var selectionRow = (selectionStart - (selectionStart % charsPerRow)) / charsPerRow;
-
     // we need to scroll to this row but scrolls are in pixels,
     // so we need to know a row's height, in pixels
-    var lineHeight = input.clientHeight / input.rows;
+    var lineHeight = input.clientHeight / input.rows
 
     // scroll !!
-    input.scrollTop = lineHeight * selectionRow;
+    const scrollTo = lineHeight * (lineNum - 2)
+    // since the scroll gets more wrong the larger the line number, add an offset
+    // to scroll such that the selected line is kind of in the middle of the client
+    const offset = scrollTo * (lineHeight / lineNum)
+    input.scrollTop = scrollTo - offset
 }
 
 function seek(videoPlayer, value) {
@@ -1849,6 +1849,9 @@ var commonErrors = [
     }, {
         matchWith: /אני גם רוצה/g,
         replaceWith: "גם אני רוצה"
+    }, {
+        matchWith: /שוועה/g,
+        replaceWith: "שעווה"
     }
 ].map(Fix.build);    
   
