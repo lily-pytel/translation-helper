@@ -49,7 +49,7 @@
         }
 
         #fixes-section {
-            height: 570px;
+            height: 590px;
             width: 350px;
             overflow: auto;
         }
@@ -107,16 +107,44 @@ function finalErrorCheck(editor) {
     $('#fixes-section').html(message);
 }
 
+function fixWhiteSpace(editor) {
+    var text = editor.val()
+    ,   message = ''
+    ,   lines = text.split('\n')
+    ,   charCounter = 0
+    ,   commonWhiteSpaceErrors = commonErrors.filter(err => err.whiteSpaceCorrector) 
+
+    for (var i = 0; i < commonWhiteSpaceErrors.length; i++) {
+        for (var j = 0; j < lines.length; j++) {
+            lines[j] = lines[j].replace(commonWhiteSpaceErrors[i].matchWith, function(match) {
+                message += "<tr>"
+                message += `<td onClick="goToLine(${j})">${match}</td><td>${commonWhiteSpaceErrors[i].replaceWith}</td><td>${lines[j]}</td>`
+                message += "</tr>"
+                return commonWhiteSpaceErrors[i].replaceWith;
+            })
+        }
+    }
+
+    text = lines.reduce(function(acc, line) {
+        return acc + line + "\n";
+    }, "")
+
+    editor.val(text);
+    message = `<table class="auto-fixes-table">${message}</table>`;
+    $('#fixes-section').html(message);   
+}
+
 function fixCommonErrors(editor) {
     var text = editor.val()
     ,   message = ''
-    ,   lines = text.split('\n');
+    ,   lines = text.split('\n')
+    ,   charCounter = 0;
 
     for (var i = 0; i < commonErrors.length; i++) {
         for (var j = 0; j < lines.length; j++) {
             lines[j] = lines[j].replace(commonErrors[i].matchWith, function(match) {
                 message += "<tr>"
-                message += `<td>${match}</td><td>${commonErrors[i].replaceWith}</td><td>${lines[j]}</td>`
+                message += `<td onClick="goToLine(${j})">${match}</td><td>${commonErrors[i].replaceWith}</td><td>${lines[j]}</td>`
                 message += "</tr>"
                 return commonErrors[i].replaceWith;
             })
@@ -130,6 +158,36 @@ function fixCommonErrors(editor) {
     editor.val(text);
     message = `<table class="auto-fixes-table">${message}</table>`;
     $('#fixes-section').html(message);   
+}
+
+function findCharNumber(text, lineNum) {
+    var lines = text.split('\n')
+    ,   charCount = 0;
+
+    for (var i = 0; i < lineNum; i++) {
+        var currLineLength = lines[i].length
+        charCount += currLineLength + 1;
+    }
+
+    return charCount;
+}
+
+function goToLine(lineNum) {
+    var input = document.getElementById("editor-textarea")
+    const selectionStart = findCharNumber(input.value, lineNum)
+    input.focus()
+    input.setSelectionRange(selectionStart, selectionStart + 10, "forward")
+    
+    // we need to scroll to this row but scrolls are in pixels,
+    // so we need to know a row's height, in pixels
+    var lineHeight = input.clientHeight / input.rows
+
+    // scroll !!
+    const scrollTo = lineHeight * (lineNum - 2)
+    // since the scroll gets more wrong the larger the line number, add an offset
+    // to scroll such that the selected line is kind of in the middle of the client
+    const offset = scrollTo * (lineHeight / lineNum)
+    input.scrollTop = scrollTo - offset
 }
 
 function seek(videoPlayer, value) {
@@ -216,9 +274,10 @@ function serializeTokens(tokens) {
 FIX_VERBOSE = true;
 
 class Fix {
-    constructor(matchWith, replaceWith) {
+    constructor(matchWith, replaceWith, whiteSpaceCorrector) {
         this.matchWith = matchWith
-        this.replaceWith = replaceWith
+        this.replaceWith = replaceWith,
+        this.whiteSpaceCorrector = whiteSpaceCorrector
     }
 
     fix(text) {
@@ -241,7 +300,7 @@ class Fix {
     }
 
     static build(obj) {
-        return new Fix(obj.matchWith, obj.replaceWith)
+        return new Fix(obj.matchWith, obj.replaceWith, obj.whiteSpaceCorrector)
     }
 }
 
@@ -500,19 +559,24 @@ var commonErrors = [
         replaceWith: "אומר"
     }, {
         matchWith: /\.\-/g,
-        replaceWith: "\. \-"
+        replaceWith: "\. \-",
+        whiteSpaceCorrector: true
     }, {
         matchWith: /\?\-/g,
-        replaceWith: "\? \-"
+        replaceWith: "\? \-",
+        whiteSpaceCorrector: true
     }, {
         matchWith: /  +/g,
-        replaceWith: " "
+        replaceWith: " ",
+        whiteSpaceCorrector: true
     }, {
-        matchWith: /\n +/g,
-        replaceWith: "\n"
+        matchWith: /^ +/g,
+        replaceWith: "",
+        whiteSpaceCorrector: true
     }, {
-        matchWith: / +\n/g,
-        replaceWith: "\n"
+        matchWith: / +$/g,
+        replaceWith: "",
+        whiteSpaceCorrector: true
     }, {
         matchWith: /מה זאת אומרת ש/g,
         replaceWith: "מה פתאום "
@@ -790,6 +854,9 @@ var commonErrors = [
         matchWith: /דוגמא/g,
         replaceWith: "דוגמה"
     }, {
+        matchWith: /דוגמהות/g,
+        replaceWith: "דוגמאות"
+    }, {
         matchWith: /תרגום :/g,
         replaceWith: "תרגום:"
     }, {
@@ -882,6 +949,12 @@ var commonErrors = [
     }, {
         matchWith: /שיכור קצת/g,
         replaceWith: 'קצת שיכור'
+    }, {
+        matchWith: /מאוחר קצת/g,
+        replaceWith: 'קצת מאוחר'
+    }, {
+        matchWith: /לחוצות קצת/g,
+        replaceWith: 'קצת לחוצות'
     }, {
         matchWith: /מה השם שלך/g,
         replaceWith: 'איך קוראים לך'
@@ -1129,7 +1202,7 @@ var commonErrors = [
         matchWith: /יום רע היה לך/g,
         replaceWith: "היה לך יום רע"
     }, {
-        matchWith: /אין על מה לדבר יותר/g,
+        matchWith: /אין על מה לדבר יותר|אין מה לדבר יותר/g,
         replaceWith: "אין על מה לדבר"
     }, {
         matchWith: /עכשיו מה היא עשתה/g,
@@ -1155,6 +1228,9 @@ var commonErrors = [
     }, {
         matchWith: /אילו הייתי במקום שלך|אילו היית במקום שלך/g,
         replaceWith: "במקומך"
+    }, {
+        matchWith: /אילו הייתי במקום שלה/g,
+        replaceWith: "במקומה"
     }, {
         matchWith: /לס וגאס|לס ווגאס/g,
         replaceWith: "לאס וגאס"
@@ -1235,10 +1311,25 @@ var commonErrors = [
         replaceWith: "לבקש"
     }, {
         matchWith: /אני מתקשה/g,
-        replaceWith: "קשה"
+        replaceWith: "קשה לי"
     }, {
         matchWith: /הכל/g,
         replaceWith: "הכול"
+    }, {
+        matchWith: /מהכולל/g,
+        replaceWith: "מהכלל"
+    }, {
+        matchWith: /הכולבה/g,
+        replaceWith: "הכלבה"
+    }, {
+        matchWith: /הכולב/g,
+        replaceWith: "הכלב"
+    }, {
+        matchWith: /מהכולא/g,
+        replaceWith: "מהכלא"
+    }, {
+        matchWith: /הכלים/g,
+        replaceWith: "הכלים"
     }, {
         matchWith: /היא מתקשה/g,
         replaceWith: "קשה להן"
@@ -1249,8 +1340,8 @@ var commonErrors = [
         matchWith: /פסיכופט/g,
         replaceWith: "פסיכי"
     }, {
-        matchWith: / כל כך/g,
-        replaceWith: " כל-כך"
+        matchWith: /כל כך/g,
+        replaceWith: "כל-כך"
     }, {
         matchWith: /אלוורס|אלוורז/g,
         replaceWith: "אלברס"
@@ -1381,12 +1472,6 @@ var commonErrors = [
         matchWith: /מה השם שלו\?/g,
         replaceWith: "איך קוראים לו?"
     }, {
-        matchWith: /השם שלה/g,
-        replaceWith: "קוראים לה"
-    }, {
-        matchWith: /השם שלו/g,
-        replaceWith: "קוראים לו"
-    }, {
         matchWith: /לוירחינה/g,
         replaceWith: "לוןירחינה"
     }, {
@@ -1398,6 +1483,9 @@ var commonErrors = [
     }, {
         matchWith: /השם שלי/g,
         replaceWith: "קוראים לי"
+    }, {
+        matchWith: /את קוראים לי/g,
+        replaceWith: "איך קוראים לי"
     }, {
         matchWith: /משלמים לי בשביל זה/g,
         replaceWith: "משלמים לי על זה"
@@ -1603,11 +1691,20 @@ var commonErrors = [
         matchWith: /,,/g,
         replaceWith: ","
     }, {
-        matchWith: /מעולם לא|לעולם לא/g,
+        matchWith: /מעולם לא|לעולם לא|מעולה לא/g,
         replaceWith: "אף פעם לא"
     }, {
         matchWith: /זה תור שלי/g,
         replaceWith: "זה התור שלי"
+    }, {
+        matchWith: /הוא מתקשה בזה/g,
+        replaceWith: "זה קשה לו"
+    }, {
+        matchWith: /הכול הולך מעולה בינינו/g,
+        replaceWith: "המצב שלנו מעולה"
+    }, {
+        matchWith: /בהתאם לרמה שלך/g,
+        replaceWith: "ברמה שלך"
     }, {
         matchWith: /ברוכים הבאים שוב/g,
         replaceWith: "ברוכים השבים"
@@ -1644,6 +1741,234 @@ var commonErrors = [
     }, {
         matchWith: /דווקא בגלל זה/g,
         replaceWith: "בדיוק בגלל זה"
+    }, {
+        matchWith: /מתכוונת עליי/g,
+        replaceWith: "מתכוונת אליי"
+    }, {
+        matchWith: /מתכוון עליי/g,
+        replaceWith: "מתכוון אליי"
+    }, {
+        matchWith: /תתארי לעצמך/g,
+        replaceWith: "תארי לעצמך"
+    }, {
+        matchWith: /תתאר לעצמך/g,
+        replaceWith: "תאר לעצמך"
+    }, {
+        matchWith: /אי לא יודע/g,
+        replaceWith: "אני לא יודע"
+    }, {
+        matchWith: /עיד מעט/g,
+        replaceWith: "עוד מעט"
+    }, {
+        matchWith: /לפחות אפשר/g,
+        replaceWith: "אפשר לפחות"
+    }, {
+        matchWith: /תירוץ כדי/g,
+        replaceWith: "תירוץ"
+    }, {
+        matchWith: /לא באלי/g,
+        replaceWith: "לא בא לי"
+    }, {
+        matchWith: /,,/g,
+        replaceWith: ","
+    }, {
+        matchWith: /באתי מלהיפגש/g,
+        replaceWith: "באתי מפגישה"
+    }, {
+        matchWith: /מתסדרת/g,
+        replaceWith: "מסתדרת"
+    }, {
+        matchWith: /התשנה/g,
+        replaceWith: "השתנה"
+    }, {
+        matchWith: /משרה לו/g,
+        replaceWith: "מרשה לו"
+    }, {
+        matchWith: /משרה לה/g,
+        replaceWith: "מרשה לה"
+    }, {
+        matchWith: /להחזיק לך ביד/g,
+        replaceWith: "להחזיק לך את היד"
+    }, {
+        matchWith: /זה מציק לך ש/g,
+        replaceWith: "מציק לך ש"
+    }, {
+        matchWith: /עכשיו אני עסוקה קצת/g,
+        replaceWith: "אני קצת עסוקה כרגע"
+    }, {
+        matchWith: /רק דקה/g,
+        replaceWith: "רק רגע"
+    }, {
+        matchWith: /גרמנו בטוב|גמרנו בטוב/g,
+        replaceWith: "סיימנו טוב"
+    }, {
+        matchWith: /איך שהוא הסתכל עליי/g,
+        replaceWith: "איך הוא הסתכל עליי"
+    }, {
+        matchWith: /גורעים/g,
+        replaceWith: "גרועים"
+    }, {
+        matchWith: /שמת מסכה על עצמך/g,
+        replaceWith: "שמת על עצמך מסכה"
+    }, {
+        matchWith: /לשכנע אותך על משהו/g,
+        replaceWith: "לשכנע אותך במשהו"
+    }, {
+        matchWith: /גם יש לי/g,
+        replaceWith: "גם לי יש"
+    }, {
+        matchWith: /זה נשמע מוזר מה שאת אומרת/g,
+        replaceWith: "מה שאת אומרת נשמע מוזר"
+    }, {
+        matchWith: /בגין/g,
+        replaceWith: "על"
+    }, {
+        matchWith: /להוות/g,
+        replaceWith: "להיות"
+    }, {
+        matchWith: /אני עייפה קצת/g,
+        replaceWith: "אני קצת עייפה"
+    }, {
+        matchWith: /רוגעה/g,
+        replaceWith: "רגועה"
+    }, {
+        matchWith: /על ידיד/g,
+        replaceWith: "על ידי"
+    }, {
+        matchWith: /סלילה/g,
+        replaceWith: "סליחה"
+    }, {
+        matchWith: /נשיק /g,
+        replaceWith: "נישק "
+    }, {
+        matchWith: /המתכונת/g,
+        replaceWith: "מתכון"
+    }, {
+        matchWith: /אחרי המשרד/g,
+        replaceWith: "אחרי העבודה"
+    }, {
+        matchWith: /יום יבוא ש/g,
+        replaceWith: "יום אחד "
+    }, {
+        matchWith: /נהרוג את העצמנו/g,
+        replaceWith: "נהרוג אחד את השני"
+    }, {
+        matchWith: /אני עייף קצת/g,
+        replaceWith: "אני קצת עייף"
+    }, {
+        matchWith: /אמפנדנה/g,
+        replaceWith: "אמפנדה"
+    }, {
+        matchWith: /לתפוס מרחק קצת/g,
+        replaceWith: "לתפוס קצת מרחק"
+    }, {
+        matchWith: /אני אבודה קצת/g,
+        replaceWith: "אני קצת אבודה"
+    }, {
+        matchWith: /תעשה מקלחת קודם/g,
+        replaceWith: "קודם תתקלח"
+    }, {
+        matchWith: /כמה ש/g,
+        replaceWith: "כמה "
+    }, {
+        matchWith: /שחכתי/g,
+        replaceWith: "שכחתי"
+    }, {
+        matchWith: /לשותות/g,
+        replaceWith: "לשתות"
+    }, {
+        matchWith: /מבטח/g,
+        replaceWith: "מטבח"
+    }, {
+        matchWith: /אהיה בשבילך|אהיה שם בשבילך/g,
+        replaceWith: "אהיה לצדך"
+    }, {
+        matchWith: /לא מבחין/g,
+        replaceWith: "לא שם לב"
+    }, {
+        matchWith: /לא שם לב בי/g,
+        replaceWith: "לא שם לב אליי"
+    }, {
+        matchWith: /לא מבחינה/g,
+        replaceWith: "לא שמה לב"
+    }, {
+        matchWith: /לא שמב לב בי/g,
+        replaceWith: "לא שמה לב אליי"
+    }, {
+        matchWith: /יש כימיה ביניהם/g,
+        replaceWith: "יש ביניהם כימיה"
+    }, {
+        matchWith: /להביא ילד איתך/g,
+        replaceWith: "להביא איתך ילד"
+    }, {
+        matchWith: /אנחנו יותר מדי אנשים פה/g,
+        replaceWith: "יש פה יותר מדי אנשים"
+    }, {
+        matchWith: /גם הייתי/g,
+        replaceWith: "גם אני הייתי"
+    }, {
+        matchWith: /הייתי פועלת כמוה/g,
+        replaceWith: "הייתי עושה אותו דבר"
+    }, {
+        matchWith: /ועכשיו את זה/g,
+        replaceWith: "ועכשיו זה"
+    }, {
+        matchWith: /אני גם רוצה/g,
+        replaceWith: "גם אני רוצה"
+    }, {
+        matchWith: /שוועה/g,
+        replaceWith: "שעווה"
+    }, {
+        matchWith: /כליי/g,
+        replaceWith: "כללי"
+    }, {
+        matchWith: /מראין/g,
+        replaceWith: "מריאן"
+    }, {
+        matchWith: /ברד פיט/g,
+        replaceWith: "בראד פיט"
+    }, {
+        matchWith: /עושות אותי מאושרת/g,
+        replaceWith: "משמחות אותי"
+    }, {
+        matchWith: /לחץ הדם ירד לי/g,
+        replaceWith: "לחץ הדם שלי ירדי"
+    }, {
+        matchWith: /הייתי באה בטוח/g,
+        replaceWith: "בטוח הייתי באה"
+    }, {
+        matchWith: /להשתמש בנו/g,
+        replaceWith: "לנצל אותנו"
+    }, {
+        matchWith: /דוגמהות רבים/g,
+        replaceWith: "הרבה דוגמאות"
+    }, {
+        matchWith: /חשובה בשבילו/g,
+        replaceWith: "חשובה לו"
+    }, {
+        matchWith: /אאוחאקה/g,
+        replaceWith: "אואחאקה"
+    }, {
+        matchWith: /הריון/g,
+        replaceWith: "היריון"
+    }, {
+        matchWith: /שיערות/g,
+        replaceWith: "שיער"
+    }, {
+        matchWith: /מבודרת/g,
+        replaceWith: "מבוגרת"
+    }, {
+        matchWith: /מבוגרת ממנה יותר/g,
+        replaceWith: "מבוגרת ממנה"
+    }, {
+        matchWith: /^אם /g,
+        replaceWith: "אם "
+    }, {
+        matchWith: /זאת /g,
+        replaceWith: "זאת "
+    }, {
+        matchWith: /זה /g,
+        replaceWith: "זה "
     }
 ].map(Fix.build);    
   
@@ -1660,6 +1985,7 @@ var commonErrors = [
                 <button onclick="loadBuffer(Editor);">Load Buffer</button>
                 <button onclick="loadBufferFromRecovery(Editor);">Load (Recovery)</button>
                 <button onclick="fixCommonErrors(Editor);">Fix Common Errors</button>
+                <button onclick="fixWhiteSpace(Editor);">Fix White Spaces</button>
                 <button onclick="finalErrorCheck(Editor)">Final Error Check</button>
             </div>
             <div id="common-errors-area">
@@ -1677,7 +2003,7 @@ var commonErrors = [
             </div>
         </div>
         <div id='editor' style="float: left; margin-left: 15px;">
-            <textarea cols=30 rows=37 wrap="hard" dir='rtl'
+            <textarea id="editor-textarea" cols=30 rows=37 wrap="hard" dir='rtl'
                       style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
         </div>
         <div id="fixes-section" style="float: left; margin-left: 15px">
