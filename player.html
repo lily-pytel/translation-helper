@@ -504,6 +504,15 @@ $(function() {
 
 var commonErrors = [
     {
+        matchWith: /אני כמו שאני/g,
+        replaceWith: "אני מי שאני"
+    }, {
+        matchWith: /על ש/g,
+        replaceWith: "על כך ש"
+    }, {
+        matchWith: /משחק איתי/g,
+        replaceWith: "משחק בי"
+    }, {
         matchWith: /אחות שלך/g,
         replaceWith: "אחותך"
     }, {
@@ -949,6 +958,9 @@ var commonErrors = [
     }, {
         matchWith: /שיכור קצת/g,
         replaceWith: 'קצת שיכור'
+    }, {
+        matchWith: /טרודה קצת/g,
+        replaceWith: 'קצת טרודה'
     }, {
         matchWith: /מאוחר קצת/g,
         replaceWith: 'קצת מאוחר'
@@ -1418,6 +1430,9 @@ var commonErrors = [
         matchWith: /תמייד/g,
         replaceWith: "תמיד"
     }, {
+        matchWith: /שמייד/g,
+        replaceWith: "שמיד"
+    }, {
         matchWith: /מיידות/g,
         replaceWith: "מידות"
     }, {
@@ -1499,11 +1514,44 @@ var commonErrors = [
         matchWith: /המון לעשות/g,
         replaceWith: "המון דברים לעשות"
     }, {
+        matchWith: /גורע יותר/g,
+        replaceWith: "גרוע יותר"
+    }, {
         matchWith: /אני כבר טוב יותר/g,
         replaceWith: "המצב שלי השתפר"
     }, {
         matchWith: /משלמים לי בשביל זה/g,
         replaceWith: "משלמים לי על זה"
+    }, {
+        matchWith: /מי בכלל מתעניין בכמה קורה/g,
+        replaceWith: "למי אכפת מה קורה"
+    }, {
+        matchWith: /למרות אותך/g,
+        replaceWith: "לרמות אותך"
+    }, {
+        matchWith: /השלייה/g,
+        replaceWith: "אשליה"
+    }, {
+        matchWith: /הספד/g,
+        replaceWith: "הפסד"
+    }, {
+        matchWith: /אאודיפס/g,
+        replaceWith: "אדיפוס"
+    }, {
+        matchWith: /כפוית תודה/g,
+        replaceWith: "כפויית טובה"
+    }, {
+        matchWith: /גם מכוונת אלייך/g,
+        replaceWith: "מכוונת גם אלייך"
+    }, {
+        matchWith: /אבקש טובה ממך/g,
+        replaceWith: "אבקש ממך טובה"
+    }, {
+        matchWith: /חמה/g,
+        replaceWith: "חמות"
+    }, {
+        matchWith: /מה הכי טוב בזה/g,
+        replaceWith: "מה החלק הטוב ביותר"
     }, {
         matchWith: /כמה עות/g,
         replaceWith: "כמה שעות"
@@ -1847,7 +1895,25 @@ var commonErrors = [
         matchWith: /אחרי המשרד/g,
         replaceWith: "אחרי העבודה"
     }, {
-        matchWith: /יום יבוא ש/g,
+        matchWith: /קצת טוב יותר/g,
+        replaceWith: "קצת יותר טוב"
+    }, {
+        matchWith: /מה זה כל זה/g,
+        replaceWith: "מה כל זה"
+    }, {
+        matchWith: /את שוב\?/g,
+        replaceWith: "שוב את?"
+    }, {
+        matchWith: /לא מדובר בלהתנצל/g,
+        replaceWith: "אין טעם להתנצל"
+    }, {
+        matchWith: /תולכי|תוכלי/g,
+        replaceWith: "את יכולה"
+    }, {
+        matchWith: /נכיר את עצמנו שוב/g,
+        replaceWith: "נשוב להכיר אחד את השני"
+    }, {
+        matchWith: /יום יבוא ש|יום יגיע ו/g,
         replaceWith: "יום אחד "
     }, {
         matchWith: /נהרוג את העצמנו/g,
@@ -1883,17 +1949,17 @@ var commonErrors = [
         matchWith: /אהיה בשבילך|אהיה שם בשבילך/g,
         replaceWith: "אהיה לצדך"
     }, {
-        matchWith: /לא מבחין/g,
-        replaceWith: "לא שם לב"
+        matchWith: /מבחין/g,
+        replaceWith: "שם לב"
     }, {
-        matchWith: /לא שם לב בי/g,
-        replaceWith: "לא שם לב אליי"
+        matchWith: /שם לב בי/g,
+        replaceWith: "שם לב אליי"
     }, {
-        matchWith: /לא מבחינה/g,
-        replaceWith: "לא שמה לב"
+        matchWith: /מבחינה/g,
+        replaceWith: "שמה לב"
     }, {
-        matchWith: /לא שמב לב בי/g,
-        replaceWith: "לא שמה לב אליי"
+        matchWith: /שמב לב בי/g,
+        replaceWith: "שמה לב אליי"
     }, {
         matchWith: /יש כימיה ביניהם/g,
         replaceWith: "יש ביניהם כימיה"
@@ -1960,6 +2026,18 @@ var commonErrors = [
     }, {
         matchWith: /מבוגרת ממנה יותר/g,
         replaceWith: "מבוגרת ממנה"
+    }, { 
+        matchWith: /סיבה כדי/g,
+        replaceWith: "סיבה "
+    }, {
+        matchWith: /מה פתאום שתגידי/g,
+        replaceWith: "איך את אומרת"
+    }, {
+        matchWith: /מה פתאום שתגיד/g,
+        replaceWith: "איך אתה אומר"
+    }, {
+        matchWith: /בערך מתי/g,
+        replaceWith: "מתי בערך"
     }, {
         matchWith: /^אם /g,
         replaceWith: "אם "
