@@ -587,6 +587,10 @@ var commonErrors = [
         replaceWith: "",
         whiteSpaceCorrector: true
     }, {
+        matchWith: /"\./g,
+        replaceWith: '."',
+        whiteSpaceCorrector: true
+    }, {
         matchWith: /מה זאת אומרת ש/g,
         replaceWith: "מה פתאום "
     }, {
@@ -1535,9 +1539,6 @@ var commonErrors = [
         matchWith: /הספד/g,
         replaceWith: "הפסד"
     }, {
-        matchWith: /אאודיפס/g,
-        replaceWith: "אדיפוס"
-    }, {
         matchWith: /כפוית תודה/g,
         replaceWith: "כפויית טובה"
     }, {
@@ -1790,6 +1791,12 @@ var commonErrors = [
         matchWith: /דווקא בגלל זה/g,
         replaceWith: "בדיוק בגלל זה"
     }, {
+        matchWith: /להודיע לי לפני זה/g,
+        replaceWith: "להודיע לי מראש"
+    }, {
+        matchWith: /איך שאתה חמוד/g,
+        replaceWith: "איזה חמוד אתה"
+    }, {
         matchWith: /מתכוונת עליי/g,
         replaceWith: "מתכוונת אליי"
     }, {
@@ -1807,6 +1814,9 @@ var commonErrors = [
     }, {
         matchWith: /עיד מעט/g,
         replaceWith: "עוד מעט"
+    }, {
+        matchWith: /להתוודות במשהו/g,
+        replaceWith: "להתוודות על משהו"
     }, {
         matchWith: /לפחות אפשר/g,
         replaceWith: "אפשר לפחות"
@@ -2006,11 +2016,26 @@ var commonErrors = [
         matchWith: /להשתמש בנו/g,
         replaceWith: "לנצל אותנו"
     }, {
+        matchWith: /סבתא רבא/g,
+        replaceWith: "סבתא רבתא"
+    }, {
         matchWith: /דוגמהות רבים/g,
         replaceWith: "הרבה דוגמאות"
     }, {
         matchWith: /חשובה בשבילו/g,
         replaceWith: "חשובה לו"
+    }, {
+        matchWith: /שלא אגלה/g,
+        replaceWith: "לא לגלות"
+    }, { 
+        matchWith: /בכול השנים/g,
+        replaceWith: "במשך כל השנים"
+    }, {
+        matchWith: /יום יבוא/g,
+        replaceWith: "יום אחד"
+    }, {
+        matchWith: /שדיברת מדי יום אליו/g,
+        replaceWith: "שדיברת אליו בכל יום"
     }, {
         matchWith: /אאוחאקה/g,
         replaceWith: "אואחאקה"
