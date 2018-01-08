@@ -524,6 +524,9 @@ var commonErrors = [
     }, {
         matchWith: /אח שלי/g,
         replaceWith: "אחי"
+    }, { 
+        matchWith: /הערסל/g,
+        replaceWith: "עריסה"
     }, {
         matchWith: /משום ש/g,
         replaceWith: "כי "
@@ -545,6 +548,15 @@ var commonErrors = [
     }, {
         matchWith: /בכול מקום/g,
         replaceWith: "בכל מקום"
+    }, { 
+        matchWith: /אמרתי לך שלא תתקשר אלי/g,
+        replaceWith: "אמרתי לך לא להתקשר אליי"
+    }, {
+        matchWith: /מה לעשות יותר פה/g,
+        replaceWith: "מה לעשות פה יותר"
+    }, {
+        matchWith: /אם להיות כנה/g,
+        replaceWith: "בכנות"
     }, {
         matchWith: /תסתכל אליי/g,
         replaceWith: "תסתכל עליי"
@@ -1308,9 +1320,6 @@ var commonErrors = [
         matchWith: /כול מה ש/g,
         replaceWith: "כל מה ש"
     }, {
-        matchWith: /נצ'ו/g,
-        replaceWith: "נאצ'ו"
-    }, {
         matchWith: /נצ'יט/g,
         replaceWith: "נאצ'יט"
     }, {
@@ -1329,23 +1338,17 @@ var commonErrors = [
         matchWith: /אני מתקשה/g,
         replaceWith: "קשה לי"
     }, {
-        matchWith: /הכל/g,
+        matchWith: /הכל(?!א|ה|ל|ב|י)/g,
         replaceWith: "הכול"
     }, {
-        matchWith: /מהכולל/g,
-        replaceWith: "מהכלל"
+        matchWith: /איך שאני מתרגשת/g,
+        replaceWith: "אני ממש מתרגשת"
     }, {
-        matchWith: /הכולבה/g,
-        replaceWith: "הכלבה"
+        matchWith: /אל תפסיק אותי/g,
+        replaceWith: "אל תקטע אותי"
     }, {
-        matchWith: /הכולב/g,
-        replaceWith: "הכלב"
-    }, {
-        matchWith: /מהכולא/g,
-        replaceWith: "מהכלא"
-    }, {
-        matchWith: /הכלים/g,
-        replaceWith: "הכלים"
+        matchWith: /אל תפסיקי אותי/g,
+        replaceWith: "אל תקטעי אותי"
     }, {
         matchWith: /היא מתקשה/g,
         replaceWith: "קשה להן"
@@ -1428,7 +1431,7 @@ var commonErrors = [
         matchWith: /מיד כש/g,
         replaceWith: "ברגע ש"
     }, {
-        matchWith: /מיד/g,
+        matchWith: /מיד(?!ו|ה|ע|י)/g,
         replaceWith: "מייד"
     }, {
         matchWith: /תמייד/g,
@@ -1437,23 +1440,20 @@ var commonErrors = [
         matchWith: /שמייד/g,
         replaceWith: "שמיד"
     }, {
-        matchWith: /מיידות/g,
-        replaceWith: "מידות"
-    }, {
-        matchWith: /מיידה/g,
-        replaceWith: "מידה"
-    }, {
         matchWith: /תלמייד/g,
         replaceWith: "תלמיד"
     }, {
         matchWith: /עמייד/g,
         replaceWith: "עמיד"
     }, {
-        matchWith: /מיידע/g,
-        replaceWith: "מידע"
-    }, {
         matchWith: /צמייד/g,
         replaceWith: "צמיד"
+    }, {
+        matchWith: /בכל הכנות/g,
+        replaceWith: "בכנות"
+    }, {
+        matchWith: /דורש לנו/g,
+        replaceWith: "דרוש לנו"
     }, {
         matchWith: /וייה ריקה/g,
         replaceWith: "וייריקה"
@@ -1514,6 +1514,12 @@ var commonErrors = [
     }, {
         matchWith: /לבלות את הלילה איתך/g,
         replaceWith: "לבלות איתך את הלילה"
+    }, {
+        matchWith: /שלמוך/g,
+        replaceWith: "שלומך"
+    }, {
+        matchWith: /לסמוך קצת עליהם/g,
+        replaceWith: "לסמוך עליהם קצת"
     }, {
         matchWith: /המון לעשות/g,
         replaceWith: "המון דברים לעשות"
@@ -1944,7 +1950,7 @@ var commonErrors = [
         matchWith: /תעשה מקלחת קודם/g,
         replaceWith: "קודם תתקלח"
     }, {
-        matchWith: /כמה ש/g,
+        matchWith: /כמה ש(?!נים|עות|נא)/g,
         replaceWith: "כמה "
     }, {
         matchWith: /שחכתי/g,
@@ -2061,16 +2067,40 @@ var commonErrors = [
         matchWith: /מה פתאום שתגיד/g,
         replaceWith: "איך אתה אומר"
     }, {
+        matchWith: /^אאוחאקה דה חוארס, מרכז$|^אואחאקה דה חוארס, מרכז$/g,
+        replaceWith: '"אואחאקה דה חוארס, מרכז"'
+    }, { 
+        matchWith: /פשטו/g,
+        replaceWith: "פשוט"
+    }, {
+        matchWith: /דמעות יותר/g,
+        replaceWith: "עוד דמעות"
+    }, {
+        matchWith: /הוא ראוי לזה/g,
+        replaceWith: "זה מגיע לו"
+    }, {
+        matchWith: /היא ראויה לזה/g,
+        replaceWith: "זה מגיע לה"
+    }, {
+        matchWith: /הוא ראוי/g,
+        replaceWith: "מגיע לו"
+    }, { 
+        matchWith: /היא ראויה/g,
+        replaceWith: "מגיע לה"
+    }, {
+        matchWith: /אני מאמין באהבה שוב/g,
+        replaceWith: "שבתי להאמין באהבה"
+    }, {
         matchWith: /בערך מתי/g,
         replaceWith: "מתי בערך"
     }, {
-        matchWith: /^אם /g,
+        matchWith: /^אם |^-אם /g,
         replaceWith: "אם "
     }, {
-        matchWith: /זאת /g,
+        matchWith: /זאת |^-זאת/g,
         replaceWith: "זאת "
     }, {
-        matchWith: /זה /g,
+        matchWith: /זה |^-זה/g,
         replaceWith: "זה "
     }
 ].map(Fix.build);    
@@ -2084,12 +2114,13 @@ var commonErrors = [
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
-                <button onclick='saveBuffer(Editor);'>Save Buffer</button>
-                <button onclick="loadBuffer(Editor);">Load Buffer</button>
-                <button onclick="loadBufferFromRecovery(Editor);">Load (Recovery)</button>
-                <button onclick="fixCommonErrors(Editor);">Fix Common Errors</button>
+                <button style="font-weight: bold" onclick="fixCommonErrors(Editor);">Fix Common Errors</button>
                 <button onclick="fixWhiteSpace(Editor);">Fix White Spaces</button>
                 <button onclick="finalErrorCheck(Editor)">Final Error Check</button>
+                <br><br>
+                <button onclick="loadBufferFromRecovery(Editor);">Load (Recovery)</button>
+                <button onclick='saveBuffer(Editor);'>Save Buffer</button>
+                <button onclick="loadBuffer(Editor);">Load Buffer</button>
             </div>
             <div id="common-errors-area">
                 <input id="fix-pattern" type="text" name="fix-pattern" placeholder="Match" style="width:95px;margin-top: 5px;"/>
