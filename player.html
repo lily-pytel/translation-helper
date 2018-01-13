@@ -507,8 +507,20 @@ var commonErrors = [
         matchWith: /אני כמו שאני/g,
         replaceWith: "אני מי שאני"
     }, {
-        matchWith: /על ש/g,
+        matchWith: /על ש(?!טויות|נים|עות)/g,
         replaceWith: "על כך ש"
+    }, {
+        matchWith: /לכבוד לי ש/g,
+        replaceWith: "לכבוד הוא לי ש"
+    }, {
+        matchWith: /איך שזה/g,
+        replaceWith: "כמה זה"
+    }, {
+        matchWith: /תיזהר מאוד מהדברים שלך/g,
+        replaceWith: "שים לב למה שאתה אומר"
+    }, {
+        matchWith: /הכול יש פה/g,
+        replaceWith: "יש פה הכול"
     }, {
         matchWith: /משחק איתי/g,
         replaceWith: "משחק בי"
@@ -555,7 +567,13 @@ var commonErrors = [
         matchWith: /מה לעשות יותר פה/g,
         replaceWith: "מה לעשות פה יותר"
     }, {
-        matchWith: /אם להיות כנה/g,
+        matchWith: /יהיו בעיות יותר/g,
+        replaceWith: "יהיו יותר בעיות"
+    }, {
+        matchWith: /אין לך מה לדאוג עליו|באמת אין לך מה לדאוג עליו/g,
+        replaceWith: "אין לך מה לדאוג לגביו"
+    }, {
+        matchWith: /אם להיות כנה|אם להיות כנה איתך/g,
         replaceWith: "בכנות"
     }, {
         matchWith: /תסתכל אליי/g,
@@ -822,7 +840,7 @@ var commonErrors = [
         matchWith: /אלפונסו אחי/g,
         replaceWith: "אחי אלפונסו"
     }, {
-        matchWith: /מהלך|מהלכים/g,
+        matchWith: /מהלכים/g,
         replaceWith: "אסטרטגיה"
     }, {
         matchWith: /מו"מ/g,
@@ -1593,8 +1611,20 @@ var commonErrors = [
         matchWith: /ככה, ככה/g,
         replaceWith: "לא משהו"
     }, {
+        matchWith: /חשוב בשבילי/g,
+        replaceWith: "חשוב לי"
+    }, {
         matchWith: /קשה בשבילי/g,
         replaceWith: "קשה לי"
+    }, { 
+        matchWith: /הייתה תמיד/g,
+        replaceWith: "תמיד הייתה"
+    }, {
+        matchWith: /אומנם אני לחוצה בגלל זה|אומנם אני לחוץ בגלל זה/g,
+        replaceWith: "אומנם זה מלחיץ אותי"
+    }, {
+        matchWith: /להמשיך קדימה/g,
+        replaceWith: "להתקדםי"
     }, {
         matchWith: /עבר לי בראש/g,
         replaceWith: "עלה בדעתי"
@@ -1685,6 +1715,9 @@ var commonErrors = [
     }, {
         matchWith: /ג'י פי אס/g,
         replaceWith: "ג'י.פי.אס"
+    }, { 
+        matchWith: /מטיחה לך/g,
+        replaceWith: "מבטיחה לך"
     }, {
         matchWith: /מאהובת/g,
         replaceWith: "מאוהבת"
@@ -1923,6 +1956,9 @@ var commonErrors = [
         matchWith: /לא מדובר בלהתנצל/g,
         replaceWith: "אין טעם להתנצל"
     }, {
+        matchWith: /תולכ|תוכל/g,
+        replaceWith: "אתה יכול"
+    }, {
         matchWith: /תולכי|תוכלי/g,
         replaceWith: "את יכולה"
     }, {
@@ -1950,11 +1986,38 @@ var commonErrors = [
         matchWith: /תעשה מקלחת קודם/g,
         replaceWith: "קודם תתקלח"
     }, {
-        matchWith: /כמה ש(?!נים|עות|נא)/g,
+        matchWith: /כמה ש(?!נים|עות|נא|יותר)/g,
         replaceWith: "כמה "
+    }, { 
+        matchWith: /שזה לא יהיה אכפת/g,
+        replaceWith: "שזה לא ישנה"
+    }, {
+        matchWith: /שיתפת פעולה איתה/g,
+        replaceWith: "שיתפת איתה פעולה"
+    }, {
+        matchWith: /חינכנו אותה בשביל זה/g,
+        replaceWith: "ככה חינכנו אותה"
+    }, {
+        matchWith: /אני אמשה/g,
+        replaceWith: "אני אשמה"
+    }, { 
+        matchWith: /היא אפשר/g,
+        replaceWith: "אי אפשר"
+    }, {
+        matchWith: /אני אוהב איך שאת רוקדת/g,
+        replaceWith: "אני אוהב לראות אותך רוקדת"
+    }, {
+        matchWith: /תודה על כך ששמעת אותי|תודה על כך שהקשבת לי|תודה ששמעת אותי/g,
+        replaceWith: "תודה שהקשבת לי"
     }, {
         matchWith: /שחכתי/g,
         replaceWith: "שכחתי"
+    }, {
+        matchWith: /חיים בדחוק/g,
+        replaceWith: "חיים בדוחק"
+    }, {
+        matchWith: /ארוחת העבר/g,
+        replaceWith: "ארוחת הערב"
     }, {
         matchWith: /לשותות/g,
         replaceWith: "לשתות"
@@ -2070,8 +2133,14 @@ var commonErrors = [
         matchWith: /^אאוחאקה דה חוארס, מרכז$|^אואחאקה דה חוארס, מרכז$/g,
         replaceWith: '"אואחאקה דה חוארס, מרכז"'
     }, { 
-        matchWith: /פשטו/g,
+        matchWith: /פשטו(?!ת)/g,
         replaceWith: "פשוט"
+    }, {
+        matchWith: /קח את זה איך שאתה רוצה/g,
+        replaceWith: "תפרש את זה כרצונך"
+    }, {
+        matchWith: /קחי את זה איך שאת רוצה/g,
+        replaceWith: "תפרשי את זה כרצונך"
     }, {
         matchWith: /דמעות יותר/g,
         replaceWith: "עוד דמעות"
@@ -2093,6 +2162,33 @@ var commonErrors = [
     }, {
         matchWith: /בערך מתי/g,
         replaceWith: "מתי בערך"
+    }, {
+        matchWith: /גם יש לך משהו/g,
+        replaceWith: "גם לך יש משהו"
+    }, {
+        matchWith: /אתה טועה בזה/g,
+        replaceWith: "בזה אתה טועה"
+    }, {
+        matchWith: /תמרי על עצמך/g,
+        replaceWith: "תשמרי על עצמך"
+    }, {
+        matchWith: /תמר על עצמך/g,
+        replaceWith: "תשמור על עצמך"
+    }, {
+        matchWith: /חוץ מה,/g,
+        replaceWith: "חוץ מזה,"
+    }, {
+        matchWith: /איחרתי את הרכבת/g,
+        replaceWith: "פספסתי את הרכבת"
+    }, {
+        matchWith: /כבר איחרת את הרכבת/g,
+        replaceWith: "כבר פספסת את הרכבת"
+    }, {
+        matchWith: /מאתינו/g,
+        replaceWith: "מאיתנו"
+    }, {
+        matchWith: /מהלך/g,
+        replaceWith: "מהלך"
     }, {
         matchWith: /^אם |^-אם /g,
         replaceWith: "אם "
