@@ -1986,7 +1986,7 @@ var commonErrors = [
         matchWith: /תעשה מקלחת קודם/g,
         replaceWith: "קודם תתקלח"
     }, {
-        matchWith: /כמה ש(?!נים|עות|נא|יותר)/g,
+        matchWith: /כמה ש(?!נים|עות|נא|יותר|ניות|של )/g,
         replaceWith: "כמה "
     }, { 
         matchWith: /שזה לא יהיה אכפת/g,
@@ -2132,7 +2132,10 @@ var commonErrors = [
     }, {
         matchWith: /^אאוחאקה דה חוארס, מרכז$|^אואחאקה דה חוארס, מרכז$/g,
         replaceWith: '"אואחאקה דה חוארס, מרכז"'
-    }, { 
+    }, {
+        matchWith: /^פוארטו אסקונדידו, אאוחאקה$|^פוארטו אסקונדידו, אואחאקה$/g,
+        replaceWith: '"פוארטו אסקונדידו, אואחאקה"'
+    }, {
         matchWith: /פשטו(?!ת)/g,
         replaceWith: "פשוט"
     }, {
@@ -2189,6 +2192,18 @@ var commonErrors = [
     }, {
         matchWith: /מהלך/g,
         replaceWith: "מהלך"
+    }, {
+        matchWith: /שמעה אותי/g,
+        replaceWith: "הקשיבה לי"
+    }, {
+        matchWith: /חשבתי למה/g,
+        replaceWith: "תהיתי למה"
+    }, {
+        matchWith: /חבי גלאן/g,
+        replaceWith: "חאווי גלן"
+    }, {
+        matchWith: /צ'ין, צ'ין/g,
+        replaceWith: "לחיים"
     }, {
         matchWith: /^אם |^-אם /g,
         replaceWith: "אם "
