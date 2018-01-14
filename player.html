@@ -502,12 +502,43 @@ $(function() {
     initHighlighter()
 })
 
+var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|כן|כנים|כנות|כנה)'
 var commonErrors = [
     {
         matchWith: /אני כמו שאני/g,
         replaceWith: "אני מי שאני"
+    }, { 
+        matchWith: /כפל אישיות/g,
+        replaceWith: "פיצול אישיות"
     }, {
-        matchWith: /על ש(?!טויות|נים|עות)/g,
+        matchWith: /הספקה/g,
+        replaceWith: "הפסקה"
+    }, {
+        matchWith: /לכבוד אותו/g,
+        replaceWith: "לכבד אותו"
+    }, {
+        matchWith: /עם החיים שלי/g,
+        replaceWith: "בחיים שלי"
+    }, {
+        matchWith: /הספקה/g,
+        replaceWith: "הפסקה"
+    }, {
+        matchWith: /תודה על ש/g,
+        replaceWith: "תודה ש"
+    }, {
+        matchWith: new RegExp('תראה איך ש' + shinIgnoreCases, 'g'),
+        replaceWith: "תראה איך "
+    }, {
+        matchWith: new RegExp('תראי איך ש' + shinIgnoreCases, 'g'),
+        replaceWith: "תראי איך "
+    }, {
+        matchWith: new RegExp('תראו איך ש' + shinIgnoreCases, 'g'),
+        replaceWith: "תראו איך "
+    }, {
+        matchWith: new RegExp('כמה ש' + shinIgnoreCases, 'g')
+        replaceWith: "כמה "
+    }, { 
+        matchWith: new RegExp('על ש' + shinIgnoreCases, 'g'),
         replaceWith: "על כך ש"
     }, {
         matchWith: /לכבוד לי ש/g,
@@ -1182,11 +1213,11 @@ var commonErrors = [
         matchWith: /אני בשביל לשמור עלייך פה/g,
         replaceWith: "אני פה בשביל לשמור עלייך"
     }, {
-        matchWith: /אתה מדבר ברצינות\?/g,
-        replaceWith: "אתה רציני?"
+        matchWith: /אתה מדבר ברצינות|אתה מדברת ברצינות/g,
+        replaceWith: "אתה רציני"
     }, {
-        matchWith: /את מדברת ברצינות\?/g,
-        replaceWith: "את רצינית?"
+        matchWith: /את מדברת ברצינות/g,
+        replaceWith: "את רצינית"
     }, {
         matchWith: /אני מדברת ברצינות/,
         replaceWith: "אני רצינית"
@@ -1369,7 +1400,7 @@ var commonErrors = [
         replaceWith: "אל תקטעי אותי"
     }, {
         matchWith: /היא מתקשה/g,
-        replaceWith: "קשה להן"
+        replaceWith: "קשה לה"
     }, {
         matchWith: /טבלט/g,
         replaceWith: "טאבלט"
@@ -1986,9 +2017,6 @@ var commonErrors = [
         matchWith: /תעשה מקלחת קודם/g,
         replaceWith: "קודם תתקלח"
     }, {
-        matchWith: /כמה ש(?!נים|עות|נא|יותר|ניות|של )/g,
-        replaceWith: "כמה "
-    }, { 
         matchWith: /שזה לא יהיה אכפת/g,
         replaceWith: "שזה לא ישנה"
     }, {
@@ -2106,7 +2134,7 @@ var commonErrors = [
         matchWith: /שדיברת מדי יום אליו/g,
         replaceWith: "שדיברת אליו בכל יום"
     }, {
-        matchWith: /אאוחאקה/g,
+        matchWith: /אאוחאקה|אאואחקה/g,
         replaceWith: "אואחאקה"
     }, {
         matchWith: /הריון/g,
@@ -2130,7 +2158,7 @@ var commonErrors = [
         matchWith: /מה פתאום שתגיד/g,
         replaceWith: "איך אתה אומר"
     }, {
-        matchWith: /^אאוחאקה דה חוארס, מרכז$|^אואחאקה דה חוארס, מרכז$/g,
+        matchWith: /^אאוחאקה דה חוארס, מרכז$|^אואחאקה דה חוארס, מרכז$|^אאואחקה דה חוארס, מרכז$/g,
         replaceWith: '"אואחאקה דה חוארס, מרכז"'
     }, {
         matchWith: /^פוארטו אסקונדידו, אאוחאקה$|^פוארטו אסקונדידו, אואחאקה$/g,
@@ -2205,14 +2233,62 @@ var commonErrors = [
         matchWith: /צ'ין, צ'ין/g,
         replaceWith: "לחיים"
     }, {
-        matchWith: /^אם |^-אם /g,
+        matchWith: /ביום ש(?!בו)/g,
+        replaceWith: "ביום שבו"
+    }, {
+        matchWith: /נבר ברוגען/g,
+        replaceWith: "נדבר"
+    }, {
+        matchWith: /^ני |-ני |. ני |, ני /g,
+        replaceWith: "אני"
+    }, {
+        matchWith: /^ה |-ה |. ה |, ה /g,
+        replaceWith: "זה "
+    }, { 
+        matchWith: /הדגרה/g,
+        replaceWith: "הדרגה"
+    }, {
+        matchWith: /בלי שיהיה חשוב /g,
+        replaceWith: "בלי קשר ל"
+    }, {
+        matchWith: /זאת הזמנה כדי/g,
+        replaceWith: "זאת הזמנה "
+    }, {
+        matchWith: /לנזוף אותי/g,
+        replaceWith: "לנזוף בי"
+    }, {
+        matchWith: /תודה בזה ש/g,
+        replaceWith: "תודה ש"
+    }, {
+        matchWith: /תודי בזה ש/g,
+        replaceWith: "תודי ש"
+    }, {
+        matchWith: /המשפחה כולה/g,
+        replaceWith: "כל המשפחה"
+    }, {
+        matchWith: /המון/g,
+        replaceWith: "הרבה"
+    }, {
+        matchWith: /זה יהיה טוב ש/g,
+        replaceWith: "יהיה טוב ש"
+    }, {
+        matchWith: /חדש בשביל/g,
+        replaceWith: "חדש ל"
+    }, {
+        matchWith: /תרא/g,
+        replaceWith: "תרא"
+    }, {
+        matchWith: /^אם |-אם /g,
         replaceWith: "אם "
     }, {
-        matchWith: /זאת |^-זאת/g,
+        matchWith: /זאת |-זאת/g,
         replaceWith: "זאת "
     }, {
-        matchWith: /זה |^-זה/g,
+        matchWith: /זה |-זה/g,
         replaceWith: "זה "
+    }, {
+        matchWith: /^שיחה מ/g,
+        replaceWith: "שיחה מ"
     }
 ].map(Fix.build);    
   
