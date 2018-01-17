@@ -538,6 +538,9 @@ var commonErrors = [
         matchWith: /מהים למחר/g,
         replaceWith: "מהיום למחר"
     }, {
+        matchWith: /רגשי אשם/g,
+        replaceWith: "רגשות אשם"
+    }, {
         matchWith: /תודה על ש/g,
         replaceWith: "תודה ש"
     }, {
@@ -2083,6 +2086,9 @@ var commonErrors = [
         matchWith: /מבחינה(?! טכנית)/g,
         replaceWith: "שמה לב"
     }, {
+        matchWith: /שמב לב בזה/g,
+        replaceWith: "שמה לב"
+    }, {
         matchWith: /שמב לב בי/g,
         replaceWith: "שמה לב אליי"
     }, {
@@ -2290,6 +2296,12 @@ var commonErrors = [
         matchWith: /קשורה בו/g,
         replaceWith: "קשורה אליו"
     }, {
+        matchWith: /כשתרצה/g,
+        replaceWith: "מתי שתרצה"
+    }, {
+        matchWith: /כשתרצי/g,
+        replaceWith: "מתי שתרצי"
+    }, {
         matchWith: /זה יהיה טוב ש/g,
         replaceWith: "יהיה טוב ש"
     }, {
@@ -2299,13 +2311,22 @@ var commonErrors = [
         matchWith: /תרא(?!ות)/g,
         replaceWith: "תרא"
     }, {
-        matchWith: /^אם |-אם /g,
+        matchWith: /-אם /g,
+        replaceWith: "-אם "
+    }, {
+        matchWith: /^אם /g,
         replaceWith: "אם "
     }, {
-        matchWith: /זאת |-זאת/g,
-        replaceWith: "זאת "
+        matchWith: /-זאת/g,
+        replaceWith: "-זאת "
     }, {
-        matchWith: /זה |-זה/g,
+        matchWith: /זאת/g,
+        replaceWith: "זאת"
+    }, {
+        matchWith: /-זה /g,
+        replaceWith: "-זה "
+    }, {
+        matchWith: /זה /g,
         replaceWith: "זה "
     }, {
         matchWith: /^שיחה מ/g,
