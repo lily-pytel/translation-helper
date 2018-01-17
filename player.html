@@ -502,14 +502,23 @@ $(function() {
     initHighlighter()
 })
 
-var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|כן|כנים|כנות|כנה)'
+var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|כן|כנים|כנות|כנה|ם|מות)'
 var commonErrors = [
     {
         matchWith: /אני כמו שאני/g,
         replaceWith: "אני מי שאני"
     }, { 
+        matchWith: /אתה נראה בן אדם יותר/g,
+        replaceWith: "אתה נראה יותר כמו בן אדם"
+    }, {
+        matchWith: /תיארה כמו/g,
+        replaceWith: "תיראה כמו"
+    }, {
         matchWith: /כפל אישיות/g,
         replaceWith: "פיצול אישיות"
+    }, { 
+        matchWith: /משרדת/g,
+        replaceWith: "משדרת"
     }, {
         matchWith: /הספקה/g,
         replaceWith: "הפסקה"
@@ -522,6 +531,12 @@ var commonErrors = [
     }, {
         matchWith: /הספקה/g,
         replaceWith: "הפסקה"
+    }, { 
+        matchWith: /למשור/g,
+        replaceWith: "לשמור"
+    }, {
+        matchWith: /מהים למחר/g,
+        replaceWith: "מהיום למחר"
     }, {
         matchWith: /תודה על ש/g,
         replaceWith: "תודה ש"
@@ -535,7 +550,7 @@ var commonErrors = [
         matchWith: new RegExp('תראו איך ש' + shinIgnoreCases, 'g'),
         replaceWith: "תראו איך "
     }, {
-        matchWith: new RegExp('כמה ש' + shinIgnoreCases, 'g')
+        matchWith: new RegExp('כמה ש' + shinIgnoreCases, 'g'),
         replaceWith: "כמה "
     }, { 
         matchWith: new RegExp('על ש' + shinIgnoreCases, 'g'),
@@ -1987,6 +2002,9 @@ var commonErrors = [
         matchWith: /לא מדובר בלהתנצל/g,
         replaceWith: "אין טעם להתנצל"
     }, {
+        matchWith: /תולכי|תוכלי/g,
+        replaceWith: "את יכולה"
+    }, {
         matchWith: /תולכ|תוכל/g,
         replaceWith: "אתה יכול"
     }, {
@@ -2062,7 +2080,7 @@ var commonErrors = [
         matchWith: /שם לב בי/g,
         replaceWith: "שם לב אליי"
     }, {
-        matchWith: /מבחינה/g,
+        matchWith: /מבחינה(?! טכנית)/g,
         replaceWith: "שמה לב"
     }, {
         matchWith: /שמב לב בי/g,
@@ -2268,6 +2286,9 @@ var commonErrors = [
     }, {
         matchWith: /המון/g,
         replaceWith: "הרבה"
+    }, { 
+        matchWith: /קשורה בו/g,
+        replaceWith: "קשורה אליו"
     }, {
         matchWith: /זה יהיה טוב ש/g,
         replaceWith: "יהיה טוב ש"
@@ -2275,7 +2296,7 @@ var commonErrors = [
         matchWith: /חדש בשביל/g,
         replaceWith: "חדש ל"
     }, {
-        matchWith: /תרא/g,
+        matchWith: /תרא(?!ות)/g,
         replaceWith: "תרא"
     }, {
         matchWith: /^אם |-אם /g,
