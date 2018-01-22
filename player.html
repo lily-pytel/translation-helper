@@ -502,7 +502,7 @@ $(function() {
     initHighlighter()
 })
 
-var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|כן|כנים|כנות|כנה|ם|מות)'
+var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|כן|כנים|כנות|כנה|ם|מות|יכול|בא לי|בוע)'
 var commonErrors = [
     {
         matchWith: /אני כמו שאני/g,
@@ -540,6 +540,12 @@ var commonErrors = [
     }, {
         matchWith: /רגשי אשם/g,
         replaceWith: "רגשות אשם"
+    }, {
+        matchWith: /כמה שאני רוצה/g,
+        replaceWith: "כמה שבא לי"
+    }, {
+        matchWith: /תודה על שום דבר/g,
+        replaceWith: "תודה על כלום"
     }, {
         matchWith: /תודה על ש/g,
         replaceWith: "תודה ש"
@@ -1807,9 +1813,6 @@ var commonErrors = [
         matchWith: /כמו שעכשיו אני/g,
         replaceWith: "כמו שאני עכשיו"
     }, {
-        matchWith: /תודה על ש/g,
-        replaceWith: "תודה ש"
-    }, {
         matchWith: /בדיוק רציתי לומר את זה/g,
         replaceWith: "זה בדיוק מה שרציתי לומר"
     }, {
@@ -2251,8 +2254,38 @@ var commonErrors = [
         matchWith: /חשבתי למה/g,
         replaceWith: "תהיתי למה"
     }, {
+        matchWith: / נוע ב/g,
+        replaceWith: " נוגע ב"
+    }, {
         matchWith: /חבי גלאן/g,
         replaceWith: "חאווי גלן"
+    }, {
+        matchWith: /מסתירה דברים ממני/g,
+        replaceWith: "מסתירה ממני דברים"
+    }, {
+        matchWith: /טיפשה קצת/g,
+        replaceWith: "קצת טיפשה"
+    }, {
+        matchWith: /טיפש קצת/g,
+        replaceWith: "קצת טיפש"
+    }, {
+        matchWith: /מגזים קצת/g,
+        replaceWith: "קצת מגזים"
+    }, {
+        matchWith: /מגזימה קצת/g,
+        replaceWith: "קצת מגזימה"
+    }, {
+        matchWith: /מטורף קצת/g,
+        replaceWith: "קצת מטורף"
+    }, {
+        matchWith: /מטורפת קצת/g,
+        replaceWith: "קצת מטורפת"
+    }, {
+        matchWith: /מוזרה קצת/g,
+        replaceWith: "קצת מוזרה"
+    }, {
+        matchWith: /מוזר קצת/g,
+        replaceWith: "קצת מוזר"
     }, {
         matchWith: /צ'ין, צ'ין/g,
         replaceWith: "לחיים"
@@ -2305,11 +2338,20 @@ var commonErrors = [
         matchWith: /זה יהיה טוב ש/g,
         replaceWith: "יהיה טוב ש"
     }, {
+        matchWith: /מספרים חפוזים|חפוזים/g,
+        replaceWith: "סטוצים"
+    }, {
+        matchWith: /מספר חפוז|חפוז/g,
+        replaceWith: "סטוץ"
+    }, {
         matchWith: /חדש בשביל/g,
         replaceWith: "חדש ל"
     }, {
         matchWith: /תרא(?!ות)/g,
         replaceWith: "תרא"
+    }, {
+        matchWith: /המום/g,
+        replaceWith: "המום"
     }, {
         matchWith: /-אם /g,
         replaceWith: "-אם "
