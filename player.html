@@ -502,12 +502,18 @@ $(function() {
     initHighlighter()
 })
 
-var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|כן|כנים|כנות|כנה|ם|מות|יכול|בא לי|בוע)'
+var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|כן|כנים|כנות|כנה|ם|מות|יכול|בא לי|בוע|יי)'
 var commonErrors = [
     {
         matchWith: /אני כמו שאני/g,
         replaceWith: "אני מי שאני"
     }, { 
+        matchWith: /אני ידוע/g,
+        replaceWith: "אני יודע"
+    }, {
+        matchWith: /תמיד זה ככה/g,
+        replaceWith: "זה תמיד ככה"
+    }, {
         matchWith: /אתה נראה בן אדם יותר/g,
         replaceWith: "אתה נראה יותר כמו בן אדם"
     }, {
@@ -1419,6 +1425,12 @@ var commonErrors = [
     }, {
         matchWith: /לבקש ממך/g,
         replaceWith: "לבקש"
+    }, {
+        matchWith: /יקרי,/g,
+        replaceWith: "יקירי,"
+    }, {
+        matchWith: /אל אוכל/g,
+        replaceWith: "לא אוכל"
     }, {
         matchWith: /אני מתקשה/g,
         replaceWith: "קשה לי"
