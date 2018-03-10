@@ -502,12 +502,21 @@ $(function() {
     initHighlighter()
 })
 
-var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|כן|כנים|כנות|כנה|ם|מות|יכול|בא לי|בוע|יי)'
+var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|כן|כנים|כנות|כנה|ם|מות|יכול|בא לי|בוע|יי|את רוצה|אתה רוצה)'
 var commonErrors = [
     {
         matchWith: /אני כמו שאני/g,
         replaceWith: "אני מי שאני"
     }, { 
+        matchWith: /קפאתי על המקום/g,
+        replaceWith: "קפאתי במקום"
+    }, {
+        matchWith: /אני אל מבינה/g,
+        replaceWith: "אני לא מבינה"
+    }, {
+        matchWith: /אני אל מבין/g,
+        replaceWith: "אני לא מבין"
+    }, {
         matchWith: /אני ידוע/g,
         replaceWith: "אני יודע"
     }, {
@@ -1057,6 +1066,9 @@ var commonErrors = [
         matchWith: /את הדרך/g,
         replaceWith: 'דרך'
     }, {
+        matchWith: /זדרך/g,
+        replaceWith: 'זאת הדרך'
+    }, {
         matchWith: /גברת\./g,
         replaceWith: 'גברתי.'
     }, {
@@ -1426,11 +1438,20 @@ var commonErrors = [
         matchWith: /לבקש ממך/g,
         replaceWith: "לבקש"
     }, {
+        matchWith: /אין צ'קים יותר/g,
+        replaceWith: "אין יותר צ'קים"
+    }, {
         matchWith: /יקרי,/g,
         replaceWith: "יקירי,"
     }, {
+        matchWith: /מה יש לו לומר כבר/g,
+        replaceWith: "מה כבר יש לו לומר"
+    }, {
         matchWith: /אל אוכל/g,
         replaceWith: "לא אוכל"
+    }, {
+        matchWith: /לבזבז זמן יותר/g,
+        replaceWith: "לבזבז עוד זמן"
     }, {
         matchWith: /אני מתקשה/g,
         replaceWith: "קשה לי"
@@ -1458,6 +1479,12 @@ var commonErrors = [
     }, {
         matchWith: /כל כך/g,
         replaceWith: "כל-כך"
+    }, {
+        matchWith: /אין מה להבין כל-כך/g,
+        replaceWith: "אין כל-כך מה להבין"
+    }, { 
+        matchWith: /כל מני/g,
+        replaceWith: "כל מיני"
     }, {
         matchWith: /אלוורס|אלוורז/g,
         replaceWith: "אלברס"
@@ -1513,8 +1540,14 @@ var commonErrors = [
         matchWith: /שישה חודשים/g,
         replaceWith: "חצי שנה"
     }, {
-        matchWith: /וריחיניה|וירחניה/g,
+        matchWith: /וריחיניה|וירחניה|וירחויניה/g,
         replaceWith: "וירחיניה"
+    }, {
+        matchWith: /התקשרתי הרבה אליו/g,
+        replaceWith: "התקשתי אליו הרבה"
+    }, {
+        matchWith: /התקשרתי הרבה אליה/g,
+        replaceWith: "התקשתי אליה הרבה"
     }, {
         matchWith: /אני אומרת לך ברצינות/g,
         replaceWith: "אני רצינית"
@@ -2271,6 +2304,12 @@ var commonErrors = [
     }, {
         matchWith: /מהלך/g,
         replaceWith: "מהלך"
+    }, {
+        matchWith: /ששמעתם אותי/g,
+        replaceWith: "שהקשבתם לי"
+    }, {
+        matchWith: /ששמעתן אותי/g,
+        replaceWith: "שהקשבתן לי"
     }, {
         matchWith: /שמעה אותי/g,
         replaceWith: "הקשיבה לי"
