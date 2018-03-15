@@ -502,12 +502,45 @@ $(function() {
     initHighlighter()
 })
 
-var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|כן|כנים|כנות|כנה|ם|מות|יכול|בא לי|בוע|יי|את רוצה|אתה רוצה)'
+var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|ום|כן|כנים|כנות|כנה|ם|מות|יכול|בא לי|בוע|יי|את רוצה|אתה רוצה)'
 var commonErrors = [
     {
         matchWith: /אני כמו שאני/g,
         replaceWith: "אני מי שאני"
+    }, {
+        matchWith: /אני מבקש סליחה ממך/g,
+        replaceWith: "אני מתנצל"
     }, { 
+        matchWith: /אני מבקשת סליחה ממך/g,
+        replaceWith: "אני מתנצלת"
+    }, {
+        matchWith: /זה נורא מה שעשית/g,
+        replaceWith: "עשית משהו נורא"
+    }, {
+        matchWith: /זה נורא מה שהיא עשתה/g,
+        replaceWith: "היא עשתה משהו נורא"
+    }, {
+        matchWith: /זה נורא מה שהוא עשה/g,
+        replaceWith: "הוא עשה משהו נורא"
+    }, {
+        matchWith: /רק היה לי אותך/g,
+        replaceWith: "היה לי רק אותך"
+    }, {
+        matchWith: /ככה זה קל מאוד/g,
+        replaceWith: "זה קל מאוד"
+    }, {
+        matchWith: /קרה לי אותו דבר|קרה לי אותו הדבר/g,
+        replaceWith: "זה קרה גם ליי"
+    }, {
+        matchWith: /זה גם קורה לי|קורה לי אותו דבר/g,
+        replaceWith: "זה קורה גם לי"
+    }, { 
+        matchWith: /מה פתאום שתביאי|מה פתאום שתביא/g,
+        replaceWith: "מה פתאום הבאת"
+    }, {
+        matchWith: /אם תרצי או שלא|אם תרצה או שלא/g,
+        replaceWith: "גם אם זה לא נראה לך"
+    }, {
         matchWith: /קפאתי על המקום/g,
         replaceWith: "קפאתי במקום"
     }, {
@@ -559,8 +592,14 @@ var commonErrors = [
         matchWith: /כמה שאני רוצה/g,
         replaceWith: "כמה שבא לי"
     }, {
+        matchWith: /אין לי כלום לומר/g,
+        replaceWith: "אין לי מה לומר"
+    }, {
         matchWith: /תודה על שום דבר/g,
         replaceWith: "תודה על כלום"
+    }, {
+        matchWith: /עשית את זה שוב/g,
+        replaceWith: "שוב עשית את זה"
     }, {
         matchWith: /תודה על ש/g,
         replaceWith: "תודה ש"
@@ -574,9 +613,15 @@ var commonErrors = [
         matchWith: new RegExp('תראו איך ש' + shinIgnoreCases, 'g'),
         replaceWith: "תראו איך "
     }, {
+        matchWith: new RegExp('איך ש' + shinIgnoreCases, 'g'),
+        replaceWith: "איך "
+    }, {
         matchWith: new RegExp('כמה ש' + shinIgnoreCases, 'g'),
         replaceWith: "כמה "
-    }, { 
+    }, {
+        matchWith: new RegExp('באמת ש' + shinIgnoreCases, 'g'),
+        replaceWith: "האמת היא ש"
+    }, {
         matchWith: new RegExp('על ש' + shinIgnoreCases, 'g'),
         replaceWith: "על כך ש"
     }, {
@@ -823,8 +868,14 @@ var commonErrors = [
         matchWith: /אותו הדבר/g,
         replaceWith: "אותו דבר"
     }, {
+        matchWith: /האחת את השניה|האחת את השנייה/g,
+        replaceWith: "אחת את השנייה"
+    }, {
         matchWith: /האחד את השני/g,
         replaceWith: "אחד את השני"
+    }, {
+        matchWith: /לא בסדר בכלל/g,
+        replaceWith: "ממש לא בסדר"
     }, {
         matchWith: /האחד לשני/g,
         replaceWith: "אחד לשני"
@@ -1072,20 +1123,8 @@ var commonErrors = [
         matchWith: /גברת\./g,
         replaceWith: 'גברתי.'
     }, {
-        matchWith: /שיכורה קצת/g,
-        replaceWith: 'קצת שיכורה'
-    }, {
-        matchWith: /שיכור קצת/g,
-        replaceWith: 'קצת שיכור'
-    }, {
-        matchWith: /טרודה קצת/g,
-        replaceWith: 'קצת טרודה'
-    }, {
-        matchWith: /מאוחר קצת/g,
-        replaceWith: 'קצת מאוחר'
-    }, {
-        matchWith: /לחוצות קצת/g,
-        replaceWith: 'קצת לחוצות'
+        matchWith: / קצת(?!,|!|.| זמן| שקט)|קצת (?!זמן| שקט)/g,
+        replaceWith: ''
     }, {
         matchWith: /מה השם שלך/g,
         replaceWith: 'איך קוראים לך'
@@ -1207,6 +1246,24 @@ var commonErrors = [
         matchWith: /אני מודאג ממנו/g,
         replaceWith: "אני דואג לו"
     }, {
+        matchWith: /לחוצה קצת/g,
+        replaceWith: "קצת לחוצה"
+    }, {
+        matchWith: /לחוץ קצת/g,
+        replaceWith: "קצת לחוץ"
+    }, {
+        matchWith: /לבד קצת/g,
+        replaceWith: "קצת לבד"
+    }, {
+        matchWith: /סבלנות קצת/g,
+        replaceWith: "קצת סבלנות"
+    }, {
+        matchWith: /אשם קצת/g,
+        replaceWith: "קצת אשם"
+    }, {
+        matchWith: /אשמה קצת/g,
+        replaceWith: "קצת אשמה"
+    }, {
         matchWith: /פרידה הדודה/g,
         replaceWith: "דודה פרידה"
     }, {
@@ -1242,6 +1299,9 @@ var commonErrors = [
     }, {
         matchWith: /לצאת מיד מפה/g,
         replaceWith: "לצאת מפה מיד"
+    }, {
+        matchWith: /האחד עם השני/g,
+        replaceWith: "אחד עם השני"
     }, {
         matchWith: /האחד על השני/g,
         replaceWith: "אחד על השני"
@@ -2074,6 +2134,12 @@ var commonErrors = [
         matchWith: /תולכי|תוכלי/g,
         replaceWith: "את יכולה"
     }, {
+        matchWith: /תרצה/g,
+        replaceWith: "אתה רוצה"
+    }, {
+        matchWith: /תרצי/g,
+        replaceWith: "את רוצה"
+    }, {
         matchWith: /נכיר את עצמנו שוב/g,
         replaceWith: "נשוב להכיר אחד את השני"
     }, {
@@ -2136,6 +2202,9 @@ var commonErrors = [
     }, {
         matchWith: /אהיה בשבילך|אהיה שם בשבילך/g,
         replaceWith: "אהיה לצדך"
+    }, {
+        matchWith: /הבחנתן בזה/g,
+        replaceWith: "שמתן לב"
     }, {
         matchWith: /מבחין/g,
         replaceWith: "שם לב"
@@ -2354,7 +2423,10 @@ var commonErrors = [
         replaceWith: "לחיים"
     }, {
         matchWith: /ביום ש(?!בו)/g,
-        replaceWith: "ביום שבו"
+        replaceWith: "ביום שבו "
+    }, {
+        matchWith: /זה גם יקרה לי/g,
+        replaceWith: "זה יקרה גם לי"
     }, {
         matchWith: /נבר ברוגען/g,
         replaceWith: "נדבר"
