@@ -502,11 +502,26 @@ $(function() {
     initHighlighter()
 })
 
-var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|ום|כן|כנים|כנות|כנה|ם|מות|יכול|בא לי|בוע|יי|את רוצה|אתה רוצה)'
+var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|ום|כן|כנים|כנות|כנה|ם|מות|יכול|בא לי|בוע|יי|את רוצה|אתה רוצה|אלה|אלות|לט|מח)'
 var commonErrors = [
     {
         matchWith: /אני כמו שאני/g,
         replaceWith: "אני מי שאני"
+    }, { 
+        matchWith: /ידעת מזה/g,
+        replaceWith: "ידעת על זה"
+    }, {
+        matchWith: /לתת לו ללכת/g,
+        replaceWith: "לשחרר אותו"
+    }, {
+        matchWith: /התנצל מפניי/g,
+        replaceWith: "התנצל בפניי"
+    }, {
+        matchWith: /התנצלה מפניי/g,
+        replaceWith: "התנצלה בפניי"
+    }, {
+        matchWith: /לא ביקשתי כלום ממך/g,
+        replaceWith: "לא ביקשתי ממך כלום"
     }, {
         matchWith: /אני מבקש סליחה ממך/g,
         replaceWith: "אני מתנצל"
@@ -826,7 +841,7 @@ var commonErrors = [
         matchWith: /למותו של/g,
         replaceWith: "למוות של"
     }, {
-        matchWith: /כמה שמהר יותר/g,
+        matchWith: /כמה שמהר יותר|כמה מהר יותר/g,
         replaceWith: "בהקדם האפשרי"
     }, {
         matchWith: /אחזור מיד/g,
