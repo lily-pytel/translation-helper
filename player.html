@@ -68,7 +68,6 @@
             border-top: 1px solid #afafaf;
             border-bottom: 1px solid #afafaf;
         }
-
     </style>
     <script src="jquery.js"></script>
     <script>
@@ -148,6 +147,40 @@ function fixCommonErrors(editor) {
                 message += "</tr>"
                 return commonErrors[i].replaceWith;
             })
+        }
+    }
+
+    text = lines.reduce(function(acc, line) {
+        return acc + line + "\n";
+    }, "")
+
+    editor.val(text);
+    message = `<table class="auto-fixes-table">${message}</table>`;
+    $('#fixes-section').html(message);   
+}
+
+function locateShortLines(editor) {
+    var text = editor.val()
+    ,   message = ''
+    ,   lines = text.split('\n')
+    ,   charCounter = 0;
+
+    for (var j = 0; j < lines.length; j++) {
+        if (lines[j].length < 15 && lines[j].length > 0) {
+            lineBefore = j > 0
+                ? lines[j - 1]
+                : ''
+            lineAfter = j < lines.length - 1
+                ? lines[j + 1]
+                : ''
+
+            if (lineBefore.length > 0 || lineAfter.length > 0) {
+                totalLines = `${lineBefore}<br />${lines[j]}<br />${lineAfter}`
+                message += "<tr>"
+                message += `<td onClick="goToLine(${j})">${totalLines}</td>`
+                message += `<td>${lines[j].length}</td>`
+                message += "</tr>"
+            }
         }
     }
 
@@ -502,7 +535,7 @@ $(function() {
     initHighlighter()
 })
 
-var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|ום|כן|כנים|כנות|כנה|ם|מות|יכול|בא לי|בוע|יי|את רוצה|אתה רוצה|אלה|אלות|לט|מח)'
+var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|ום|כן|כנים|כנות|כנה|ם|מות|יכול|בא לי|בוע|יי|את רוצה|אתה רוצה|אלה|אלות|לט|מח|עלית|תרצ)'
 var commonErrors = [
     {
         matchWith: /אני כמו שאני/g,
@@ -522,6 +555,9 @@ var commonErrors = [
     }, {
         matchWith: /לא ביקשתי כלום ממך/g,
         replaceWith: "לא ביקשתי ממך כלום"
+    }, {
+        matchWith: /תבקשי סליחה ממנה/g,
+        replaceWith: "תתנצלי בפניה"
     }, {
         matchWith: /אני מבקש סליחה ממך/g,
         replaceWith: "אני מתנצל"
@@ -616,8 +652,14 @@ var commonErrors = [
         matchWith: /עשית את זה שוב/g,
         replaceWith: "שוב עשית את זה"
     }, {
+        matchWith: /מה קורה לך ש/g,
+        replaceWith: "למה "
+    }, {
         matchWith: /תודה על ש/g,
         replaceWith: "תודה ש"
+    }, {
+        matchWith: /איך שאתה רוצה|איך שאת רוצה|איך שתרצה/g,
+        replaceWith: "כרצונך"
     }, {
         matchWith: new RegExp('תראה איך ש' + shinIgnoreCases, 'g'),
         replaceWith: "תראה איך "
@@ -639,6 +681,9 @@ var commonErrors = [
     }, {
         matchWith: new RegExp('על ש' + shinIgnoreCases, 'g'),
         replaceWith: "על כך ש"
+    }, {
+        matchWith: /סליחה על ש|סליחה על כך ש/g,
+        replaceWith: "סליחה ש"
     }, {
         matchWith: /לכבוד לי ש/g,
         replaceWith: "לכבוד הוא לי ש"
@@ -1261,6 +1306,12 @@ var commonErrors = [
         matchWith: /אני מודאג ממנו/g,
         replaceWith: "אני דואג לו"
     }, {
+        matchWith: /חיוור קצת/g,
+        replaceWith: "קצת חיוור"
+    }, {
+        matchWith: /חיוורת קצת/g,
+        replaceWith: "קצת חיוורת"
+    }, {
         matchWith: /לחוצה קצת/g,
         replaceWith: "קצת לחוצה"
     }, {
@@ -1528,7 +1579,10 @@ var commonErrors = [
         matchWith: /לבזבז זמן יותר/g,
         replaceWith: "לבזבז עוד זמן"
     }, {
-        matchWith: /אני מתקשה/g,
+        matchWith: /אתקשה/g,
+        replaceWith: "יהיה לי קשה"
+    }, {
+        matchWith: /אני מתקשה|אני מקשתה/g,
         replaceWith: "קשה לי"
     }, {
         matchWith: /הכל(?!א|ה|ל|ב|י)/g,
@@ -1697,7 +1751,7 @@ var commonErrors = [
         replaceWith: "איך קוראים לו?"
     }, {
         matchWith: /לוירחינה/g,
-        replaceWith: "לוןירחינה"
+        replaceWith: "לווירחינה"
     }, {
         matchWith: /שבאת ממנה/g,
         replaceWith: "שממנה באת"
@@ -1705,7 +1759,7 @@ var commonErrors = [
         matchWith: /מוירחיניה/g,
         replaceWith: "מווירחיניה"
     }, {
-        matchWith: /השם שלי/g,
+        matchWith: /השם שלי(?! היה)/g,
         replaceWith: "קוראים לי"
     }, {
         matchWith: /את קוראים לי/g,
@@ -2143,11 +2197,11 @@ var commonErrors = [
         matchWith: /תולכי|תוכלי/g,
         replaceWith: "את יכולה"
     }, {
-        matchWith: /תולכ|תוכל/g,
-        replaceWith: "אתה יכול"
-    }, {
         matchWith: /תולכי|תוכלי/g,
         replaceWith: "את יכולה"
+    }, {
+        matchWith: /תולכ|תוכל/g,
+        replaceWith: "אתה יכול"
     }, {
         matchWith: /תרצה/g,
         replaceWith: "אתה רוצה"
@@ -2509,6 +2563,9 @@ var commonErrors = [
         matchWith: /^אם /g,
         replaceWith: "אם "
     }, {
+        matchWith: /זו /g,
+        replaceWith: "זו "
+    }, {
         matchWith: /-זאת/g,
         replaceWith: "-זאת "
     }, {
@@ -2538,6 +2595,7 @@ var commonErrors = [
                 <button style="font-weight: bold" onclick="fixCommonErrors(Editor);">Fix Common Errors</button>
                 <button onclick="fixWhiteSpace(Editor);">Fix White Spaces</button>
                 <button onclick="finalErrorCheck(Editor)">Final Error Check</button>
+                <button onclick="locateShortLines(Editor)">Find Short Lines</button>
                 <br><br>
                 <button onclick="loadBufferFromRecovery(Editor);">Load (Recovery)</button>
                 <button onclick='saveBuffer(Editor);'>Save Buffer</button>
