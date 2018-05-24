@@ -535,7 +535,7 @@ $(function() {
     initHighlighter()
 })
 
-var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|ום|כן|כנים|כנות|כנה|ם|מות|יכול|בא לי|בוע|יי|את רוצה|אתה רוצה|אלה|אלות|לט|מח|עלית|תרצ)'
+var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|ום|כן|כנים|כנות|כנה|ם|מות|יכול|בא לי|בוע|יי|את רוצה|אתה רוצה|אלה|אלות|לט|מח|עלית|תרצ|ינוי)'
 var commonErrors = [
     {
         matchWith: /אני כמו שאני/g,
@@ -1813,9 +1813,6 @@ var commonErrors = [
         matchWith: /אבקש טובה ממך/g,
         replaceWith: "אבקש ממך טובה"
     }, {
-        matchWith: /חמה/g,
-        replaceWith: "חמות"
-    }, {
         matchWith: /מה הכי טוב בזה/g,
         replaceWith: "מה החלק הטוב ביותר"
     }, {
@@ -2545,6 +2542,12 @@ var commonErrors = [
         matchWith: /מספרים חפוזים|חפוזים/g,
         replaceWith: "סטוצים"
     }, {
+        matchWith: /זו אני/g,
+        replaceWith: "זאת אני"
+    }, {
+        matchWith: /מי זו(?!כר)/g,
+        replaceWith: "מי זאת"
+    }, {
         matchWith: /מספר חפוז|חפוז/g,
         replaceWith: "סטוץ"
     }, {
@@ -2577,6 +2580,12 @@ var commonErrors = [
     }, {
         matchWith: /זה /g,
         replaceWith: "זה "
+    }, {
+        matchWith: /שנים/g,
+        replaceWith: "שנים"
+    }, {
+        matchWith: /חמה/g,
+        replaceWith: "חמה"
     }, {
         matchWith: /^שיחה מ/g,
         replaceWith: "שיחה מ"
