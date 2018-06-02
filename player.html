@@ -535,7 +535,7 @@ $(function() {
     initHighlighter()
 })
 
-var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|ום|כן|כנים|כנות|כנה|ם|מות|יכול|בא לי|בוע|יי|את רוצה|אתה רוצה|אלה|אלות|לט|מח|עלית|תרצ|ינוי)'
+var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|ום|כן|כנים|כנות|כנה|ם|מות|יכול|בא לי|יטה|יטות|בוע|יי|את רוצה|אתה רוצה|אלה|אלות|לט|מח|עלית|תרצ|ינוי|אוהב)'
 var commonErrors = [
     {
         matchWith: /אני כמו שאני/g,
@@ -544,7 +544,19 @@ var commonErrors = [
         matchWith: /ידעת מזה/g,
         replaceWith: "ידעת על זה"
     }, {
-        matchWith: /לתת לו ללכת/g,
+        matchWith: /אני כבר עובדת פה שנים רבות/g,
+        replaceWith: "אני עובדת פה כבר הרבה שנים"
+    }, {
+		matchWith: /קבילתי/g,
+        replaceWith: "קיבלתי"
+    }, {
+		matchWith: /חשובה בשביל/g,
+        replaceWith: "חשובה ל"
+    }, {
+		matchWith: /חשובים בשביל/g,
+        replaceWith: "חשובים ל"
+    }, {
+		matchWith: /לתת לו ללכת/g,
         replaceWith: "לשחרר אותו"
     }, {
         matchWith: /התנצל מפניי/g,
@@ -612,6 +624,15 @@ var commonErrors = [
     }, {
         matchWith: /תיארה כמו/g,
         replaceWith: "תיראה כמו"
+    }, {
+		matchWith: /זמן קצת/g,
+        replaceWith: "קצת זמן"
+    }, {
+		matchWith: /קורב/g,
+        replaceWith: "קרוב"
+    }, {
+		matchWith: /מי זו /g,
+        replaceWith: "מי זאת "
     }, {
         matchWith: /כפל אישיות/g,
         replaceWith: "פיצול אישיות"
@@ -817,7 +838,10 @@ var commonErrors = [
         matchWith: /אלף פעמים/g,
         replaceWith: "אלף פעם"
     }, {
-        matchWith: /או שלא\?/g,
+        matchWith: /מי זו\?/g,
+        replaceWith: "מי זאת\?"
+    }, {
+		matchWith: /או שלא\?/g,
         replaceWith: "או לא\?"
     }, {
         matchWith: /אקוגרפיה/g,
@@ -2410,6 +2434,12 @@ var commonErrors = [
         matchWith: /אני מאמין באהבה שוב/g,
         replaceWith: "שבתי להאמין באהבה"
     }, {
+        matchWith: /אין רגע דל פה/g,
+        replaceWith: "אין פה רגע דל"
+    }, {
+        matchWith: /קורב/g,
+        replaceWith: "קרוב"
+    }, {
         matchWith: /בערך מתי/g,
         replaceWith: "מתי בערך"
     }, {
@@ -2557,11 +2587,17 @@ var commonErrors = [
         matchWith: /חדש בשביל/g,
         replaceWith: "חדש ל"
     }, {
-        matchWith: /\. זו |^זו /g,
-        replaceWith: "זאת "
+        matchWith: /\. זו /g,
+        replaceWith: ". זאת "
     }, {
+        matchWith: /^זו /g,
+        replaceWith: "זאת "
+    }, { 
         matchWith: /תרא(?!ות)/g,
         replaceWith: "תרא"
+    }, {
+        matchWith: /תפטר/g,
+        replaceWith: "תפטר"
     }, {
         matchWith: /המום/g,
         replaceWith: "המום"
