@@ -2440,7 +2440,13 @@ var commonErrors = [
         matchWith: /היא ראויה לזה/g,
         replaceWith: "זה מגיע לה"
     }, {
-        matchWith: /הוא ראוי/g,
+        matchWith: /קורה משהו שם/g,
+        replaceWith: "קורה שם משהו"
+    }, {
+		matchWith: /עם המבט/g,
+        replaceWith: "במבט"
+    }, {
+		matchWith: /הוא ראוי/g,
         replaceWith: "מגיע לו"
     }, { 
         matchWith: /היא ראויה/g,
@@ -2599,7 +2605,10 @@ var commonErrors = [
         matchWith: /חדש בשביל/g,
         replaceWith: "חדש ל"
     }, {
-        matchWith: /\. זו /g,
+        matchWith: /\- זו /g,
+        replaceWith: "- זאת "
+    }, {
+		matchWith: /\. זו /g,
         replaceWith: ". זאת "
     }, {
         matchWith: /^זו /g,
