@@ -166,7 +166,7 @@ function locateShortLines(editor) {
     ,   charCounter = 0;
 
     for (var j = 0; j < lines.length; j++) {
-        if (lines[j].length < 15 && lines[j].length > 0) {
+        if (lines[j].length < 10 && lines[j].length > 0) {
             lineBefore = j > 0
                 ? lines[j - 1]
                 : ''
@@ -1201,7 +1201,13 @@ var commonErrors = [
         matchWith: /נחזור לבית/g,
         replaceWith: 'נחזור הביתה'
     }, {
-        matchWith: /לחזור לבית/g,
+        matchWith: /הביתה החולים/g,
+        replaceWith: 'בית החולים'
+    }, {
+		matchWith: /הביתה חולים/g,
+        replaceWith: 'בית חולים'
+    }, {
+		matchWith: /לחזור לבית/g,
         replaceWith: 'לחזור הביתה'
     }, {
         matchWith: /לדואג/g,
@@ -2587,10 +2593,19 @@ var commonErrors = [
         matchWith: /זה יהיה טוב ש/g,
         replaceWith: "יהיה טוב ש"
     }, {
-        matchWith: /מסרלה/g,
+        matchWith: /בפרק הבא במכה בלב/g,
+        replaceWith: 'בפרק הבא של "מכה בלב"'
+    }, {
+		matchWith: /מסרלה/g,
         replaceWith: "מרסלה"
     }, {
-        matchWith: /מספרים חפוזים|חפוזים/g,
+        matchWith: /בפרק הבא/g,
+        replaceWith: "בפרק הבא"
+    }, {
+		matchWith: /בפרק הבא באגרוף בלב/g,
+        replaceWith: '"בפרק הבא של "אגרוף בלב'
+    }, {
+		matchWith: /מספרים חפוזים|חפוזים/g,
         replaceWith: "סטוצים"
     }, {
         matchWith: /זו אני/g,
