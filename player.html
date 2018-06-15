@@ -535,7 +535,7 @@ $(function() {
     initHighlighter()
 })
 
-var shinIgnoreCases = '(?!נים|עות|נא|יותר|ניות|ל |טויות|לוש|ום|כן|כנים|כנות|כנה|ם|מות|יכול|בא לי|יטה|יטות|בוע|יי|את רוצה|אתה רוצה|אלה|אלות|לט|מח|עלית|תרצ|ינוי|אוהב)'
+var shinIgnoreCases = '(?!|נים|עות|נא|יותר|ניות|ל |טויות|לוש|ום|כן|כנים|כנות|אפשר|כנה|ם|מות|יכול|בא לי|יטה|יטות|בוע|יי|את רוצה|אתה רוצה|אלה|אלות|לט|מח|עלית|תרצ|ינוי|אוהב)'
 var commonErrors = [
     {
         matchWith: /אני כמו שאני/g,
@@ -550,7 +550,16 @@ var commonErrors = [
 		matchWith: /רפאה/g,
         replaceWith: "ראפה"
     }, {
-		matchWith: /חביאר/g,
+        matchWith: /התחבקנו/g,
+        replaceWith: "התחבקנו"
+    }, {
+		matchWith: /התנשקנו/g,
+        replaceWith: "התנשקנו"
+    }, {
+        matchWith: /אני רוצה להיות כל הזמן איתך/g,
+        replaceWith: "אני רוצה להיות איתך כל הזמן"
+    }, {
+        matchWith: /חביאר/g,
         replaceWith: "חוויאר"
     }, {
 		matchWith: /ידעת מזה/g,
@@ -2593,7 +2602,7 @@ var commonErrors = [
         matchWith: /זה יהיה טוב ש/g,
         replaceWith: "יהיה טוב ש"
     }, {
-        matchWith: /בפרק הבא במכה בלב/g,
+        matchWith: /בפרק הבא במכה בלב|בפרק הבא ב"מכה בלב"/g,
         replaceWith: 'בפרק הבא של "מכה בלב"'
     }, {
 		matchWith: /מסרלה/g,
