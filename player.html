@@ -979,11 +979,14 @@ var commonErrors = [
         matchWith: /האחת את השניה|האחת את השנייה/g,
         replaceWith: "אחת את השנייה"
     }, {
-        matchWith: /האחד את השני/g,
+        matchWith: /האחד את השני|האחד אץ השני/g,
         replaceWith: "אחד את השני"
     }, {
         matchWith: /לא בסדר בכלל/g,
         replaceWith: "ממש לא בסדר"
+    }, {
+        matchWith: /רגשות אשמה/g,
+        replaceWith: "רגשות אשם"
     }, {
         matchWith: /האחד לשני/g,
         replaceWith: "אחד לשני"
@@ -1131,6 +1134,18 @@ var commonErrors = [
     }, {
         matchWith: / תהי /g,
         replaceWith: " תהיי "
+    }, {
+        matchWith: /אני הרבה זמן פה/g,
+        replaceWith: "אני פה הרבה זמן"
+    }, {
+        matchWith: /עכשיו מה אתה צריך/g,
+        replaceWith: "מה אתה צריך הפעם"
+    }, {
+        matchWith: /עכשיו מה את צריכה/g,
+        replaceWith: "מה את צריכה הפעם"
+    }, {
+        matchWith: /קטם/g,
+        replaceWith: "כתם"
     }, {
         matchWith: /קרבן/g,
         replaceWith: "קורבן"
@@ -2685,6 +2700,12 @@ var commonErrors = [
     }, {
         matchWith: /שנים/g,
         replaceWith: "שנים"
+    }, {
+        matchWith: /חבשתי/g,
+        replaceWith: "חבשתי"
+    }, {
+        matchWith: /הם /g,
+        replaceWith: "הם "
     }, {
         matchWith: /חמה/g,
         replaceWith: "חמה"
