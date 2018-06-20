@@ -1276,14 +1276,29 @@ var commonErrors = [
         matchWith: /נחזור לבית/g,
         replaceWith: 'נחזור הביתה'
     }, {
+		matchWith: /לחזור לבית/g,
+        replaceWith: 'לחזור הביתה'
+    }, {
         matchWith: /הביתה החולים/g,
         replaceWith: 'בית החולים'
     }, {
-		matchWith: /הביתה חולים/g,
+		matchWith: /הביתה הספר/g,
+        replaceWith: 'בית הספר'
+    }, {
+        matchWith: /הביתה ספר/g,
+        replaceWith: 'בית ספר'
+    }, {
+        matchWith: /הביתה חולים/g,
         replaceWith: 'בית חולים'
     }, {
-		matchWith: /לחזור לבית/g,
-        replaceWith: 'לחזור הביתה'
+        matchWith: /חשוב מכל/g,
+        replaceWith: 'חשוב מכול'
+    }, {
+        matchWith: /גרוע מכל/g,
+        replaceWith: 'גרוע מכול'
+    }, {
+        matchWith: /לדעתך מה עליי לעשות/g,
+        replaceWith: 'מה לדעתך עליי לעשות'
     }, {
         matchWith: /לדואג/g,
         replaceWith: 'לדאוג'
@@ -2659,6 +2674,9 @@ var commonErrors = [
         matchWith: /קשורה בו/g,
         replaceWith: "קשורה אליו"
     }, {
+        matchWith: /אמשח/g,
+        replaceWith: "אשמח"
+    }, {
         matchWith: /כשתרצה/g,
         replaceWith: "מתי שתרצה"
     }, {
@@ -2668,8 +2686,8 @@ var commonErrors = [
         matchWith: /זה יהיה טוב ש/g,
         replaceWith: "יהיה טוב ש"
     }, {
-        matchWith: /בפרק הבא במכה בלב|בפרק הבא ב"מכה בלב"/g,
-        replaceWith: 'בפרק הבא של "מכה בלב"'
+        matchWith: /בפרק הבא במכה בלב|בפרק הבא ב"מכה בלב"|בפרק הבא ב"אגרוף בלב"/g,
+        replaceWith: 'בפרק הבא של "אגרוף בלב"'
     }, {
 		matchWith: /מסרלה/g,
         replaceWith: "מרסלה"
