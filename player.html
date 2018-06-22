@@ -193,6 +193,38 @@ function locateShortLines(editor) {
     $('#fixes-section').html(message);   
 }
 
+function locateAwkwardPunctuation(editor) {
+    var text = editor.val()
+    ,   message = ''
+    ,   lines = text.split('\n')
+    ,   charCounter = 0;
+
+    for (var j = 0; j < lines.length; j++) {
+        lineBefore = j > 0
+            ? lines[j - 1]
+            : ''
+        lineAfter = j < lines.length - 1
+            ? lines[j + 1]
+            : ''
+
+        if (lines[j].match(/[,.]\s[^ .?!,]+$/)) {
+            totalLines = `${lineBefore}<br />${lines[j]}<br />${lineAfter}`
+            message += "<tr>"
+            message += `<td onClick="goToLine(${j})">${totalLines}</td>`
+            message += `<td>${lines[j].length}</td>`
+            message += "</tr>"
+        }
+    }
+
+    text = lines.reduce(function(acc, line) {
+        return acc + line + "\n";
+    }, "")
+
+    editor.val(text);
+    message = `<table class="auto-fixes-table">${message}</table>`;
+    $('#fixes-section').html(message);   
+}
+
 function findCharNumber(text, lineNum) {
     var lines = text.split('\n')
     ,   charCount = 0;
@@ -934,10 +966,13 @@ var commonErrors = [
         matchWith: /כול זה/g,
         replaceWith: "כל זה"
     }, {
+        matchWith: /זה חשוב מאוד מה שתעשה/g,
+        replaceWith: "מה שתעשה חשוב מאוד"
+    }, {
         matchWith: /אבוא מיד/g,
         replaceWith: "מיד אבוא"
     }, {
-        matchWith: /יום יבוא ו/g,
+        matchWith: /יום יבוא ו|יום אחד ו/g,
         replaceWith: "יום אחד "
     }, {
         matchWith: /למותה של/g,
@@ -1504,6 +1539,9 @@ var commonErrors = [
         matchWith: /האחד עם השני/g,
         replaceWith: "אחד עם השני"
     }, {
+        matchWith: /האחת בשנייה/g,
+        replaceWith: "אחת בשנייה"
+    }, {
         matchWith: /האחד על השני/g,
         replaceWith: "אחד על השני"
     }, {
@@ -1720,7 +1758,7 @@ var commonErrors = [
         matchWith: /אני מתקשה|אני מקשתה/g,
         replaceWith: "קשה לי"
     }, {
-        matchWith: /הכל(?!א|ה|ל|ב|י)/g,
+        matchWith: /הכל(?!א|ה|ל|ב|י|וב)/g,
         replaceWith: "הכול"
     }, {
         matchWith: /איך שאני מתרגשת/g,
@@ -2758,8 +2796,23 @@ var commonErrors = [
         matchWith: /חבשתי/g,
         replaceWith: "חבשתי"
     }, {
+        matchWith: /כולה/g,
+        replaceWith: "כולה"
+    }, {
+        matchWith: /כולו/g,
+        replaceWith: "כולו"
+    }, {
         matchWith: /הם /g,
         replaceWith: "הם "
+    }, {
+        matchWith: /היית ז/g,
+        replaceWith: "היית ז"
+    }, {
+        matchWith: /הייתי ז/g,
+        replaceWith: "הייתי ז"
+    }, {
+        matchWith: /הייתי ש/g,
+        replaceWith: "הייתי ש"
     }, {
         matchWith: /חמה/g,
         replaceWith: "חמה"
@@ -2782,6 +2835,7 @@ var commonErrors = [
                 <button onclick="fixWhiteSpace(Editor);">Fix White Spaces</button>
                 <button onclick="finalErrorCheck(Editor)">Final Error Check</button>
                 <button onclick="locateShortLines(Editor)">Find Short Lines</button>
+                <button onclick="locateAwkwardCommas(Editor)">Awkward Commas</button>
                 <br><br>
                 <button onclick="loadBufferFromRecovery(Editor);">Load (Recovery)</button>
                 <button onclick='saveBuffer(Editor);'>Save Buffer</button>
