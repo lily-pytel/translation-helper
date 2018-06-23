@@ -159,6 +159,32 @@ function fixCommonErrors(editor) {
     $('#fixes-section').html(message);   
 }
 
+function locateSuspiciousAreas(editor) {
+    var text = editor.val()
+    ,   message = ''
+    ,   lines = text.split('\n')
+    ,   charCounter = 0;
+
+    for (var i = 0; i < areasOfSuspicion.length; i++) {
+        for (var j = 0; j < lines.length; j++) {
+            lines[j] = lines[j].replace(areasOfSuspicion[i].matchWith, function(match) {
+                message += "<tr>"
+                message += `<td onClick="goToLine(${j})">${match}</td><td>${lines[j]}</td>`
+                message += "</tr>"
+                return areasOfSuspicion[i].replaceWith;
+            })
+        }
+    }
+
+    text = lines.reduce(function(acc, line) {
+        return acc + line + "\n";
+    }, "")
+
+    editor.val(text);
+    message = `<table class="auto-fixes-table">${message}</table>`;
+    $('#fixes-section').html(message);   
+}
+
 function locateShortLines(editor) {
     var text = editor.val()
     ,   message = ''
@@ -207,7 +233,7 @@ function locateAwkwardPunctuation(editor) {
             ? lines[j + 1]
             : ''
 
-        if (lines[j].match(/[,.-]\s[^ .?!,]+$/)) {
+        if (lines[j].match(/[,.-?!]\s[^ .?!,-]+$/)) {
             totalLines = `${lineBefore}<br />${lines[j]}<br />${lineAfter}`
             message += "<tr>"
             message += `<td onClick="goToLine(${j})">${totalLines}</td>`
@@ -606,7 +632,13 @@ var commonErrors = [
 		matchWith: /חשובה בשביל/g,
         replaceWith: "חשובה ל"
     }, {
-		matchWith: /חשובים בשביל/g,
+		matchWith: /לבקש סליחה ממך/g,
+        replaceWith: "לבקש סליחה"
+    }, {
+        matchWith: /עשיתי את כל מה/g,
+        replaceWith: "עשיתי כל מה"
+    }, {
+        matchWith: /חשובים בשביל/g,
         replaceWith: "חשובים ל"
     }, {
 		matchWith: /לתת לו ללכת/g,
@@ -795,7 +827,7 @@ var commonErrors = [
         matchWith: /משום ש/g,
         replaceWith: "כי "
     }, {
-        matchWith: /בגלל ש/g,
+        matchWith: /בגלל ש(?!ירו)/g,
         replaceWith: "כי "
     }, {
         matchWith: /בכול מקרה/g,
@@ -951,6 +983,9 @@ var commonErrors = [
         matchWith: /אפילו הוא/g,
         replaceWith: "הוא אפילו"
     }, {
+        matchWith: /יש טעות פה/g,
+        replaceWith: "יש פה טעות"
+    }, {
         matchWith: /עדיין היא/g,
         replaceWith: "היא עדיין"
     }, {
@@ -986,6 +1021,9 @@ var commonErrors = [
     }, {
         matchWith: /אחזור מיד/g,
         replaceWith: "מיד אשוב"
+    }, {
+        matchWith: /שב בנוח פה/g,
+        replaceWith: "שב בנוח"
     }, {
         matchWith: /כול דבר/g,
         replaceWith: "כל דבר"
@@ -2373,10 +2411,10 @@ var commonErrors = [
         matchWith: /תולכ|תוכל/g,
         replaceWith: "אתה יכול"
     }, {
-        matchWith: /תרצה/g,
+        matchWith: /תרצה(?! משהו)/g,
         replaceWith: "אתה רוצה"
     }, {
-        matchWith: /תרצי/g,
+        matchWith: /תרצי(?! משהו)/g,
         replaceWith: "את רוצה"
     }, {
         matchWith: /נכיר את עצמנו שוב/g,
@@ -2424,6 +2462,9 @@ var commonErrors = [
         matchWith: /תודה על כך ששמעת אותי|תודה על כך שהקשבת לי|תודה ששמעת אותי/g,
         replaceWith: "תודה שהקשבת לי"
     }, {
+        matchWith: /מוצ'רלה/g,
+        replaceWith: "מוצרלה"
+    }, {
         matchWith: /שחכתי/g,
         replaceWith: "שכחתי"
     }, {
@@ -2451,7 +2492,7 @@ var commonErrors = [
         matchWith: /שם לב בי/g,
         replaceWith: "שם לב אליי"
     }, {
-        matchWith: /מבחינה(?! טכנית)/g,
+        matchWith: /מבחינה(?! טכנית| רפואית| פיזית)/g,
         replaceWith: "שמה לב"
     }, {
         matchWith: /שמב לב בזה/g,
@@ -2730,9 +2771,6 @@ var commonErrors = [
 		matchWith: /מסרלה/g,
         replaceWith: "מרסלה"
     }, {
-        matchWith: /בפרק הבא/g,
-        replaceWith: "בפרק הבא"
-    }, {
 		matchWith: /בפרק הבא באגרוף בלב/g,
         replaceWith: '"בפרק הבא של "אגרוף בלב'
     }, {
@@ -2751,17 +2789,39 @@ var commonErrors = [
         matchWith: /חדש בשביל/g,
         replaceWith: "חדש ל"
     }, {
-        matchWith: /\- זו /g,
-        replaceWith: "- זאת "
+        matchWith: /\-זו /g,
+        replaceWith: "-זאת "
     }, {
 		matchWith: /\. זו /g,
         replaceWith: ". זאת "
     }, {
+        matchWith: /, זו /g,
+        replaceWith: ", זאת "
+    }, { 
         matchWith: /^זו /g,
         replaceWith: "זאת "
-    }, { 
+    }
+]; 
+
+var areasOfSuspicion = [
+    { 
         matchWith: /תרא(?!ות)/g,
         replaceWith: "תרא"
+    }, {
+        matchWith: /בפרק הבא/g,
+        replaceWith: "בפרק הבא"
+    }, {
+        matchWith: /-עם /g,
+        replaceWith: "-עם "
+    }, {
+        matchWith: / עם /g,
+        replaceWith: " עם "
+    }, {
+        matchWith: /אלו /g,
+        replaceWith: "אלו "
+    }, {
+        matchWith: /תיאלץ/g,
+        replaceWith: "תיאלץ"
     }, {
         matchWith: /תפטר/g,
         replaceWith: "תפטר"
@@ -2802,6 +2862,9 @@ var commonErrors = [
         matchWith: /כולו/g,
         replaceWith: "כולו"
     }, {
+        matchWith: /בכל/g,
+        replaceWith: "בכל"
+    }, {
         matchWith: /הם /g,
         replaceWith: "הם "
     }, {
@@ -2820,7 +2883,8 @@ var commonErrors = [
         matchWith: /^שיחה מ/g,
         replaceWith: "שיחה מ"
     }
-].map(Fix.build);    
+];
+   
   
 </script>
 </head>
@@ -2836,6 +2900,7 @@ var commonErrors = [
                 <button onclick="finalErrorCheck(Editor)">Final Error Check</button>
                 <button onclick="locateShortLines(Editor)">Find Short Lines</button>
                 <button onclick="locateAwkwardPunctuation(Editor)">Awkward Punctuation</button>
+                <button onclick="locateSuspiciousAreas(Editor)">Suspicious Areas</button>
                 <br><br>
                 <button onclick="loadBufferFromRecovery(Editor);">Load (Recovery)</button>
                 <button onclick='saveBuffer(Editor);'>Save Buffer</button>
