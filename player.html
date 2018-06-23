@@ -207,7 +207,7 @@ function locateAwkwardPunctuation(editor) {
             ? lines[j + 1]
             : ''
 
-        if (lines[j].match(/[,.]\s[^ .?!,]+$/)) {
+        if (lines[j].match(/[,.-]\s[^ .?!,]+$/)) {
             totalLines = `${lineBefore}<br />${lines[j]}<br />${lineAfter}`
             message += "<tr>"
             message += `<td onClick="goToLine(${j})">${totalLines}</td>`
@@ -2835,7 +2835,7 @@ var commonErrors = [
                 <button onclick="fixWhiteSpace(Editor);">Fix White Spaces</button>
                 <button onclick="finalErrorCheck(Editor)">Final Error Check</button>
                 <button onclick="locateShortLines(Editor)">Find Short Lines</button>
-                <button onclick="locateAwkwardCommas(Editor)">Awkward Commas</button>
+                <button onclick="locateAwkwardPunctuation(Editor)">Awkward Punctuation</button>
                 <br><br>
                 <button onclick="loadBufferFromRecovery(Editor);">Load (Recovery)</button>
                 <button onclick='saveBuffer(Editor);'>Save Buffer</button>
