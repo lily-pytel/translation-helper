@@ -713,11 +713,8 @@ var commonErrors = [
 		matchWith: /זמן קצת/g,
         replaceWith: "קצת זמן"
     }, {
-		matchWith: /קורב/g,
+		matchWith: /קורב(?!ן)/g,
         replaceWith: "קרוב"
-    }, {
-		matchWith: /קרובן/g,
-        replaceWith: "קורבן"
     }, {
 		matchWith: /מי זו /g,
         replaceWith: "מי זאת "
@@ -2725,7 +2722,10 @@ var commonErrors = [
     }, {
         matchWith: /^ה |-ה |. ה |, ה /g,
         replaceWith: "זה "
-    }, { 
+    }, {
+        matchWith: /הרואות/g,
+        replaceWith: "הוראות"
+    }, {
         matchWith: /הדגרה/g,
         replaceWith: "הדרגה"
     }, {
@@ -2768,7 +2768,13 @@ var commonErrors = [
         matchWith: /בפרק הבא במכה בלב|בפרק הבא ב"מכה בלב"|בפרק הבא ב"אגרוף בלב"/g,
         replaceWith: 'בפרק הבא של "אגרוף בלב"'
     }, {
-		matchWith: /מסרלה/g,
+		matchWith: /אלמלא/g,
+        replaceWith: "לולא"
+    }, {
+        matchWith: /יותר פה/g,
+        replaceWith: "פה יותר"
+    }, {
+        matchWith: /מסרלה/g,
         replaceWith: "מרסלה"
     }, {
 		matchWith: /בפרק הבא באגרוף בלב/g,
@@ -2776,6 +2782,9 @@ var commonErrors = [
     }, {
 		matchWith: /מספרים חפוזים|חפוזים/g,
         replaceWith: "סטוצים"
+    }, {
+        matchWith: /שכואב לך יותר/g,
+        replaceWith: "שהכי כואב לך"
     }, {
         matchWith: /זו אני/g,
         replaceWith: "זאת אני"
@@ -2797,7 +2806,7 @@ var commonErrors = [
     }, {
         matchWith: /, זו /g,
         replaceWith: ", זאת "
-    }, { 
+    }, {
         matchWith: /^זו /g,
         replaceWith: "זאת "
     }
@@ -2820,11 +2829,17 @@ var areasOfSuspicion = [
         matchWith: /אלו /g,
         replaceWith: "אלו "
     }, {
+        matchWith: /פניי/g,
+        replaceWith: "פניי"
+    }, {
         matchWith: /תיאלץ/g,
         replaceWith: "תיאלץ"
     }, {
         matchWith: /תפטר/g,
         replaceWith: "תפטר"
+    }, {
+        matchWith: /יותר/g,
+        replaceWith: "יותר"
     }, {
         matchWith: /המום/g,
         replaceWith: "המום"
@@ -2862,7 +2877,7 @@ var areasOfSuspicion = [
         matchWith: /כולו/g,
         replaceWith: "כולו"
     }, {
-        matchWith: /בכל/g,
+        matchWith: /בכל(?!ל)/g,
         replaceWith: "בכל"
     }, {
         matchWith: /הם /g,
@@ -2898,7 +2913,7 @@ var areasOfSuspicion = [
                 <button style="font-weight: bold" onclick="fixCommonErrors(Editor);">Fix Common Errors</button>
                 <button onclick="fixWhiteSpace(Editor);">Fix White Spaces</button>
                 <button onclick="finalErrorCheck(Editor)">Final Error Check</button>
-                <button onclick="locateShortLines(Editor)">Find Short Lines</button>
+                <button onclick="locateShortLines(Editor)">Short Lines</button>
                 <button onclick="locateAwkwardPunctuation(Editor)">Awkward Punctuation</button>
                 <button onclick="locateSuspiciousAreas(Editor)">Suspicious Areas</button>
                 <br><br>
