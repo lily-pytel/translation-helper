@@ -713,7 +713,7 @@ var commonErrors = [
 		matchWith: /זמן קצת/g,
         replaceWith: "קצת זמן"
     }, {
-		matchWith: /קורב(?!ן)/g,
+		matchWith: /קורב(?!ן|נות)/g,
         replaceWith: "קרוב"
     }, {
 		matchWith: /מי זו /g,
@@ -1813,6 +1813,9 @@ var commonErrors = [
     }, {
         matchWith: /פסיכופט/g,
         replaceWith: "פסיכי"
+    }, {
+        matchWith: /לא קרה כלום פה/g,
+        replaceWith: "לא קרה פה כלום"
     }, {
         matchWith: /כל כך/g,
         replaceWith: "כל-כך"
