@@ -192,7 +192,7 @@ function locateShortLines(editor) {
     ,   charCounter = 0;
 
     for (var j = 0; j < lines.length; j++) {
-        if (lines[j].length < 10 && lines[j].length > 0) {
+        if (lines[j].length <= 11 && lines[j].length > 0) {
             lineBefore = j > 0
                 ? lines[j - 1]
                 : ''
@@ -608,12 +608,6 @@ var commonErrors = [
 		matchWith: /רפאה/g,
         replaceWith: "ראפה"
     }, {
-        matchWith: /התחבקנו/g,
-        replaceWith: "התחבקנו"
-    }, {
-		matchWith: /התנשקנו/g,
-        replaceWith: "התנשקנו"
-    }, {
         matchWith: /אני רוצה להיות כל הזמן איתך/g,
         replaceWith: "אני רוצה להיות איתך כל הזמן"
     }, {
@@ -895,6 +889,9 @@ var commonErrors = [
     }, {
         matchWith: /חם מאוד פה/g,
         replaceWith: "חם פה מאוד"
+    }, {
+        matchWith: /מצ'ו/g,
+        replaceWith: "מאצ'ו"
     }, {
         matchWith: /סינטיה/g,
         replaceWith: "סינתיה"
@@ -1273,6 +1270,15 @@ var commonErrors = [
     }, {
         matchWith: /קרבן/g,
         replaceWith: "קורבן"
+    }, {
+        matchWith: /אל מבי/g,
+        replaceWith: "לא מבי"
+    }, {
+        matchWith: /אל רוצה/g,
+        replaceWith: "לא רוצה"
+    }, {
+        matchWith: /ראשית כל/g,
+        replaceWith: "ראשית כול"
     }, {
         matchWith: /מאשר אלו/g,
         replaceWith: "מאלו"
@@ -2528,7 +2534,16 @@ var commonErrors = [
         matchWith: /הבחנתן בזה/g,
         replaceWith: "שמתן לב"
     }, {
-        matchWith: /מבחין/g,
+        matchWith: /מבחינה בכול/g,
+        replaceWith: "שמה לב לכול"
+    }, {
+        matchWith: /מבחין בכול/g,
+        replaceWith: "שם לב לכול"
+    }, {
+        matchWith: /מבחינה|מבחינה בזה/g,
+        replaceWith: "שמה לב"
+    }, {
+        matchWith: /מבחין|מבחין בזה/g,
         replaceWith: "שם לב"
     }, {
         matchWith: /שם לב בי/g,
@@ -2563,6 +2578,9 @@ var commonErrors = [
     }, {
         matchWith: /אני גם רוצה/g,
         replaceWith: "גם אני רוצה"
+    }, {
+        matchWith: /עכשיו את זה\?/g,
+        replaceWith: "עכשיו זה?"
     }, {
         matchWith: /שוועה/g,
         replaceWith: "שעווה"
@@ -2669,6 +2687,9 @@ var commonErrors = [
 		matchWith: /הוא ראוי/g,
         replaceWith: "מגיע לו"
     }, { 
+        matchWith: /אני לא ידעת/g,
+        replaceWith: "אני לא יודעת"
+    }, {
         matchWith: /היא ראויה/g,
         replaceWith: "מגיע לה"
     }, {
@@ -2704,9 +2725,6 @@ var commonErrors = [
     }, {
         matchWith: /מאתינו/g,
         replaceWith: "מאיתנו"
-    }, {
-        matchWith: /מהלך/g,
-        replaceWith: "מהלך"
     }, {
         matchWith: /ששמעתם אותי/g,
         replaceWith: "שהקשבתם לי"
@@ -2801,6 +2819,30 @@ var commonErrors = [
         matchWith: /קשורה בו/g,
         replaceWith: "קשורה אליו"
     }, {
+        matchWith: /אני לא יכולה יותר עם זה/g,
+        replaceWith: "אני לא עומדת בזה"
+    }, {
+        matchWith: /אני לא יכול יותר עם זה/g,
+        replaceWith: "אני לא עומד בזה"
+    }, {
+        matchWith: /לא עונים לי/g,
+        replaceWith: "לא עונים"
+    }, { 
+        matchWith: /בשורה שלא ייאמן|בשורה שלא תיאמן/g,
+        replaceWith: "בשורה מדהימה"
+    }, {
+        matchWith: /לא עונה לי/g,
+        replaceWith: "לא עונה"
+    }, {
+        matchWith: /זו לא הדרך לדבר/g,
+        replaceWith: "זאת לא צורת דיבור"
+    }, {
+        matchWith: /מאצת /g,
+        replaceWith: "מצאת "
+    }, {
+        matchWith: /פראיס/g,
+        replaceWith: "פריאס"
+    }, {
         matchWith: /אמשח/g,
         replaceWith: "אשמח"
     }, {
@@ -2886,6 +2928,12 @@ var areasOfSuspicion = [
         matchWith: /תפטר/g,
         replaceWith: "תפטר"
     }, {
+        matchWith: /התחבקנו/g,
+        replaceWith: "התחבקנו"
+    }, {
+        matchWith: /התנשקנו/g,
+        replaceWith: "התנשקנו"
+    }, {
         matchWith: /יותר/g,
         replaceWith: "יותר"
     }, {
@@ -2906,6 +2954,9 @@ var areasOfSuspicion = [
     }, {
         matchWith: /זאת/g,
         replaceWith: "זאת"
+    }, {
+        matchWith: /מהלך/g,
+        replaceWith: "מהלך"
     }, {
         matchWith: /-זה /g,
         replaceWith: "-זה "
