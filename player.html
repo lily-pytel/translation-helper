@@ -820,6 +820,12 @@ var commonErrors = [
     }, {
         matchWith: /לכבוד לי ש/g,
         replaceWith: "לכבוד הוא לי ש"
+    }, { 
+        matchWith: /זה לא קל /g,
+        replaceWith: "לא קל"
+    }, {
+        matchWith: /מאהוב ב/g,
+        replaceWith: "מאוהב ב"
     }, {
         matchWith: /מה עשות/g,
         replaceWith: "מה לעשות"
@@ -974,6 +980,12 @@ var commonErrors = [
         matchWith: /קרוב לי/g,
         replaceWith: "קרוב אליי"
     }, {
+        matchWith: /אני לא מאמינה לך בכלל/g,
+        replaceWith: "אני לא מאמין לך"
+    }, {
+        matchWith: /אני לא מאמינה לך בכלל/g,
+        replaceWith: "אני לא מאמין לך"
+    }, {
         matchWith: /קרובה לי/g,
         replaceWith: "קרובה אליי"
     }, {
@@ -1121,6 +1133,9 @@ var commonErrors = [
         matchWith: /יש לי לומר לך משהו/g,
         replaceWith: "יש לי משהו לומר לך"
     }, {
+        matchWith: /נמצא בשבילה/g,
+        replaceWith: "לרשותה"
+    }, {
         matchWith: /ברוך בואך/g,
         replaceWith: "ברוך הבא"
     }, {
@@ -1129,6 +1144,9 @@ var commonErrors = [
     }, {
         matchWith: /כל רצוני הוא/g,
         replaceWith: "אני רק רוצה"
+    }, {
+        matchWith: /איזה הבחנה חדה שיש לך/g,
+        replaceWith: "את ממש חדת אבחנה"
     }, {
         matchWith: /כל רצוני/g,
         replaceWith: "אני רק רוצה"
@@ -1259,8 +1277,20 @@ var commonErrors = [
         matchWith: /יהיו חסרים/g,
         replaceWith: "יחסרו"
     }, {
+        matchWith: /היא תהיה טוב יותר/g,
+        replaceWith: "היא תרגיש טוב יותר"
+    }, {
         matchWith: /יחי המלכה/g,
         replaceWith: "תחי המלכה"
+    }, {
+        matchWith: /אפשרות אחרות/g,
+        replaceWith: "אפשרות אחרת"
+    }, {
+        matchWith: /מסרלו/g,
+        replaceWith: "מרסלו"
+    }, {
+        matchWith: /בריין/g,
+        replaceWith: "בריאן"
     }, {
         matchWith: /ככול/g,
         replaceWith: "ככל"
@@ -1339,6 +1369,12 @@ var commonErrors = [
     }, {
         matchWith: /גרדנה/g,
         replaceWith: "גרנדה"
+    }, {
+        matchWith: /אסע למשטרה ישר/g,
+        replaceWith: "אסע ישר למשטרה"
+    }, {
+        matchWith: /שחכתי/g,
+        replaceWith: "שכחתי"
     }, {
         matchWith: /גיבורותיי/g,
         replaceWith: "גבירותיי"
@@ -1468,6 +1504,9 @@ var commonErrors = [
     }, {
         matchWith: /לשמוע אותך/,
         replaceWith: "להקשיב לך"
+    }, {
+        matchWith: /אני שומע אותך/,
+        replaceWith: "אני מקשיב"
     }, {
         matchWith: /אתה שומע את עצמך\?/,
         replaceWith: "אתה מקשיב לעצמך?"
@@ -2558,6 +2597,18 @@ var commonErrors = [
         matchWith: /אהיה בשבילך|אהיה שם בשבילך/g,
         replaceWith: "אהיה לצדך"
     }, {
+        matchWith: /דימן למוות/g,
+        replaceWith: "דימם למוות"
+    }, {
+        matchWith: /עורך ין/g,
+        replaceWith: "עורך דין"
+    }, {
+        matchWith: /עורך הין/g,
+        replaceWith: "עורך הדין"
+    }, {
+        matchWith: /מבחינה בזה/g,
+        replaceWith: "שמה לב"
+    }, {
         matchWith: /הבחנתן בזה/g,
         replaceWith: "שמתן לב"
     }, {
@@ -2816,6 +2867,12 @@ var commonErrors = [
         matchWith: /^ה |-ה |. ה |, ה /g,
         replaceWith: "זה "
     }, {
+        matchWith: /אעדכן אותך בכל/g,
+        replaceWith: "אעדכן אותך על הכול"
+    }, {
+        matchWith: /נחזור תכף/g,
+        replaceWith: "מיד נשוב"
+    }, {
         matchWith: /הרואות/g,
         replaceWith: "הוראות"
     }, {
@@ -2961,6 +3018,9 @@ var areasOfSuspicion = [
         matchWith: /התנשקנו/g,
         replaceWith: "התנשקנו"
     }, {
+        matchWith: /וו/g,
+        replaceWith: "וו"
+    }, {
         matchWith: /יותר/g,
         replaceWith: "יותר"
     }, {
@@ -3032,7 +3092,7 @@ var areasOfSuspicion = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Senores Papis 110.MP4" autobuffer height="100px" controls></video>
+            <video src="TENIAS QUE SER TU 1.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
