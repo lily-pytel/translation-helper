@@ -49,7 +49,7 @@
         }
 
         #fixes-section {
-            height: 590px;
+            height: 400px;
             width: 350px;
             overflow: auto;
         }
@@ -593,7 +593,7 @@ $(function() {
     initHighlighter()
 })
 
-var shinIgnoreCases = '(?!|נים|עות|נא|יותר|ניות|ל |טויות|לוש|ום|כן|כנים|כנות|אפשר|כנה|ם|מות|יכול|בא לי|יטה|יטות|בוע|יי|את רוצה|אתה רוצה|אלה|אלות|לט|מח|עלית|תרצ|ינוי|אוהב)'
+var shinIgnoreCases = '(?!|נים|עות|נא|יותר|ניות|ל |טויות|לוש|ום|כן|כנים|כנות|אפשר|כנה|ם|מות|יכול|בא לי|יטה|יטות|בוע|יי|את רוצה|אתה רוצה|אלה|אלות|לט|מח|עלית|תרצ|ינוי|אוהב|יחה|יחות)'
 var commonErrors = [
     {
         matchWith: /אני כמו שאני/g,
@@ -602,10 +602,40 @@ var commonErrors = [
         matchWith: /למשל מה/g,
         replaceWith: "מה למשל"
     }, {
-		matchWith: /כשפחות תצפה/g,
+		matchWith: /לאדנרו/g,
+        replaceWith: "לאנדרו"
+    }, {
+        matchWith: /אל תייחס אליי/g,
+        replaceWith: "תתעלם ממני"
+    }, {
+        matchWith: /אל תייחסי אליי/g,
+        replaceWith: "תתעלמי ממני"
+    }, {
+        matchWith: /מערוב ב/g,
+        replaceWith: "מעורב ב"
+    }, {
+        matchWith: /זה שוב\?/g,
+        replaceWith: "שוב זה?"
+    }, {
+        matchWith: /השאלה של מיליון הדולר/g,
+        replaceWith: "שאלת מיליון הדולר"
+    }, {
+        matchWith: /כשפחות תצפה/g,
         replaceWith: "כשהכי פחות תצפה"
     }, {
-		matchWith: /רפאה/g,
+		matchWith: /שהוא יעשה מה שהוא רוצה|שהוא יעשה מה שבא לו/g,
+        replaceWith: "שיעשה מה שבא לו"
+    }, {
+        matchWith: /דיברנו עם האמת/g,
+        replaceWith: "דיברנו בכנות"
+    }, {
+        matchWith: /זה ל /g,
+        replaceWith: "זה לא "
+    }, {
+        matchWith: /כל הזמן לפה/g,
+        replaceWith: "לפה כל הזמן"
+    }, {
+        matchWith: /רפאה/g,
         replaceWith: "ראפה"
     }, {
         matchWith: /אני רוצה להיות כל הזמן איתך/g,
@@ -683,7 +713,7 @@ var commonErrors = [
         matchWith: /מה פתאום שתביאי|מה פתאום שתביא/g,
         replaceWith: "מה פתאום הבאת"
     }, {
-        matchWith: /אם תרצי או שלא|אם תרצה או שלא/g,
+        matchWith: /באם תרצי או שלא|באם תרצה או שלא|אם תרצי או שלא|אם תרצה או שלא/g,
         replaceWith: "גם אם זה לא נראה לך"
     }, {
         matchWith: /קפאתי על המקום/g,
@@ -1499,6 +1529,12 @@ var commonErrors = [
         matchWith: /תשמע היטב|תשמע משהו/g,
         replaceWith: 'תקשיב טוב'
     }, {
+        matchWith: /תכמור/,
+        replaceWith: "תמכור"
+    }, {
+        matchWith: /תשמע אותו/,
+        replaceWith: "תקשיב לו"
+    }, {
         matchWith: /תשמע אותי/,
         replaceWith: "תקשיב לי"
     }, {
@@ -1955,6 +1991,12 @@ var commonErrors = [
         matchWith: /אסטרייס/g,
         replaceWith: "אסטרז'ס"
     }, {
+        matchWith: /זקקים לך דחוף/g,
+        replaceWith: "זקוקים לך בדחיפות"
+    }, {
+        matchWith: /באמת אתה/g,
+        replaceWith: "אתה באמת"
+    }, {
         matchWith: /באמת שכן/g,
         replaceWith: "האמת היא שכן"
     }, {
@@ -2168,6 +2210,9 @@ var commonErrors = [
         matchWith: /אותכם/g,
         replaceWith: "אתכם"
     }, {
+        matchWith: /או שאחרת/g,
+        replaceWith: "אחרת"
+    }, {
         matchWith: /איתכן/g,
         replaceWith: "אתכן"
     }, {
@@ -2186,8 +2231,32 @@ var commonErrors = [
         matchWith: /אומנם אני לחוצה בגלל זה|אומנם אני לחוץ בגלל זה/g,
         replaceWith: "אומנם זה מלחיץ אותי"
     }, {
+        matchWith: /להיות באמצע שוב/g,
+        replaceWith: "להיות שוב באמצע"
+    }, {
+        matchWith: /עם תינוק אן בלעדיו/g,
+        replaceWith: "עם או בלי תינוק"
+    }, {
+        matchWith: /עכשיו לא הזמן /g,
+        replaceWith: "זה לא הזמן"
+    }, { 
+        matchWith: /מרגע הזה/g,
+        replaceWith: "מרגע זה"
+    }, {
         matchWith: /להמשיך קדימה/g,
-        replaceWith: "להתקדםי"
+        replaceWith: "להתקדם"
+    }, {
+        matchWith: /אין דרך חזרה מזה בשבילי/g,
+        replaceWith: "מבחינתי אין דרך חזרה"
+    }, {
+        matchWith: /אני מבקש רק את זה/g,
+        replaceWith: "זה כל מה שביקשתי"
+    }, {
+        matchWith: /השם של ה/g,
+        replaceWith: "שם ה"
+    }, {
+        matchWith: /ביקרות/g,
+        replaceWith: "ביקורת"
     }, {
         matchWith: /עבר לי בראש/g,
         replaceWith: "עלה בדעתי"
@@ -2494,6 +2563,9 @@ var commonErrors = [
     }, {
         matchWith: /סלילה/g,
         replaceWith: "סליחה"
+    }, {
+        matchWith: /הנשיקה שהתנשקנו/g,
+        replaceWith: "הנשיקה שחלקנו"
     }, {
         matchWith: /נשיק /g,
         replaceWith: "נישק "
@@ -2948,6 +3020,12 @@ var commonErrors = [
         matchWith: /יותר פה/g,
         replaceWith: "פה יותר"
     }, {
+        matchWith: /אני סמוך/g,
+        replaceWith: "אני סומך"
+    }, {
+        matchWith: /אגזול עוד זמן ממך/g,
+        replaceWith: "אגזול ממך עוד זמן"
+    }, {
         matchWith: /מסרלה/g,
         replaceWith: "מרסלה"
     }, {
@@ -2969,6 +3047,9 @@ var commonErrors = [
         matchWith: /מספר חפוז|חפוז/g,
         replaceWith: "סטוץ"
     }, {
+        matchWith: /הול יסתדר, תראה./g,
+        replaceWith: "הכול יסתדר, אתה תראה"
+    }, {
         matchWith: /חדש בשביל/g,
         replaceWith: "חדש ל"
     }, {
@@ -2977,6 +3058,9 @@ var commonErrors = [
     }, {
 		matchWith: /\. זו /g,
         replaceWith: ". זאת "
+    }, {
+        matchWith: / זו /g,
+        replaceWith: " זאת "
     }, {
         matchWith: /, זו /g,
         replaceWith: ", זאת "
@@ -2991,6 +3075,21 @@ var areasOfSuspicion = [
         matchWith: /תרא(?!ות)/g,
         replaceWith: "תרא"
     }, {
+        matchWith: /כמוך/g,
+        replaceWith: "כמוך"
+    }, {
+        matchWith: /גם ראי/g,
+        replaceWith: "גם ראי"
+    }, {
+        matchWith: /גם חשב/g,
+        replaceWith: "גם חשב"
+    }, {
+        matchWith: /גם היי/g,
+        replaceWith: "גם היי"
+    }, {
+        matchWith: /כמונ/g,
+        replaceWith: "כמונ"
+    }, {
         matchWith: /בפרק הבא/g,
         replaceWith: "בפרק הבא"
     }, {
@@ -2999,6 +3098,12 @@ var areasOfSuspicion = [
     }, {
         matchWith: / עם /g,
         replaceWith: " עם "
+    }, {
+        matchWith: /בכלל/g,
+        replaceWith: "בכלל"
+    }, {
+        matchWith: /באמת/g,
+        replaceWith: "באמת"
     }, {
         matchWith: /אלו /g,
         replaceWith: "אלו "
@@ -3122,7 +3227,7 @@ var areasOfSuspicion = [
             </div>
         </div>
         <div id='editor' style="float: left; margin-left: 15px;">
-            <textarea id="editor-textarea" cols=30 rows=37 wrap="hard" dir='rtl'
+            <textarea id="editor-textarea" cols=30 rows=30 wrap="hard" dir='rtl'
                       style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
         </div>
         <div id="fixes-section" style="float: left; margin-left: 15px">
