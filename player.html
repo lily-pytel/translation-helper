@@ -602,31 +602,34 @@ var commonErrors = [
         matchWith: /למשל מה/g,
         replaceWith: "מה למשל"
     }, {
-		matchWith: /כשפחות תצפה/g,
+        matchWith: /כשפחות תצפה/g,
         replaceWith: "כשהכי פחות תצפה"
     }, {
-		matchWith: /רפאה/g,
+        matchWith: /רפאה/g,
         replaceWith: "ראפה"
     }, {
         matchWith: /אני רוצה להיות כל הזמן איתך/g,
         replaceWith: "אני רוצה להיות איתך כל הזמן"
     }, {
-        matchWith: /חביאר/g,
+        matchWith: /חביאר|חוייאר/g,
         replaceWith: "חוויאר"
     }, {
-		matchWith: /ידעת מזה/g,
+        matchWith: /ידעת מזה/g,
         replaceWith: "ידעת על זה"
     }, {
         matchWith: /אני כבר עובדת פה שנים רבות/g,
         replaceWith: "אני עובדת פה כבר הרבה שנים"
     }, {
-		matchWith: /קבילתי/g,
+        matchWith: /תשע לך ש/g,
+        replaceWith: "תדע לך ש"
+    }, {
+        matchWith: /קבילתי/g,
         replaceWith: "קיבלתי"
     }, {
-		matchWith: /חשובה בשביל/g,
+        matchWith: /חשובה בשביל/g,
         replaceWith: "חשובה ל"
     }, {
-		matchWith: /לבקש סליחה ממך/g,
+        matchWith: /לבקש סליחה ממך/g,
         replaceWith: "לבקש סליחה"
     }, {
         matchWith: /עשיתי את כל מה/g,
@@ -635,10 +638,13 @@ var commonErrors = [
         matchWith: /חשובים בשביל/g,
         replaceWith: "חשובים ל"
     }, {
-	matchWith: /מאלך/g,
+        matchWith: /נעמוד פנים/g,
+        replaceWith: "נעמיד פנים"
+    }, {
+        matchWith: /מאלך/g,
         replaceWith: "מלאך"
     }, {
-	matchWith: /לתת לו ללכת/g,
+        matchWith: /לתת לו ללכת/g,
         replaceWith: "לשחרר אותו"
     }, {
         matchWith: /התנצל מפניי/g,
@@ -652,6 +658,15 @@ var commonErrors = [
     }, {
         matchWith: /תבקשי סליחה ממנה/g,
         replaceWith: "תתנצלי בפניה"
+    }, {
+        matchWith: /עם התוכניות הזה/g,
+        replaceWith: "בתוכנית הזאת"
+    }, {
+        matchWith: / ליחה/g,
+        replaceWith: " סליחה"
+    }, {
+        matchWith: /הדעה שלי מוסחת/g,
+        replaceWith: "דעתי מוסחת"
     }, {
         matchWith: /אני מבקש סליחה ממך/g,
         replaceWith: "אני מתנצל"
@@ -719,13 +734,13 @@ var commonErrors = [
         matchWith: /תיארה כמו/g,
         replaceWith: "תיראה כמו"
     }, {
-		matchWith: /זמן קצת/g,
+        matchWith: /זמן קצת/g,
         replaceWith: "קצת זמן"
     }, {
-		matchWith: /קורב(?!ן|נות)/g,
+        matchWith: /קורב(?!ן|נות)/g,
         replaceWith: "קרוב"
     }, {
-		matchWith: /מי זו /g,
+        matchWith: /מי זו /g,
         replaceWith: "מי זאת "
     }, {
         matchWith: /כפל אישיות/g,
@@ -959,7 +974,7 @@ var commonErrors = [
         matchWith: /מי זו\?/g,
         replaceWith: "מי זאת\?"
     }, {
-		matchWith: /או שלא\?/g,
+        matchWith: /או שלא\?/g,
         replaceWith: "או לא\?"
     }, {
         matchWith: /אקוגרפיה/g,
@@ -1388,13 +1403,13 @@ var commonErrors = [
         matchWith: /נחזור לבית/g,
         replaceWith: 'נחזור הביתה'
     }, {
-		matchWith: /לחזור לבית/g,
+        matchWith: /לחזור לבית/g,
         replaceWith: 'לחזור הביתה'
     }, {
         matchWith: /הביתה החולים/g,
         replaceWith: 'בית החולים'
     }, {
-		matchWith: /הביתה הספר/g,
+        matchWith: /הביתה הספר/g,
         replaceWith: 'בית הספר'
     }, {
         matchWith: /הביתה ספר/g,
@@ -2210,8 +2225,11 @@ var commonErrors = [
         matchWith: /תעשי טובה בשבילי/g,
         replaceWith: "תעשי לי טובה"
     }, {
-        matchWith: /לא קל בשבילי/g,
-        replaceWith: "לא קל לי"
+        matchWith: /לוקריסה/g,
+        replaceWith: "לוקרסיה"
+    }, {
+        matchWith: /קל בשביל/g,
+        replaceWith: "קל ל"
     }, {
         matchWith: /ריח הדבש/g,
         replaceWith: "ירח הדבש"
@@ -2708,10 +2726,10 @@ var commonErrors = [
         matchWith: /קורה משהו שם/g,
         replaceWith: "קורה שם משהו"
     }, {
-		matchWith: /עם המבט/g,
+        matchWith: /עם המבט/g,
         replaceWith: "במבט"
     }, {
-		matchWith: /הוא ראוי/g,
+        matchWith: /הוא ראוי/g,
         replaceWith: "מגיע לו"
     }, { 
         matchWith: /אני לא ידעת/g,
@@ -2885,7 +2903,7 @@ var commonErrors = [
         matchWith: /בפרק הבא במכה בלב|בפרק הבא ב"מכה בלב"|בפרק הבא ב"אגרוף בלב"/g,
         replaceWith: 'בפרק הבא של "אגרוף בלב"'
     }, {
-		matchWith: /אלמלא/g,
+        matchWith: /אלמלא/g,
         replaceWith: "לולא"
     }, {
         matchWith: /יותר פה/g,
@@ -2894,10 +2912,10 @@ var commonErrors = [
         matchWith: /מסרלה/g,
         replaceWith: "מרסלה"
     }, {
-		matchWith: /בפרק הבא באגרוף בלב/g,
+        matchWith: /בפרק הבא באגרוף בלב/g,
         replaceWith: '"בפרק הבא של "אגרוף בלב'
     }, {
-		matchWith: /מספרים חפוזים|חפוזים/g,
+        matchWith: /מספרים חפוזים|חפוזים/g,
         replaceWith: "סטוצים"
     }, {
         matchWith: /שכואב לך יותר/g,
@@ -2918,7 +2936,7 @@ var commonErrors = [
         matchWith: /\-זו /g,
         replaceWith: "-זאת "
     }, {
-		matchWith: /\. זו /g,
+        matchWith: /\. זו /g,
         replaceWith: ". זאת "
     }, {
         matchWith: /, זו /g,
