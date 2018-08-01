@@ -49,7 +49,7 @@
         }
 
         #fixes-section {
-            height: 590px;
+            height: 500px;
             width: 350px;
             overflow: auto;
         }
@@ -593,7 +593,7 @@ $(function() {
     initHighlighter()
 })
 
-var shinIgnoreCases = '(?!|נים|עות|נא|יותר|ניות|ל |טויות|לוש|ום|כן|כנים|כנות|אפשר|כנה|ם|מות|יכול|בא לי|יטה|יטות|בוע|יי|את רוצה|אתה רוצה|אלה|אלות|לט|מח|עלית|תרצ|ינוי|אוהב)'
+var shinIgnoreCases = '(?!|נים|עות|נא|יותר|ניות|ל |טויות|לוש|ום|כן|כנים|כנות|אפשר|כנה|ם|מות|יכול|בא לי|יטה|יטות|בוע|יי|את רוצה|אתה רוצה|אלה|אלות|לט|מח|עלית|תרצ|ינוי|אוהב|יחה|יחות)'
 var commonErrors = [
     {
         matchWith: /אני כמו שאני/g,
@@ -602,8 +602,47 @@ var commonErrors = [
         matchWith: /למשל מה/g,
         replaceWith: "מה למשל"
     }, {
+		matchWith: /לאדנרו/g,
+        replaceWith: "לאנדרו"
+    }, {
+        matchWith: /אל תייחס אליי/g,
+        replaceWith: "תתעלם ממני"
+    }, {
+        matchWith: /אל תייחסי אליי/g,
+        replaceWith: "תתעלמי ממני"
+    }, {
+        matchWith: /מערוב ב/g,
+        replaceWith: "מעורב ב"
+    }, {
+        matchWith: /זה שוב\?/g,
+        replaceWith: "שוב זה?"
+    }, {
+        matchWith: /השאלה של מיליון הדולר/g,
+        replaceWith: "שאלת מיליון הדולר"
+    }, {
         matchWith: /כשפחות תצפה/g,
         replaceWith: "כשהכי פחות תצפה"
+    }, {
+		matchWith: /שהוא יעשה מה שהוא רוצה|שהוא יעשה מה שבא לו/g,
+        replaceWith: "שיעשה מה שבא לו"
+    }, {
+        matchWith: /דיברנו עם האמת/g,
+        replaceWith: "דיברנו בכנות"
+    }, {
+        matchWith: /זה ל /g,
+        replaceWith: "זה לא "
+    }, {
+        matchWith: /כל הזמן לפה/g,
+        replaceWith: "לפה כל הזמן"
+    }, {
+        matchWith: /אלוביה|אולביה|אוליביס/g,
+        replaceWith: "אוליביה"
+    }, {
+        matchWith: /אסקלטנה/g,
+        replaceWith: "אסקלנטה"
+    }, { 
+        matchWith: /בוסמנטה/g,
+        replaceWith: "בוסטמנטה"
     }, {
         matchWith: /רפאה/g,
         replaceWith: "ראפה"
@@ -698,7 +737,7 @@ var commonErrors = [
         matchWith: /מה פתאום שתביאי|מה פתאום שתביא/g,
         replaceWith: "מה פתאום הבאת"
     }, {
-        matchWith: /אם תרצי או שלא|אם תרצה או שלא/g,
+        matchWith: /באם תרצי או שלא|באם תרצה או שלא|אם תרצי או שלא|אם תרצה או שלא/g,
         replaceWith: "גם אם זה לא נראה לך"
     }, {
         matchWith: /קפאתי על המקום/g,
@@ -835,11 +874,23 @@ var commonErrors = [
     }, {
         matchWith: /לכבוד לי ש/g,
         replaceWith: "לכבוד הוא לי ש"
+    }, { 
+        matchWith: /זה לא קל /g,
+        replaceWith: "לא קל"
+    }, {
+        matchWith: /מאהוב ב/g,
+        replaceWith: "מאוהב ב"
     }, {
         matchWith: /מה עשות/g,
         replaceWith: "מה לעשות"
     }, {
-	matchWith: /איך שזה/g,
+	    matchWith: /את אוהבת איך שהמקום נראה/g,
+        replaceWith: "את אוהבת את המקום "
+    }, {
+        matchWith: /איך שזה/g,
+        replaceWith: "כמה זה"
+    }, {
+        matchWith: /איך שזה/g,
         replaceWith: "כמה זה"
     }, {
         matchWith: /תיזהר מאוד מהדברים שלך/g,
@@ -989,6 +1040,12 @@ var commonErrors = [
         matchWith: /קרוב לי/g,
         replaceWith: "קרוב אליי"
     }, {
+        matchWith: /אני לא מאמינה לך בכלל/g,
+        replaceWith: "אני לא מאמין לך"
+    }, {
+        matchWith: /אני לא מאמינה לך בכלל/g,
+        replaceWith: "אני לא מאמין לך"
+    }, {
         matchWith: /קרובה לי/g,
         replaceWith: "קרובה אליי"
     }, {
@@ -1136,6 +1193,9 @@ var commonErrors = [
         matchWith: /יש לי לומר לך משהו/g,
         replaceWith: "יש לי משהו לומר לך"
     }, {
+        matchWith: /נמצא בשבילה/g,
+        replaceWith: "לרשותה"
+    }, {
         matchWith: /ברוך בואך/g,
         replaceWith: "ברוך הבא"
     }, {
@@ -1144,6 +1204,9 @@ var commonErrors = [
     }, {
         matchWith: /כל רצוני הוא/g,
         replaceWith: "אני רק רוצה"
+    }, {
+        matchWith: /איזה הבחנה חדה שיש לך/g,
+        replaceWith: "את ממש חדת אבחנה"
     }, {
         matchWith: /כל רצוני/g,
         replaceWith: "אני רק רוצה"
@@ -1274,8 +1337,20 @@ var commonErrors = [
         matchWith: /יהיו חסרים/g,
         replaceWith: "יחסרו"
     }, {
+        matchWith: /היא תהיה טוב יותר/g,
+        replaceWith: "היא תרגיש טוב יותר"
+    }, {
         matchWith: /יחי המלכה/g,
         replaceWith: "תחי המלכה"
+    }, {
+        matchWith: /אפשרות אחרות/g,
+        replaceWith: "אפשרות אחרת"
+    }, {
+        matchWith: /מסרלו/g,
+        replaceWith: "מרסלו"
+    }, {
+        matchWith: /בריין/g,
+        replaceWith: "בריאן"
     }, {
         matchWith: /ככול/g,
         replaceWith: "ככל"
@@ -1354,6 +1429,12 @@ var commonErrors = [
     }, {
         matchWith: /גרדנה/g,
         replaceWith: "גרנדה"
+    }, {
+        matchWith: /אסע למשטרה ישר/g,
+        replaceWith: "אסע ישר למשטרה"
+    }, {
+        matchWith: /שחכתי/g,
+        replaceWith: "שכחתי"
     }, {
         matchWith: /גיבורותיי/g,
         replaceWith: "גבירותיי"
@@ -1478,11 +1559,20 @@ var commonErrors = [
         matchWith: /תשמע היטב|תשמע משהו/g,
         replaceWith: 'תקשיב טוב'
     }, {
+        matchWith: /תכמור/,
+        replaceWith: "תמכור"
+    }, {
+        matchWith: /תשמע אותו/,
+        replaceWith: "תקשיב לו"
+    }, {
         matchWith: /תשמע אותי/,
         replaceWith: "תקשיב לי"
     }, {
         matchWith: /לשמוע אותך/,
         replaceWith: "להקשיב לך"
+    }, {
+        matchWith: /אני שומע אותך/,
+        replaceWith: "אני מקשיב"
     }, {
         matchWith: /אתה שומע את עצמך\?/,
         replaceWith: "אתה מקשיב לעצמך?"
@@ -1931,6 +2021,12 @@ var commonErrors = [
         matchWith: /אסטרייס/g,
         replaceWith: "אסטרז'ס"
     }, {
+        matchWith: /זקקים לך דחוף/g,
+        replaceWith: "זקוקים לך בדחיפות"
+    }, {
+        matchWith: /באמת אתה/g,
+        replaceWith: "אתה באמת"
+    }, {
         matchWith: /באמת שכן/g,
         replaceWith: "האמת היא שכן"
     }, {
@@ -2144,6 +2240,9 @@ var commonErrors = [
         matchWith: /אותכם/g,
         replaceWith: "אתכם"
     }, {
+        matchWith: /או שאחרת/g,
+        replaceWith: "אחרת"
+    }, {
         matchWith: /איתכן/g,
         replaceWith: "אתכן"
     }, {
@@ -2162,8 +2261,32 @@ var commonErrors = [
         matchWith: /אומנם אני לחוצה בגלל זה|אומנם אני לחוץ בגלל זה/g,
         replaceWith: "אומנם זה מלחיץ אותי"
     }, {
+        matchWith: /להיות באמצע שוב/g,
+        replaceWith: "להיות שוב באמצע"
+    }, {
+        matchWith: /עם תינוק אן בלעדיו/g,
+        replaceWith: "עם או בלי תינוק"
+    }, {
+        matchWith: /עכשיו לא הזמן /g,
+        replaceWith: "זה לא הזמן"
+    }, { 
+        matchWith: /מרגע הזה/g,
+        replaceWith: "מרגע זה"
+    }, {
         matchWith: /להמשיך קדימה/g,
-        replaceWith: "להתקדםי"
+        replaceWith: "להתקדם"
+    }, {
+        matchWith: /אין דרך חזרה מזה בשבילי/g,
+        replaceWith: "מבחינתי אין דרך חזרה"
+    }, {
+        matchWith: /אני מבקש רק את זה/g,
+        replaceWith: "זה כל מה שביקשתי"
+    }, {
+        matchWith: /השם של ה/g,
+        replaceWith: "שם ה"
+    }, {
+        matchWith: /ביקרות/g,
+        replaceWith: "ביקורת"
     }, {
         matchWith: /עבר לי בראש/g,
         replaceWith: "עלה בדעתי"
@@ -2474,6 +2597,9 @@ var commonErrors = [
         matchWith: /סלילה/g,
         replaceWith: "סליחה"
     }, {
+        matchWith: /הנשיקה שהתנשקנו/g,
+        replaceWith: "הנשיקה שחלקנו"
+    }, {
         matchWith: /נשיק /g,
         replaceWith: "נישק "
     }, {
@@ -2576,11 +2702,68 @@ var commonErrors = [
         matchWith: /אהיה בשבילך|אהיה שם בשבילך/g,
         replaceWith: "אהיה לצדך"
     }, {
+        matchWith: /דימן למוות/g,
+        replaceWith: "דימם למוות"
+    }, {
+        matchWith: /עורך ין/g,
+        replaceWith: "עורך דין"
+    }, {
+        matchWith: /עורך הין/g,
+        replaceWith: "עורך הדין"
+    }, {
+        matchWith: /תראה איך ש/g,
+        replaceWith: "תראה כמה"
+    }, {
+        matchWith: /תראי איך ש/g,
+        replaceWith: "תראי כמה"
+    }, {
+        matchWith: /אתה לא צריכה לייחס/g,
+        replaceWith: "אל תייחס"
+    }, {
+        matchWith: /את לא צריכה לייחס/g,
+        replaceWith: "אל תייחסי"
+    }, {
+        matchWith: /בעיות יותר/g,
+        replaceWith: "עוד בעיות"
+    }, {
+        matchWith: /תעשה את מה ש/g,
+        replaceWith: "תעשה מה ש"
+    }, { 
+        matchWith: /אתם מכונים/g,
+        replaceWith: "אתם מוכנים"
+    }, {
+        matchWith: /הטב ביותר/g,
+        replaceWith: "הטוב ביותר"
+    }, {
+        matchWith: /אני מדע לזה/g,
+        replaceWith: "אני מודע לזה"
+    }, {
+        matchWith: /צעד, צעד/g,
+        replaceWith: "צעד אחר צעד"
+    }, { 
+        matchWith: /אורחת בוקר/g,
+        replaceWith: "ארוחת בוקר"
+    }, {
+        matchWith: /הלנה/g,
+        replaceWith: "אלנה"
+    }, { 
+        matchWith: /עשיתי הכרה/g,
+        replaceWith: "הכרתי"
+    }, {
+        matchWith: /מפשט/g,
+        replaceWith: "משפט"
+    }, {
+        matchWith: /מבחינה בזה/g,
+        replaceWith: "שמה לב"
+    }, {
         matchWith: /הבחנתן בזה/g,
         replaceWith: "שמתן לב"
     }, {
         matchWith: /מבחינה בכול/g,
         replaceWith: "שמה לב לכול"
+    }, {
+        matchWith: /הבחנת בכלל|הבחנת/g,
+        replaceWith: "שמת לב"
     }, {
         matchWith: /מבחין בכול/g,
         replaceWith: "שם לב לכול"
@@ -2834,6 +3017,12 @@ var commonErrors = [
         matchWith: /^ה |-ה |. ה |, ה /g,
         replaceWith: "זה "
     }, {
+        matchWith: /אעדכן אותך בכל/g,
+        replaceWith: "אעדכן אותך על הכול"
+    }, {
+        matchWith: /נחזור תכף/g,
+        replaceWith: "מיד נשוב"
+    }, {
         matchWith: /הרואות/g,
         replaceWith: "הוראות"
     }, {
@@ -2903,11 +3092,20 @@ var commonErrors = [
         matchWith: /בפרק הבא במכה בלב|בפרק הבא ב"מכה בלב"|בפרק הבא ב"אגרוף בלב"/g,
         replaceWith: 'בפרק הבא של "אגרוף בלב"'
     }, {
+		matchWith: /איך שאתה כבד/g,
+        replaceWith: "איזה כבד אתה"
+    }, {
         matchWith: /אלמלא/g,
         replaceWith: "לולא"
     }, {
         matchWith: /יותר פה/g,
         replaceWith: "פה יותר"
+    }, {
+        matchWith: /אני סמוך/g,
+        replaceWith: "אני סומך"
+    }, {
+        matchWith: /אגזול עוד זמן ממך/g,
+        replaceWith: "אגזול ממך עוד זמן"
     }, {
         matchWith: /מסרלה/g,
         replaceWith: "מרסלה"
@@ -2930,6 +3128,9 @@ var commonErrors = [
         matchWith: /מספר חפוז|חפוז/g,
         replaceWith: "סטוץ"
     }, {
+        matchWith: /הול יסתדר, תראה./g,
+        replaceWith: "הכול יסתדר, אתה תראה"
+    }, {
         matchWith: /חדש בשביל/g,
         replaceWith: "חדש ל"
     }, {
@@ -2938,6 +3139,9 @@ var commonErrors = [
     }, {
         matchWith: /\. זו /g,
         replaceWith: ". זאת "
+    }, {
+        matchWith: / זו /g,
+        replaceWith: " זאת "
     }, {
         matchWith: /, זו /g,
         replaceWith: ", זאת "
@@ -2952,6 +3156,21 @@ var areasOfSuspicion = [
         matchWith: /תרא(?!ות)/g,
         replaceWith: "תרא"
     }, {
+        matchWith: /כמוך/g,
+        replaceWith: "כמוך"
+    }, {
+        matchWith: /גם ראי/g,
+        replaceWith: "גם ראי"
+    }, {
+        matchWith: /גם חשב/g,
+        replaceWith: "גם חשב"
+    }, {
+        matchWith: /גם היי/g,
+        replaceWith: "גם היי"
+    }, {
+        matchWith: /כמונ/g,
+        replaceWith: "כמונ"
+    }, {
         matchWith: /בפרק הבא/g,
         replaceWith: "בפרק הבא"
     }, {
@@ -2960,6 +3179,12 @@ var areasOfSuspicion = [
     }, {
         matchWith: / עם /g,
         replaceWith: " עם "
+    }, {
+        matchWith: /בכלל/g,
+        replaceWith: "בכלל"
+    }, {
+        matchWith: /באמת/g,
+        replaceWith: "באמת"
     }, {
         matchWith: /אלו /g,
         replaceWith: "אלו "
@@ -2978,6 +3203,9 @@ var areasOfSuspicion = [
     }, {
         matchWith: /התנשקנו/g,
         replaceWith: "התנשקנו"
+    }, {
+        matchWith: /וו/g,
+        replaceWith: "וו"
     }, {
         matchWith: /יותר/g,
         replaceWith: "יותר"
@@ -3050,7 +3278,7 @@ var areasOfSuspicion = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Senores Papis 110.MP4" autobuffer height="100px" controls></video>
+            <video src="POR AMAR SIN LEY 71.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
