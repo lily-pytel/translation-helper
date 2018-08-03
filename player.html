@@ -1363,9 +1363,18 @@ var commonErrors = [
     }, {
         matchWith: / תהי /g,
         replaceWith: " תהיי "
+    }, { 
+        matchWith: /איך שהוא/g,
+        replaceWith: "איך הוא"
+    }, {
+        matchWith: /איך שאתם/g,
+        replaceWith: "איך אתם"
     }, {
         matchWith: /אני הרבה זמן פה/g,
         replaceWith: "אני פה הרבה זמן"
+    }, {
+        matchWith: /עכשיו מה הוא עשה/g,
+        replaceWith: "מה הוא עשה הפעם"
     }, {
         matchWith: /עכשיו מה אתה צריך/g,
         replaceWith: "מה אתה צריך הפעם"
@@ -2819,6 +2828,9 @@ var commonErrors = [
         matchWith: /כליי/g,
         replaceWith: "כללי"
     }, {
+        matchWith: /הכולכליים/g,
+        replaceWith: "כלכליים"
+    }, {
         matchWith: /מראין/g,
         replaceWith: "מריאן"
     }, {
@@ -2851,6 +2863,9 @@ var commonErrors = [
     }, { 
         matchWith: /בכול השנים/g,
         replaceWith: "במשך כל השנים"
+    }, {
+        matchWith: /חסרי כל/g,
+        replaceWith: "חסרי כול"
     }, {
         matchWith: /יום יבוא/g,
         replaceWith: "יום אחד"
@@ -3185,6 +3200,9 @@ var areasOfSuspicion = [
     }, {
         matchWith: /באמת/g,
         replaceWith: "באמת"
+    }, {
+        matchWith: /גם/g,
+        replaceWith: "גם"
     }, {
         matchWith: /אלו /g,
         replaceWith: "אלו "
