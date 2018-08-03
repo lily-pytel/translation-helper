@@ -49,7 +49,7 @@
         }
 
         #fixes-section {
-            height: 500px;
+            height: 450px;
             width: 350px;
             overflow: auto;
         }
@@ -1175,6 +1175,9 @@ var commonErrors = [
         matchWith: /רגשות אשמה/g,
         replaceWith: "רגשות אשם"
     }, {
+        matchWith: /האחד בשני/g,
+        replaceWith: "אחד בשני"
+    }, {
         matchWith: /האחד לשני/g,
         replaceWith: "אחד לשני"
     }, {
@@ -1381,6 +1384,9 @@ var commonErrors = [
     }, {
         matchWith: /עכשיו מה את צריכה/g,
         replaceWith: "מה את צריכה הפעם"
+    }, {
+        matchWith: /ג'יזל/g,
+        replaceWith: "ג'יסל"
     }, {
         matchWith: /קטם/g,
         replaceWith: "כתם"
@@ -3326,7 +3332,7 @@ var areasOfSuspicion = [
             </div>
         </div>
         <div id='editor' style="float: left; margin-left: 15px;">
-            <textarea id="editor-textarea" cols=30 rows=37 wrap="hard" dir='rtl'
+            <textarea id="editor-textarea" cols=30 rows=30 wrap="hard" dir='rtl'
                       style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
         </div>
         <div id="fixes-section" style="float: left; margin-left: 15px">
