@@ -755,16 +755,16 @@ var commonErrors = [
         matchWith: /מודאגת ממנה/g,
         replaceWith: "דואגת לה"
     }, {
-	matchWith: /מודאגת ממנו/g,
+        matchWith: /מודאגת ממנו/g,
         replaceWith: "דואגת לו"
     }, {
-	matchWith: /מודאג ממנה/g,
+        matchWith: /מודאג ממנה/g,
         replaceWith: "דואג לה"
     }, {
-	matchWith: /מודאג ממנו/g,
+        matchWith: /מודאג ממנו/g,
         replaceWith: "דואג לו"
     }, {
-	matchWith: /תמיד זה ככה/g,
+        matchWith: /תמיד זה ככה/g,
         replaceWith: "זה תמיד ככה"
     }, {
         matchWith: /אתה נראה בן אדם יותר/g,
@@ -1715,6 +1715,24 @@ var commonErrors = [
         matchWith: /כול אחד/g,
         replaceWith: "כל אחד"
     }, {
+        matchWith: /שאין אף אחד פה/g,
+        replaceWith: "שאין פה אף אחד"
+    }, {
+        matchWith: /לעזרה ממך/g,
+        replaceWith: "לעזרתך"
+    }, {
+        matchWith: /ללה טוב/g,
+        replaceWith: "לילה טוב"
+    }, {
+        matchWith: /אמרנו לך ש|אמרנו לך /g,
+        replaceWith: "אמרנו "
+    }, {
+        matchWith: /אמר לי ש|אמר לי /g,
+        replaceWith: "אמר "
+    }, {
+        matchWith: /לדעת ממני בכלל|לדעת ממני/g,
+        replaceWith: "לשמוע ממני"
+    }, {
         matchWith: /אתה צודק בזה/g,
         replaceWith: "בזה אתה צודק"
     }, {
@@ -1750,6 +1768,27 @@ var commonErrors = [
     }, {
         matchWith: /עכשיו מי זה\?/g,
         replaceWith: "מי זה הפעם?"
+    }, {
+        matchWith: /בטיחה לי ש/g,
+        replaceWith: "בטיחה לי "
+    }, { 
+        matchWith: /הוא לא ויצליח הפעם/g,
+        replaceWith: "הפעם הוא לא יצליח"
+    }, {
+        matchWith: /מהפשט/g,
+        replaceWith: "המשפט"
+    }, {
+        matchWith: /משרה מאלה/g,
+        replaceWith: "משרה מלאה"
+    }, {
+        matchWith: /בטיח לי ש/g,
+        replaceWith: "בטיח לי "
+    }, {
+        matchWith: /אמרה לי ש/g,
+        replaceWith: "אמרה לי "
+    }, {
+        matchWith: /אמר לי ש/g,
+        replaceWith: "אמר לי "
     }, {
         matchWith: /תביא כפה/g,
         replaceWith: "תביא כיף"
@@ -2104,6 +2143,9 @@ var commonErrors = [
     }, {
         matchWith: /מיד(?!ו|ה|ע|י)/g,
         replaceWith: "מייד"
+    }, {
+        matchWith: /מייד כש/g,
+        replaceWith: "ברגע ש"
     }, {
         matchWith: /תמייד/g,
         replaceWith: "תמיד"
@@ -3341,7 +3383,7 @@ var areasOfSuspicion = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="POR AMAR SIN LEY 71.MP4" autobuffer height="100px" controls></video>
+            <video src="POR AMAR SIN LEY 77.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
@@ -3371,7 +3413,7 @@ var areasOfSuspicion = [
             </div>
         </div>
         <div id='editor' style="float: left; margin-left: 15px;">
-            <textarea id="editor-textarea" cols=30 rows=30 wrap="hard" dir='rtl'
+            <textarea id="editor-textarea" cols=30 rows=35 wrap="hard" dir='rtl'
                       style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
         </div>
         <div id="fixes-section" style="float: left; margin-left: 15px">
