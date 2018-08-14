@@ -2876,6 +2876,15 @@ var commonErrors = [
         matchWith: /הבחנתן בזה/g,
         replaceWith: "שמתן לב"
     }, {
+        matchWith: /מודאגת ממך/g,
+        replaceWith: "דואגת לך"
+    }, {
+        matchWith: /ברושתך/g,
+        replaceWith: "ברשותך"
+    }, {
+        matchWith: /להמשיך עם זה/g,
+        replaceWith: "להמשיך בזה"
+    }, {
         matchWith: /מבחינה בכול/g,
         replaceWith: "שמה לב לכול"
     }, {
@@ -2894,7 +2903,7 @@ var commonErrors = [
         matchWith: /שם לב בי/g,
         replaceWith: "שם לב אליי"
     }, {
-        matchWith: /מבחינה(?! טכנית| רפואית| פיזית)/g,
+        matchWith: /מבחינה(?! טכנית| רפואית| פיזית| משפט)/g,
         replaceWith: "שמה לב"
     }, {
         matchWith: /שמב לב בזה/g,
@@ -3482,7 +3491,7 @@ var areasOfSuspicion = [
             </div>
         </div>
         <div id='editor' style="float: left; margin-left: 15px;">
-            <textarea id="editor-textarea" cols=30 rows=35 wrap="hard" dir='rtl'
+            <textarea id="editor-textarea" cols=30 rows=30 wrap="hard" dir='rtl'
                       style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
         </div>
         <div id="fixes-section" style="float: left; margin-left: 15px">
