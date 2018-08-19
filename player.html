@@ -1313,7 +1313,7 @@ var commonErrors = [
         matchWith: /אתה לא בטעם שלי/g,
         replaceWith: "אתה לא הטעם שלי"
     }, {
-        matchWith: /מותה|מותו של/g,
+        matchWith: /מותה של|מותו של/g,
         replaceWith: "המוות של"
     }, {
         matchWith: /התור שלך/g,
@@ -1982,7 +1982,7 @@ var commonErrors = [
         matchWith: /קשה בשביל/g,
         replaceWith: "קשה ל"
     }, {
-        matchWith: /לבקש ממך/g,
+        matchWith: /לבקש ממך /g,
         replaceWith: "לבקש"
     }, {
         matchWith: /אין צ'קים יותר/g,
@@ -2775,7 +2775,7 @@ var commonErrors = [
         replaceWith: "האהוב"
     }, {
         matchWith: /, כי/g,
-        replaceWith: ", "
+        replaceWith: ","
     }, {
         matchWith: /באמת היכה בו קשה/g,
         replaceWith: "נתן לו מכה חזקה"
@@ -2888,6 +2888,9 @@ var commonErrors = [
         matchWith: /מבחינה בכול/g,
         replaceWith: "שמה לב לכול"
     }, {
+        matchWith: /הבחנתי/g,
+        replaceWith: "שמתי לב"
+    }, {
         matchWith: /הבחנת בכלל|הבחנת/g,
         replaceWith: "שמת לב"
     }, {
@@ -2897,8 +2900,11 @@ var commonErrors = [
         matchWith: /מבחינה|מבחינה בזה/g,
         replaceWith: "שמה לב"
     }, {
-        matchWith: /מבחין|מבחין בזה/g,
+        matchWith: /מבחין בזה|מבחין/g,
         replaceWith: "שם לב"
+    }, {
+        matchWith: /בחנמין/g,
+        replaceWith: "בנחמין"
     }, {
         matchWith: /שם לב בי/g,
         replaceWith: "שם לב אליי"
@@ -3139,6 +3145,9 @@ var commonErrors = [
     }, {
         matchWith: /תמר על עצמך/g,
         replaceWith: "תשמור על עצמך"
+    }, {
+        matchWith: /זה לא מה שדיברנו/g,
+        replaceWith: "לא על זה דיברנו"
     }, {
         matchWith: /חוץ מה,/g,
         replaceWith: "חוץ מזה,"
@@ -3479,7 +3488,7 @@ var areasOfSuspicion = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="POR AMAR SIN LEY 82.MP4" autobuffer height="100px" controls></video>
+            <video src="POR AMAR SIN LEY 85.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
@@ -3509,7 +3518,7 @@ var areasOfSuspicion = [
             </div>
         </div>
         <div id='editor' style="float: left; margin-left: 15px;">
-            <textarea id="editor-textarea" cols=30 rows=30 wrap="hard" dir='rtl'
+            <textarea id="editor-textarea" cols=30 rows=38 wrap="hard" dir='rtl'
                       style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
         </div>
         <div id="fixes-section" style="float: left; margin-left: 15px">
