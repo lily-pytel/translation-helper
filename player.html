@@ -2888,7 +2888,10 @@ var commonErrors = [
         matchWith: /מבחינה בכול/g,
         replaceWith: "שמה לב לכול"
     }, {
-        matchWith: /הבחנתי/g,
+        matchWith: /לעמוק/g,
+        replaceWith: "לעומק"
+    }, {
+        matchWith: /הבחנתי בזה|הבחנתי/g,
         replaceWith: "שמתי לב"
     }, {
         matchWith: /הבחנת בכלל|הבחנת/g,
@@ -3077,6 +3080,27 @@ var commonErrors = [
         matchWith: /מבוגרת ממנה יותר/g,
         replaceWith: "מבוגרת ממנה"
     }, { 
+        matchWith: /אלחנדה/g,
+        replaceWith: "אלחנדרה"
+    }, {
+        matchWith: /עכשיו במה מדובר/g,
+        replaceWith: "במה מדובר הפעם"
+    }, {
+        matchWith: /כשפחות תצפי לזה/g,
+        replaceWith: "כשלא תצפי לזה"
+    }, {
+        matchWith: /הכנו משהו לכם/g,
+        replaceWith: "הכנו לכם משהו"
+    }, { 
+        matchWith: /מוחשת/g,
+        replaceWith: "מושחת"
+    }, {
+        matchWith: /חסר תקונה/g,
+        replaceWith: "חסר תקנה"
+    }, {
+        matchWith: /מפלפון/g,
+        replaceWith: "מלפפון"
+    }, {
         matchWith: /סיבה כדי/g,
         replaceWith: "סיבה "
     }, {
@@ -3112,6 +3136,18 @@ var commonErrors = [
     }, {
         matchWith: /קורה משהו שם/g,
         replaceWith: "קורה שם משהו"
+    }, {
+        matchWith: /זה לא מה שנראה/g,
+        replaceWith: "זה לא מה שזה נראה"
+    }, {
+        matchWith: /שומעת אותו/g,
+        replaceWith: "מקשיבה לו"
+    }, {
+        matchWith: /כסף ממנו/g,
+        replaceWith: "ממנו כסף"
+    }, {
+        matchWith: /הידיים רועדות לו/g,
+        replaceWith: "הידיים שלו רועדות"
     }, {
         matchWith: /עם המבט/g,
         replaceWith: "במבט"
@@ -3488,7 +3524,7 @@ var areasOfSuspicion = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="POR AMAR SIN LEY 85.MP4" autobuffer height="100px" controls></video>
+            <video src="Golpe al Corazon 79.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
