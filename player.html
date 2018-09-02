@@ -824,6 +824,15 @@ var commonErrors = [
         matchWith: /מהים למחר/g,
         replaceWith: "מהיום למחר"
     }, {
+        matchWith: /אמרת חי קודם/g,
+        replaceWith: "אמרת לי קודם"
+    }, {
+        matchWith: /את זה כבוד/g,
+        replaceWith: "את זה בכבוד"
+    }, {
+        matchWith: /החיים משתנים לך/g,
+        replaceWith: "החיים שלך משתנים"
+    }, {
         matchWith: /רגשי אשם/g,
         replaceWith: "רגשות אשם"
     }, {
@@ -993,6 +1002,10 @@ var commonErrors = [
         replaceWith: "\. \-",
         whiteSpaceCorrector: true
     }, {
+        matchWith: / \- /g,
+        replaceWith: "\- ",
+        whiteSpaceCorrector: true
+    }, {
         matchWith: /\?\-/g,
         replaceWith: "\? \-",
         whiteSpaceCorrector: true
@@ -1037,11 +1050,14 @@ var commonErrors = [
         matchWith: /חשק אותך/g,
         replaceWith: "חשק בך"
     }, {
+        matchWith: /כמה שטוב יותר/g,
+        replaceWith: "כמה שיותר טוב"
+    }, {
         matchWith: /קרוב לי/g,
         replaceWith: "קרוב אליי"
     }, {
         matchWith: /אני לא מאמינה לך בכלל/g,
-        replaceWith: "אני לא מאמין לך"
+        replaceWith: "אני לא מאמינה לך"
     }, {
         matchWith: /אני לא מאמינה לך בכלל/g,
         replaceWith: "אני לא מאמין לך"
@@ -1223,8 +1239,11 @@ var commonErrors = [
         matchWith: /נמצא בשבילה/g,
         replaceWith: "לרשותה"
     }, {
-        matchWith: /ברוך בואך/g,
+        matchWith: /ברוך בואך|ברוך באך/g,
         replaceWith: "ברוך הבא"
+    }, {
+        matchWith: /אוים ונורא/g,
+        replaceWith: "איום ונורא"
     }, {
         matchWith: /שלא בנוח/g,
         replaceWith: "לא בנוח"
@@ -1793,6 +1812,12 @@ var commonErrors = [
         matchWith: /עכשיו מי זה\?/g,
         replaceWith: "מי זה הפעם?"
     }, {
+        matchWith: /גם כואב לי/g,
+        replaceWith: "גם לי כואב"
+    }, {
+        matchWith: /שתראי אותי ככה ש/g,
+        replaceWith: "את רואה אותי במצב קשה"
+    }, {
         matchWith: /בטיחה לי ש/g,
         replaceWith: "בטיחה לי "
     }, { 
@@ -2072,6 +2097,18 @@ var commonErrors = [
         matchWith: /איגסניו|איגנסניו/g,
         replaceWith: "איגנסיו"
     }, {
+        matchWith: /אתה לא עזור לי ככה|אתה לא עוזר לי ככה/g,
+        replaceWith: "זה לא עוזר לי"
+    }, {
+        matchWith: /רק אומר לך משהו,|רק אומר לך משהו\./g,
+        replaceWith: "אומר רק דבר אחד:"
+    }, {
+        matchWith: /רק אומר לך משהו/g,
+        replaceWith: "אומר רק דבר אחד"
+    }, {
+        matchWith: /איך שאני רוצה/g,
+        replaceWith: "איך שבא לי"
+    }, {
         matchWith: /מבטיחה לך/g,
         replaceWith: "מבטיחה"
     }, {
@@ -2084,10 +2121,10 @@ var commonErrors = [
         matchWith: /מבטיח לי/g,
         replaceWith: "מבטיח"
     }, {
-        matchWith: /נשבעת לך/g,
+        matchWith: /נשבעת לך|נשבעת באל/g,
         replaceWith: "נשבעת"
     }, {
-        matchWith: /נשבע ךל/g,
+        matchWith: /נשבע לך|נשבע באל/g,
         replaceWith: "נשבע"
     }, {
         matchWith: /נשבעת לי/g,
@@ -2554,6 +2591,9 @@ var commonErrors = [
     }, {
         matchWith: /מעולם לא|לעולם לא|מעולה לא/g,
         replaceWith: "אף פעם לא"
+    }, {
+        matchWith: /אף פעם לא\./g,
+        replaceWith: "אף פעם."
     }, {
         matchWith: /זה תור שלי/g,
         replaceWith: "זה התור שלי"
@@ -3098,6 +3138,21 @@ var commonErrors = [
         matchWith: /בכול השנים/g,
         replaceWith: "במשך כל השנים"
     }, {
+        matchWith: /תסתכלי בעיניים/g,
+        replaceWith: "תסתכלי לי בעיניים"
+    }, {
+        matchWith: /תתקרב אליי ככה שוב/g,
+        replaceWith: "תשוב להתקרב אליי ככה"
+    }, { 
+        matchWith: /תתראה אותי/g,
+        replaceWith: "תראה אותי"
+    }, {
+        matchWith: /שיקרתי לו פנים/g,
+        replaceWith: "שיקרתי לו בפנים"
+    }, {
+        matchWith: /נלך לבית\?/g,
+        replaceWith: "נלך הביתה?"
+    }, {
         matchWith: /חסרי כל/g,
         replaceWith: "חסרי כול"
     }, {
@@ -3566,7 +3621,7 @@ var areasOfSuspicion = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Golpe al Corazon 79.MP4" autobuffer height="100px" controls></video>
+            <video src="Golpe al Corazon 81.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
@@ -3596,7 +3651,7 @@ var areasOfSuspicion = [
             </div>
         </div>
         <div id='editor' style="float: left; margin-left: 15px;">
-            <textarea id="editor-textarea" cols=30 rows=38 wrap="hard" dir='rtl'
+            <textarea id="editor-textarea" cols=30 rows=29 wrap="hard" dir='rtl'
                       style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
         </div>
         <div id="fixes-section" style="float: left; margin-left: 15px">
