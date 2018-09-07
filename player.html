@@ -1265,12 +1265,33 @@ var commonErrors = [
     }, {
         matchWith: /תאמרי לי/g,
         replaceWith: "תגידי לי"
+    }, { 
+        matchWith: /עושה אותך עצובה/g,
+        replaceWith: "מעציב אותך"
+    }, {
+        matchWith: /בגלן/g,
+        replaceWith: "בלגן"
     }, {
         matchWith: /תאמר לי/g,
         replaceWith: "תגיד לי"
     }, {
+        matchWith: /לדבר אל זה|לדבר לא זה/g,
+        replaceWith: "לדבר על זה"
+    }, {
+        matchWith: /מודאג ממך/g,
+        replaceWith: "דואג לך"
+    }, {
+        matchWith: /אצילי ממש/g,
+        replaceWith: "ממש אצילי"
+    }, {
+        matchWith: /רק זה היה חבר לי/g,
+        replaceWith: "רק זה חסר"
+    }, {
         matchWith: /תמיד אתה /g,
         replaceWith: "אתה תמיד "
+    }, {
+        matchWith: /כי באמת פעלתי רע מאוד|באמת פעלתי רע|פעלתי רע/g,
+        replaceWith: "לא הייתי בסדר"
     }, {
         matchWith: /תמיד אני /g,
         replaceWith: "אני תמיד "
@@ -1980,6 +2001,9 @@ var commonErrors = [
         matchWith: /בדיוק הגעת בזמן/g,
         replaceWith: "הגעת בדיוק בזמן"
     }, {
+        matchWith: /אחזור תכף/g,
+        replaceWith: "מיד אשוב"
+    }, {
         matchWith: /נכחה/g,
         replaceWith: "נחכה"
     }, {
@@ -2663,6 +2687,9 @@ var commonErrors = [
     }, {
         matchWith: /אי לא יודע/g,
         replaceWith: "אני לא יודע"
+    }, {
+        matchWith: /עכשיו לא,/g,
+        replaceWith: "לא עכשיו,"
     }, {
         matchWith: /עיד מעט/g,
         replaceWith: "עוד מעט"
@@ -3417,6 +3444,9 @@ var commonErrors = [
         matchWith: /מאצת /g,
         replaceWith: "מצאת "
     }, {
+        matchWith: /נכון ליום/g,
+        replaceWith: "נכון להיום"
+    }, {
         matchWith: /פראיס/g,
         replaceWith: "פריאס"
     }, {
@@ -3491,6 +3521,9 @@ var commonErrors = [
     }, {
         matchWith: /^זו /g,
         replaceWith: "זאת "
+    }, {
+        matchWith: / וזו /g,
+        replaceWith: " וזאת "
     }
 ]; 
 
@@ -3624,7 +3657,7 @@ var areasOfSuspicion = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Golpe al Corazon 82.MP4" autobuffer height="100px" controls></video>
+            <video src="Golpe al Corazon 87.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
