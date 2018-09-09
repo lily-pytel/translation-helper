@@ -1077,6 +1077,9 @@ var commonErrors = [
         matchWith: /עכשיו ש/g,
         replaceWith: "עכשיו כש"
     }, {
+        matchWith: /ככה עדיף/g,
+        replaceWith: "עדיף ככה"
+    }, {
         matchWith: /העיקר ש/g,
         replaceWith: "העיקר הוא ש"
     }, {
@@ -1737,6 +1740,18 @@ var commonErrors = [
         matchWith: /אני מודאג ממנו/g,
         replaceWith: "אני דואג לו"
     }, {
+        matchWith: /אי אונות/g,
+        replaceWith: "חוסר אונים"
+    }, {
+        matchWith: /איך ייתכן\?/g,
+        replaceWith: "איך זה ייתכן?"
+    }, {
+        matchWith: /מודאגת קצת/g,
+        replaceWith: "קצת דואגת"
+    }, {
+        matchWith: /עצובה קצת/g,
+        replaceWith: "קצת עצובה"
+    }, {
         matchWith: /חיוור קצת/g,
         replaceWith: "קצת חיוור"
     }, {
@@ -2075,6 +2090,9 @@ var commonErrors = [
     }, {
         matchWith: /אתקשה/g,
         replaceWith: "יהיה לי קשה"
+    }, { 
+        matchWith: /את מתקשה|אתה מתקשה/g,
+        replaceWith: "קשה לך"
     }, {
         matchWith: /אני מתקשה|אני מקשתה/g,
         replaceWith: "קשה לי"
@@ -3657,7 +3675,7 @@ var areasOfSuspicion = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Golpe al Corazon 87.MP4" autobuffer height="100px" controls></video>
+            <video src="Golpe al Corazon 88.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
