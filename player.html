@@ -1797,6 +1797,9 @@ var commonErrors = [
         matchWith: /שאין אף אחד פה/g,
         replaceWith: "שאין פה אף אחד"
     }, {
+        matchWith: /דל ווז'ה/g,
+        replaceWith: "דל וייה"
+    }, {
         matchWith: /לעזרה ממך/g,
         replaceWith: "לעזרתך"
     }, {
@@ -2922,6 +2925,12 @@ var commonErrors = [
         matchWith: /לשותות/g,
         replaceWith: "לשתות"
     }, {
+        matchWith: /בגוף כולו/g,
+        replaceWith: "בכל הגוף"
+    }, {
+        matchWith: /אמרתי לך שתעזוב אותה/g,
+        replaceWith: "אמרתי לך לעזוב אותה"
+    }, {
         matchWith: /מבטח/g,
         replaceWith: "מטבח"
     }, {
@@ -2930,6 +2939,12 @@ var commonErrors = [
     }, {
         matchWith: /דימן למוות/g,
         replaceWith: "דימם למוות"
+    }, {
+        matchWith: /אני לי בעיה/g,
+        replaceWith: "אין לי בעיה"
+    }, {
+        matchWith: /ממנה הסברים/g,
+        replaceWith: "הסברים ממנה"
     }, {
         matchWith: /עורך ין/g,
         replaceWith: "עורך דין"
@@ -3195,8 +3210,11 @@ var commonErrors = [
         matchWith: /שיקרתי לו פנים/g,
         replaceWith: "שיקרתי לו בפנים"
     }, {
-        matchWith: /נלך לבית\?/g,
-        replaceWith: "נלך הביתה?"
+        matchWith: /ללכת לבית(?! ש)/g,
+        replaceWith: "ללכת הביתה"
+    }, {
+        matchWith: /נלך לבית(?! ש)/g,
+        replaceWith: "נלך הביתה"
     }, {
         matchWith: /חסרי כל/g,
         replaceWith: "חסרי כול"
@@ -3242,6 +3260,9 @@ var commonErrors = [
     }, {
         matchWith: /חסר תקונה/g,
         replaceWith: "חסר תקנה"
+    }, {
+        matchWith: /פלסיוס|פאלסיוס/g,
+        replaceWith: "פלאסיוס"
     }, {
         matchWith: /מפלפון/g,
         replaceWith: "מלפפון"
@@ -3675,7 +3696,7 @@ var areasOfSuspicion = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Golpe al Corazon 88.MP4" autobuffer height="100px" controls></video>
+            <video src="Golpe al Corazon 89.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
@@ -3705,7 +3726,7 @@ var areasOfSuspicion = [
             </div>
         </div>
         <div id='editor' style="float: left; margin-left: 15px;">
-            <textarea id="editor-textarea" cols=30 rows=29 wrap="hard" dir='rtl'
+            <textarea id="editor-textarea" cols=30 rows=38 wrap="hard" dir='rtl'
                       style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
         </div>
         <div id="fixes-section" style="float: left; margin-left: 15px">
