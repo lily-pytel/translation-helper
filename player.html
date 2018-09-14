@@ -1416,11 +1416,17 @@ var commonErrors = [
         matchWith: /אפשרות אחרות/g,
         replaceWith: "אפשרות אחרת"
     }, {
+        matchWith: /תזכור את מה שאני אומרת לך|תזכור את מה שאני אומרת|תזכור את מה שאני אומר לך|תזכור את מה שאני אומר/g,
+        replaceWith: "תזכור את דבריי"
+    }, {
         matchWith: /מסרלו/g,
         replaceWith: "מרסלו"
     }, {
         matchWith: /בריין/g,
         replaceWith: "בריאן"
+    }, {
+        matchWith: /עבריאן/g,
+        replaceWith: "עבריין"
     }, {
         matchWith: /ככול/g,
         replaceWith: "ככל"
@@ -1715,6 +1721,9 @@ var commonErrors = [
     }, {
         matchWith: /שאגלה לך משהו\?/g,
         replaceWith: "לגלות לך משהו?"
+    }, {
+        matchWith: /אנטש/g,
+        replaceWith: "אעזוב"
     }, {
         matchWith: /בכול זאת/g,
         replaceWith: "בכל זאת"
@@ -2552,6 +2561,21 @@ var commonErrors = [
     }, {
         matchWith: /תעשי טובה בשבילי/g,
         replaceWith: "תעשי לי טובה"
+    }, {
+        matchWith: /חושק אותה/g,
+        replaceWith: "חושק בה"
+    }, {
+        matchWith: /מכה באשתו/g,
+        replaceWith: "מכה את אשתו"
+    }, {
+        matchWith: /אני רגשות אשם בכלל/g,
+        replaceWith: "אין לי רגשות אשם"
+    }, {
+        matchWith: /הבאת אוכל שוב/g,
+        replaceWith: "שוב הבאת אוכל"
+    }, {
+        matchWith: /מתקדים/g,
+        replaceWith: "מתקדמים"
     }, {
         matchWith: /לוקריסה/g,
         replaceWith: "לוקרסיה"
@@ -3531,7 +3555,7 @@ var commonErrors = [
         matchWith: /אגזול עוד זמן ממך/g,
         replaceWith: "אגזול ממך עוד זמן"
     }, {
-        matchWith: /מסרלה/g,
+        matchWith: /מסרלה|מרלסה/g,
         replaceWith: "מרסלה"
     }, {
         matchWith: /בפרק הבא באגרוף בלב/g,
@@ -3708,7 +3732,7 @@ var areasOfSuspicion = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Golpe al Corazon 90.MP4" autobuffer height="100px" controls></video>
+            <video src="Golpe al Corazon 91.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
