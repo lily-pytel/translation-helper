@@ -1047,6 +1047,9 @@ var commonErrors = [
         matchWith: /עכשיו זה נודע לי/g,
         replaceWith: "זה כרגע נודע לי"
     }, {
+        matchWith: /מה פתאום לא שמתי לב|מה פתאום לא הבחנתי/g,
+        replaceWith: "איך לא שמתי לב"
+    }, {
         matchWith: /חשק אותך/g,
         replaceWith: "חשק בך"
     }, {
@@ -1056,7 +1059,7 @@ var commonErrors = [
         matchWith: /קרוב לי/g,
         replaceWith: "קרוב אליי"
     }, {
-        matchWith: /אני לא מאמינה לך בכלל/g,
+        matchWith: /אני לא מאמינה לך בכלל|אני לא מאמינה לך כלום/g,
         replaceWith: "אני לא מאמינה לך"
     }, {
         matchWith: /אני לא מאמינה לך בכלל/g,
@@ -1565,15 +1568,21 @@ var commonErrors = [
     }, {
         matchWith: /הטובה יותר/g,
         replaceWith: 'הטובה ביותר'
+    }, { 
+        matchWith: /תלכי לבית(?! החולים)/g,
+        replaceWith: 'לכי הביתה'
     }, {
-        matchWith: /הולכת לבית/g,
+        matchWith: /הולכת לבית(?! החולים)/g,
         replaceWith: 'הולכת הביתה'
     }, {
-        matchWith: /נחזור לבית/g,
+        matchWith: /נחזור לבית(?! החולים)/g,
         replaceWith: 'נחזור הביתה'
     }, {
-        matchWith: /לחזור לבית/g,
+        matchWith: /לחזור לבית(?! החולים)/g,
         replaceWith: 'לחזור הביתה'
+    }, { 
+        matchWith: /מה פתאום שלא/g,
+        replaceWith: 'איך לא'
     }, {
         matchWith: /הביתה החולים/g,
         replaceWith: 'בית החולים'
@@ -2561,6 +2570,15 @@ var commonErrors = [
     }, {
         matchWith: /תעשי טובה בשבילי/g,
         replaceWith: "תעשי לי טובה"
+    }, { 
+        matchWith: /זמן יותר/g,
+        replaceWith: "יותר זמן"
+    }, {
+        matchWith: /חושק אותי/g,
+        replaceWith: "חושק בי"
+    }, {
+        matchWith: /חושקת אותך/g,
+        replaceWith: "חושקת בך"
     }, {
         matchWith: /חושק אותה/g,
         replaceWith: "חושק בה"
@@ -2798,6 +2816,24 @@ var commonErrors = [
     }, {
         matchWith: /איך שהוא הסתכל עליי/g,
         replaceWith: "איך הוא הסתכל עליי"
+    }, {
+        matchWith: /מעד שוב/g,
+        replaceWith: "שוב מעד"
+    }, {
+        matchWith: /תישאר רגוע פה/g,
+        replaceWith: "תישאר פה ותירגע"
+    }, { 
+        matchWith: /גם האמנתי ל/g,
+        replaceWith: "גם אני האמנתי ל"
+    }, {
+        matchWith: /ביום שלא אהיה,/g,
+        replaceWith: "אחרי שאמות,"
+    }, {
+        matchWith: /השכונה כולה/g,
+        replaceWith: "כל השכונה"
+    }, { 
+        matchWith: /קשה מאוד לי/g,
+        replaceWith: "קשה לי מאוד"
     }, {
         matchWith: /גורעים/g,
         replaceWith: "גרועים"
@@ -3732,7 +3768,7 @@ var areasOfSuspicion = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Golpe al Corazon 91.MP4" autobuffer height="100px" controls></video>
+            <video src="Golpe al Corazon 98.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
