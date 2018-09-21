@@ -1278,6 +1278,9 @@ var commonErrors = [
         matchWith: /בגלן/g,
         replaceWith: "בלגן"
     }, {
+        matchWith: /תהיה כנה/g,
+        replaceWith: "תהיה כן"
+    }, {
         matchWith: /תאמר לי/g,
         replaceWith: "תגיד לי"
     }, {
@@ -1287,8 +1290,17 @@ var commonErrors = [
         matchWith: /מודאג ממך/g,
         replaceWith: "דואג לך"
     }, {
+        matchWith: /זה מוקדם די/g,
+        replaceWith: "מוקדם מדי"
+    }, {
+        matchWith: /נחמד ממש/g,
+        replaceWith: "ממש נחמד"
+    }, {
         matchWith: /אצילי ממש/g,
         replaceWith: "ממש אצילי"
+    }, {
+        matchWith: /נשיקה נוספת/g,
+        replaceWith: "עוד נשיקה"
     }, {
         matchWith: /רק זה היה חבר לי/g,
         replaceWith: "רק זה חסר"
@@ -1979,6 +1991,9 @@ var commonErrors = [
     }, {
         matchWith: /לראות אותך שוב/g,
         replaceWith: "לשוב לראות אותך"
+    }, {
+        matchWith: /להמשיך עם ה/g,
+        replaceWith: "להמשיך ב"
     }, {
         matchWith: /מתחשק לך/g,
         replaceWith: "בא לך"
@@ -2712,6 +2727,9 @@ var commonErrors = [
         matchWith: /בצ'טה/g,
         replaceWith: "בצ'אטה"
     }, {
+        matchWith: /במה שנוגע/g,
+        replaceWith: "בכל הנוגע"
+    }, {
         matchWith: /ללא קשר/g,
         replaceWith: "בלי קשר"
     }, {
@@ -2859,6 +2877,9 @@ var commonErrors = [
         matchWith: /אני עייפה קצת/g,
         replaceWith: "אני קצת עייפה"
     }, {
+        matchWith: /אני מסכימה לגמרי איתו/g,
+        replaceWith: "אני מסכימה איתו לגמרי"
+    }, {
         matchWith: /רוגעה/g,
         replaceWith: "רגועה"
     }, {
@@ -2901,8 +2922,14 @@ var commonErrors = [
         matchWith: /תולכ|תוכל/g,
         replaceWith: "אתה יכול"
     }, {
+        matchWith: /כשתרצה/g,
+        replaceWith: "מתי שתרצה"
+    }, {
         matchWith: /תרצה(?! משהו)/g,
         replaceWith: "אתה רוצה"
+    }, {
+        matchWith: /כשתרצי/g,
+        replaceWith: "מתי שתרצי"
     }, {
         matchWith: /תרצי(?! משהו)/g,
         replaceWith: "את רוצה"
@@ -3387,6 +3414,9 @@ var commonErrors = [
         matchWith: /הידיים רועדות לו/g,
         replaceWith: "הידיים שלו רועדות"
     }, {
+        matchWith: /אל לשחק אותה/g,
+        replaceWith: "אל תשחק אותה"
+    }, {
         matchWith: /עם המבט/g,
         replaceWith: "במבט"
     }, {
@@ -3768,7 +3798,7 @@ var areasOfSuspicion = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="Golpe al Corazon 98.MP4" autobuffer height="100px" controls></video>
+            <video src="Golpe al Corazon 100.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
