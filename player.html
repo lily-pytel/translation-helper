@@ -647,6 +647,12 @@ var commonErrors = [
         matchWith: /רפאה/g,
         replaceWith: "ראפה"
     }, {
+        matchWith: /מראפה/g,
+        replaceWith: "מרפאה"
+    }, {
+        matchWith: /מה שנשמע\?/g,
+        replaceWith: "מה נשמע?"
+    }, {
         matchWith: /אני רוצה להיות כל הזמן איתך/g,
         replaceWith: "אני רוצה להיות איתך כל הזמן"
     }, {
@@ -1680,6 +1686,9 @@ var commonErrors = [
         matchWith: /תכמור/,
         replaceWith: "תמכור"
     }, {
+        matchWith: /תשמעי אותה/,
+        replaceWith: "תקשיבי לה"
+    }, {
         matchWith: /תשמע אותו/,
         replaceWith: "תקשיב לו"
     }, {
@@ -2658,6 +2667,9 @@ var commonErrors = [
         matchWith: /מאהובת/g,
         replaceWith: "מאוהבת"
     }, {
+        matchWith: /ספיר /g,
+        replaceWith: "סיפר "
+    }, {
         matchWith: /כאז/g,
         replaceWith: "כולכן"
     }, {
@@ -3276,6 +3288,9 @@ var commonErrors = [
         matchWith: /מראין/g,
         replaceWith: "מריאן"
     }, {
+        matchWith: /היא כבר נעולה שעות שם/g,
+        replaceWith: "היא נעולה שם כבר שעות"
+    }, {
         matchWith: /ברד פיט/g,
         replaceWith: "בראד פיט"
     }, {
@@ -3663,6 +3678,9 @@ var commonErrors = [
         matchWith: /\. זו /g,
         replaceWith: ". זאת "
     }, {
+        matchWith: / הזו /g,
+        replaceWith: " הזאת "
+    }, {
         matchWith: / זו /g,
         replaceWith: " זאת "
     }, {
@@ -3807,7 +3825,7 @@ var areasOfSuspicion = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="100 DIAS PARA ENAMORARSE 11.MP4" autobuffer height="100px" controls></video>
+            <video src="100 DIAS PARA ENAMORARSE 12.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
@@ -3837,7 +3855,7 @@ var areasOfSuspicion = [
             </div>
         </div>
         <div id='editor' style="float: left; margin-left: 15px;">
-            <textarea id="editor-textarea" cols=30 rows=38 wrap="hard" dir='rtl'
+            <textarea id="editor-textarea" cols=30 rows=30 wrap="hard" dir='rtl'
                       style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
         </div>
         <div id="fixes-section" style="float: left; margin-left: 15px">
