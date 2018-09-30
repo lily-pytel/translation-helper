@@ -1595,17 +1595,20 @@ var commonErrors = [
     }, {
         matchWith: /הטובה יותר/g,
         replaceWith: 'הטובה ביותר'
-    }, { 
-        matchWith: /תלכי לבית(?! החולים)/g,
+    }, {
+        matchWith: /חזרה לבית(?! החולים| הספר)/g,
+        replaceWith: 'חזרה הביתה'
+    }, {
+        matchWith: /תלכי לבית(?! החולים| הספר)/g,
         replaceWith: 'לכי הביתה'
     }, {
-        matchWith: /הולכת לבית(?! החולים)/g,
+        matchWith: /הולכת לבית(?! החולים| הספר)/g,
         replaceWith: 'הולכת הביתה'
     }, {
-        matchWith: /נחזור לבית(?! החולים)/g,
+        matchWith: /נחזור לבית(?! החולים| הספר)/g,
         replaceWith: 'נחזור הביתה'
     }, {
-        matchWith: /לחזור לבית(?! החולים)/g,
+        matchWith: /לחזור לבית(?! החולים| הספר)/g,
         replaceWith: 'לחזור הביתה'
     }, { 
         matchWith: /מה פתאום שלא/g,
@@ -2154,6 +2157,15 @@ var commonErrors = [
         matchWith: /לבזבז זמן יותר/g,
         replaceWith: "לבזבז עוד זמן"
     }, {
+        matchWith: /אי בדר/g,
+        replaceWith: "אי סדר"
+    }, {
+        matchWith: /מזן מה/g,
+        replaceWith: "זמן מה"
+    }, {
+        matchWith: /אני מתקשה/g,
+        replaceWith: "קשה לי"
+    }, {
         matchWith: /אתקשה/g,
         replaceWith: "יהיה לי קשה"
     }, { 
@@ -2652,13 +2664,19 @@ var commonErrors = [
         matchWith: /מייד היא תחזור/g,
         replaceWith: "היא מייד תחזור"
     }, {
+        matchWith: /אני באמת אומר לך/g,
+        replaceWith: "אני רציני"
+    }, { 
+        matchWith: /אמון מספיק/g,
+        replaceWith: "מספיק אמון"
+    }, {
         matchWith: /גם לא לי/g,
         replaceWith: "גם לי לא"
     }, {
         matchWith: /יש בעיה לאחותי/g,
         replaceWith: "יש לאחותי בעיה"
     }, {
-        matchWith: /ג'י פי אס/g,
+        matchWith: /ג'י פי אס|ג'י פי הס/g,
         replaceWith: "ג'י.פי.אס"
     }, { 
         matchWith: /מטיחה לך/g,
@@ -3144,7 +3162,7 @@ var commonErrors = [
         matchWith: /מבחין בכול/g,
         replaceWith: "שם לב לכול"
     }, {
-        matchWith: /מבחינה|מבחינה בזה/g,
+        matchWith: /מבחינה|מבחינה בזה(?! טכנית| רפואית| פיזית| משפט)/g,
         replaceWith: "שמה לב"
     }, {
         matchWith: /מבחין בזה|מבחין/g,
@@ -3155,9 +3173,6 @@ var commonErrors = [
     }, {
         matchWith: /שם לב בי/g,
         replaceWith: "שם לב אליי"
-    }, {
-        matchWith: /מבחינה(?! טכנית| רפואית| פיזית| משפט)/g,
-        replaceWith: "שמה לב"
     }, {
         matchWith: /שמב לב בזה/g,
         replaceWith: "שמה לב"
@@ -3485,6 +3500,9 @@ var commonErrors = [
     }, {
         matchWith: /כבר איחרת את הרכבת/g,
         replaceWith: "כבר פספסת את הרכבת"
+    }, {
+        matchWith: /לנשוא/g,
+        replaceWith: "לשנוא"
     }, {
         matchWith: /מאתינו/g,
         replaceWith: "מאיתנו"
@@ -3825,7 +3843,7 @@ var areasOfSuspicion = [
 <body>
     <div>
         <div id='player' style="float: left;">
-            <video src="100 DIAS PARA ENAMORARSE 12.MP4" autobuffer height="100px" controls></video>
+            <video src="100 DIAS PARA ENAMORARSE 14.MP4" autobuffer height="100px" controls></video>
             <br />
             <input type='number' id='playback-rate-control' />
             <div id="options-section">
