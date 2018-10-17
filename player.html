@@ -1515,7 +1515,7 @@ var commonErrors = [
     matchWith: /כמעט זה/g,
     replaceWith: "זה כמעט"
   }, {
-    matchWith: /תעשה לך סרטים בראש|תעשה לך סרטים/g,
+    matchWith: /תעשה לך סרטים בראש|תעשה לך סרטים|תעשה סרטים לעצמך/g,
     replaceWith: "תיכנס לסרט"
   }, {
     matchWith: /לעשות לי סרטים בראש|לעשות לי סרטים /g,
@@ -3420,8 +3420,14 @@ var commonErrors = [
     matchWith: /פלסיוס|פאלסיוס/g,
     replaceWith: "פלאסיוס"
   }, {
+    matchWith: /אני בשביל זה פה/g,
+    replaceWith: "בשביל זה אני פה"
+  }, {
     matchWith: /מפלפון/g,
     replaceWith: "מלפפון"
+  }, {
+    matchWith: /ברייאן/g,
+    replaceWith: "בריאן"
   }, {
     matchWith: /סיבה כדי/g,
     replaceWith: "סיבה "
@@ -3620,6 +3626,18 @@ var commonErrors = [
   }, {
     matchWith: /המשפחה כולה/g,
     replaceWith: "כל המשפחה"
+  }, {
+    matchWith: /אי אונות|אין אונות/g,
+    replaceWith: "אימפוטנציה"
+  }, {
+    matchWith: /מדגלת/g,
+    replaceWith: "מדלגת"
+  }, {
+    matchWith: /מפטל/g,
+    replaceWith: "מטפל"
+  }, {
+    matchWith: /תנמשי/g,
+    replaceWith: "תנשמי"
   }, {
     matchWith: /המון/g,
     replaceWith: "הרבה"
@@ -3863,7 +3881,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="100 DIAS PARA ENAMORARSE 40.MP4" autobuffer height="100px" controls></video>
+      <video src="100 DIAS PARA ENAMORARSE 42.MP4" autobuffer height="100px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
