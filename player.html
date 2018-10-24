@@ -1239,11 +1239,23 @@ var commonErrors = [
     matchWith: /טביעות האצבעות/g,
     replaceWith: "טביעות האצבע"
   }, {
+    matchWith: /פעם נוספת/g,
+    replaceWith: "שוב"
+  }, {
     matchWith: /פעם אחרי פעם/g,
     replaceWith: "פעם אחר פעם"
   }, {
     matchWith: /יש לי לעשות המון/g,
     replaceWith: "אני עסוק מאוד"
+  }, {
+    matchWith: /אני מודה לך שתיארתי לעצמי/g,
+    replaceWith: "אני מודה שדמיינתי"
+  }, {
+    matchWith: /לקבל ש/g,
+    replaceWith: "להבין ש"
+  }, {
+    matchWith: /שחבנו |שחבנ\ו./g,
+    replaceWith: "שחשבנו"
   }, {
     matchWith: /בטח אתה/g,
     replaceWith: "אתה בטח"
@@ -1773,6 +1785,9 @@ var commonErrors = [
     matchWith: /אנטש/g,
     replaceWith: "אעזוב"
   }, {
+    matchWith: /בכל\./g,
+    replaceWith: "בכול."
+  }, {
     matchWith: /בכול זאת/g,
     replaceWith: "בכל זאת"
   }, {
@@ -1808,6 +1823,12 @@ var commonErrors = [
   }, {
     matchWith: /דבר מזה לא יעצור אותי/g,
     replaceWith: "זה לא יעצור אותי"
+  }, {
+    matchWith: /אסון ממש/g,
+    replaceWith: "ממש אסון"
+  }, {
+    matchWith: /קשה קצת/g,
+    replaceWith: "קצת קשה"
   }, {
     matchWith: /רעב קצת/g,
     replaceWith: "קצת רעב"
@@ -3410,7 +3431,10 @@ var commonErrors = [
   }, {
     matchWith: /הכנו משהו לכם/g,
     replaceWith: "הכנו לכם משהו"
-  }, { 
+  }, {
+    matchWith: /קנטומפוני/g,
+    replaceWith: "קונטמפוני"
+  }, {
     matchWith: /מוחשת/g,
     replaceWith: "מושחת"
   }, {
@@ -3708,8 +3732,14 @@ var commonErrors = [
     matchWith: /הול יסתדר, תראה./g,
     replaceWith: "הכול יסתדר, אתה תראה"
   }, {
+    matchWith: /מבלי/g,
+    replaceWith: "בלי"
+  }, {
     matchWith: /חדש בשביל/g,
     replaceWith: "חדש ל"
+  }, {
+    matchWith: /הזו,/g,
+    replaceWith: "הזאת,"
   }, {
     matchWith: /\-זו /g,
     replaceWith: "-זאת "
@@ -3863,7 +3893,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="100 DIAS PARA ENAMORARSE 40.MP4" autobuffer height="100px" controls></video>
+      <video src="100 DIAS PARA ENAMORARSE 57.MP4" autobuffer height="100px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
@@ -3893,7 +3923,7 @@ var areasOfSuspicion = [
       </div>
     </div>
     <div id='editor' style="float: left; margin-left: 15px;">
-      <textarea id="editor-textarea" cols=30 rows=39 wrap="hard" dir='rtl'
+      <textarea id="editor-textarea" cols=30 rows=37 wrap="hard" dir='rtl'
             style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
     </div>
     <div id="fixes-section" style="float: left; margin-left: 15px">
