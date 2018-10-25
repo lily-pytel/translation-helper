@@ -1527,7 +1527,7 @@ var commonErrors = [
     matchWith: /כמעט זה/g,
     replaceWith: "זה כמעט"
   }, {
-    matchWith: /תעשה לך סרטים בראש|תעשה לך סרטים/g,
+    matchWith: /תעשה לך סרטים בראש|תעשה לך סרטים|תעשה סרטים לעצמך/g,
     replaceWith: "תיכנס לסרט"
   }, {
     matchWith: /לעשות לי סרטים בראש|לעשות לי סרטים /g,
@@ -1647,11 +1647,17 @@ var commonErrors = [
     matchWith: /חשוב מכל/g,
     replaceWith: 'חשוב מכול'
   }, {
+    matchWith: /למשוך מידע ממנה/g,
+    replaceWith: 'לאסוף ממנה מידע'
+  }, {
     matchWith: /גרוע מכל/g,
     replaceWith: 'גרוע מכול'
   }, {
     matchWith: /לדעתך מה עליי לעשות/g,
     replaceWith: 'מה לדעתך עליי לעשות'
+  }, {
+    matchWith: /זוקיני/g,
+    replaceWith: 'קישוא'
   }, {
     matchWith: /לדואג/g,
     replaceWith: 'לדאוג'
@@ -2121,11 +2127,20 @@ var commonErrors = [
     matchWith: /אמנם/g,
     replaceWith: "אומנם"
   }, {
+    matchWith: /תמונה מה/g,
+    replaceWith: "תמונה של ה"
+  }, {
     matchWith: /תכנית/g,
     replaceWith: "תוכנית"
   }, {
+    matchWith: /נסער קצת/g,
+    replaceWith: "קצת נסער"
+  }, {
     matchWith: /אמנות/g,
     replaceWith: "אומנות"
+  }, { 
+    matchWith: /נאומנות/g,
+    replaceWith: "נאמנות"
   }, {
     matchWith: /אוניה/g,
     replaceWith: "אונייה"
@@ -3444,8 +3459,17 @@ var commonErrors = [
     matchWith: /פלסיוס|פאלסיוס/g,
     replaceWith: "פלאסיוס"
   }, {
+    matchWith: /אני בשביל זה פה/g,
+    replaceWith: "בשביל זה אני פה"
+  }, {
+    matchWith: /בקור טוב/g,
+    replaceWith: "בוקר טוב"
+  }, {
     matchWith: /מפלפון/g,
     replaceWith: "מלפפון"
+  }, {
+    matchWith: /ברייאן/g,
+    replaceWith: "בריאן"
   }, {
     matchWith: /סיבה כדי/g,
     replaceWith: "סיבה "
@@ -3546,6 +3570,12 @@ var commonErrors = [
     matchWith: /טוב יותר קצת/g,
     replaceWith: "קצת יותר טוב"
   }, {
+    matchWith: / חסר כל /g,
+    replaceWith: " חסר כול "
+  }, {
+    matchWith: /הפליה/g,
+    replaceWith: "אפליה"
+  }, {
     matchWith: /לנשוא/g,
     replaceWith: "לשנוא"
   }, {
@@ -3645,6 +3675,18 @@ var commonErrors = [
     matchWith: /המשפחה כולה/g,
     replaceWith: "כל המשפחה"
   }, {
+    matchWith: /אי אונות|אין אונות/g,
+    replaceWith: "אימפוטנציה"
+  }, {
+    matchWith: /מדגלת/g,
+    replaceWith: "מדלגת"
+  }, {
+    matchWith: /מפטל/g,
+    replaceWith: "מטפל"
+  }, {
+    matchWith: /תנמשי/g,
+    replaceWith: "תנשמי"
+  }, {
     matchWith: /המון/g,
     replaceWith: "הרבה"
   }, { 
@@ -3693,7 +3735,7 @@ var commonErrors = [
     matchWith: /בפרק הבא במכה בלב|בפרק הבא ב"מכה בלב"|בפרק הבא ב"אגרוף בלב"/g,
     replaceWith: 'בפרק הבא של "אגרוף בלב"'
   }, {
-		matchWith: /איך שאתה כבד/g,
+    matchWith: /איך שאתה כבד/g,
     replaceWith: "איזה כבד אתה"
   }, {
     matchWith: /אלמלא/g,
@@ -3719,6 +3761,9 @@ var commonErrors = [
   }, {
     matchWith: /שכואב לך יותר/g,
     replaceWith: "שהכי כואב לך"
+  }, {
+    matchWith: /יום סבוך/g,
+    replaceWith: "יום מסובך"
   }, {
     matchWith: /זו אני/g,
     replaceWith: "זאת אני"
@@ -3893,7 +3938,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="100 DIAS PARA ENAMORARSE 57.MP4" autobuffer height="100px" controls></video>
+      <video src="100 DIAS PARA ENAMORARSE 58.MP4" autobuffer height="100px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
