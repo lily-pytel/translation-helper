@@ -2835,6 +2835,12 @@ var commonErrors = [
     matchWith: /תשמעי מה שאומר לך/g,
     replaceWith: "תקשיבי לדבריי"
   }, {
+matchWith: /עכשיו אני לא יכול לדבר/g,
+    replaceWith: "אני לא יכול לדבר כרגע"
+  }, {
+    matchWith: /תשמעי מה שאומר לך/g,
+    replaceWith: "תקשיבי לדבריי"
+  }, {
     matchWith: /תשמע מה שאומר לך/g,
     replaceWith: "תקשיב לדבריי"
   }, {
@@ -3468,8 +3474,20 @@ var commonErrors = [
     matchWith: /בקור טוב/g,
     replaceWith: "בוקר טוב"
   }, {
+    matchWith: /תשמעי מה שאומר לך/g,
+    replaceWith: "תקשיבי לדבריי"
+  }, {
+    matchWith: /עכשיו אני לא יכול לדבר/g,
+    replaceWith: "אני לא יכול לדבר כרגע"
+  }, {
+    matchWith: /אמרתי לך שתקנה/g,
+    replaceWith: "אמרתי לך לקנות"
+  }, {
     matchWith: /מפלפון/g,
     replaceWith: "מלפפון"
+  }, {
+    matchWith: /משהו שם/g,
+    replaceWith: "שם משהו"
   }, {
     matchWith: /ברייאן/g,
     replaceWith: "בריאן"
@@ -3576,8 +3594,20 @@ var commonErrors = [
     matchWith: / חסר כל /g,
     replaceWith: " חסר כול "
   }, {
+    matchWith: /גו'דו/g,
+    replaceWith: "ג'ודו"
+  }, {
+    matchWith: /גם לא היה קל לנו/g,
+    replaceWith: "גם לנו לא היה קל"
+  }, {
     matchWith: /הפליה/g,
     replaceWith: "אפליה"
+  }, {
+    matchWith: /בבית לבד/g,
+    replaceWith: "לבד בבית"
+  }, {
+    matchWith: /אשפר ל/g,
+    replaceWith: "אפשר ל"
   }, {
     matchWith: /לנשוא/g,
     replaceWith: "לשנוא"
@@ -3950,7 +3980,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="100 DIAS PARA ENAMORARSE 60.MP4" autobuffer height="100px" controls></video>
+      <video src="100 DIAS PARA ENAMORARSE 63.MP4" autobuffer height="120px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
