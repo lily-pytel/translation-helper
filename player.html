@@ -1989,9 +1989,6 @@ var commonErrors = [
     matchWith: /תביא כפה/g,
     replaceWith: "תביא כיף"
   }, {
-    matchWith: /ברוכות הבאות/g,
-    replaceWith: "ברוך הבא"
-  }, {
     matchWith: /או מה חשבת\?/g,
     replaceWith: "מה חשבת,"
   }, {
@@ -3231,11 +3228,20 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מבחין בכול/g,
     replaceWith: "שם לב לכול"
   }, {
-    matchWith: /מבחינה|מבחינה בזה(?! טכנית| רפואית| פיזית| משפט)/g,
+    matchWith: /מבחינה|מבחינה בזה(?! טכנית| רפואית| פיזית| משפט| משפטית| מעשית)/g,
     replaceWith: "שמה לב"
+  }, {
+    matchWith: /שמעיק עליי קצת/g,
+    replaceWith: "שמדאיג אותי"
   }, {
     matchWith: /מבחין בזה|מבחין/g,
     replaceWith: "שם לב"
+  }, {
+    matchWith: /רוק המקומי/g,
+    replaceWith: "רוק הלאומי"
+  }, { 
+    matchWith: / צרך /g,
+    replaceWith: "צריך"
   }, {
     matchWith: /בחנמין/g,
     replaceWith: "בנחמין"
@@ -3666,6 +3672,24 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /טיפש קצת/g,
     replaceWith: "קצת טיפש"
   }, {
+    matchWith: /עכשיו אני רוצה להבין/g,
+    replaceWith: "אני רוצה להבין עכשיו"
+  }, {
+    matchWith: /אעשה כאילו /g,
+    replaceWith: "אעמיד פנים ש"
+  }, {
+    matchWith: /שאבקש /g,
+    replaceWith: "לבקש "
+  }, {
+    matchWith: /לך בשקט/g,
+    replaceWith: "אל תדאג"
+  }, {
+    matchWith: /לכי בשקט/g,
+    replaceWith: "אל תדאגי"
+  }, {
+    matchWith: /ללב ישר/g,
+    replaceWith: "ישר ללב"
+  }, {
     matchWith: /מגזים קצת/g,
     replaceWith: "קצת מגזים"
   }, {
@@ -4004,7 +4028,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="100 DIAS PARA ENAMORARSE 64.MP4" autobuffer height="120px" controls></video>
+      <video src="100 DIAS PARA ENAMORARSE 70.MP4" autobuffer height="120px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
