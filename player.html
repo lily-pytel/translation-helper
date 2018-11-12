@@ -558,11 +558,11 @@ $(function() {
     else if(e.altKey) {
       switch (e.keyCode) {
         case LeftArrow: {
-          seek(Player, -5)
+          seek(Player, -2)
           break
         }
         case RightArrow: {
-          seek(Player, +5)
+          seek(Player, +2)
           break
         }
         case DownArrow:
@@ -1539,7 +1539,10 @@ var commonErrors = [
     matchWith: /כמעט זה/g,
     replaceWith: "זה כמעט"
   }, {
-    matchWith: /תעשה לך סרטים בראש|תעשה לך סרטים|תעשה סרטים לעצמך/g,
+    matchWith: /תעשי לך סרטים בראש|תעשי לך סרטים|תעשי סרטים לעצמך|תעשי סרטי לעצמך/g,
+    replaceWith: "תיכנסי לסרט"
+  }, {
+    matchWith: /תעשה לך סרטים בראש|תעשה לך סרטים|תעשה סרטים לעצמך|תעשה סרטי לעצמך/g,
     replaceWith: "תיכנס לסרט"
   }, {
     matchWith: /לעשות לי סרטים בראש|לעשות לי סרטים /g,
@@ -1856,6 +1859,15 @@ var commonErrors = [
   }, {
     matchWith: /מודאגת קצת/g,
     replaceWith: "קצת דואגת"
+  }, {
+    matchWith: / אמש פה/g,
+    replaceWith: " פה אתמול"
+  }, {
+    matchWith: /תעשה את מה ש/g,
+    replaceWith: "תעשה מה ש"
+  }, {
+    matchWith: /תעשי את מה ש/g,
+    replaceWith: "תעשי מה ש"
   }, {
     matchWith: /עצובה קצת/g,
     replaceWith: "קצת עצובה"
@@ -3432,10 +3444,10 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /שיקרתי לו פנים/g,
     replaceWith: "שיקרתי לו בפנים"
   }, {
-    matchWith: /ללכת לבית(?! ש)/g,
+    matchWith: /ללכת לבית(?! ש| הספר)/g,
     replaceWith: "ללכת הביתה"
   }, {
-    matchWith: /נלך לבית(?! ש)/g,
+    matchWith: /נלך לבית(?! ש| הספר)/g,
     replaceWith: "נלך הביתה"
   }, {
     matchWith: /חסרי כל/g,
@@ -3674,6 +3686,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /עכשיו אני רוצה להבין/g,
     replaceWith: "אני רוצה להבין עכשיו"
+  }, { 
+    matchWith: /נעשה כאילו /g,
+    replaceWith: "נעמיד פנים ש"
   }, {
     matchWith: /אעשה כאילו /g,
     replaceWith: "אעמיד פנים ש"
@@ -4028,7 +4043,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="100 DIAS PARA ENAMORARSE 70.MP4" autobuffer height="120px" controls></video>
+      <video src="100 DIAS PARA ENAMORARSE 67.MP4" autobuffer height="100px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
