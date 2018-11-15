@@ -1475,9 +1475,15 @@ var commonErrors = [
   }, {
     matchWith: /עבריאן/g,
     replaceWith: "עבריין"
+  }, { 
+    matchWith: /^וזב /g,
+    replaceWith: "וזה "
   }, {
     matchWith: /ככול/g,
     replaceWith: "ככל"
+  }, {
+    matchWith: /הספקת חשמל/g,
+    replaceWith: "הפסקת חשמל"
   }, {
     matchWith: /מרתיתה/g,
     replaceWith: "מרתיטה"
@@ -3534,6 +3540,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מייד תבוא לפה/g,
     replaceWith: "בוא לפה מייד"
   }, {
+    matchWith: /קראתם לי בשביל זה/g,
+    replaceWith: "בשביל זה קראתם לי"
+  }, {
+    matchWith: /שכלל ה/g,
+    replaceWith: "שכל ה"
+  }, {
     matchWith: /סיבה כדי/g,
     replaceWith: "סיבה "
   }, {
@@ -4043,7 +4055,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="100 DIAS PARA ENAMORARSE 67.MP4" autobuffer height="100px" controls></video>
+      <video src="100 DIAS PARA ENAMORARSE 68.MP4" autobuffer height="120px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
