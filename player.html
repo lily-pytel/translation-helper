@@ -1058,6 +1058,15 @@ var commonErrors = [
   }, {
     matchWith: /מה פתאום לא שמתי לב|מה פתאום לא הבחנתי/g,
     replaceWith: "איך לא שמתי לב"
+  }, { 
+    matchWith: /דעות קודמות/g,
+    replaceWith: "דעות קדומות"
+  }, {
+    matchWith: /חושקת אותו/g,
+    replaceWith: "חושקת בו"
+  }, {
+    matchWith: /חשק אותה/g,
+    replaceWith: "חשק בה"
   }, {
     matchWith: /חשק אותך/g,
     replaceWith: "חשק בך"
@@ -3615,6 +3624,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אין רגע דל פה/g,
     replaceWith: "אין פה רגע דל"
   }, {
+    matchWith: /מתנקשים/g,
+    replaceWith: "מתנשקים"
+  }, {
     matchWith: /בערך מתי/g,
     replaceWith: "מתי בערך"
   }, {
@@ -3632,6 +3644,18 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /זה לא מה שדיברנו/g,
     replaceWith: "לא על זה דיברנו"
+  }, {
+    matchWith: /אבקש טובה גדולה ממך,/g,
+    replaceWith: "אבקש ממך טובה גדולה"
+  }, {
+    matchWith: /תפוח עץ|תפוח העץ/g,
+    replaceWith: "תפוח"
+  }, {
+    matchWith: /תפוחי עץ|תפוחי העץ/g,
+    replaceWith: "תפוחים"
+  }, {
+    matchWith: /הפטרים/g,
+    replaceWith: "הפרטים"
   }, {
     matchWith: /חוץ מה,/g,
     replaceWith: "חוץ מזה,"
@@ -3795,6 +3819,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אי אונות|אין אונות/g,
     replaceWith: "אימפוטנציה"
   }, {
+    matchWith: /ברכות\./g,
+    replaceWith: "ברכותיי."
+  }, {
     matchWith: /מדגלת/g,
     replaceWith: "מדלגת"
   }, {
@@ -3894,6 +3921,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /הול יסתדר, תראה./g,
     replaceWith: "הכול יסתדר, אתה תראה"
   }, {
+    matchWith: /לתפוח/g,
+    replaceWith: "לפתוח"
+  }, {
     matchWith: /מבלי/g,
     replaceWith: "בלי"
   }, {
@@ -3905,6 +3935,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /\-זו /g,
     replaceWith: "-זאת "
+  }, {
+    matchWith: / כזו\./g,
+    replaceWith: " כזאת."
   }, {
     matchWith: /\. זו /g,
     replaceWith: ". זאת "
@@ -4055,7 +4088,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="100 DIAS PARA ENAMORARSE 68.MP4" autobuffer height="120px" controls></video>
+      <video src="100 DIAS PARA ENAMORARSE 78.MP4" autobuffer height="120px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
@@ -4085,7 +4118,7 @@ var areasOfSuspicion = [
       </div>
     </div>
     <div id='editor' style="float: left; margin-left: 15px;">
-      <textarea id="editor-textarea" cols=30 rows=37 wrap="hard" dir='rtl'
+      <textarea id="editor-textarea" cols=30 rows=30 wrap="hard" dir='rtl'
             style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
     </div>
     <div id="fixes-section" style="float: left; margin-left: 15px">
