@@ -656,8 +656,8 @@ var commonErrors = [
     matchWith: /אני רוצה להיות כל הזמן איתך/g,
     replaceWith: "אני רוצה להיות איתך כל הזמן"
   }, {
-    matchWith: /חביאר|חוייאר/g,
-    replaceWith: "חוויאר"
+    matchWith: /חוויאר|חוייאר/g,
+    replaceWith: "חביאר"
   }, {
     matchWith: /ידעת מזה/g,
     replaceWith: "ידעת על זה"
@@ -3507,8 +3507,8 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /הכנו משהו לכם/g,
     replaceWith: "הכנו לכם משהו"
   }, {
-    matchWith: /קנטומפוני/g,
-    replaceWith: "קונטמפוני"
+    matchWith: /קנטומפוני|קונטמפוני/g,
+    replaceWith: "קונטמפומי"
   }, {
     matchWith: /מוחשת/g,
     replaceWith: "מושחת"
@@ -3687,6 +3687,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אשפר ל/g,
     replaceWith: "אפשר ל"
   }, {
+    matchWith: /איך שאתן דומות/g,
+    replaceWith: "אתן ממש דומות"
+  }, {
     matchWith: /לנשוא/g,
     replaceWith: "לשנוא"
   }, {
@@ -3821,6 +3824,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /ברכות\./g,
     replaceWith: "ברכותיי."
+  }, {
+    matchWith: / נדר על/g,
+    replaceWith: " נדבר על"
   }, {
     matchWith: /מדגלת/g,
     replaceWith: "מדלגת"
@@ -4088,7 +4094,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="100 DIAS PARA ENAMORARSE 78.MP4" autobuffer height="120px" controls></video>
+      <video src="100 DIAS PARA ENAMORARSE 79.MP4" autobuffer height="120px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
@@ -4118,7 +4124,7 @@ var areasOfSuspicion = [
       </div>
     </div>
     <div id='editor' style="float: left; margin-left: 15px;">
-      <textarea id="editor-textarea" cols=30 rows=30 wrap="hard" dir='rtl'
+      <textarea id="editor-textarea" cols=30 rows=38 wrap="hard" dir='rtl'
             style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
     </div>
     <div id="fixes-section" style="float: left; margin-left: 15px">
