@@ -2226,9 +2226,6 @@ var commonErrors = [
     matchWith: /כול מה ש/g,
     replaceWith: "כל מה ש"
   }, {
-    matchWith: /נצ'יט/g,
-    replaceWith: "נאצ'יט"
-  }, {
     matchWith: /זה לא כמו שאת חושבת/g,
     replaceWith: "זה לא מה שאת חושבת"
   }, {
@@ -2898,7 +2895,7 @@ var commonErrors = [
     matchWith: /לרבי איתך/g,
     replaceWith: "לריב איתך"
   }, {
-    matchWith: /תשמעי מה שאומר לך/g,
+    matchWith: /תשמעי מה שאומר לך|תשמעי מה יש לי לומר לך/g,
     replaceWith: "תקשיבי לדבריי"
   }, {
 matchWith: /עכשיו אני לא יכול לדבר/g,
@@ -3214,7 +3211,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     replaceWith: "תראה כמה"
   }, {
     matchWith: /תראי איך ש/g,
-    replaceWith: "תראי כמה"
+    replaceWith: "תראי כמה "
   }, {
     matchWith: /אתה לא צריכה לייחס/g,
     replaceWith: "אל תייחס"
@@ -3678,14 +3675,26 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אבקש טובה גדולה ממך,/g,
     replaceWith: "אבקש ממך טובה גדולה"
   }, {
+    matchWith: /תפוח העץ/g,
+    replaceWith: "התפוח"
+  }, {
     matchWith: /תפוח עץ|תפוח העץ/g,
     replaceWith: "תפוח"
+  }, {
+    matchWith: /תפוחי העץ/g,
+    replaceWith: "התפוחים"
   }, {
     matchWith: /תפוחי עץ|תפוחי העץ/g,
     replaceWith: "תפוחים"
   }, {
+    matchWith: /מייד תספרי לי/g,
+    replaceWith: "תספרי לי מייד"
+  }, { 
     matchWith: /הפטרים/g,
     replaceWith: "הפרטים"
+  }, {
+    matchWith: /החיים הפרטים/g,
+    replaceWith: "החיים הפרטיים"
   }, {
     matchWith: /חוץ מה,/g,
     replaceWith: "חוץ מזה,"
@@ -4011,6 +4020,15 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /לתפוח/g,
     replaceWith: "לפתוח"
   }, {
+    matchWith: /הסבר לזה/g,
+    replaceWith: "לזה הסבר"
+  }, { 
+    matchWith: / אר כך/g,
+    replaceWith: " אחר כך"
+  }, {
+    matchWith: /ברטט/g,
+    replaceWith: "על רטט"
+  }, {
     matchWith: /מבלי/g,
     replaceWith: "בלי"
   }, {
@@ -4022,6 +4040,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /\-זו /g,
     replaceWith: "-זאת "
+  }, {
+    matchWith: / הזו\./g,
+    replaceWith: " הזאת."
   }, {
     matchWith: / כזו\./g,
     replaceWith: " כזאת."
