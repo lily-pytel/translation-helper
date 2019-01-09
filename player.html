@@ -610,11 +610,17 @@ var commonErrors = [
   }, {
     matchWith: /אל תייחסי אליי/g,
     replaceWith: "תתעלמי ממני"
+  }, { 
+    matchWith: /לגונב לך/g,
+    replaceWith: "לגנוב לך"
   }, {
     matchWith: /מערוב ב/g,
     replaceWith: "מעורב ב"
   }, {
     matchWith: /זה שוב\?/g,
+    replaceWith: "שוב זה?"
+  }, {
+    matchWith: /הקטע השוב זה\?/g,
     replaceWith: "שוב זה?"
   }, {
     matchWith: /השאלה של מיליון הדולר/g,
@@ -2526,11 +2532,20 @@ var commonErrors = [
     matchWith: /שבאת ממנה/g,
     replaceWith: "שממנה באת"
   }, {
+    matchWith: /בטלרן/g,
+    replaceWith: "בלטרן"
+  }, {
     matchWith: /מוירחיניה/g,
     replaceWith: "מווירחיניה"
   }, {
+    matchWith: /השם שלי לא /g,
+    replaceWith: "לא קוראים לי "
+  }, {
     matchWith: /השם שלי(?! היה)/g,
     replaceWith: "קוראים לי"
+  }, {
+    matchWith: /זה לא קוראים לי/g,
+    replaceWith: "זה לא השם שלי"
   }, {
     matchWith: /את קוראים לי/g,
     replaceWith: "איך קוראים לי"
@@ -2894,6 +2909,9 @@ var commonErrors = [
   }, {
     matchWith: /לרבי איתך/g,
     replaceWith: "לריב איתך"
+  }, {
+    matchWith: /תשמעו אותי/g,
+    replaceWith: "תקשיבו לי"
   }, {
     matchWith: /תשמעי מה שאומר לך|תשמעי מה יש לי לומר לך/g,
     replaceWith: "תקשיבי לדבריי"
@@ -3633,6 +3651,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /זה לא מה שנראה/g,
     replaceWith: "זה לא מה שזה נראה"
   }, {
+    matchWith: /אני שומעת/g,
+    replaceWith: "אני מקשיבה"
+  }, {
     matchWith: /שומעת אותו/g,
     replaceWith: "מקשיבה לו"
   }, {
@@ -3644,6 +3665,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /אל לשחק אותה/g,
     replaceWith: "אל תשחק אותה"
+  }, { 
+    matchWith: /שחכת/g,
+    replaceWith: "שכחת"
   }, {
     matchWith: /עם המבט/g,
     replaceWith: "במבט"
@@ -3761,6 +3785,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /תשמע בקול שלי/g,
     replaceWith: "תשמע בקולי"
+  }, {
+    matchWith: /תשמעי בקול שלי/g,
+    replaceWith: "תשמעי בקולי"
   }, {
     matchWith: /תלכי מפה/g,
     replaceWith: "לכי מפה"
@@ -4214,7 +4241,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="100 DIAS PARA ENAMORARSE 110.MP4" autobuffer height="120px" controls></video>
+      <video src="AMAR A MUERTE  2.MP4" autobuffer height="120px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
