@@ -1668,8 +1668,11 @@ var commonErrors = [
     matchWith: /נחזור לבית(?! החולים| הספר)/g,
     replaceWith: 'נחזור הביתה'
   }, {
-    matchWith: /לחזור לבית(?! החולים| הספר)/g,
+    matchWith: /לחזור לבית(?! החולים| הספר| שלי)/g,
     replaceWith: 'לחזור הביתה'
+  }, {
+    matchWith: /סומך לגמרי עליך/g,
+    replaceWith: 'סומך עליך לגמרי'
   }, {
     matchWith: /מה פתאום שלא/g,
     replaceWith: 'איך לא'
@@ -3486,6 +3489,18 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /משנה את הדעה שלה/g,
     replaceWith: "משנה את דעתה"
   }, {
+    matchWith: /^הו /g,
+    replaceWith: "^הוא "
+  }, {
+    matchWith: /-הו /g,
+    replaceWith: "-הוא "
+  }, {
+    matchWith: / הו /g,
+    replaceWith: " הוא "
+  }, {
+    matchWith: /אני בטח ש/g,
+    replaceWith: "אני בטוח ש"
+  }, {
     matchWith: /סבתא רבא/g,
     replaceWith: "סבתא רבתא"
   }, {
@@ -3972,6 +3987,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /ארגיש טוב פה יותר/g,
     replaceWith: "פה ארגיש טוב יותר"
   }, { 
+    matchWith: /^סן אנטוניו, טקסס$/g,
+    replaceWith: '"סן אנטוניו, טקסס"'
+  }, {
+    matchWith: /^מקסיקו סיטי$/g,
+    replaceWith: '"מקסיקו סיטי"'
+  }, {
     matchWith: /המון/g,
     replaceWith: "הרבה"
   }, { 
@@ -4241,7 +4262,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="AMAR A MUERTE  2.MP4" autobuffer height="120px" controls></video>
+      <video src="100 DIAS PARA ENAMORARSE 116.MP4" autobuffer height="120px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
