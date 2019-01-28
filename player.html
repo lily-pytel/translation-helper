@@ -2319,6 +2319,9 @@ var commonErrors = [
     matchWith: /אין מה להבין כל-כך/g,
     replaceWith: "אין כל-כך מה להבין"
   }, {
+    matchWith: /כל-כך אליו/g,
+    replaceWith: "אליו כל-כך"
+  }, {
     matchWith: /כל מני/g,
     replaceWith: "כל מיני"
   }, {
@@ -2748,8 +2751,14 @@ var commonErrors = [
     matchWith: /תעשי טובה בשבילי/g,
     replaceWith: "תעשי לי טובה"
   }, {
+    matchWith: /קסטנייה/g,
+    replaceWith: "קסטניידה"
+  }, {
     matchWith: /זמן יותר/g,
     replaceWith: "יותר זמן"
+  }, {
+    matchWith: /לתמיד פה/g,
+    replaceWith: "פה לתמיד"
   }, {
     matchWith: /חושק אותי/g,
     replaceWith: "חושק בי"
@@ -4319,7 +4328,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="Sangre de Mi Tierra 2.MP4" autobuffer height="120px" controls></video>
+      <video src="Sangre de Mi Tierra 3.MP4" autobuffer height="100px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
@@ -4349,7 +4358,7 @@ var areasOfSuspicion = [
       </div>
     </div>
     <div id='editor' style="float: left; margin-left: 15px;">
-      <textarea id="editor-textarea" cols=30 rows=38 wrap="hard" dir='rtl'
+      <textarea id="editor-textarea" cols=30 rows=43 wrap="hard" dir='rtl'
             style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
     </div>
     <div id="fixes-section" style="float: left; margin-left: 15px">
