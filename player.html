@@ -707,6 +707,9 @@ var commonErrors = [
     matchWith: /לא ביקשתי כלום ממך/g,
     replaceWith: "לא ביקשתי ממך כלום"
   }, {
+    matchWith: /תבקשי סליחה ממנו/g,
+    replaceWith: "תתנצלי בפניו"
+  }, {
     matchWith: /תבקשי סליחה ממנה/g,
     replaceWith: "תתנצלי בפניה"
   }, {
@@ -1029,6 +1032,10 @@ var commonErrors = [
     replaceWith: " ",
     whiteSpaceCorrector: true
   }, {
+    matchWith: /\t/g,
+    replaceWith: "",
+    whiteSpaceCorrector: true
+  }, {
     matchWith: /^ +/g,
     replaceWith: "",
     whiteSpaceCorrector: true
@@ -1085,6 +1092,9 @@ var commonErrors = [
   }, {
     matchWith: /כמה שטוב יותר/g,
     replaceWith: "כמה שיותר טוב"
+  }, { 
+    matchWith: /זאת מתכונת/g,
+    replaceWith: "זה מתכון"
   }, {
     matchWith: /קרוב לי/g,
     replaceWith: "קרוב אליי"
@@ -3819,6 +3829,15 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /בבית לבד/g,
     replaceWith: "לבד בבית"
   }, {
+    matchWith: /משמעות לכל זה/g,
+    replaceWith: "לכל זה משמעות"
+  }, {
+    matchWith: /משמעות לזה/g,
+    replaceWith: "לזה משמעות"
+  }, { 
+    matchWith: /לידוע לשנינו/g,
+    replaceWith: "שנינו יודעים"
+  }, {
     matchWith: /אשפר ל/g,
     replaceWith: "אפשר ל"
   }, {
@@ -4328,7 +4347,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="Sangre de Mi Tierra 3.MP4" autobuffer height="100px" controls></video>
+      <video src="AMAR A MUERTE 18.MP4" autobuffer height="100px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
@@ -4358,7 +4377,7 @@ var areasOfSuspicion = [
       </div>
     </div>
     <div id='editor' style="float: left; margin-left: 15px;">
-      <textarea id="editor-textarea" cols=30 rows=43 wrap="hard" dir='rtl'
+      <textarea id="editor-textarea" cols=30 rows=38 wrap="hard" dir='rtl'
             style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
     </div>
     <div id="fixes-section" style="float: left; margin-left: 15px">
