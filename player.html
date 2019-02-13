@@ -4039,8 +4039,11 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /יכוללהיות/g,
     replaceWith: "יכול להיות"
   }, {
+    matchWith: /התשנית/g,
+    replaceWith: "השתנית"
+  }, {
     matchWith: /ברכות,/g,
-    replaceWith: "ברכותיי"
+    replaceWith: "ברכותיי,"
   }, {
     matchWith: /ברכות\./g,
     replaceWith: "ברכותיי."
@@ -4050,6 +4053,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /קריסטנו|קרסינטו|כריסטנו|כריסנטו/g,
     replaceWith: "קריסנטו"
+  }, {
+    matchWith: /\. תמותי עליהם/g,
+    replaceWith: ". את תמותי עליהם"
+  }, {
+    matchWith: /ככה אי אפשר/g,
+    replaceWith: "אי אפשר ככה"
   }, {
     matchWith: /קסאניידה/g,
     replaceWith: "קסטניידה"
@@ -4368,7 +4377,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="AMAR A MUERTE 22.MP4" autobuffer height="100px" controls></video>
+      <video src="AMAR A MUERTE 23.MP4" autobuffer height="100px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
