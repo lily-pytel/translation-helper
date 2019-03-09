@@ -3697,6 +3697,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /קראתם לי בשביל זה/g,
     replaceWith: "בשביל זה קראתם לי"
   }, {
+    matchWith: /חונאחו/g,
+    replaceWith: "חואנחו"
+  }, {
     matchWith: /שכלל ה/g,
     replaceWith: "שכל ה"
   }, {
@@ -4030,6 +4033,15 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /זאת הזמנה כדי/g,
     replaceWith: "זאת הזמנה "
   }, {
+    matchWith: /זה יעבור לי תכף|זה יעבור תכף/g,
+    replaceWith: "זה תכף יעבור"
+  }, {
+    matchWith: /היה גובה קצת/g,
+    replaceWith: "היה קצת גבוה"
+  }, {
+    matchWith: /בדקת לך סוכר/g,
+    replaceWith: "בדקת את רמת הסוכר שלך"
+  }, {
     matchWith: /לנזוף אותי/g,
     replaceWith: "לנזוף בי"
   }, {
@@ -4038,7 +4050,19 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /תודי בזה ש/g,
     replaceWith: "תודי ש"
-  }, { 
+  }, {
+    matchWith: /את מפתח הרכב/g,
+    replaceWith: "את המפתח לרכב"
+  }, {
+    matchWith: /שומעת היטב/g,
+    replaceWith: "שומעת טוב"
+  }, {
+    matchWith: /שותה מים רבים כל-כך/g,
+    replaceWith: "שותה כל-כך הרבה מים"
+  }, {
+    matchWith: /שומע היטב/g,
+    replaceWith: "שומע טוב"
+  }, {
     matchWith: /אל יודעם/g,
     replaceWith: "לא יודעים"
   }, {
@@ -4210,6 +4234,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /שכואב לך יותר/g,
     replaceWith: "שהכי כואב לך"
   }, {
+    matchWith: /היטב מה תעשה/g,
+    replaceWith: "היטב מה לעשות"
+  }, {
     matchWith: /יום סבוך/g,
     replaceWith: "יום מסובך"
   }, {
@@ -4237,7 +4264,10 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /ברטט/g,
     replaceWith: "על רטט"
   }, {
-    matchWith: /שום דבר/g,
+    matchWith: /שום דבר פסול/g,
+    replaceWith: "שום דבר רע"
+  }, {
+    matchWith: /שום דבר(?! רע)/g,
     replaceWith: "כלום"
   }, {
     matchWith: /מאוד אליך/g,
@@ -4410,7 +4440,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="Sangre de Mi Tierra 28.MP4" autobuffer height="100px" controls></video>
+      <video src="Sangre de Mi Tierra 37.MP4" autobuffer height="100px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
