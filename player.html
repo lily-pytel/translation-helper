@@ -1606,7 +1606,7 @@ var commonErrors = [
     matchWith: /תעשי לך סרטים בראש|תעשי לך סרטים|תעשי סרטים לעצמך|תעשי סרטי לעצמך/g,
     replaceWith: "תיכנסי לסרט"
   }, {
-    matchWith: /תעשה לך סרטים בראש|תעשה לך סרטים|תעשה סרטים לעצמך|תעשה סרטי לעצמך/g,
+    matchWith: /תעשה לך סרטים בראש|תעשה לך סרטים|תעשה סרטים לעצמך|תעשה סרטי לעצמך|תעשה לעצמך סרטים בראש/g,
     replaceWith: "תיכנס לסרט"
   }, {
     matchWith: /לעשות לי סרטים בראש|לעשות לי סרטים /g,
@@ -1848,6 +1848,9 @@ var commonErrors = [
   }, {
     matchWith: /זה יהיה ככה|ככה זה יהיה/g,
     replaceWith: 'כך יהיה'
+  }, {
+    matchWith: /אורחת ערב/g,
+    replaceWith: 'ארוחת ערב'
   }, {
     matchWith: /לנוסע/g,
     replaceWith: 'לנסוע'
@@ -4087,7 +4090,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אי אונות|אין אונות/g,
     replaceWith: "אימפוטנציה"
   }, {
-    matchWith: /אאורה|אאורוה|אאואורה|אאוורוה|אארורה|אוררורה/g,
+    matchWith: /אאורה|אאורוה|אאואורה|אאוורוה|אארורה|אוררורה|אאוררה/g,
     replaceWith: "אאורורה"
   }, {
     matchWith: /צחוק ממנה/g,
@@ -4099,6 +4102,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /יכוללהיות/g,
     replaceWith: "יכול להיות"
   }, {
+    matchWith: /רורברטו/g,
+    replaceWith: "רורברטו"
+  }, {
     matchWith: /התשנית/g,
     replaceWith: "השתנית"
   }, {
@@ -4107,6 +4113,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: / כמן /g,
     replaceWith: " כמו "
+  }, {
+    matchWith: /בכרות/g,
+    replaceWith: "ברכותיי,"
   }, {
     matchWith: /ברכות,/g,
     replaceWith: "ברכותיי,"
@@ -4455,7 +4464,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="Sangre de Mi Tierra 38.MP4" autobuffer height="100px" controls></video>
+      <video src="Sangre de Mi Tierra 47.MP4" autobuffer height="100px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
