@@ -770,6 +770,9 @@ var commonErrors = [
     matchWith: /מה פתאום שתביאי|מה פתאום שתביא/g,
     replaceWith: "מה פתאום הבאת"
   }, {
+    matchWith: /באם נרצה או שלא|אם נרצה או שלא/g,
+    replaceWith: "גם אם זה לא נראה לנו"
+  }, {
     matchWith: /באם תרצי או שלא|באם תרצה או שלא|אם תרצי או שלא|אם תרצה או שלא/g,
     replaceWith: "גם אם זה לא נראה לך"
   }, {
@@ -781,6 +784,9 @@ var commonErrors = [
   }, {
     matchWith: /אני אל מבין/g,
     replaceWith: "אני לא מבין"
+  }, {
+    matchWith: /לבקש סליחה ממני/g,
+    replaceWith: "לבקש ממני סליחה"
   }, {
     matchWith: /אני ידוע/g,
     replaceWith: "אני יודע"
@@ -1422,6 +1428,9 @@ var commonErrors = [
   }, {
     matchWith: /מיליוני/g,
     replaceWith: "מיליון"
+  }, {
+    matchWith: /מיליוןם/g,
+    replaceWith: "מיליונים"
   }, { 
     matchWith: /פלורסניה/g,
     replaceWith: "פלורנסיה"
@@ -1599,6 +1608,9 @@ var commonErrors = [
   }, {
     matchWith: /כמעט זה/g,
     replaceWith: "זה כמעט"
+  }, { 
+    matchWith: /עושה לעצמך סרט/g,
+    replaceWith: "נכנס לסרט"
   }, {
     matchWith: /אעשה סרטים לעצמי/g,
     replaceWith: "אכנס לסרט"
@@ -1800,6 +1812,9 @@ var commonErrors = [
   }, {
     matchWith: /בשבילנו זה קשה/g,
     replaceWith: 'זה קשה לנו'
+  }, {
+    matchWith: /תשמעי את עצמך/g,
+    replaceWith: 'תקשיבי לעצמך'
   }, {
     matchWith: /תשמע היטב|תשמע משהו/g,
     replaceWith: 'תקשיב טוב'
@@ -2359,7 +2374,7 @@ var commonErrors = [
     matchWith: /לא קרה כלום פה/g,
     replaceWith: "לא קרה פה כלום"
   }, {
-    matchWith: /כל כך/g,
+    matchWith: /כל כך| כך כך/g,
     replaceWith: "כל-כך"
   }, {
     matchWith: /אין מה להבין כל-כך/g,
@@ -2866,7 +2881,7 @@ var commonErrors = [
     matchWith: /יש בעיה לאחותי/g,
     replaceWith: "יש לאחותי בעיה"
   }, {
-    matchWith: /ג'י פי אס|ג'י פי הס/g,
+    matchWith: /ג'י פי אס|ג'י פי הס|ג' יפי הס /g,
     replaceWith: "ג'י.פי.אס"
   }, { 
     matchWith: /מטיחה לך/g,
@@ -3142,6 +3157,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /הנשיקה שהתנשקנו/g,
     replaceWith: "הנשיקה שחלקנו"
   }, {
+    matchWith: /תמשיך עם מה ש/g,
+    replaceWith: "תמשיך במה ש"
+  }, {
     matchWith: /נשיק /g,
     replaceWith: "נישק "
   }, {
@@ -3178,11 +3196,17 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /תרצה(?! משהו)/g,
     replaceWith: "אתה רוצה"
   }, {
+    matchWith: /אם באמת תרצי/g,
+    replaceWith: "אם את רוצה"
+  }, {
     matchWith: /כשתרצי/g,
     replaceWith: "מתי שתרצי"
   }, {
     matchWith: /תרצי(?! משהו)/g,
     replaceWith: "את רוצה"
+  }, {
+    matchWith: /לא את רוצה/g,
+    replaceWith: "את לא רוצה"
   }, {
     matchWith: /נכיר את עצמנו שוב/g,
     replaceWith: "נשוב להכיר אחד את השני"
@@ -3195,6 +3219,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /אני עייף קצת/g,
     replaceWith: "אני קצת עייף"
+  }, {
+    matchWith: /בחיים ממנו/g,
+    replaceWith: "ממנו בחיים"
   }, {
     matchWith: /אמפנדנה/g,
     replaceWith: "אמפנדה"
@@ -3237,6 +3264,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /, כי/g,
     replaceWith: ","
+  }, {
+    matchWith: /היכה בך/g,
+    replaceWith: "היכה אותך"
   }, {
     matchWith: /באמת היכה בו קשה/g,
     replaceWith: "נתן לו מכה חזקה"
@@ -3709,7 +3739,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /קראתם לי בשביל זה/g,
     replaceWith: "בשביל זה קראתם לי"
   }, {
-    matchWith: /חונאחו|חאונחו/g,
+    matchWith: /חונאחו|חאונחו|חונאנו/g,
     replaceWith: "חואנחו"
   }, {
     matchWith: /שכלל ה/g,
@@ -3918,6 +3948,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /תלך, בבקשה/g,
     replaceWith: "לך, בבקשה"
+  }, {
+    matchWith: /^תלך/g,
+    replaceWith: "לך"
+  }, {
+    matchWith: / תלך/g,
+    replaceWith: " לך"
   }, {
     matchWith: /תלך ל/g,
     replaceWith: "לך ל"
@@ -4153,8 +4189,17 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מדגלת/g,
     replaceWith: "מדלגת"
   }, {
+    matchWith: /זה מוזר מה זקורה לי|זה מוזר מה שקורה לי/g,
+    replaceWith: "מה שקורה לי מוזר"
+  }, {
     matchWith: /מפטל/g,
     replaceWith: "מטפל"
+  }, {
+    matchWith: /נהל משא ומתן איתו/g,
+    replaceWith: "נהל איתו משא ומתן"
+  }, {
+    matchWith: /על מה חשבת/g,
+    replaceWith: "מה עבר לך בראש"
   }, {
     matchWith: /תנמשי/g,
     replaceWith: "תנשמי"
@@ -4275,6 +4320,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /הול יסתדר, תראה./g,
     replaceWith: "הכול יסתדר, אתה תראה"
+  }, {
+    matchWith: /מעורערת בנשף שלה|מעורערת בנפש שלה/g,
+    replaceWith: "מעורערת בנפשה"
+  }, {
+    matchWith: / יכוה /g,
+    replaceWith: " יכולה "
   }, {
     matchWith: /לתפוח/g,
     replaceWith: "לפתוח"
@@ -4464,7 +4515,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="Sangre de Mi Tierra 47.MP4" autobuffer height="100px" controls></video>
+      <video src="Sangre de Mi Tierra 71.MP4" autobuffer height="100px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
