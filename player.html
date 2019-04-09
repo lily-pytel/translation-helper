@@ -263,6 +263,9 @@ function findCharNumber(text, lineNum) {
   return charCount;
 }
 
+function goToNextParagraph() {
+}
+
 function goToLine(lineNum) {
   var input = document.getElementById("editor-textarea")
   const selectionStart = findCharNumber(input.value, lineNum)
@@ -551,6 +554,10 @@ $(function() {
       switch (e.keyCode) {
         case SKey: {
           e.preventDefault()
+          break;
+        }
+        case DownArrow: {
+          goToNextParagraph()
           break;
         }
       }
@@ -1228,6 +1235,9 @@ var commonErrors = [
     matchWith: /למותו של/g,
     replaceWith: "למוות של"
   }, {
+    matchWith: /התגלמוות/g,
+    replaceWith: "התגלמותו"
+  }, {
     matchWith: /כמה שמהר יותר|כמה מהר יותר/g,
     replaceWith: "בהקדם האפשרי"
   }, {
@@ -1717,13 +1727,13 @@ var commonErrors = [
     matchWith: /תלכו לבית שלכם|לכו לבית|לכו לבית שלכם|לכו לבית(?! החולים| הספר)/g,
     replaceWith: 'לכו הביתה'
   }, {
-    matchWith: /חזרה לבית(?! החולים| הספר)/g,
+    matchWith: /חזרה לבית(?! החולים| הספר| של)/g,
     replaceWith: 'חזרה הביתה'
   }, {
     matchWith: /תלכי לבית(?! החולים| הספר)/g,
     replaceWith: 'לכי הביתה'
   }, {
-    matchWith: /הולכת לבית(?! החולים| הספר)/g,
+    matchWith: /הולכת לבית(?! החולים| הספר| של)/g,
     replaceWith: 'הולכת הביתה'
   }, {
     matchWith: /נחזור לבית(?! החולים| הספר)/g,
@@ -2926,6 +2936,9 @@ var commonErrors = [
     matchWith: /זה מוזר קצת/g,
     replaceWith: "זה קצת מוזר"
   }, {
+    matchWith: /רחמנות קצת/g,
+    replaceWith: "קצת רחמנות"
+  }, {
     matchWith: /כמו שעכשיו אני/g,
     replaceWith: "כמו שאני עכשיו"
   }, {
@@ -3928,10 +3941,10 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /חשקת אותי/g,
     replaceWith: "חשקת בי"
   }, {
-    matchWith: /תשמע בקול שלי/g,
+    matchWith: /תשמע בקול שלי|תישמע לי/g,
     replaceWith: "תשמע בקולי"
   }, {
-    matchWith: /תשמעי בקול שלי/g,
+    matchWith: /תשמעי בקול שלי|תישמעי לי/g,
     replaceWith: "תשמעי בקולי"
   }, {
     matchWith: /תלכי מפה/g,
@@ -4036,8 +4049,14 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מה שגילית הינו זוועה/g,
     replaceWith: "גילית משהו נורא"
   }, {
+    matchWith: / מטרף /g,
+    replaceWith: " מטורף "
+  }, {
     matchWith: /דף נייר/g,
     replaceWith: "דף"
+  }, { 
+    matchWith: /מסומן/g,
+    replaceWith: "מסומם"
   }, {
     matchWith: /הינו /g,
     replaceWith: "הוא "
@@ -4327,6 +4346,18 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: / יכוה /g,
     replaceWith: " יכולה "
   }, {
+    matchWith: /יד הימנית שלי/g,
+    replaceWith: "יד ימיני"
+  }, {
+    matchWith: /ילד נוסף/g,
+    replaceWith: "עוד ילד"
+  }, {
+    matchWith: /סיסקטה/g,
+    replaceWith: "סיקסטה"
+  }, {
+    matchWith: /תסתכלי היטב עליה/g,
+    replaceWith: "תסתכלי עליה היטב"
+  }, {
     matchWith: /לתפוח/g,
     replaceWith: "לפתוח"
   }, {
@@ -4342,7 +4373,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /שום דבר פסול/g,
     replaceWith: "שום דבר רע"
   }, {
-    matchWith: /שום דבר(?! רע)/g,
+    matchWith: /שום דבר(?! רע| אחר)/g,
     replaceWith: "כלום"
   }, {
     matchWith: /מאוד אליך/g,
@@ -4515,7 +4546,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="Sangre de Mi Tierra 71.MP4" autobuffer height="100px" controls></video>
+      <video src="AZUCAR 3.MP4" autobuffer height="100px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
@@ -4545,7 +4576,7 @@ var areasOfSuspicion = [
       </div>
     </div>
     <div id='editor' style="float: left; margin-left: 15px;">
-      <textarea id="editor-textarea" cols=30 rows=38 wrap="hard" dir='rtl'
+      <textarea id="editor-textarea" cols=30 rows=37 wrap="hard" dir='rtl'
             style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
     </div>
     <div id="fixes-section" style="float: left; margin-left: 15px">
