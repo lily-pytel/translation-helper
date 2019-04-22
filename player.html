@@ -953,6 +953,9 @@ var commonErrors = [
   }, {
     matchWith: /הכול יש פה/g,
     replaceWith: "יש פה הכול"
+  }, { 
+    matchWith: /מחשק/g,
+    replaceWith: "משחק"
   }, {
     matchWith: /משחק איתי/g,
     replaceWith: "משחק בי"
@@ -2117,7 +2120,7 @@ var commonErrors = [
     matchWith: /אני בשביל לשמור עלייך פה/g,
     replaceWith: "אני פה בשביל לשמור עלייך"
   }, {
-    matchWith: /אתה מדבר ברצינות|אתה מדברת ברצינות|אתה לוגע לי|אתה צוחק עליי/g,
+    matchWith: /אתה מדבר ברצינות|אתה מדברת ברצינות|אתה לוגע לי|אתה צוחק עליי|אתה מדברת ברציות/g,
     replaceWith: "אתה רציני"
   }, {
     matchWith: /את מדברת ברצינות|את לועגת לי|את צוחקת עליי/g,
@@ -3701,6 +3704,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /קנטומפוני|קונטמפוני/g,
     replaceWith: "קונטמפומי"
   }, {
+    matchWith: /אנגלס/g,
+    replaceWith: "אנג'לס"
+  }, {
     matchWith: /אנח'י/g,
     replaceWith: "אנג'י"
   }, {
@@ -4172,6 +4178,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /בכרות/g,
     replaceWith: "ברכותיי,"
   }, {
+    matchWith: /אלה דברים\?/g,
+    replaceWith: "אילו דברים?"
+  }, {
     matchWith: /ברכות,/g,
     replaceWith: "ברכותיי,"
   }, {
@@ -4388,6 +4397,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מאוד אליך/g,
     replaceWith: "אליך מאוד"
   }, {
+    matchWith: /מרגטו/g,
+    replaceWith: "מרגוט"
+  }, {
     matchWith: /מבלי/g,
     replaceWith: "בלי"
   }, {
@@ -4408,6 +4420,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /\. זו /g,
     replaceWith: ". זאת "
+  }, {
+    matchWith: /^הזו /g,
+    replaceWith: "הזאת "
   }, {
     matchWith: / הזו /g,
     replaceWith: " הזאת "
@@ -4555,7 +4570,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="AL OTRO LADO DEL MURO 12.MP4" autobuffer height="100px" controls></video>
+      <video src="AL OTRO LADO DEL MURO 13.MP4" autobuffer height="100px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
