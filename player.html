@@ -1577,6 +1577,9 @@ var commonErrors = [
     matchWith: /איך שאתם/g,
     replaceWith: "איך אתם"
   }, {
+    matchWith: /אין לי המון זמן/g,
+    replaceWith: "אין לי הרבה זמן"
+  }, {
     matchWith: /אני הרבה זמן פה/g,
     replaceWith: "אני פה הרבה זמן"
   }, {
@@ -1955,8 +1958,17 @@ var commonErrors = [
     matchWith: /דבר מזה לא יעצור אותי/g,
     replaceWith: "זה לא יעצור אותי"
   }, {
+    matchWith: /תחרויות היפי/g,
+    replaceWith: "תחרויות היופי"
+  }, {
     matchWith: /אסון ממש/g,
     replaceWith: "ממש אסון"
+  }, {
+    matchWith: /עצובה קצת/g,
+    replaceWith: "קצת עצובה"
+  }, {
+    matchWith: /עצוב קצת/g,
+    replaceWith: "קצת עצוב"
   }, {
     matchWith: /קשה קצת/g,
     replaceWith: "קצת קשה"
@@ -2318,10 +2330,13 @@ var commonErrors = [
     matchWith: /זה לא כמו שאת חושבת/g,
     replaceWith: "זה לא מה שאת חושבת"
   }, {
+    matchWith: /יקרב שוב/g,
+    replaceWith: "ישוב לקרות"
+  }, {
     matchWith: /מריה טרסה/g,
     replaceWith: "מריה תרסה"
   }, {
-    matchWith: /מה אני יודעת|מה אני יודע|מה אני ידעת/g,
+    matchWith: /מה אני יודעת|מה אני יודע|מה אני ידעת|מה פתאום שאדע/g,
     replaceWith: "מאין לי לדעת"
   }, {
     matchWith: /קשה בשביל/g,
@@ -3605,6 +3620,15 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /הייתי באה בטוח/g,
     replaceWith: "בטוח הייתי באה"
   }, {
+    matchWith: /ליצור קשר איתה/g,
+    replaceWith: "ליצור איתה קשר"
+  }, {
+    matchWith: /חוץ מי זה/g,
+    replaceWith: "חוץ מזה"
+  }, {
+    matchWith: /השתמשה בנו/g,
+    replaceWith: "ניצלה אותנו"
+  }, {
     matchWith: /להשתמש בנו/g,
     replaceWith: "לנצל אותנו"
   }, {
@@ -4246,11 +4270,11 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /ארגיש טוב פה יותר/g,
     replaceWith: "פה ארגיש טוב יותר"
-  }, { 
+  }, {
     matchWith: /^סן אנטוניו, טקסס$/g,
     replaceWith: '"סן אנטוניו, טקסס"'
   }, {
-    matchWith: /^לוס אנגלס, קליפורניה$/g,
+    matchWith: /^לוס אנגלס, קליפורניה$|^לוס אנג'לס, קליפורניה$/g,
     replaceWith: '"לוס אנג\'לס, קליפורניה"'
   }, {
     matchWith: /^מקסיקו סיטי$/g,
@@ -4289,7 +4313,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /נכון ליום/g,
     replaceWith: "נכון להיום"
   }, {
-    matchWith: /וייווינסניו/g,
+    matchWith: /וייווינסניו|וייווינסיו/g,
     replaceWith: "וייוויסנסיו"
   }, {
     matchWith: /פראיס/g,
@@ -4570,7 +4594,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="AL OTRO LADO DEL MURO 13.MP4" autobuffer height="100px" controls></video>
+      <video src="AL OTRO LADO DEL MURO 15.MP4" autobuffer height="100px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
