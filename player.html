@@ -609,7 +609,16 @@ var commonErrors = [
     matchWith: /למשל מה/g,
     replaceWith: "מה למשל"
   }, {
-		matchWith: /לאדנרו/g,
+		matchWith: /כושית/g,
+    replaceWith: "שחורה"
+  }, {
+    matchWith: /כושי/g,
+    replaceWith: "שחור"
+  }, {
+    matchWith: /גם אין אף אחד פנימה/g,
+    replaceWith: "גם בפנים אין אף אחד"
+  }, {
+    matchWith: /לאדנרו/g,
     replaceWith: "לאנדרו"
   }, {
     matchWith: /אל תייחס אליי/g,
@@ -675,8 +684,8 @@ var commonErrors = [
     matchWith: /אני רוצה להיות כל הזמן איתך/g,
     replaceWith: "אני רוצה להיות איתך כל הזמן"
   }, {
-    matchWith: /חוויאר|חוייאר/g,
-    replaceWith: "חביאר"
+    matchWith: /חביאר/g,
+    replaceWith: "חוויאר"
   }, {
     matchWith: /קרחבל/g,
     replaceWith: "קרבחל"
@@ -713,6 +722,9 @@ var commonErrors = [
   }, {
     matchWith: /חשובים בשביל/g,
     replaceWith: "חשובים ל"
+  }, {
+    matchWith: /תעשי כאילו/g,
+    replaceWith: "תעמידי פנים"
   }, {
     matchWith: /נעמוד פנים/g,
     replaceWith: "נעמיד פנים"
@@ -2045,6 +2057,12 @@ var commonErrors = [
     matchWith: /לעזרה ממך/g,
     replaceWith: "לעזרתך"
   }, {
+    matchWith: /תיקח/g,
+    replaceWith: "קח"
+  }, {
+    matchWith: /שקח/g,
+    replaceWith: "שתיקח"
+  }, {
     matchWith: /ללה טוב/g,
     replaceWith: "לילה טוב"
   }, {
@@ -2059,6 +2077,9 @@ var commonErrors = [
   }, {
     matchWith: /אתה צודק בזה/g,
     replaceWith: "בזה אתה צודק"
+  }, {
+    matchWith: /ממה שידעו לי|ממה שידוע לי/g,
+    replaceWith: "עד כמה שידוע לי"
   }, {
     matchWith: /צעד-צעד/g,
     replaceWith: "צעד אחר צעד"
@@ -2347,6 +2368,9 @@ var commonErrors = [
   }, {
     matchWith: /אין צ'קים יותר/g,
     replaceWith: "אין יותר צ'קים"
+  }, { 
+    matchWith: /קרירד|קרדיד|קרריד/g,
+    replaceWith: "קרידד"
   }, {
     matchWith: /יקרי,/g,
     replaceWith: "יקירי,"
@@ -2378,7 +2402,7 @@ var commonErrors = [
     matchWith: /אני מתקשה|אני מקשתה/g,
     replaceWith: "קשה לי"
   }, {
-    matchWith: /הכל(?!א|ה|ל|ב|י|וב)/g,
+    matchWith: /הכל(?!א|ה|ל|ב|י|וב|ולות)/g,
     replaceWith: "הכול"
   }, {
     matchWith: /איך שאני מתרגשת/g,
@@ -2392,6 +2416,9 @@ var commonErrors = [
   }, {
     matchWith: /היא מתקשה/g,
     replaceWith: "קשה לה"
+  }, {
+    matchWith: /אנה וליה/g,
+    replaceWith: "אנה חוליה"
   }, {
     matchWith: /טבלט/g,
     replaceWith: "טאבלט"
@@ -3854,6 +3881,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אני לא ידעת/g,
     replaceWith: "אני לא יודעת"
   }, {
+    matchWith: / בטו /g,
+    replaceWith: " בטוח "
+  }, {
     matchWith: /היא ראויה/g,
     replaceWith: "מגיע לה"
   }, {
@@ -3970,6 +4000,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /חשקת אותי/g,
     replaceWith: "חשקת בי"
+  }, {
+    matchWith: /נשמעות לנו/g,
+    replaceWith: "שומעות בקולנו"
   }, {
     matchWith: /תשמע בקול שלי|תישמע לי/g,
     replaceWith: "תשמע בקולי"
@@ -4295,6 +4328,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /ולחברים שלי מאינטרפול במיוחד/g,
     replaceWith: "במיוחד לחברים שלי מאינטרפול"
   }, {
+    matchWith: /מקסימיליואנו/g,
+    replaceWith: "מקסימיליאנו"
+  }, {
     matchWith: /לא עונים לי/g,
     replaceWith: "לא עונים"
   }, { 
@@ -4433,6 +4469,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /הזו,/g,
     replaceWith: "הזאת,"
   }, {
+    matchWith: /\-שזו /g,
+    replaceWith: "-שזאת "
+  }, {
     matchWith: /\-זו /g,
     replaceWith: "-זאת "
   }, {
@@ -4442,8 +4481,8 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: / כזו\./g,
     replaceWith: " כזאת."
   }, {
-    matchWith: /\. זו /g,
-    replaceWith: ". זאת "
+    matchWith: / שזו /g,
+    replaceWith: " שזאת "
   }, {
     matchWith: /^הזו /g,
     replaceWith: "הזאת "
@@ -4453,9 +4492,6 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: / זו /g,
     replaceWith: " זאת "
-  }, {
-    matchWith: /, זו /g,
-    replaceWith: ", זאת "
   }, {
     matchWith: /^זו /g,
     replaceWith: "זאת "
@@ -4594,7 +4630,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="AL OTRO LADO DEL MURO 15.MP4" autobuffer height="100px" controls></video>
+      <video src="AZUCAR 26.MP4" autobuffer height="100px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
