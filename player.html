@@ -1105,7 +1105,10 @@ var commonErrors = [
   }, {
     matchWith: /מי זו\?/g,
     replaceWith: "מי זאת\?"
-  }, { 
+  }, {  
+    matchWith: /סאונאיל/g,
+    replaceWith: "סאוניאל"
+  }, {
     matchWith: /תכסיני/g,
     replaceWith: "תכניסי"
   }, {
@@ -2717,6 +2720,9 @@ var commonErrors = [
     matchWith: /השלייה/g,
     replaceWith: "אשליה"
   }, {
+    matchWith: /טיפחתי תקווה/g,
+    replaceWith: "טיפחתי אשליות"
+  }, {
     matchWith: /הספד/g,
     replaceWith: "הפסד"
   }, {
@@ -3464,7 +3470,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מבחין בכול/g,
     replaceWith: "שם לב לכול"
   }, {
-    matchWith: /מבחינה|מבחינה בזה(?! טכנית| רפואית| פיזית| משפט| משפטית| מעשית)/g,
+    matchWith: /מבחינה|מבחינה בזה(?! טכנית| רפואית| פיזית| משפט| משפטית| מעשית| רשמית| חוקית)/g,
     replaceWith: "שמה לב"
   }, {
     matchWith: /שמעיק עליי קצת/g,
@@ -4154,11 +4160,20 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /תכמת/g,
     replaceWith: "תמכת"
   }, {
+    matchWith: /אנרסטו/g,
+    replaceWith: "ארנסטו"
+  }, {
     matchWith: /זימרה/g,
     replaceWith: "שירה"
   }, {
     matchWith: /הרואות/g,
     replaceWith: "הוראות"
+  }, { 
+    matchWith: /ההוצאה להרוג/g,
+    replaceWith: "ההוצאה להורג"
+  }, {
+    matchWith: /בלי שהן יידעו/g,
+    replaceWith: "ללא ידיעתן"
   }, {
     matchWith: /הדגרה/g,
     replaceWith: "הדרגה"
@@ -4198,6 +4213,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /שומע היטב/g,
     replaceWith: "שומע טוב"
+  }, {
+    matchWith: /בית מרקת/g,
+    replaceWith: "בית מרקחת"
   }, {
     matchWith: /אל יודעם/g,
     replaceWith: "לא יודעים"
@@ -4349,7 +4367,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /נכון ליום/g,
     replaceWith: "נכון להיום"
   }, {
-    matchWith: /וייווינסניו|וייווינסיו/g,
+    matchWith: /וייווינסניו|וייווינסיו|וייווייסנסיו/g,
     replaceWith: "וייוויסנסיו"
   }, {
     matchWith: /פראיס/g,
@@ -4412,7 +4430,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מי זו(?!כר)/g,
     replaceWith: "מי זאת"
   }, {
-    matchWith: /מספר חפוז|חפוז/g,
+    matchWith: /מספר חפוז|חפוז|מספר מהיר/g,
     replaceWith: "סטוץ"
   }, {
     matchWith: /הול יסתדר, תראה./g,
@@ -4630,7 +4648,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="AZUCAR 26.MP4" autobuffer height="100px" controls></video>
+      <video src="AL OTRO LADO DEL MURO 31.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
