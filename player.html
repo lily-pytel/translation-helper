@@ -3458,6 +3458,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מבחינה בכול/g,
     replaceWith: "שמה לב לכול"
   }, {
+    matchWith: /תבקש סליחה ממנה/g,
+    replaceWith: "תבקש ממנה סליחה"
+  }, {
+    matchWith: /יקרה שוב/g,
+    replaceWith: "ישוב לקרות"
+  }, {
     matchWith: /לעמוק/g,
     replaceWith: "לעומק"
   }, {
@@ -3470,7 +3476,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מבחין בכול/g,
     replaceWith: "שם לב לכול"
   }, {
-    matchWith: /מבחינה|מבחינה בזה(?! טכנית| רפואית| פיזית| משפט| משפטית| מעשית| רשמית| חוקית)/g,
+    matchWith: /מבחינה|מבחינה בזה(?! טכנית| רפואית| פיזית| משפט| משפטית| מעשית| רשמית| חוקית| מקצועית)/g,
     replaceWith: "שמה לב"
   }, {
     matchWith: /שמעיק עליי קצת/g,
@@ -4040,6 +4046,15 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /תלך ל/g,
     replaceWith: "לך ל"
   }, {
+    matchWith: / אוצי /g,
+    replaceWith: " אולי "
+  }, {
+    matchWith: /שלא אתה יכול/g,
+    replaceWith: "שאתה לא יכול"
+  }, {
+    matchWith: /אשת חלל/g,
+    replaceWith: "אסטרונאוטית"
+  }, {
     matchWith: /מאתינו/g,
     replaceWith: "מאיתנו"
   }, {
@@ -4048,6 +4063,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /ששמעתן אותי/g,
     replaceWith: "שהקשבתן לי"
+  }, {
+    matchWith: /מיסים נוספים/g,
+    replaceWith: "עוד מיסים"
+  }, {
+    matchWith: /זמן נוסף/g,
+    replaceWith: "עוד זמן"
   }, {
     matchWith: /שמעה אותי/g,
     replaceWith: "הקשיבה לי"
@@ -4289,11 +4310,26 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /בשבילי יהיה חשוב/g,
     replaceWith: "חשוב לי"
   }, {
+    matchWith: /משהו ממני/g,
+    replaceWith: "ממני משהו"
+  }, {
+    matchWith: /שכן אנחנו יודעים/g,
+    replaceWith: "שאנחנו כן יודעים"
+  }, {
+    matchWith: /אדנרס/g,
+    replaceWith: "אנדרס"
+  }, {
     matchWith: /מדגלת/g,
     replaceWith: "מדלגת"
   }, {
     matchWith: /זה מוזר מה זקורה לי|זה מוזר מה שקורה לי/g,
     replaceWith: "מה שקורה לי מוזר"
+  }, {
+    matchWith: /מסתירה מידע ממך/g,
+    replaceWith: "מסתירה ממך מידע"
+  }, {
+    matchWith: /מסתירה מידע ממני/g,
+    replaceWith: "מסתירה ממני מידע"
   }, {
     matchWith: /מפטל/g,
     replaceWith: "מטפל"
@@ -4648,7 +4684,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="AL OTRO LADO DEL MURO 31.MP4" autobuffer height="200px" controls></video>
+      <video src="AL OTRO LADO DEL MURO 32.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
