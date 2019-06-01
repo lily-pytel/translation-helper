@@ -792,7 +792,7 @@ var commonErrors = [
     matchWith: /באם נרצה או שלא|אם נרצה או שלא/g,
     replaceWith: "גם אם זה לא נראה לנו"
   }, {
-    matchWith: /באם תרצי או שלא|באם תרצה או שלא|אם תרצי או שלא|אם תרצה או שלא|באם תאהב את זה או שלא/g,
+    matchWith: /באם תרצי או שלא|באם תרצה או שלא|אם תרצי או שלא|אם תרצה או שלא|באם תאהב את זה או שלא|ואם תאהבי את זה או שלא/g,
     replaceWith: "גם אם זה לא נראה לך"
   }, {
     matchWith: /קפאתי על המקום/g,
@@ -806,6 +806,9 @@ var commonErrors = [
   }, {
     matchWith: /לבקש סליחה ממני/g,
     replaceWith: "לבקש ממני סליחה"
+  }, { 
+    matchWith: /את גם אימא/g,
+    replaceWith: "גם את אימא"
   }, {
     matchWith: /אני ידוע/g,
     replaceWith: "אני יודע"
@@ -4457,7 +4460,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /נכון ליום/g,
     replaceWith: "נכון להיום"
   }, {
-    matchWith: /וייווינסניו|וייווינסיו|וייווייסנסיו/g,
+    matchWith: /וייווינסניו|וייווינסיו|וייווייסנסיו|וייסנסייו/g,
     replaceWith: "וייוויסנסיו"
   }, {
     matchWith: /פראיס/g,
@@ -4750,7 +4753,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="AL OTRO LADO DEL MURO 60.MP4" autobuffer height="200px" controls></video>
+      <video src="AL OTRO LADO DEL MURO 62.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
