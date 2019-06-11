@@ -2102,7 +2102,7 @@ var commonErrors = [
     matchWith: /צבע חסר להן/g,
     replaceWith: "חסר להן צבע"
   }, {
-    matchWith: /הגורע מכול/g,
+    matchWith: /הגורע מכול|הכי גורע/g,
     replaceWith: "הגרוע מכול"
   }, {
     matchWith: /לצאת מיד מפה/g,
@@ -2522,6 +2522,9 @@ var commonErrors = [
     matchWith: /מירדנה|מרינדה/g,
     replaceWith: "מירנדה"
   }, {
+    matchWith: /ביקשת סליחה ממנו/g,
+    replaceWith: "ביקשת ממנו סליחה"
+  }, {
     matchWith: /לבקש סליחה ממנה/g,
     replaceWith: "לבקש ממנה סליחה"
   }, {
@@ -2725,6 +2728,12 @@ var commonErrors = [
   }, {
     matchWith: /למרות אותך/g,
     replaceWith: "לרמות אותך"
+  }, {
+    matchWith: /מי באמת אני/g,
+    replaceWith: "מי אני באמת"
+  }, { 
+    matchWith: /זה היה הדחיפה/g,
+    replaceWith: "זאת הייתה הדחיפה"
   }, {
     matchWith: /השלייה/g,
     replaceWith: "אשליה"
@@ -3842,14 +3851,23 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /חונאחו|חאונחו|חונאנו/g,
     replaceWith: "חואנחו"
   }, {
+    matchWith: /אז אהיה זמן מה פה|אהיה זמן מה פה/g,
+    replaceWith: "אהיה פה במשך זמן מה"
+  }, {
     matchWith: /שכלל ה/g,
     replaceWith: "שכל ה"
+  }, {
+    matchWith: /נסתלק מייד מפה/g,
+    replaceWith: "נסתלק מפה מייד"
   }, {
     matchWith: /סיבה כדי/g,
     replaceWith: "סיבה "
   }, {
     matchWith: /מה פתאום שתגידי/g,
     replaceWith: "איך את אומרת"
+  }, {
+    matchWith: /^אחרי שבוע$/g,
+    replaceWith: '"כעבור שבוע"'
   }, {
     matchWith: /מה פתאום שתגיד/g,
     replaceWith: "איך אתה אומר"
@@ -4436,6 +4454,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /הוא שוב\?/g,
     replaceWith: "שוב הוא?"
   }, {
+    matchWith: /שתית שוב/g,
+    replaceWith: "שוב שתית"
+  }, {
     matchWith: /המון/g,
     replaceWith: "הרבה"
   }, { 
@@ -4765,7 +4786,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="AL OTRO LADO DEL MURO 68.MP4" autobuffer height="200px" controls></video>
+      <video src="AL OTRO LADO DEL MURO 77.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
