@@ -4061,6 +4061,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /תשמעי בקול שלי|תישמעי לי/g,
     replaceWith: "תשמעי בקולי"
   }, {
+    matchWith: /תשמע בקול שלה/g,
+    replaceWith: "תשמע בקולה"
+  }, {
     matchWith: /תלכי מפה/g,
     replaceWith: "לכי מפה"
   }, {
@@ -4121,6 +4124,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /שמעה אותי/g,
     replaceWith: "הקשיבה לי"
   }, {
+    matchWith: /עכשיו איפה הוא/g,
+    replaceWith: "איפה הוא עכשיו"
+  }, {
+    matchWith: /עכשיו איפה היא/g,
+    replaceWith: "איפה היא עכשיו"
+  }, {
     matchWith: /חשבתי למה/g,
     replaceWith: "תהיתי למה"
   }, {
@@ -4132,6 +4141,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /מסתירה דברים ממני/g,
     replaceWith: "מסתירה ממני דברים"
+  }, { 
+    matchWith: /מים קצת/g,
+    replaceWith: "קצת מים"
   }, {
     matchWith: /טיפשה קצת/g,
     replaceWith: "קצת טיפשה"
@@ -4430,8 +4442,29 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: / הזדמנות שנייה/g,
     replaceWith: " עוד הזדמנות"
   }, {
+    matchWith: /נהיה משפחה שוב/g,
+    replaceWith: "נשוב להיות משפחה"
+  }, {
     matchWith: /אבל לא אני/g,
     replaceWith: "אבל אני לא"
+  }, {
+    matchWith: /האהבה של החיים שלך/g,
+    replaceWith: "אהבת חייך"
+  }, {
+    matchWith: /האהבה של החיים שלי/g,
+    replaceWith: "אהבת חיי"
+  }, {
+    matchWith: /סאן אנטוניו/g,
+    replaceWith: "סן אנטוניו"
+  }, {
+    matchWith: /כל מה שאני מבקש הוא/g,
+    replaceWith: "אני רק מבקש"
+  }, {
+    matchWith: /רק מבקש זה ש/g,
+    replaceWith: "רק אבקש ש"
+  }, {
+    matchWith: /את שמחה הרבה יותר איתי/g,
+    replaceWith: "את הרבה יותר שמחה איתי"
   }, {
     matchWith: /אני אל /g,
     replaceWith: "אני לא"
@@ -4439,8 +4472,11 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /ארגיש טוב פה יותר/g,
     replaceWith: "פה ארגיש טוב יותר"
   }, {
-    matchWith: /^סן אנטוניו, טקסס$/g,
+    matchWith: /^סן אנטוניו, טקסס$|^סאן אנטוניו, טקסס$/g,
     replaceWith: '"סן אנטוניו, טקסס"'
+  }, {
+    matchWith: /^מיאמי, פלורידה$/g,
+    replaceWith: '"מיאמי, פלורידה"'
   }, {
     matchWith: /^לוס אנגלס, קליפורניה$|^לוס אנג'לס, קליפורניה$/g,
     replaceWith: '"לוס אנג\'לס, קליפורניה"'
@@ -4456,6 +4492,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /שתית שוב/g,
     replaceWith: "שוב שתית"
+  }, {
+    matchWith: /תחכו רגע/g,
+    replaceWith: "חכו רגע"
+  }, {
+    matchWith: /מה הסיבה שבגינה|מה הסיבה$שבגינה/g,
+    replaceWith: "למה"
   }, {
     matchWith: /המון/g,
     replaceWith: "הרבה"
@@ -4597,7 +4639,13 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /הסבר לזה/g,
     replaceWith: "לזה הסבר"
-  }, { 
+  }, {
+    matchWith: /לבקש משהו ממך/g,
+    replaceWith: "לבקש ממך משהו"
+  }, {
+    matchWith: /מירים/g,
+    replaceWith: "מרים"
+  }, {
     matchWith: / אר כך/g,
     replaceWith: " אחר כך"
   }, {
@@ -4610,11 +4658,26 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /שום דבר(?! רע| אחר)/g,
     replaceWith: "כלום"
   }, {
+    matchWith: /כלום יותר/g,
+    replaceWith: "כלום חוץ מזה"
+  }, {
     matchWith: /מאוד אליך/g,
     replaceWith: "אליך מאוד"
   }, {
+    matchWith: /תקבל עונש קל פה יותר/g,
+    replaceWith: "תקבל פה עונש קל יותר"
+  }, {
     matchWith: /מרגטו/g,
     replaceWith: "מרגוט"
+  }, {
+    matchWith: /בעל עוצמה רבה/g,
+    replaceWith: "רב עוצמה"
+  }, {
+    matchWith: /לחקר האמת/g,
+    replaceWith: "לגרעין האמת"
+  }, {
+    matchWith: / ההי /g,
+    replaceWith: " היה "
   }, {
     matchWith: /מבלי/g,
     replaceWith: "בלי"
@@ -4786,7 +4849,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="AL OTRO LADO DEL MURO 77.MP4" autobuffer height="200px" controls></video>
+      <video src="POR AMAR SIN LEY 2 ep 12.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
