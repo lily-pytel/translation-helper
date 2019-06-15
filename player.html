@@ -1312,9 +1312,21 @@ var commonErrors = [
   }, {
     matchWith: /לא בסדר בכלל/g,
     replaceWith: "ממש לא בסדר"
+  }, { 
+    matchWith: /יד ימין שלו/g,
+    replaceWith: "יד ימינו"
+  }, {
+    matchWith: /בעיה נוספת/g,
+    replaceWith: "עוד בעיה"
+  }, {
+    matchWith: /צעד נוסף/g,
+    replaceWith: "עוד צעד"
   }, {
     matchWith: /רגשות אשמה/g,
     replaceWith: "רגשות אשם"
+  }, {
+    matchWith: /של אחד בשנייה/g,
+    replaceWith: "אחד של השנייה"
   }, {
     matchWith: /האחד בשני/g,
     replaceWith: "אחד בשני"
@@ -4133,6 +4145,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /חשבתי למה/g,
     replaceWith: "תהיתי למה"
   }, {
+    matchWith: /לא תמצא כלום פה/g,
+    replaceWith: "לא תמצא פה כלום"
+  }, {
     matchWith: / נוע ב/g,
     replaceWith: " נוגע ב"
   }, {
@@ -4655,7 +4670,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /שום דבר פסול/g,
     replaceWith: "שום דבר רע"
   }, {
-    matchWith: /שום דבר(?! רע| אחר)/g,
+    matchWith: /שום דבר(?! רע| אחר| נוסף| ממשי| חדש| מוזר| ש)/g,
     replaceWith: "כלום"
   }, {
     matchWith: /כלום יותר/g,
@@ -4708,6 +4723,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: / הזו /g,
     replaceWith: " הזאת "
+  }, {
+    matchWith: / וזו /g,
+    replaceWith: " וזאת "
+  }, {
+    matchWith: / כזו /g,
+    replaceWith: " כזאת "
   }, {
     matchWith: / זו /g,
     replaceWith: " זאת "
@@ -4849,7 +4870,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="POR AMAR SIN LEY 2 ep 12.MP4" autobuffer height="200px" controls></video>
+      <video src="POR AMAR SIN LEY 2 ep 13.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
