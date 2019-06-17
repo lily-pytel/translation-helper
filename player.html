@@ -792,7 +792,7 @@ var commonErrors = [
     matchWith: /באם נרצה או שלא|אם נרצה או שלא/g,
     replaceWith: "גם אם זה לא נראה לנו"
   }, {
-    matchWith: /באם תרצי או שלא|באם תרצה או שלא|אם תרצי או שלא|אם תרצה או שלא|באם תאהב את זה או שלא|באם תאהבי או שלא/g,
+    matchWith: /באם תרצי או שלא|באם תרצה או שלא|אם תרצי או שלא|אם תרצה או שלא|באם תאהב את זה או שלא|ואם תאהבי או שלא/g,
     replaceWith: "גם אם זה לא נראה לך"
   }, {
     matchWith: /קפאתי על המקום/g,
@@ -809,6 +809,9 @@ var commonErrors = [
   }, { 
     matchWith: /יש לי זכיות/g,
     replaceWith: "יש לי זכויות"
+  }, { 
+    matchWith: /את גם אימא/g,
+    replaceWith: "גם את אימא"
   }, {
     matchWith: /אני ידוע/g,
     replaceWith: "אני יודע"
@@ -1312,9 +1315,21 @@ var commonErrors = [
   }, {
     matchWith: /לא בסדר בכלל/g,
     replaceWith: "ממש לא בסדר"
+  }, { 
+    matchWith: /יד ימין שלו/g,
+    replaceWith: "יד ימינו"
+  }, {
+    matchWith: /בעיה נוספת/g,
+    replaceWith: "עוד בעיה"
+  }, {
+    matchWith: /צעד נוסף/g,
+    replaceWith: "עוד צעד"
   }, {
     matchWith: /רגשות אשמה/g,
     replaceWith: "רגשות אשם"
+  }, {
+    matchWith: /של אחד בשנייה/g,
+    replaceWith: "אחד של השנייה"
   }, {
     matchWith: /האחד בשני/g,
     replaceWith: "אחד בשני"
@@ -2102,7 +2117,7 @@ var commonErrors = [
     matchWith: /צבע חסר להן/g,
     replaceWith: "חסר להן צבע"
   }, {
-    matchWith: /הגורע מכול/g,
+    matchWith: /הגורע מכול|הכי גורע/g,
     replaceWith: "הגרוע מכול"
   }, {
     matchWith: /לצאת מיד מפה/g,
@@ -2522,6 +2537,9 @@ var commonErrors = [
     matchWith: /מירדנה|מרינדה/g,
     replaceWith: "מירנדה"
   }, {
+    matchWith: /ביקשת סליחה ממנו/g,
+    replaceWith: "ביקשת ממנו סליחה"
+  }, {
     matchWith: /לבקש סליחה ממנה/g,
     replaceWith: "לבקש ממנה סליחה"
   }, {
@@ -2725,6 +2743,12 @@ var commonErrors = [
   }, {
     matchWith: /למרות אותך/g,
     replaceWith: "לרמות אותך"
+  }, {
+    matchWith: /מי באמת אני/g,
+    replaceWith: "מי אני באמת"
+  }, { 
+    matchWith: /זה היה הדחיפה/g,
+    replaceWith: "זאת הייתה הדחיפה"
   }, {
     matchWith: /השלייה/g,
     replaceWith: "אשליה"
@@ -3268,6 +3292,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /לא אתה יכול/g,
     replaceWith: "אתה לא יכול"
+  }, {
+    matchWith: /אתה יכולו/g,
+    replaceWith: "תוכלו"
   }, {
     matchWith: /כשתרצה/g,
     replaceWith: "מתי שתרצה"
@@ -3845,14 +3872,23 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /חונאחו|חאונחו|חונאנו/g,
     replaceWith: "חואנחו"
   }, {
+    matchWith: /אז אהיה זמן מה פה|אהיה זמן מה פה/g,
+    replaceWith: "אהיה פה במשך זמן מה"
+  }, {
     matchWith: /שכלל ה/g,
     replaceWith: "שכל ה"
+  }, {
+    matchWith: /נסתלק מייד מפה/g,
+    replaceWith: "נסתלק מפה מייד"
   }, {
     matchWith: /סיבה כדי/g,
     replaceWith: "סיבה "
   }, {
     matchWith: /מה פתאום שתגידי/g,
     replaceWith: "איך את אומרת"
+  }, {
+    matchWith: /^אחרי שבוע$/g,
+    replaceWith: '"כעבור שבוע"'
   }, {
     matchWith: /מה פתאום שתגיד/g,
     replaceWith: "איך אתה אומר"
@@ -3901,7 +3937,10 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /אל לשחק אותה/g,
     replaceWith: "אל תשחק אותה"
-  }, { 
+  }, {
+    matchWith: /נהיה שוב יחד|נהיה יחד שוב/g,
+    replaceWith: "נשוב להיות יחד"
+  }, {
     matchWith: /שחכת/g,
     replaceWith: "שכחת"
   }, {
@@ -4043,6 +4082,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /תשמעי בקול שלי|תישמעי לי/g,
     replaceWith: "תשמעי בקולי"
   }, {
+    matchWith: /תשמע בקול שלה/g,
+    replaceWith: "תשמע בקולה"
+  }, {
     matchWith: /תלכי מפה/g,
     replaceWith: "לכי מפה"
   }, {
@@ -4103,8 +4145,17 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /שמעה אותי/g,
     replaceWith: "הקשיבה לי"
   }, {
+    matchWith: /עכשיו איפה הוא/g,
+    replaceWith: "איפה הוא עכשיו"
+  }, {
+    matchWith: /עכשיו איפה היא/g,
+    replaceWith: "איפה היא עכשיו"
+  }, {
     matchWith: /חשבתי למה/g,
     replaceWith: "תהיתי למה"
+  }, {
+    matchWith: /לא תמצא כלום פה/g,
+    replaceWith: "לא תמצא פה כלום"
   }, {
     matchWith: / נוע ב/g,
     replaceWith: " נוגע ב"
@@ -4114,6 +4165,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /מסתירה דברים ממני/g,
     replaceWith: "מסתירה ממני דברים"
+  }, { 
+    matchWith: /מים קצת/g,
+    replaceWith: "קצת מים"
   }, {
     matchWith: /טיפשה קצת/g,
     replaceWith: "קצת טיפשה"
@@ -4129,6 +4183,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /אעשה כאילו /g,
     replaceWith: "אעמיד פנים ש"
+  }, {
+    matchWith: /כואב לי בראש מאוד/g,
+    replaceWith: "כואב לי הראש"
+  }, {
+    matchWith: /קומינגס/g,
+    replaceWith: "קמינגס"
   }, {
     matchWith: /טבלט/g,
     replaceWith: "טאבלט"
@@ -4406,8 +4466,29 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: / הזדמנות שנייה/g,
     replaceWith: " עוד הזדמנות"
   }, {
+    matchWith: /נהיה משפחה שוב/g,
+    replaceWith: "נשוב להיות משפחה"
+  }, {
     matchWith: /אבל לא אני/g,
     replaceWith: "אבל אני לא"
+  }, {
+    matchWith: /האהבה של החיים שלך/g,
+    replaceWith: "אהבת חייך"
+  }, {
+    matchWith: /האהבה של החיים שלי/g,
+    replaceWith: "אהבת חיי"
+  }, {
+    matchWith: /סאן אנטוניו/g,
+    replaceWith: "סן אנטוניו"
+  }, {
+    matchWith: /כל מה שאני מבקש הוא/g,
+    replaceWith: "אני רק מבקש"
+  }, {
+    matchWith: /רק מבקש זה ש/g,
+    replaceWith: "רק אבקש ש"
+  }, {
+    matchWith: /את שמחה הרבה יותר איתי/g,
+    replaceWith: "את הרבה יותר שמחה איתי"
   }, {
     matchWith: /אני אל /g,
     replaceWith: "אני לא"
@@ -4415,8 +4496,11 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /ארגיש טוב פה יותר/g,
     replaceWith: "פה ארגיש טוב יותר"
   }, {
-    matchWith: /^סן אנטוניו, טקסס$/g,
+    matchWith: /^סן אנטוניו, טקסס$|^סאן אנטוניו, טקסס$/g,
     replaceWith: '"סן אנטוניו, טקסס"'
+  }, {
+    matchWith: /^מיאמי, פלורידה$/g,
+    replaceWith: '"מיאמי, פלורידה"'
   }, {
     matchWith: /^לוס אנגלס, קליפורניה$|^לוס אנג'לס, קליפורניה$/g,
     replaceWith: '"לוס אנג\'לס, קליפורניה"'
@@ -4429,6 +4513,15 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /הוא שוב\?/g,
     replaceWith: "שוב הוא?"
+  }, {
+    matchWith: /שתית שוב/g,
+    replaceWith: "שוב שתית"
+  }, {
+    matchWith: /תחכו רגע/g,
+    replaceWith: "חכו רגע"
+  }, {
+    matchWith: /מה הסיבה שבגינה|מה הסיבה$שבגינה/g,
+    replaceWith: "למה"
   }, {
     matchWith: /המון/g,
     replaceWith: "הרבה"
@@ -4466,7 +4559,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /נכון ליום/g,
     replaceWith: "נכון להיום"
   }, {
-    matchWith: /וייווינסניו|וייווינסיו|וייווייסנסיו/g,
+    matchWith: /וייווינסניו|וייווינסיו|וייווייסנסיו|וייסנסייו/g,
     replaceWith: "וייוויסנסיו"
   }, {
     matchWith: /פראיס/g,
@@ -4570,7 +4663,13 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /הסבר לזה/g,
     replaceWith: "לזה הסבר"
-  }, { 
+  }, {
+    matchWith: /לבקש משהו ממך/g,
+    replaceWith: "לבקש ממך משהו"
+  }, {
+    matchWith: /מירים/g,
+    replaceWith: "מרים"
+  }, {
     matchWith: / אר כך/g,
     replaceWith: " אחר כך"
   }, {
@@ -4580,14 +4679,29 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /שום דבר פסול/g,
     replaceWith: "שום דבר רע"
   }, {
-    matchWith: /שום דבר(?! רע| אחר)/g,
+    matchWith: /שום דבר(?! רע| אחר| נוסף| ממשי| חדש| מוזר| ש)/g,
     replaceWith: "כלום"
+  }, {
+    matchWith: /כלום יותר/g,
+    replaceWith: "כלום חוץ מזה"
   }, {
     matchWith: /מאוד אליך/g,
     replaceWith: "אליך מאוד"
   }, {
+    matchWith: /תקבל עונש קל פה יותר/g,
+    replaceWith: "תקבל פה עונש קל יותר"
+  }, {
     matchWith: /מרגטו/g,
     replaceWith: "מרגוט"
+  }, {
+    matchWith: /בעל עוצמה רבה/g,
+    replaceWith: "רב עוצמה"
+  }, {
+    matchWith: /לחקר האמת/g,
+    replaceWith: "לגרעין האמת"
+  }, {
+    matchWith: / ההי /g,
+    replaceWith: " היה "
   }, {
     matchWith: /מבלי/g,
     replaceWith: "בלי"
@@ -4618,6 +4732,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: / הזו /g,
     replaceWith: " הזאת "
+  }, {
+    matchWith: / וזו /g,
+    replaceWith: " וזאת "
+  }, {
+    matchWith: / כזו /g,
+    replaceWith: " כזאת "
   }, {
     matchWith: / זו /g,
     replaceWith: " זאת "
@@ -4759,7 +4879,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="AL OTRO LADO DEL MURO 61.MP4" autobuffer height="200px" controls></video>
+      <video src="POR AMAR SIN LEY 2 ep 13.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
