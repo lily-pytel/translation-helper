@@ -792,7 +792,7 @@ var commonErrors = [
     matchWith: /באם נרצה או שלא|אם נרצה או שלא/g,
     replaceWith: "גם אם זה לא נראה לנו"
   }, {
-    matchWith: /באם תרצי או שלא|באם תרצה או שלא|אם תרצי או שלא|אם תרצה או שלא|באם תאהב את זה או שלא/g,
+    matchWith: /באם תרצי או שלא|באם תרצה או שלא|אם תרצי או שלא|אם תרצה או שלא|באם תאהב את זה או שלא|באם תאהבי או שלא/g,
     replaceWith: "גם אם זה לא נראה לך"
   }, {
     matchWith: /קפאתי על המקום/g,
@@ -806,6 +806,9 @@ var commonErrors = [
   }, {
     matchWith: /לבקש סליחה ממני/g,
     replaceWith: "לבקש ממני סליחה"
+  }, { 
+    matchWith: /יש לי זכיות/g,
+    replaceWith: "יש לי זכויות"
   }, {
     matchWith: /אני ידוע/g,
     replaceWith: "אני יודע"
@@ -3484,11 +3487,17 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /הבחנת בכלל|הבחנת/g,
     replaceWith: "שמת לב"
+  }, { 
+    matchWith: /שמת לב במשהו/g,
+    replaceWith: "שמת לב למשהו"
   }, {
     matchWith: /מבחין בכול/g,
     replaceWith: "שם לב לכול"
   }, {
-    matchWith: /מבחינה|מבחינה בזה(?! טכנית| רפואית| פיזית| משפט| משפטית| מעשית| רשמית| חוקית| מקצועית)/g,
+    matchWith: /מבחינה בזה/g,
+    replaceWith: "שמה לב"
+  }, {
+    matchWith: /מבחינה(?! טכנית| רפואית| פיזית| משפט| משפטית| מעשית| רשמית| חוקית| מקצועית)/g,
     replaceWith: "שמה לב"
   }, {
     matchWith: /שמעיק עליי קצת/g,
@@ -4750,7 +4759,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="AL OTRO LADO DEL MURO 60.MP4" autobuffer height="200px" controls></video>
+      <video src="AL OTRO LADO DEL MURO 61.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
