@@ -999,7 +999,7 @@ var commonErrors = [
     matchWith: /משום ש/g,
     replaceWith: "כי "
   }, {
-    matchWith: /בגלל ש(?!ירו)/g,
+    matchWith: /בגלל ש(?!ירו|טות)/g,
     replaceWith: "כי "
   }, {
     matchWith: /בכול מקרה/g,
@@ -3479,8 +3479,20 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /עשיתי הכרה/g,
     replaceWith: "הכרתי"
   }, {
+    matchWith: /מסגול/g,
+    replaceWith: "מסוגל"
+  }, {
     matchWith: /מפשט/g,
     replaceWith: "משפט"
+  }, { 
+    matchWith: /זה רק שאת /g,
+    replaceWith: "את פשוט "
+  }, {
+    matchWith: /תדעכן/g,
+    replaceWith: "תעדכן"
+  }, {
+    matchWith: / שפות /g,
+    replaceWith: " שפחות "
   }, {
     matchWith: /מבחינה בזה/g,
     replaceWith: "שמה לב"
@@ -4151,11 +4163,20 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /עכשיו איפה היא/g,
     replaceWith: "איפה היא עכשיו"
   }, {
+    matchWith: /הרהרתי הרבה בזה/g,
+    replaceWith: "חשבתי על זה הרבה"
+  }, {
     matchWith: /חשבתי למה/g,
     replaceWith: "תהיתי למה"
   }, {
     matchWith: /לא תמצא כלום פה/g,
     replaceWith: "לא תמצא פה כלום"
+  }, {
+    matchWith: /אתן הזדמנות לעצמי/g,
+    replaceWith: "אתן לעצמי הזדמנות"
+  }, {
+    matchWith: /אין לי שאלות יותר/g,
+    replaceWith: "אין לי עוד שאלות"
   }, {
     matchWith: / נוע ב/g,
     replaceWith: " נוגע ב"
@@ -4484,6 +4505,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /כל מה שאני מבקש הוא/g,
     replaceWith: "אני רק מבקש"
   }, {
+    matchWith: /עכשיו מה קרה\?/g,
+    replaceWith: "מה קרה הפעם?"
+  }, {
     matchWith: /רק מבקש זה ש/g,
     replaceWith: "רק אבקש ש"
   }, {
@@ -4646,8 +4670,23 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: / יכוה /g,
     replaceWith: " יכולה "
   }, {
+    matchWith: /הזמן כדי/g,
+    replaceWith: "הזמן"
+  }, {
+    matchWith: /שלאר המוות/g,
+    replaceWith: "שלאחר המוות"
+  }, {
     matchWith: /יד הימנית שלי/g,
     replaceWith: "יד ימיני"
+  }, {
+    matchWith: /יש משהו שנוכל לעזור לך/g,
+    replaceWith: "נוכל לעזור במשהו"
+  }, {
+    matchWith: /, תשבי,/g,
+    replaceWith: ", שבי,"
+  }, {
+    matchWith: /, תשב,/g,
+    replaceWith: ", שב,"
   }, {
     matchWith: /ילד נוסף/g,
     replaceWith: "עוד ילד"
@@ -4879,7 +4918,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="POR AMAR SIN LEY 2 ep 13.MP4" autobuffer height="200px" controls></video>
+      <video src="POR AMAR SIN LEY 2 ep 15.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
