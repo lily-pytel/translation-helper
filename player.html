@@ -1238,9 +1238,6 @@ var commonErrors = [
     matchWith: /מסתיים|הסתיים/g,
     replaceWith: "נגמר"
   }, {
-    matchWith: /די-אן-איי/g,
-    replaceWith: 'דנ"א'
-  }, {
     matchWith: /כול זה/g,
     replaceWith: "כל זה"
   }, {
@@ -1442,7 +1439,7 @@ var commonErrors = [
     matchWith: /תמיד היא /g,
     replaceWith: "היא תמיד "
   }, {
-    matchWith: /די הן איי|די אן איי/g,
+    matchWith: /די הן איי|די אן איי|די אן היי|די-אן-איי/g,
     replaceWith: 'דנ"א'
   }, {
     matchWith: /לבקש משהו ממך/g,
@@ -4091,6 +4088,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /תשמע בקול שלי|תישמע לי/g,
     replaceWith: "תשמע בקולי"
   }, {
+    matchWith: /תשמע בקול שלנו|תישמע לנו/g,
+    replaceWith: "תשמע בקולנו"
+  }, {
+    matchWith: /תשמעי בקול שלנו|תישמעי לנו/g,
+    replaceWith: "תשמעי בקולנו"
+  }, {
     matchWith: /תשמעי בקול שלי|תישמעי לי/g,
     replaceWith: "תשמעי בקולי"
   }, {
@@ -4547,6 +4550,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מה הסיבה שבגינה|מה הסיבה$שבגינה/g,
     replaceWith: "למה"
   }, {
+    matchWith: /אני אומר לך מתוך ניסיון/g,
+    replaceWith: "אני מדבר מניסיון"
+  }, {
     matchWith: /המון/g,
     replaceWith: "הרבה"
   }, { 
@@ -4918,7 +4924,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="POR AMAR SIN LEY 2 ep 15.MP4" autobuffer height="200px" controls></video>
+      <video src="POR AMAR SIN LEY 2 24.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
