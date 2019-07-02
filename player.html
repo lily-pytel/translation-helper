@@ -879,7 +879,7 @@ var commonErrors = [
     matchWith: /קרובה לו/g,
     replaceWith: "קרובה אליו"
   }, {
-    matchWith: /קרוב לו/g,
+    matchWith: /קרוב לו(?!ודאי)/g,
     replaceWith: "קרוב אליו"
   }, {
     matchWith: /הספקה/g,
@@ -1250,6 +1250,12 @@ var commonErrors = [
     matchWith: /מסתיים|הסתיים/g,
     replaceWith: "נגמר"
   }, {
+    matchWith: /תהיי חסרה לנו/g,
+    replaceWith: "תחסרי לנו"
+  }, {
+    matchWith: /היא תהיה חסרה/g,
+    replaceWith: "היא תחסר"
+  }, {
     matchWith: /כול זה/g,
     replaceWith: "כל זה"
   }, {
@@ -1271,7 +1277,7 @@ var commonErrors = [
     matchWith: /התגלמוות/g,
     replaceWith: "התגלמותו"
   }, {
-    matchWith: /כמה שמהר יותר|כמה מהר יותר/g,
+    matchWith: /כמה שמהר יותר|כמה מהר יותר|כמה שמוקדם יותר/g,
     replaceWith: "בהקדם האפשרי"
   }, {
     matchWith: /אחזור מיד/g,
@@ -4942,7 +4948,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="POR AMAR SIN LEY 2 26.MP4" autobuffer height="200px" controls></video>
+      <video src="POR AMAR SIN LEY 2 37.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
