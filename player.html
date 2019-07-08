@@ -1424,6 +1424,9 @@ var commonErrors = [
     matchWith: /לדבר אל זה|לדבר לא זה/g,
     replaceWith: "לדבר על זה"
   }, {
+    matchWith: /מדואג מאוד ממך|מודאג ממך מאוד|מודאג ממך/g,
+    replaceWith: "דואג לך מאוד"
+  }, {
     matchWith: /מודאג ממך/g,
     replaceWith: "דואג לך"
   }, {
@@ -1517,17 +1520,32 @@ var commonErrors = [
     matchWith: /לא עדיין/g,
     replaceWith: "עדיין לא"
   }, {
+    matchWith: /ויאולטה/g,
+    replaceWith: "ויולטה"
+  }, {
     matchWith: /המן זמן/g,
     replaceWith: "המון זמן"
   }, {
     matchWith: /ידוע לנו/g,
     replaceWith: "אנחנו יודעים"
   }, {
+    matchWith: /לא אנחנו יודעים/g,
+    replaceWith: "אנחנו לא יודעים"
+  }, {
     matchWith: /ידוע לכם/g,
     replaceWith: "אתם יודעים"
   }, {
+    matchWith: /כאתם יודעים/g,
+    replaceWith: "כידוע לכם"
+  }, {
     matchWith: /ידוע לכן/g,
     replaceWith: "אתן יודעות"
+  }, {
+    matchWith: /כאתן יודעות/g,
+    replaceWith: "כידוע לכן"
+  }, { 
+    matchWith: /אמצעי התקשרות/g,
+    replaceWith: "אמצעי התקשורת"
   }, {
     matchWith: /תחיי המלך/g,
     replaceWith: "יחי המלך"
@@ -3521,7 +3539,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /הבחנתן בזה/g,
     replaceWith: "שמתן לב"
   }, {
-    matchWith: /מודאגת ממך/g,
+    matchWith: /מודאגת ממך|מודאגת מאוד ממך/g,
     replaceWith: "דואגת לך"
   }, {
     matchWith: /ברושתך/g,
@@ -4595,6 +4613,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מקסימיליואנו/g,
     replaceWith: "מקסימיליאנו"
   }, {
+    matchWith: /תעשי את מה אומר לך/g,
+    replaceWith: "תעשי כדבריי"
+  }, {
     matchWith: /לא עונים לי/g,
     replaceWith: "לא עונים"
   }, { 
@@ -4948,7 +4969,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="POR AMAR SIN LEY 2 37.MP4" autobuffer height="200px" controls></video>
+      <video src="POR AMAR SIN LEY 2 44.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
