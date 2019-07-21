@@ -1466,11 +1466,17 @@ var commonErrors = [
     matchWith: /תמיד היא /g,
     replaceWith: "היא תמיד "
   }, {
-    matchWith: /די הן איי|די אן איי|די אן היי|די-אן-איי/g,
+    matchWith: /די הן איי|די אן איי|די אן היי|די-אן-איי|די אין היי/g,
     replaceWith: 'דנ"א'
   }, {
     matchWith: /לבקש משהו ממך/g,
     replaceWith: "לבקש ממך משהו "
+  }, {
+    matchWith: /מתגעגעת מאוד אליה/g,
+    replaceWith: "מתגעגעת אליה מאוד"
+  }, {
+    matchWith: /מייד אפנה אליהם/g,
+    replaceWith: "אפנה אליהם מייד"
   }, {
     matchWith: /כפי /g,
     replaceWith: "כמו "
@@ -4529,6 +4535,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מה עכשיו נשמע/g,
     replaceWith: "מה נשמע הפעם"
   }, {
+    matchWith: /ביו יורק/g,
+    replaceWith: "בניו יורק"
+  }, {
     matchWith: / הזדמנות שנייה/g,
     replaceWith: " עוד הזדמנות"
   }, {
@@ -4559,6 +4568,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /את שמחה הרבה יותר איתי/g,
     replaceWith: "את הרבה יותר שמחה איתי"
   }, {
+    matchWith: /את הדעה שלך/g,
+    replaceWith: "את דעתך"
+  }, {
     matchWith: /אני אל /g,
     replaceWith: "אני לא"
   }, {
@@ -4582,6 +4594,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /הוא שוב\?/g,
     replaceWith: "שוב הוא?"
+  }, {
+    matchWith: /אנחנו נפגשים שוב/g,
+    replaceWith: "אנחנו שוב נפגשים"
   }, {
     matchWith: /שתית שוב/g,
     replaceWith: "שוב שתית"
@@ -4718,6 +4733,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מעורערת בנשף שלה|מעורערת בנפש שלה/g,
     replaceWith: "מעורערת בנפשה"
   }, {
+    matchWith: /שומע בקול שלך/g,
+    replaceWith: "שומע בקולך"
+  }, {
     matchWith: / יכוה /g,
     replaceWith: " יכולה "
   }, {
@@ -4790,8 +4808,26 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /לחקר האמת/g,
     replaceWith: "לגרעין האמת"
   }, {
+    matchWith: /כל מה שאני רוצה זה|כל מה שאני רוצה/g,
+    replaceWith: "אני רק רוצה"
+  }, {
     matchWith: / ההי /g,
     replaceWith: " היה "
+  }, {
+    matchWith: /תעשה צחוק ממני יותר/g,
+    replaceWith: "תעשה ממני צחוק"
+  }, {
+    matchWith: /זה טוב שנהיה מוכנים/g,
+    replaceWith: "זה טוב להיות מוכנים"
+  }, {
+    matchWith: /מה שהכי/g,
+    replaceWith: "הכי"
+  }, {
+    matchWith: /מודאג מאוד ממך/g,
+    replaceWith: "דואג לך מאוד"
+  }, {
+    matchWith: /מודאגת מאוד ממנה/g,
+    replaceWith: "דואגת לה מאוד"
   }, {
     matchWith: /מבלי/g,
     replaceWith: "בלי"
@@ -4834,6 +4870,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /^זו /g,
     replaceWith: "זאת "
+  }, {
+    matchWith: /^אזור החוף,$|^בחה קליפורניה$/g,
+    replaceWith: '"לוס קאבוס, בחה קליפורניה"'
   }, {
     matchWith: / וזו /g,
     replaceWith: " וזאת "
@@ -4969,7 +5008,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="POR AMAR SIN LEY 2 44.MP4" autobuffer height="200px" controls></video>
+      <video src="POR AMAR SIN LEY 62.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
@@ -4999,7 +5038,7 @@ var areasOfSuspicion = [
       </div>
     </div>
     <div id='editor' style="float: left; margin-left: 15px;">
-      <textarea id="editor-textarea" cols=30 rows=38 wrap="hard" dir='rtl'
+      <textarea id="editor-textarea" cols=30 rows=30 wrap="hard" dir='rtl'
             style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
     </div>
     <div id="fixes-section" style="float: left; margin-left: 15px">
