@@ -807,6 +807,9 @@ var commonErrors = [
     matchWith: /האישה של החיים שלי/g,
     replaceWith: "אשת חיי"
   }, {
+    matchWith: /עוד קפה קצת/g,
+    replaceWith: "עוד קצת קפה"
+  }, {
     matchWith: / נאי /g,
     replaceWith: " אני "
   }, {
@@ -834,8 +837,29 @@ var commonErrors = [
     matchWith: /מודאגת ממנו/g,
     replaceWith: "דואגת לו"
   }, {
+    matchWith: /אוהב עלייך הכי הרבה/g,
+    replaceWith: "הכי אוהב בך"
+  }, {
     matchWith: /מודאג ממנה/g,
     replaceWith: "דואג לה"
+  }, {
+    matchWith: /אני משלם לך בשביל זה/g,
+    replaceWith: "בשביל זה אני משלם לך"
+  }, {
+    matchWith: /חשבתי הרבה זמן על זה/g,
+    replaceWith: "חשבתי על זה הרבה זמן"
+  }, {
+    matchWith: /קרוב לך/g,
+    replaceWith: "קרוב אליך"
+  }, {
+    matchWith: /מדובר בשיחת טלפון בלבד/g,
+    replaceWith: "זאת רק שיחת טלפון"
+  }, {
+    matchWith: /מאוד עליך/g,
+    replaceWith: "עליך מאוד"
+  }, {
+    matchWith: /תמיד כש/g,
+    replaceWith: "בכל פעם ש"
   }, {
     matchWith: /מודאג ממנו/g,
     replaceWith: "דואג לו"
@@ -1256,6 +1280,9 @@ var commonErrors = [
     matchWith: /היא תהיה חסרה/g,
     replaceWith: "היא תחסר"
   }, {
+    matchWith: /זה חשוב פות|זה חשוב פחות|זה פחות חשוב/g,
+    replaceWith: "זה לא חשוב"
+  }, {
     matchWith: /כול זה/g,
     replaceWith: "כל זה"
   }, {
@@ -1388,17 +1415,23 @@ var commonErrors = [
     matchWith: /אוים ונורא/g,
     replaceWith: "איום ונורא"
   }, {
+    matchWith: /תבזבזי את הזמן שלי שוב/g,
+    replaceWith: "תשובי לבזבז את זמני"
+  }, {
     matchWith: /שלא בנוח/g,
     replaceWith: "לא בנוח"
-  }, {
-    matchWith: /כל רצוני הוא/g,
+  }, { 
+    matchWith: /כל רצוני הוא|כל רצוני זה|כל רצוני|הדבר היחיד שאני רוצה הוא|הדבר היחיד שאני רוצה זה|הדבר היחיד שאני רוצה|כל מה שאני רוצה הוא|כל מה אני רוצה זה|כל מה שאני רוצה/g,
     replaceWith: "אני רק רוצה"
+  }, {
+    matchWith: /הדבר היחיד שאני|דבר היחיד שאני/g,
+    replaceWith: "אני רק"
   }, {
     matchWith: /איזה הבחנה חדה שיש לך/g,
     replaceWith: "את ממש חדת אבחנה"
   }, {
-    matchWith: /כל רצוני/g,
-    replaceWith: "אני רק רוצה"
+    matchWith: /אני לא רוצה בעיות בכלל/g,
+    replaceWith: "אני לא רוצה שום בעיות"
   }, {
     matchWith: /מחוסר הכרה/g,
     replaceWith: "חסר הכרה"
@@ -2333,6 +2366,9 @@ var commonErrors = [
     matchWith: /בדיוק זה מה/g,
     replaceWith: "זה בדיוק מה"
   }, {
+    matchWith: /אילו הייתי במקום שלכם/g,
+    replaceWith: "במקומכם"
+  }, {
     matchWith: /אילו הייתי במקום שלך|אילו היית במקום שלך|אילו הייתי אתה/g,
     replaceWith: "במקומך"
   }, {
@@ -3124,6 +3160,9 @@ var commonErrors = [
   }, {
     matchWith: /כמה התקשיתי/g,
     replaceWith: "כמה קשה היה לי"
+  }, {
+    matchWith: /התקשיתי/g,
+    replaceWith: "היה לי קשה"
   }, {
     matchWith: /אין לנו מה לדבר יותר/g,
     replaceWith: "אין טעם להמשיך"
@@ -4424,6 +4463,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /בית מרקת/g,
     replaceWith: "בית מרקחת"
   }, {
+    matchWith: /שמעתי בקול שלך/g,
+    replaceWith: "שמעתי בקולך"
+  }, {
     matchWith: /אל יודעם/g,
     replaceWith: "לא יודעים"
   }, {
@@ -4571,7 +4613,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /את שמחה הרבה יותר איתי/g,
     replaceWith: "את הרבה יותר שמחה איתי"
   }, {
-    matchWith: /את הדעה שלך/g,
+    matchWith: /את הדעה שלך|את הדעת שלך/g,
     replaceWith: "את דעתך"
   }, {
     matchWith: /אני אל /g,
@@ -5014,11 +5056,11 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="POR AMAR SIN LEY 64.MP4" autobuffer height="200px" controls></video>
+      <video src="POR AMAR SIN LEY 2 77.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
-        <button style="font-weight: bold" onclick="fixCommonErrors(Editor);">Fix Common Errors</button>
+        <button style="font-weight: bold"onclick="fixCommonErrors(Editor);">Fix Common Errors</button>
         <button onclick="fixWhiteSpace(Editor);">Fix White Spaces</button>
         <button onclick="finalErrorCheck(Editor)">Final Error Check</button>
         <button onclick="locateShortLines(Editor)">Short Lines</button>
