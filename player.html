@@ -702,8 +702,14 @@ var commonErrors = [
     matchWith: /תשע לך ש/g,
     replaceWith: "תדע לך ש"
   }, {
+    matchWith: /הפתעה נוספת/g,
+    replaceWith: "עוד הפתעה"
+  }, {
     matchWith: /כוסית נוספת/g,
     replaceWith: "עוד כוסית"
+  }, { 
+    matchWith: /כל הרצון שלי זה/g,
+    replaceWith: "אני רק רוצה"
   }, {
     matchWith: /קבילתי/g,
     replaceWith: "קיבלתי"
@@ -800,6 +806,9 @@ var commonErrors = [
   }, {
     matchWith: /באם תרצי או שלא|באם תרצה או שלא|אם תרצי או שלא|אם תרצה או שלא|באם תאהב את זה או שלא|ואם תאהבי או שלא/g,
     replaceWith: "גם אם זה לא נראה לך"
+  }, {
+    matchWith: / אהל /g,
+    replaceWith: " אבל "
   }, {
     matchWith: /קפאתי על המקום/g,
     replaceWith: "קפאתי במקום"
@@ -1022,6 +1031,12 @@ var commonErrors = [
   }, {
     matchWith: /אח שלך/g,
     replaceWith: "אחיך"
+  }, {
+    matchWith: /אחות שלכם/g,
+    replaceWith: "אחותכם"
+  }, {
+    matchWith: /אחות שלנו/g,
+    replaceWith: "אחותנו"
   }, {
     matchWith: /אחות שלי/g,
     replaceWith: "אחותי"
@@ -2918,6 +2933,9 @@ var commonErrors = [
     matchWith: /עכשיו לא הזמן /g,
     replaceWith: "זה לא הזמן"
   }, { 
+    matchWith: /להיות בשבילך/g,
+    replaceWith: "להיות לצידך"
+  }, {
     matchWith: /מרגע הזה/g,
     replaceWith: "מרגע זה"
   }, {
@@ -3374,9 +3392,6 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /תולכי|תוכלי/g,
     replaceWith: "את יכולה"
   }, {
-    matchWith: /תולכי|תוכלי/g,
-    replaceWith: "את יכולה"
-  }, {
     matchWith: /תולכ|תוכל/g,
     replaceWith: "אתה יכול"
   }, { 
@@ -3703,6 +3718,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /התנקש/g,
     replaceWith: "התנשק"
+  }, {
+    matchWith: /התנשקויות/g,
+    replaceWith: "התנקשויות"
   }, {
     matchWith: /התנשקות/g,
     replaceWith: "התנקשות"
@@ -4805,6 +4823,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /בגז'/g,
     replaceWith: "תא מטען"
   }, {
+    matchWith: /התא מטען/g,
+    replaceWith: "תא המטען"
+  }, {
+    matchWith: /להבריח את הגבול/g,
+    replaceWith: "לעבור את הגבול"
+  }, {
     matchWith: / יכוה /g,
     replaceWith: " יכולה "
   }, {
@@ -4879,6 +4903,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /כל מה שאני רוצה זה|כל מה שאני רוצה/g,
     replaceWith: "אני רק רוצה"
+  }, {
+    matchWith: /יד ימין של/g,
+    replaceWith: "יד ימינו של"
+  }, {
+    matchWith: /כל היום פה/g,
+    replaceWith: "פה כל היום"
   }, {
     matchWith: / ההי /g,
     replaceWith: " היה "
@@ -5077,7 +5107,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="POR AMAR SIN LEY 2 79.MP4" autobuffer height="200px" controls></video>
+      <video src="POR AMAR SIN LEY 2 85.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
