@@ -3394,7 +3394,10 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /תולכ|תוכל/g,
     replaceWith: "אתה יכול"
-  }, { 
+  }, {  
+    matchWith: /לא את יכולה/g,
+    replaceWith: "את לא יכולה"
+  }, {
     matchWith: /היא אתה יכול/g,
     replaceWith: "היא תוכל"
   }, {
@@ -3770,6 +3773,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /תניחי אותנו כבר/g,
     replaceWith: "תניחי לנו כבר"
   }, { 
+    matchWith: /תהיה חסר לי/g,
+    replaceWith: "תחסר לי"
+  }, {
     matchWith: /הייתם חסרים לי/g,
     replaceWith: "חסרתם לי"
   }, { 
@@ -4298,6 +4304,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אין לי שאלות יותר/g,
     replaceWith: "אין לי עוד שאלות"
   }, {
+    matchWith: /קזבלנקה/g,
+    replaceWith: "קסבלנקה"
+  }, {
     matchWith: / נוע ב/g,
     replaceWith: " נוגע ב"
   }, {
@@ -4394,8 +4403,11 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /צ'ין, צ'ין/g,
     replaceWith: "לחיים"
   }, {
-    matchWith: /ביום ש(?!בו)/g,
+    matchWith: /ביום ש(?!בו|ני|בת)/g,
     replaceWith: "ביום שבו "
+  }, {
+    matchWith: /ביום שבו ני/g,
+    replaceWith: "ביום שני"
   }, {
     matchWith: /זה גם יקרה לי/g,
     replaceWith: "זה יקרה גם לי"
@@ -4643,8 +4655,23 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /את הדעה שלך|את הדעת שלך/g,
     replaceWith: "את דעתך"
   }, {
+    matchWith: /נישואין/g,
+    replaceWith: "נישואים"
+  }, {
+    matchWith: /אאורליו/g,
+    replaceWith: "אורליו"
+  }, {
+    matchWith: /שחלילה /g,
+    replaceWith: "ש"
+  }, {
+    matchWith: /כרמנסה/g,
+    replaceWith: "קרמנסה"
+  }, {
+    matchWith: /גביאוט|גיבואט|גביואט|גיבאוט/g,
+    replaceWith: "גביוט"
+  }, {
     matchWith: /אני אל /g,
-    replaceWith: "אני לא"
+    replaceWith: "אני לא "
   }, {
     matchWith: /ארגיש טוב פה יותר/g,
     replaceWith: "פה ארגיש טוב יותר"
@@ -4726,6 +4753,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /פראיס/g,
     replaceWith: "פריאס"
+  }, {
+    matchWith: /פררירה|פרירה/g,
+    replaceWith: "פריירה"
   }, {
     matchWith: /אמשח/g,
     replaceWith: "אשמח"
@@ -5107,7 +5137,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="POR AMAR SIN LEY 2 85.MP4" autobuffer height="200px" controls></video>
+      <video src="CAFE CON AROMA DE MUJER 5.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
@@ -5137,7 +5167,7 @@ var areasOfSuspicion = [
       </div>
     </div>
     <div id='editor' style="float: left; margin-left: 15px;">
-      <textarea id="editor-textarea" cols=30 rows=30 wrap="hard" dir='rtl'
+      <textarea id="editor-textarea" cols=30 rows=38 wrap="hard" dir='rtl'
             style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
     </div>
     <div id="fixes-section" style="float: left; margin-left: 15px">
