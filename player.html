@@ -3404,6 +3404,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /לא אתה יכול/g,
     replaceWith: "אתה לא יכול"
   }, {
+    matchWith: /נינוח אישה/g,
+    replaceWith: "ניחוח אישה"
+  }, {
     matchWith: /אתה יכולו/g,
     replaceWith: "תוכלו"
   }, {
@@ -3412,6 +3415,10 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /תרצה(?! משהו)/g,
     replaceWith: "אתה רוצה"
+  }, {
+     
+    matchWith: /אם לא אתה רוצה/g,
+    replaceWith: "אם אתה לא רוצה"
   }, {
     matchWith: /אם באמת תרצי/g,
     replaceWith: "אם את רוצה"
@@ -4012,6 +4019,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /נסתלק מייד מפה/g,
     replaceWith: "נסתלק מפה מייד"
+  }, {
+    matchWith: /ארטור/g,
+    replaceWith: "ארתור"
   }, {
     matchWith: /סיבה כדי/g,
     replaceWith: "סיבה "
@@ -4658,8 +4668,11 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /נישואין/g,
     replaceWith: "נישואים"
   }, {
-    matchWith: /אאורליו/g,
-    replaceWith: "אורליו"
+    matchWith: /אארוליו|אאורוליו|אורליו/g,
+    replaceWith: "אאורליו"
+  }, {
+    matchWith: /אאאורליו/g,
+    replaceWith: "אאורליו"
   }, {
     matchWith: /שחלילה /g,
     replaceWith: "ש"
@@ -4756,6 +4769,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /פררירה|פרירה/g,
     replaceWith: "פריירה"
+  }, {
+    matchWith: /וייחו|ווייחו/g,
+    replaceWith: "ואז'חו"
+  }, {
+    matchWith: /קציר/g,
+    replaceWith: "קטיף"
   }, {
     matchWith: /אמשח/g,
     replaceWith: "אשמח"
@@ -5137,7 +5156,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="CAFE CON AROMA DE MUJER 5.MP4" autobuffer height="200px" controls></video>
+      <video src="CAFE CON AROMA DE MUJER 17.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
@@ -5167,7 +5186,7 @@ var areasOfSuspicion = [
       </div>
     </div>
     <div id='editor' style="float: left; margin-left: 15px;">
-      <textarea id="editor-textarea" cols=30 rows=38 wrap="hard" dir='rtl'
+      <textarea id="editor-textarea" cols=30 rows=30 wrap="hard" dir='rtl'
             style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
     </div>
     <div id="fixes-section" style="float: left; margin-left: 15px">
