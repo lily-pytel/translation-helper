@@ -1041,6 +1041,9 @@ var commonErrors = [
     matchWith: /אחות שלי/g,
     replaceWith: "אחותי"
   }, {
+    matchWith: /אתה כמו אח שלי/g,
+    replaceWith: "אתה כמו אח בשבילי"
+  }, {
     matchWith: /אח שלי/g,
     replaceWith: "אחי"
   }, { 
@@ -1436,7 +1439,7 @@ var commonErrors = [
     matchWith: /שלא בנוח/g,
     replaceWith: "לא בנוח"
   }, { 
-    matchWith: /כל רצוני הוא|כל רצוני זה|כל רצוני|הדבר היחיד שאני רוצה הוא|הדבר היחיד שאני רוצה זה|הדבר היחיד שאני רוצה|כל מה שאני רוצה הוא|כל מה אני רוצה זה|כל מה שאני רוצה/g,
+    matchWith: /כל רצוני הוא|כל רצוני זה|כל רצוני|הדבר היחיד שאני רוצה הוא|הדבר היחיד שאני רוצה זה|הדבר היחיד שאני רוצה|כל מה שאני רוצה הוא|כל מה אני רוצה זה|כל מה שאני רוצה|מה שאני רוצה זה/g,
     replaceWith: "אני רק רוצה"
   }, {
     matchWith: /הדבר היחיד שאני|דבר היחיד שאני/g,
@@ -1952,6 +1955,12 @@ var commonErrors = [
     matchWith: /מאבטחים/g,
     replaceWith: 'שומרי ראש'
   }, {
+    matchWith: /לונבמה/g,
+    replaceWith: 'לומבנה'
+  }, { 
+    matchWith: / לכן אני/g,
+    replaceWith: ' בגלל זה אני'
+  }, {
     matchWith: /מאבטח/g,
     replaceWith: 'שומר ראש'
   }, {
@@ -1960,6 +1969,9 @@ var commonErrors = [
   }, {
     matchWith: /בשבילנו זה קשה/g,
     replaceWith: 'זה קשה לנו'
+  }, {
+    matchWith: /תשמעי אותו/g,
+    replaceWith: 'תקשיבי לו'
   }, {
     matchWith: /תשמעי את עצמך/g,
     replaceWith: 'תקשיבי לעצמך'
@@ -4485,6 +4497,15 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /בדקת לך סוכר/g,
     replaceWith: "בדקת את רמת הסוכר שלך"
   }, {
+    matchWith: /הלו\./g,
+    replaceWith: "הלו?"
+  }, {
+    matchWith: /ארולד/g,
+    replaceWith: "הרולד"
+  }, {
+    matchWith: /בגיל שלי/g,
+    replaceWith: "בגילי"
+  }, {
     matchWith: /לנזוף אותי/g,
     replaceWith: "לנזוף בי"
   }, {
@@ -5165,7 +5186,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="CAFE CON AROMA DE MUJER 38.MP4" autobuffer height="200px" controls></video>
+      <video src="CAFE CON AROMA DE MUJER 62.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
