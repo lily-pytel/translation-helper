@@ -612,6 +612,9 @@ var commonErrors = [
 		matchWith: /כושית/g,
     replaceWith: "שחורה"
   }, {
+    matchWith: /אם אי פעם/g,
+    replaceWith: "אי פעם"
+  }, {
     matchWith: /כושי/g,
     replaceWith: "שחור"
   }, {
@@ -2396,7 +2399,7 @@ var commonErrors = [
     matchWith: /אילו הייתי במקום שלכם/g,
     replaceWith: "במקומכם"
   }, {
-    matchWith: /אילו הייתי במקום שלך|אילו היית במקום שלך|אילו הייתי אתה|אילי הייתי במקום שלך/g,
+    matchWith: /אילו הייתי במקום שלך|אילו היית במקום שלך|אילו הייתי אתה|אילי הייתי במקום שלך|אילו הייתה במקום שלך|איתי הייתי במקום שלך/g,
     replaceWith: "במקומך"
   }, {
     matchWith: /אילו הייתי במקום שלה/g,
@@ -3666,7 +3669,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מבחינה בזה/g,
     replaceWith: "שמה לב"
   }, {
-    matchWith: /מבחינה(?! טכנית| רפואית| פיזית| משפט| משפטית| מעשית| רשמית| חוקית| מקצועית)/g,
+    matchWith: /מבחינה(?! טכנית| רפואית| פיזית| משפט| משפטית| מעשית| רשמית| חוקית| מקצועית| גופנית)/g,
     replaceWith: "שמה לב"
   }, {
     matchWith: /שמעיק עליי קצת/g,
@@ -4479,6 +4482,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /בלי שהן יידעו/g,
     replaceWith: "ללא ידיעתן"
   }, {
+    matchWith: /התסדר/g,
+    replaceWith: "הסתדר"
+  }, {
     matchWith: /הדגרה/g,
     replaceWith: "הדרגה"
   }, {
@@ -4574,6 +4580,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /אלה דברים\?/g,
     replaceWith: "אילו דברים?"
+  }, {
+    matchWith: /נאמר המון דברים עליה/g,
+    replaceWith: "אמרו עליה המון דברים"
   }, {
     matchWith: /ברכות,/g,
     replaceWith: "ברכותיי,"
@@ -4908,8 +4917,20 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /להבריח את הגבול/g,
     replaceWith: "לעבור את הגבול"
   }, {
+    matchWith: /קפה הגורמה/g,
+    replaceWith: "קפה גורמה"
+  }, { 
+    matchWith: /מריסה/g,
+    replaceWith: "מרסיה"
+  }, {
     matchWith: / יכוה /g,
     replaceWith: " יכולה "
+  }, {
+    matchWith: / כלל /g,
+    replaceWith: " כל "
+  }, {
+    matchWith: / וויכוח/g,
+    replaceWith: " ויכוח"
   }, {
     matchWith: /הזמן כדי/g,
     replaceWith: "הזמן"
@@ -4964,6 +4985,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /כלום יותר/g,
     replaceWith: "כלום חוץ מזה"
+  }, {
+    matchWith: /אהיה איתך כנה/g,
+    replaceWith: "אהיה כן איתך"
   }, {
     matchWith: /מאוד אליך/g,
     replaceWith: "אליך מאוד"
@@ -5186,7 +5210,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="CAFE CON AROMA DE MUJER 62.MP4" autobuffer height="200px" controls></video>
+      <video src="CAFE CON AROMA DE MUJER 88.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
