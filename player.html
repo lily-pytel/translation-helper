@@ -1153,10 +1153,6 @@ var commonErrors = [
     replaceWith: "",
     whiteSpaceCorrector: true
   }, {
-    matchWith: /"\./g,
-    replaceWith: '."',
-    whiteSpaceCorrector: true
-  }, {
     matchWith: /מה זאת אומרת ש/g,
     replaceWith: "מה פתאום "
   }, {
@@ -4428,7 +4424,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /צ'ין, צ'ין/g,
     replaceWith: "לחיים"
   }, {
-    matchWith: /ביום ש(?!בו|ני|בת)/g,
+    matchWith: /ביום ש(?!בו|ני|בת|ישי|לישי)/g,
     replaceWith: "ביום שבו "
   }, {
     matchWith: /ביום שבו ני/g,
@@ -4472,6 +4468,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /מאוד אלייך/g,
     replaceWith: "אלייך מאוד"
+  }, {
+    matchWith: /להיות דואגת לו/g,
+    replaceWith: "לדאוג לו"
   }, {
     matchWith: /הרואות/g,
     replaceWith: "הוראות"
@@ -4527,6 +4526,15 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /את מפתח הרכב/g,
     replaceWith: "את המפתח לרכב"
   }, {
+    matchWith: / כלל /g,
+    replaceWith: " כל "
+  }, {
+    matchWith: /אלא ש/g,
+    replaceWith: "אבל "
+  }, {
+    matchWith: /צ'ף/g,
+    replaceWith: "שף"
+  }, {
     matchWith: /שומעת היטב/g,
     replaceWith: "שומעת טוב"
   }, {
@@ -4554,8 +4562,26 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אאורה|אאורוה|אאואורה|אאוורוה|אארורה|אוררורה|אאוררה/g,
     replaceWith: "אאורורה"
   }, {
+    matchWith: /חשדות טובות/g,
+    replaceWith: "חדשות טובות"
+  }, {
+    matchWith: /הסוכנויות הפרסום/g,
+    replaceWith: "סוכנויות הפרסום"
+  }, {
+    matchWith: /התשגע/g,
+    replaceWith: "השתגע"
+  }, {
+    matchWith: /חשדות רעות/g,
+    replaceWith: "חדשות רעות"
+  }, {
+    matchWith: /עכשיו תעשה את זה/g,
+    replaceWith: "תעשה את זה מייד"
+  }, {
     matchWith: /צחוק ממנה/g,
     replaceWith: "ממנה צחוק"
+  }, {
+    matchWith: /מה הולך\?/g,
+    replaceWith: "איך הולך?"
   }, {
     matchWith: /צחוק מאיתנו/g,
     replaceWith: "מאיתנו צחוק"
@@ -4752,6 +4778,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /שתית שוב/g,
     replaceWith: "שוב שתית"
   }, {
+    matchWith: /חודש ימים/g,
+    replaceWith: "חודש"
+  }, {
     matchWith: /תחכו רגע/g,
     replaceWith: "חכו רגע"
   }, {
@@ -4887,8 +4916,17 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /דורנסטס/g,
     replaceWith: "דורנטס"
   }, {
+    matchWith: /משולמת/g,
+    replaceWith: "מושלמת"
+  }, {
+    matchWith: /נינוח/g,
+    replaceWith: "ניחוח"
+  }, {
     matchWith: /יום סבוך/g,
     replaceWith: "יום מסובך"
+  }, {
+    matchWith: /המחלקה ליחסי ציבור|שבמחלקה ליחסי הציבור/g,
+    replaceWith: "מחלקת יחסי ציבור"
   }, {
     matchWith: /זו אני/g,
     replaceWith: "זאת אני"
@@ -4917,9 +4955,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /להבריח את הגבול/g,
     replaceWith: "לעבור את הגבול"
   }, {
-    matchWith: /קפה הגורמה/g,
+    matchWith: /קפה הגורמה|קפה הגומר/g,
     replaceWith: "קפה גורמה"
   }, { 
+    matchWith: /מרטה/g,
+    replaceWith: "מרתה"
+  }, {
     matchWith: /מריסה/g,
     replaceWith: "מרסיה"
   }, {
@@ -5210,7 +5251,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="CAFE CON AROMA DE MUJER 88.MP4" autobuffer height="200px" controls></video>
+      <video src="CAFE CON AROMA DE MUJER 122.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
