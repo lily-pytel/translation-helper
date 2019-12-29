@@ -819,6 +819,12 @@ var commonErrors = [
     matchWith: /האישה של החיים שלי/g,
     replaceWith: "אשת חיי"
   }, {
+    matchWith: /קפה אקספורט/g,
+    replaceWith: '"קפה אקספורט"'
+  }, {
+    matchWith: /""קפה אקספורט""/g,
+    replaceWith: '"קפה אקספורט"'
+  }, {
     matchWith: /עוד קפה קצת/g,
     replaceWith: "עוד קצת קפה"
   }, {
@@ -4721,6 +4727,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /את הדעה שלך|את הדעת שלך/g,
     replaceWith: "את דעתך"
   }, {
+    matchWith: /הינה/g,
+    replaceWith: "היא"
+  }, {
+    matchWith: /לקרסיה/g,
+    replaceWith: "לוקרסיה"
+  }, {
     matchWith: /נישואין/g,
     replaceWith: "נישואים"
   }, {
@@ -4918,6 +4930,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /משולמת/g,
     replaceWith: "מושלמת"
+  }, {
+    matchWith: /התשכרה/g,
+    replaceWith: "השתכרה"
   }, {
     matchWith: /נינוח/g,
     replaceWith: "ניחוח"
@@ -5251,7 +5266,7 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="CAFE CON AROMA DE MUJER 122.MP4" autobuffer height="200px" controls></video>
+      <video src="CAFE CON AROMA DE MUJER 125.MP4" autobuffer height="200px" controls></video>
       <br />
       <input type='number' id='playback-rate-control' />
       <div id="options-section">
@@ -5281,7 +5296,7 @@ var areasOfSuspicion = [
       </div>
     </div>
     <div id='editor' style="float: left; margin-left: 15px;">
-      <textarea id="editor-textarea" cols=30 rows=38 wrap="hard" dir='rtl'
+      <textarea id="editor-textarea" cols=30 rows=30 wrap="hard" dir='rtl'
             style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
     </div>
     <div id="fixes-section" style="float: left; margin-left: 15px">
