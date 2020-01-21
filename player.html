@@ -68,6 +68,21 @@
       border-top: 1px solid #afafaf;
       border-bottom: 1px solid #afafaf;
     }
+
+    #playback-rate-area {
+      padding-top: 5px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #countup-timer-area {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .countup-timer {
+      font-size: 30px;
+    }
   </style>
   <script src="jquery.js"></script>
   <script>
@@ -502,6 +517,31 @@ class ErrorTokenContext {
   }
 }
 
+function resetCountdown(interval) {
+  interval && clearInterval(interval)
+  var seconds = 0
+  var color = 'black'
+  var speed = (1 / Configuration.playbackRate) * 1000
+  var bodyColor = 'white'
+
+  $('body').css('background-color', bodyColor)
+  $('.countup-timer').css('color', color)
+  $('.countup-timer').html(seconds)
+
+  return setInterval( function() {
+    ++seconds
+    color = seconds > 3 ? 'red' : 'black'
+    bodyColor = seconds < 4
+      ? 'white'
+      : seconds < 6
+        ? '#feffe7'
+        : '#fae2e2'
+
+    $('body').css('background-color', bodyColor) 
+    $('.countup-timer').css('color', color)
+    $('.countup-timer').html(seconds)
+  }, speed);
+}
 
 function initHighlighter() {
   $("#highlight-matches").click(function(){
@@ -538,6 +578,7 @@ $(function() {
   Player = $("#player video")[0]
   Editor = $("#editor textarea")
   PlaybackRateControl = $("#playback-rate-control")
+  var timer = null
 
   PlaybackRateControl.change(function(e) {
     Configuration.playbackRate = parseFloat(this.value)
@@ -563,21 +604,26 @@ $(function() {
       }
     }
     else if(e.altKey) {
+      clearInterval(timer)
       switch (e.keyCode) {
         case LeftArrow: {
-          seek(Player, -2)
+          timer = resetCountdown(timer)
+          seek(Player, -1)
           break
         }
         case RightArrow: {
-          seek(Player, +2)
+          timer = resetCountdown(timer)
+          seek(Player, +1)
           break
         }
         case DownArrow:
         case UpArrow:
         case SpaceBar: {
           if(Player.paused) {
+            timer = resetCountdown(timer)
             Player.play()
           } else {
+            clearInterval(timer)
             Player.pause()
           }
           break
@@ -1372,6 +1418,9 @@ var commonErrors = [
     matchWith: /אותו הדבר/g,
     replaceWith: "אותו דבר"
   }, {
+    matchWith: /האחד יותר מהשני/g,
+    replaceWith: "אחד יותר מהשני"
+  }, {
     matchWith: /האחת את השניה|האחת את השנייה/g,
     replaceWith: "אחת את השנייה"
   }, {
@@ -1399,7 +1448,7 @@ var commonErrors = [
     matchWith: /האחד בשני/g,
     replaceWith: "אחד בשני"
   }, {
-    matchWith: /האחד לשני/g,
+    matchWith: /האחד לשנ|האחד שלניי/g,
     replaceWith: "אחד לשני"
   }, {
     matchWith: /טביעות האצבעות/g,
@@ -4250,6 +4299,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /תשמע בקול שלה/g,
     replaceWith: "תשמע בקולה"
   }, {
+    matchWith: /תישמע בקול שלו/g,
+    replaceWith: "תשמע בקולו"
+  }, {
     matchWith: /תלכי מפה/g,
     replaceWith: "לכי מפה"
   }, {
@@ -4511,6 +4563,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /הלו\./g,
     replaceWith: "הלו?"
   }, {
+    matchWith: /האוהבה/g,
+    replaceWith: "האהובה"
+  }, {
     matchWith: /ארולד/g,
     replaceWith: "הרולד"
   }, {
@@ -4727,9 +4782,6 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /את הדעה שלך|את הדעת שלך/g,
     replaceWith: "את דעתך"
   }, {
-    matchWith: /הינה/g,
-    replaceWith: "היא"
-  }, {
     matchWith: /לקרסיה/g,
     replaceWith: "לוקרסיה"
   }, {
@@ -4750,6 +4802,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /אאאורליו/g,
     replaceWith: "אאורליו"
+  }, {
+    matchWith: /בפרק הקודם בוויקטוריה הקטנה/g,
+    replaceWith: 'בפרק הקודם של\n"ויקטוריה הקטנה"'
+  }, {
+    matchWith: /בפרק הבא בוויקי הקטנה|בפרק הבא בוויקטוריה הקטנה|בפרק הבא של ויקטוריה הקטנה/g,
+    replaceWith: 'בפרק הבא של\n"ויקטוריה הקטנה"'
   }, {
     matchWith: /שחלילה /g,
     replaceWith: "ש"
@@ -4934,13 +4992,19 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /התשכרה/g,
     replaceWith: "השתכרה"
   }, {
+    matchWith: /מלקחת/g,
+    replaceWith: "מקלחת"
+  }, {
+    matchWith: /פונטבלו|פוננטלבו/g,
+    replaceWith: "פונטלבו"
+  }, {
     matchWith: /נינוח/g,
     replaceWith: "ניחוח"
   }, {
     matchWith: /יום סבוך/g,
     replaceWith: "יום מסובך"
   }, {
-    matchWith: /המחלקה ליחסי ציבור|שבמחלקה ליחסי הציבור/g,
+    matchWith: /המחלקה ליחסי ציבור|שבמחלקה ליחסי הציבור|מחלקה ליחסי ציבור/g,
     replaceWith: "מחלקת יחסי ציבור"
   }, {
     matchWith: /זו אני/g,
@@ -5266,9 +5330,16 @@ var areasOfSuspicion = [
 <body>
   <div>
     <div id='player' style="float: left;">
-      <video src="CAFE CON AROMA DE MUJER 125.MP4" autobuffer height="200px" controls></video>
+      <div id="countup-timer-area">
+        <div class="countup-timer">0</div>
+        <div class="countup-timer">0</div>
+      </div>
+      <video src="Pequna Victoria 23.MP4" autobuffer height="200px" controls></video>
       <br />
-      <input type='number' id='playback-rate-control' />
+      <div id="playback-rate-area">
+        <input type='number' id='playback-rate-control' />
+        <div class="countup-timer">0</div>
+      </div>
       <div id="options-section">
         <button style="font-weight: bold"onclick="fixCommonErrors(Editor);">Fix Common Errors</button>
         <button onclick="fixWhiteSpace(Editor);">Fix White Spaces</button>
@@ -5296,7 +5367,7 @@ var areasOfSuspicion = [
       </div>
     </div>
     <div id='editor' style="float: left; margin-left: 15px;">
-      <textarea id="editor-textarea" cols=30 rows=30 wrap="hard" dir='rtl'
+      <textarea id="editor-textarea" cols=28 rows=30 wrap="hard" dir='rtl'
             style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
     </div>
     <div id="fixes-section" style="float: left; margin-left: 15px">
