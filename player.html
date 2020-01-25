@@ -1595,7 +1595,7 @@ var commonErrors = [
     matchWith: /באמת אני אומר לך/g,
     replaceWith: "אני רציני"
   }, {
-    matchWith: /באמת אני אומרת לך|אני מתכוונת לזה/g,
+    matchWith: /באמת אני אומרת לך|אני מתכוונת לזה|אני באמת אומרת לך/g,
     replaceWith: "אני רצינית"
   }, {
     matchWith: /עם זה טוב/g,
@@ -4197,6 +4197,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אבקש טובה גדולה ממך,/g,
     replaceWith: "אבקש ממך טובה גדולה"
   }, {
+    matchWith: /פחות ויותר/g,
+    replaceWith: "בערך"
+  }, {
     matchWith: /תפוח העץ/g,
     replaceWith: "התפוח"
   }, {
@@ -5334,7 +5337,7 @@ var areasOfSuspicion = [
         <div class="countup-timer">0</div>
         <div class="countup-timer">0</div>
       </div>
-      <video src="Pequna Victoria 23.MP4" autobuffer height="200px" controls></video>
+      <video src="Pequna Victoria 24.MP4" autobuffer height="200px" controls></video>
       <br />
       <div id="playback-rate-area">
         <input type='number' id='playback-rate-control' />
