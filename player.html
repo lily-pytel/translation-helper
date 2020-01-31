@@ -721,9 +721,6 @@ var commonErrors = [
     matchWith: /בוסמנטה/g,
     replaceWith: "בוסטמנטה"
   }, {
-    matchWith: /רפאה/g,
-    replaceWith: "ראפה"
-  }, {
     matchWith: /מראפה/g,
     replaceWith: "מרפאה"
   }, {
@@ -1176,6 +1173,9 @@ var commonErrors = [
   }, {
     matchWith: /אגיד/g,
     replaceWith: "אומר"
+  }, {
+    matchWith: /מה שעכשיו אומר לך/g,
+    replaceWith: "מה שאומר לך"
   }, {
     matchWith: /\.\-/g,
     replaceWith: "\. \-",
@@ -3720,7 +3720,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מבחינה בזה/g,
     replaceWith: "שמה לב"
   }, {
-    matchWith: /מבחינה(?! טכנית| רפואית| פיזית| משפט| משפטית| מעשית| רשמית| חוקית| מקצועית| גופנית)/g,
+    matchWith: /מבחינה(?! טכנית| רפואית| פיזית| משפט| משפטית| מעשית| רשמית| חוקית| מקצועית| גופנית| כספית)/g,
     replaceWith: "שמה לב"
   }, {
     matchWith: /שמעיק עליי קצת/g,
@@ -4596,6 +4596,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אלא ש/g,
     replaceWith: "אבל "
   }, {
+    matchWith: /ג'גסן|גורגנסן|ג'רגנסן/g,
+    replaceWith: "ג'ורגנסן"
+  }, {
     matchWith: /צ'ף/g,
     replaceWith: "שף"
   }, {
@@ -5337,7 +5340,7 @@ var areasOfSuspicion = [
         <div class="countup-timer">0</div>
         <div class="countup-timer">0</div>
       </div>
-      <video src="Pequna Victoria 24.MP4" autobuffer height="200px" controls></video>
+      <video src="Pequna Victoria 27.MP4" autobuffer height="200px" controls></video>
       <br />
       <div id="playback-rate-area">
         <input type='number' id='playback-rate-control' />
