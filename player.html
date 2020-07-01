@@ -1039,6 +1039,9 @@ var commonErrors = [
     matchWith: new RegExp('על ש' + shinIgnoreCases, 'g'),
     replaceWith: "על כך ש"
   }, {
+    matchWith: new RegExp('בגלל ש' + shinIgnoreCases, 'g'),
+    replaceWith: "כי "
+  }, {
     matchWith: /סליחה על ש|סליחה על כך ש/g,
     replaceWith: "סליחה ש"
   }, {
@@ -1103,9 +1106,6 @@ var commonErrors = [
     replaceWith: "עריסה"
   }, {
     matchWith: /משום ש/g,
-    replaceWith: "כי "
-  }, {
-    matchWith: /בגלל ש(?!ירו|טות)/g,
     replaceWith: "כי "
   }, {
     matchWith: /בכול מקרה/g,
@@ -5148,6 +5148,60 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /זה טוב שנהיה מוכנים/g,
     replaceWith: "זה טוב להיות מוכנים"
   }, {
+    matchWith: /ג'ורגן קלופ/g,
+    replaceWith: "יורגן קלופ"
+  }, {
+    matchWith: /פיליפה/g,
+    replaceWith: "פיליפ"
+  }, {
+    matchWith: /קאוטיניו|קואיטיניו/g,
+    replaceWith: "קוטיניו"
+  }, {
+    matchWith: /איבן רקיטיק/g,
+    replaceWith: "איוון רקיטיץ'"
+  }, {
+    matchWith: /ג'ררד/g,
+    replaceWith: "ג'רארד"
+  }, {
+    matchWith: /וויחנלדום/g,
+    replaceWith: "רקיטיץ'"
+  }, {
+    matchWith: /רקיטיק/g,
+    replaceWith: "רקיטיץ'"
+  }, {
+    matchWith: /ארטורו/g,
+    replaceWith: "ארתורו"
+  }, { 
+    matchWith: /וויגריי/g,
+    replaceWith: "ויגראי"
+  }, {
+    matchWith: /מנדיסוררוסה/g,
+    replaceWith: "מנדיסורוצה"
+  }, {
+    matchWith: /ווידל/g,
+    replaceWith: "וידאל"
+  }, {
+    matchWith: /סרחי רוברטו/g,
+    replaceWith: "סרג'י רוברטו"
+  }, {
+    matchWith: /ויז'ריאל|וויאריאל/g,
+    replaceWith: "ויאריאל"
+  }, {
+    matchWith: /מיורל/g,
+    replaceWith: "מיוראל"
+  }, {
+    matchWith: /אלווס/g,
+    replaceWith: "אלאבס"
+  }, {
+    matchWith: /וולוורדה/g,
+    replaceWith: "ואלוורדה"
+  }, {
+    matchWith: /קרלוס אלינה/g,
+    replaceWith: "קרלס אלניה"
+  }, {
+    matchWith: /קמפ נו|קמפ נאו/g,
+    replaceWith: "קאמפ נואו"
+  }, {
     matchWith: /מה שהכי/g,
     replaceWith: "הכי"
   }, {
@@ -5340,7 +5394,7 @@ var areasOfSuspicion = [
         <div class="countup-timer">0</div>
         <div class="countup-timer">0</div>
       </div>
-      <video src="Pequna Victoria 27.MP4" autobuffer height="200px" controls></video>
+      <video src="BETTY EN NEW YORK  4.MP4" autobuffer height="200px" controls></video>
       <br />
       <div id="playback-rate-area">
         <input type='number' id='playback-rate-control' />
