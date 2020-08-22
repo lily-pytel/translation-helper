@@ -667,6 +667,9 @@ var commonErrors = [
     matchWith: /גם אין אף אחד פנימה/g,
     replaceWith: "גם בפנים אין אף אחד"
   }, {
+    matchWith: /"ווי אנד אם"/g,
+    replaceWith: '"וי אנד אם"'
+  }, {
     matchWith: /לאדנרו/g,
     replaceWith: "לאנדרו"
   }, {
@@ -2218,6 +2221,9 @@ var commonErrors = [
   }, {
     matchWith: /פרידה הדודה/g,
     replaceWith: "דודה פרידה"
+  }, { 
+    matchWith: /זקוק להן יותר/g,
+    replaceWith: "הכי זקוק להן"
   }, {
     matchWith: /אני צריך את העזרה שלך/g,
     replaceWith: "אני זקוק לעזרתך"
@@ -4848,6 +4854,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אנחנו נפגשים שוב/g,
     replaceWith: "אנחנו שוב נפגשים"
   }, {
+    matchWith: /אני שמח עם זה/g,
+    replaceWith: "זה משמח אותי"
+  }, {
     matchWith: /שתית שוב/g,
     replaceWith: "שוב שתית"
   }, {
@@ -5205,6 +5214,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /זאת אשמה שלך/g,
     replaceWith: "זאת אשמתך"
   }, {
+    matchWith: /תיקאן/g,
+    replaceWith: "חרק"
+  }, {
     matchWith: /גנבו אותך/g,
     replaceWith: "שדדו אותך"
   }, {
@@ -5229,8 +5241,26 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מודאגת מאוד ממנה/g,
     replaceWith: "דואגת לה מאוד"
   }, {
+    matchWith: / באר\?/g,
+    replaceWith: ' "באר"?'
+  }, {
+    matchWith: / באר\./g,
+    replaceWith: ' "באר".'
+  }, {
+    matchWith: / באר /g,
+    replaceWith: ' "באר" '
+  }, {
     matchWith: /פסקים/g,
     replaceWith: "ספקים"
+  }, {
+    matchWith: /אין מה לעשות יותר/g,
+    replaceWith: "אין יותר מה לעשות"
+  }, {
+    matchWith: /עכשיו מה אעשה/g,
+    replaceWith: "מה אעשה עכשיו"
+  }, {
+    matchWith: /את בוכה שוב/g,
+    replaceWith: "את שוב בוכה"
   }, {
     matchWith: /מבלי/g,
     replaceWith: "בלי"
@@ -5415,7 +5445,7 @@ var areasOfSuspicion = [
         <div class="countup-timer">0</div>
         <div class="countup-timer">0</div>
       </div>
-      <video src="Betty en New York 24.MP4" autobuffer height="200px" controls></video>
+      <video src="BETTY EN NEW YORK 48.MP4" autobuffer height="200px" controls></video>
       <br />
       <div id="playback-rate-area">
         <input type='number' id='playback-rate-control' />
@@ -5429,7 +5459,7 @@ var areasOfSuspicion = [
         <button onclick="locateAwkwardPunctuation(Editor)">Awkward Punctuation</button>
         <button onclick="locateSuspiciousAreas(Editor)">Suspicious Areas</button>
         <br><br>
-        <button onclick="loadBufferFromRecovery(Editor);">Load (Recovery)</button>
+        <button onclick="loadBufferFromRecovery(Editor);">Load (Recovery)</button>שלך
         <button onclick='saveBuffer(Editor);'>Save Buffer</button>
         <button onclick="loadBuffer(Editor);">Load Buffer</button>
       </div>
