@@ -814,8 +814,14 @@ var commonErrors = [
     matchWith: /עם התוכניות הזה/g,
     replaceWith: "בתוכנית הזאת"
   }, {
+    matchWith: /אלה יודע/g,
+    replaceWith: "אתה יודע"
+  }, {
     matchWith: / ליחה/g,
     replaceWith: " סליחה"
+  }, {
+    matchWith: /שיניתי את הדעה שלי/g,
+    replaceWith: "שיניתי את דעתי"
   }, {
     matchWith: /הדעה שלי מוסחת/g,
     replaceWith: "דעתי מוסחת"
@@ -870,6 +876,9 @@ var commonErrors = [
   }, {
     matchWith: /""קפה אקספורט""/g,
     replaceWith: '"קפה אקספורט"'
+  }, {
+    matchWith: /עצבני קצת/g,
+    replaceWith: "קצת עצבני"
   }, {
     matchWith: /עוד קפה קצת/g,
     replaceWith: "עוד קצת קפה"
@@ -1114,6 +1123,12 @@ var commonErrors = [
     matchWith: /בכול מקרה/g,
     replaceWith: "בכל מקרה"
   }, {
+    matchWith: /לעניין ישר/g,
+    replaceWith: "ישר לעניין"
+  }, {
+    matchWith: /עם הכול הלב שלי/g,
+    replaceWith: "בכל הלב"
+  }, {
     matchWith: /כול הלב/g,
     replaceWith: "כל הלב"
   }, {
@@ -1225,6 +1240,9 @@ var commonErrors = [
   }, {
     matchWith: /תכסיני/g,
     replaceWith: "תכניסי"
+  }, { 
+    matchWith: /הרגע היא\?/g,
+    replaceWith: "היא הרגע\?"
   }, {
     matchWith: /היגע\?/g,
     replaceWith: "הגיע\?"
@@ -1403,8 +1421,14 @@ var commonErrors = [
     matchWith: /דולרים/g,
     replaceWith: "דולר"
   }, {
+    matchWith: /95.000/g,
+    replaceWith: "95 אלף"
+  }, {
     matchWith: /ככה זה נראה/g,
     replaceWith: "כך נראה"
+  }, {
+    matchWith: /גוארו/g,
+    replaceWith: "גווארו"
   }, {
     matchWith: /סוף-סוף/g,
     replaceWith: "סוף סוף"
@@ -2140,6 +2164,9 @@ var commonErrors = [
   }, {
     matchWith: /צ'ילקליס/g,
     replaceWith: "צ'ילקילס"
+  }, {
+    matchWith: /באשמה שלי/g,
+    replaceWith: "באשמתי"
   }, {
     matchWith: /אני לא אשם ש|אני לא אשמה ש/g,
     replaceWith: "זאת לא אשמתי ש"
@@ -4092,9 +4119,6 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /נסתלק מייד מפה/g,
     replaceWith: "נסתלק מפה מייד"
   }, {
-    matchWith: /ארטור/g,
-    replaceWith: "ארתור"
-  }, {
     matchWith: /סיבה כדי/g,
     replaceWith: "סיבה "
   }, {
@@ -4902,6 +4926,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /בשורה שלא ייאמן|בשורה שלא תיאמן/g,
     replaceWith: "בשורה מדהימה"
   }, {
+    matchWith: /מייד תצא מפה/g,
+    replaceWith: "צא מפה מייד"
+  }, {
     matchWith: /לא עונה לי/g,
     replaceWith: "לא עונה"
   }, {
@@ -5181,9 +5208,6 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /רקיטיק/g,
     replaceWith: "רקיטיץ'"
   }, {
-    matchWith: /ארטורו/g,
-    replaceWith: "ארתורו"
-  }, {
     matchWith: /טומפסון/g,
     replaceWith: "תומפסון"
   }, {
@@ -5211,8 +5235,8 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אלווס/g,
     replaceWith: "אלאבס"
   }, {
-    matchWith: /זאת אשמה שלך/g,
-    replaceWith: "זאת אשמתך"
+    matchWith: /אשמה שלך/g,
+    replaceWith: "אשמתך"
   }, {
     matchWith: /תיקאן/g,
     replaceWith: "חרק"
@@ -5309,6 +5333,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: / וזו /g,
     replaceWith: " וזאת "
+  }, {
+    matchWith: /קורנחו מחיה/g,
+    replaceWith: "קורנחו מחייה"
   }
 ]; 
 
@@ -5445,7 +5472,7 @@ var areasOfSuspicion = [
         <div class="countup-timer">0</div>
         <div class="countup-timer">0</div>
       </div>
-      <video src="BETTY EN NEW YORK 48.MP4" autobuffer height="200px" controls></video>
+      <video src="Antonella 84.mp4" autobuffer height="200px" controls></video>
       <br />
       <div id="playback-rate-area">
         <input type='number' id='playback-rate-control' />
@@ -5459,7 +5486,7 @@ var areasOfSuspicion = [
         <button onclick="locateAwkwardPunctuation(Editor)">Awkward Punctuation</button>
         <button onclick="locateSuspiciousAreas(Editor)">Suspicious Areas</button>
         <br><br>
-        <button onclick="loadBufferFromRecovery(Editor);">Load (Recovery)</button>שלך
+        <button onclick="loadBufferFromRecovery(Editor);">Load (Recovery)</button>
         <button onclick='saveBuffer(Editor);'>Save Buffer</button>
         <button onclick="loadBuffer(Editor);">Load Buffer</button>
       </div>
@@ -5474,7 +5501,7 @@ var areasOfSuspicion = [
         <div id='error-fix-display-container'>
         
         </div>
-        <br>כם
+        <br>
       </div>
     </div>
     <div id='editor' style="float: left; margin-left: 15px;">
