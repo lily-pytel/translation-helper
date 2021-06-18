@@ -733,6 +733,12 @@ var commonErrors = [
     matchWith: /אני רוצה להיות כל הזמן איתך/g,
     replaceWith: "אני רוצה להיות איתך כל הזמן"
   }, {
+    matchWith: /דוקטור פרס/g,
+    replaceWith: 'ד"ר פרס'
+  }, {
+    matchWith: /דוקטור קסטרו/g,
+    replaceWith: 'ד"ר קסטרו'
+  }, {
     matchWith: /חביאר/g,
     replaceWith: "חוויאר"
   }, {
@@ -879,6 +885,9 @@ var commonErrors = [
   }, {
     matchWith: /עצבני קצת/g,
     replaceWith: "קצת עצבני"
+  }, {
+    matchWith: /אקטור/g,
+    replaceWith: "הקטור"
   }, {
     matchWith: /עוד קפה קצת/g,
     replaceWith: "עוד קצת קפה"
@@ -1502,6 +1511,9 @@ var commonErrors = [
     matchWith: /שחבנו |שחבנ\ו./g,
     replaceWith: "שחשבנו"
   }, {
+    matchWith: /ארטור/g,
+    replaceWith: "ארתור"
+  }, {
     matchWith: /בטח אתה/g,
     replaceWith: "אתה בטח"
   }, {
@@ -1784,6 +1796,9 @@ var commonErrors = [
     matchWith: /בררה/g,
     replaceWith: "ברירה"
   }, {
+    matchWith: /קברירה/g,
+    replaceWith: "קבררה"
+  }, {
     matchWith: / תהי /g,
     replaceWith: " תהיי "
   }, { 
@@ -1918,9 +1933,6 @@ var commonErrors = [
   }, {
     matchWith: /מחלקות/g,
     replaceWith: 'מחלוקות'
-  }, {
-    matchWith: /גברת,/g,
-    replaceWith: 'גברתי,'
   }, {
     matchWith: /דבר לא יקרה לו/g,
     replaceWith: 'לא יקרה לו כלום'
@@ -2675,8 +2687,8 @@ var commonErrors = [
     matchWith: /כל מני/g,
     replaceWith: "כל מיני"
   }, {
-    matchWith: /אלוורס|אלוורז/g,
-    replaceWith: "אלברס"
+    matchWith: /אלברס|אלוורז/g,
+    replaceWith: "אלוורס"
   }, {
     matchWith: /לוקיטס|לקיטאס/g,
     replaceWith: "לוקיטאס"
@@ -2886,7 +2898,7 @@ var commonErrors = [
     replaceWith: "מבטיח"
   }, {
     matchWith: /ולכן/g,
-    replaceWith: "אז"
+    replaceWith: "בגלל זה"
   }, {
     matchWith: /מה השם שלה\?/g,
     replaceWith: "איך קוראים לה?"
@@ -4311,8 +4323,20 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /איך שאתן דומות/g,
     replaceWith: "אתן ממש דומות"
   }, {
+    matchWith: /האהבה של החיים שלו/g,
+    replaceWith: "אהבת חייו"
+  }, {
+    matchWith: /מנהלת/g,
+    replaceWith: "אחות"
+  }, {
+    matchWith: /מנהל/g,
+    replaceWith: "אח"
+  }, {
     matchWith: /לנשוא/g,
     replaceWith: "לשנוא"
+  }, {
+    matchWith: /סלוודור/g,
+    replaceWith: "סלבדור"
   }, {
     matchWith: /חשקת אותי/g,
     replaceWith: "חשקת בי"
@@ -4677,6 +4701,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /צחוק ממנה/g,
     replaceWith: "ממנה צחוק"
   }, {
+    matchWith: /עכשיו מה יקרה/g,
+    replaceWith: "מה יקרה עכשיו"
+  }, {
     matchWith: /מה הולך\?/g,
     replaceWith: "איך הולך?"
   }, {
@@ -4916,6 +4943,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /ולחברים שלי מאינטרפול במיוחד/g,
     replaceWith: "במיוחד לחברים שלי מאינטרפול"
+  }, {
+    matchWith: /מדז'ין/g,
+    replaceWith: "מדיין"
   }, {
     matchWith: /מקסימיליואנו/g,
     replaceWith: "מקסימיליאנו"
@@ -5169,6 +5199,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /בעל עוצמה רבה/g,
     replaceWith: "רב עוצמה"
   }, {
+    matchWith: /אני מבקשת ממך שתלך/g,
+    replaceWith: "אני מבקשת שתלך"
+  }, {
     matchWith: /לחקר האמת/g,
     replaceWith: "לגרעין האמת"
   }, {
@@ -5259,8 +5292,11 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /הראש מתפוצץ לי/g,
     replaceWith: "הראש שלי מתפוצץ"
   }, {
-    matchWith: /וולוורדה/g,
-    replaceWith: "ואלוורדה"
+    matchWith: /אלברו/g,
+    replaceWith: "אלוורו"
+  }, {
+    matchWith: /סולנג'י/g,
+    replaceWith: "סול אנג'י"
   }, {
     matchWith: /קרלוס אלינה/g,
     replaceWith: "קרלס אלניה"
@@ -5286,6 +5322,15 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: / באר /g,
     replaceWith: ' "באר" '
   }, {
+    matchWith: /שמונה עשרה/g,
+    replaceWith: "18"
+  }, {
+    matchWith: /הגופה המתה שלי/g,
+    replaceWith: "גופתי המתה"
+  }, {
+    matchWith: /בת עשרים שנים/g,
+    replaceWith: "בת 20"
+  }, {
     matchWith: /פסקים/g,
     replaceWith: "ספקים"
   }, {
@@ -5297,6 +5342,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /את בוכה שוב/g,
     replaceWith: "את שוב בוכה"
+  }, {
+    matchWith: /קווירו/g,
+    replaceWith: "קוויירו"
   }, {
     matchWith: /מבלי/g,
     replaceWith: "בלי"
@@ -5484,7 +5532,7 @@ var areasOfSuspicion = [
         <div class="countup-timer">0</div>
         <div class="countup-timer">0</div>
       </div>
-      <video src="ARGENTINA, TIERRA 7.mp4" autobuffer height="200px" controls></video>
+      <video src="CAPITULO 33 ENFERMERAS.mp4" autobuffer height="200px" controls></video>
       <br />
       <div id="playback-rate-area">
         <input type='number' id='playback-rate-control' />
@@ -5517,7 +5565,7 @@ var areasOfSuspicion = [
       </div>
     </div>
     <div id='editor' style="float: left; margin-left: 15px;">
-      <textarea id="editor-textarea" cols=28 rows=30 wrap="hard" dir='rtl'
+      <textarea id="editor-textarea" cols=29 rows=30 wrap="hard" dir='rtl'
             style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
     </div>
     <div id="fixes-section" style="float: left; margin-left: 15px">
