@@ -883,8 +883,14 @@ var commonErrors = [
     matchWith: /""קפה אקספורט""/g,
     replaceWith: '"קפה אקספורט"'
   }, {
+    matchWith: /מרובע קצת/g,
+    replaceWith: "קצת מרובע"
+  }, {
     matchWith: /עצבני קצת/g,
     replaceWith: "קצת עצבני"
+  }, {
+    matchWith: /אלא שבשבילי זה יותר מדי/g,
+    replaceWith: "זה יותר מדי בשבילי"
   }, {
     matchWith: /אקטור/g,
     replaceWith: "הקטור"
@@ -1271,6 +1277,9 @@ var commonErrors = [
     matchWith: /מה פתאום לא שמתי לב|מה פתאום לא הבחנתי/g,
     replaceWith: "איך לא שמתי לב"
   }, { 
+    matchWith: /מה פתאום לא/g,
+    replaceWith: "איך לא"
+  }, {
     matchWith: /דעות קודמות/g,
     replaceWith: "דעות קדומות"
   }, {
@@ -2912,6 +2921,9 @@ var commonErrors = [
     matchWith: /שבאת ממנה/g,
     replaceWith: "שממנה באת"
   }, {
+    matchWith: /מויזס/g,
+    replaceWith: "מויסס"
+  }, {
     matchWith: /בטלרן/g,
     replaceWith: "בלטרן"
   }, {
@@ -3899,7 +3911,10 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /הייתם חסרים לי/g,
     replaceWith: "חסרתם לי"
-  }, { 
+  }, {
+    matchWith: /וורסוביה|ורסוביה/g,
+    replaceWith: '"ורשה"'
+  }, {
     matchWith: /ביגוד לחוק/g,
     replaceWith: "בניגוד לחוק"
   }, {
@@ -4326,12 +4341,6 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /האהבה של החיים שלו/g,
     replaceWith: "אהבת חייו"
   }, {
-    matchWith: /מנהלת/g,
-    replaceWith: "אחות"
-  }, {
-    matchWith: /מנהל/g,
-    replaceWith: "אח"
-  }, {
     matchWith: /לנשוא/g,
     replaceWith: "לשנוא"
   }, {
@@ -4502,6 +4511,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /מגזימה קצת/g,
     replaceWith: "קצת מגזימה"
+  }, {
+    matchWith: /קרח קצת/g,
+    replaceWith: "קצת קרח"
   }, {
     matchWith: /מטורף קצת/g,
     replaceWith: "קצת מטורף"
@@ -4676,6 +4688,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /אל יודעם/g,
     replaceWith: "לא יודעים"
+  }, {
+    matchWith: /לבקש את היד שלך/g,
+    replaceWith: "לבקש את ידך"
   }, {
     matchWith: /המשפחה כולה/g,
     replaceWith: "כל המשפחה"
@@ -5037,6 +5052,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אגזול עוד זמן ממך/g,
     replaceWith: "אגזול ממך עוד זמן"
   }, {
+    matchWith: /מגזן/g,
+    replaceWith: "מזגן"
+  }, {
     matchWith: /מסרלה|מרלסה/g,
     replaceWith: "מרסלה"
   }, {
@@ -5193,6 +5211,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /תקבל עונש קל פה יותר/g,
     replaceWith: "תקבל פה עונש קל יותר"
   }, {
+    matchWith: /היא מתוסבכת קצת/g,
+    replaceWith: "היא קצת מתוסבכת"
+  }, {
     matchWith: /מרגטו/g,
     replaceWith: "מרגוט"
   }, {
@@ -5232,8 +5253,8 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /קאוטיניו|קואיטיניו/g,
     replaceWith: "קוטיניו"
   }, {
-    matchWith: /איבן רקיטיק/g,
-    replaceWith: "איוון רקיטיץ'"
+    matchWith: /איוון/g,
+    replaceWith: "איבון"
   }, {
     matchWith: /ג'ררד/g,
     replaceWith: "ג'רארד"
@@ -5277,8 +5298,8 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אתה באמת ראוי/g,
     replaceWith: "באמת מגיע לך"
   }, {
-    matchWith: /טורקואטו/g,
-    replaceWith: "טורקוואטו"
+    matchWith: /טורקוואטו/g,
+    replaceWith: "טורקואטו"
   }, {
     matchWith: /תיקאן/g,
     replaceWith: "חרק"
@@ -5330,6 +5351,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /בת עשרים שנים/g,
     replaceWith: "בת 20"
+  }, {
+    matchWith: /לוונשטיין/g,
+    replaceWith: "לוונסטיין"
   }, {
     matchWith: /פסקים/g,
     replaceWith: "ספקים"
@@ -5532,7 +5556,7 @@ var areasOfSuspicion = [
         <div class="countup-timer">0</div>
         <div class="countup-timer">0</div>
       </div>
-      <video src="CAPITULO 33 ENFERMERAS.mp4" autobuffer height="200px" controls></video>
+      <video src="SOLAMENTE  063.mp4" autobuffer height="200px" controls></video>
       <br />
       <div id="playback-rate-area">
         <input type='number' id='playback-rate-control' />
