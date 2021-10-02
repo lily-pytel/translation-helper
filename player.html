@@ -1520,8 +1520,8 @@ var commonErrors = [
     matchWith: /שחבנו |שחבנ\ו./g,
     replaceWith: "שחשבנו"
   }, {
-    matchWith: /ארטור/g,
-    replaceWith: "ארתור"
+    matchWith: /ארתורו/g,
+    replaceWith: "ארטורו"
   }, {
     matchWith: /בטח אתה/g,
     replaceWith: "אתה בטח"
@@ -2072,6 +2072,9 @@ var commonErrors = [
     matchWith: /רק זה\?/g,
     replaceWith: 'זה הכול?'
   }, {
+    matchWith: /בשבילי היה קשה/g,
+    replaceWith: 'היה לי קשה'
+  }, {
     matchWith: /בשבילנו זה קשה/g,
     replaceWith: 'זה קשה לנו'
   }, {
@@ -2189,8 +2192,8 @@ var commonErrors = [
     matchWith: /צ'ילקליס/g,
     replaceWith: "צ'ילקילס"
   }, {
-    matchWith: /באשמה שלי/g,
-    replaceWith: "באשמתי"
+    matchWith: /באשמה של/g,
+    replaceWith: "באשמת"
   }, {
     matchWith: /אני לא אשם ש|אני לא אשמה ש/g,
     replaceWith: "זאת לא אשמתי ש"
@@ -2696,9 +2699,6 @@ var commonErrors = [
     matchWith: /כל מני/g,
     replaceWith: "כל מיני"
   }, {
-    matchWith: /אלברס|אלוורז/g,
-    replaceWith: "אלוורס"
-  }, {
     matchWith: /לוקיטס|לקיטאס/g,
     replaceWith: "לוקיטאס"
   }, {
@@ -3040,6 +3040,9 @@ var commonErrors = [
   }, {
     matchWith: /חשוב בשבילי/g,
     replaceWith: "חשוב לי"
+  }, {
+    matchWith: /בשבילי זה לא קל/g,
+    replaceWith: "זה לא קל לי"
   }, {
     matchWith: /קשה בשבילי/g,
     replaceWith: "קשה לי"
@@ -4050,6 +4053,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אאוחאקה|אאואחקה/g,
     replaceWith: "אואחאקה"
   }, {
+    matchWith: /תעשה בשבילי את זה/g,
+    replaceWith: "תעשה את זה בשבילי"
+  }, {
     matchWith: /הריון/g,
     replaceWith: "היריון"
   }, {
@@ -4128,6 +4134,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /ברייאן/g,
     replaceWith: "בריאן"
   }, { 
+    matchWith: /בשבילי לא קל/g,
+    replaceWith: "לא קל לי"
+  }, {
     matchWith: /תרד במדרגות/g,
     replaceWith: "רד במדרגות"
   }, {
@@ -4352,6 +4361,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /נשמעות לנו/g,
     replaceWith: "שומעות בקולנו"
+  }, {
+    matchWith: /מה הוא אמר אבא שלך/g,
+    replaceWith: "מה אבא שלך אמר"
+  }, {
+    matchWith: /שמעת בקול שלי/g,
+    replaceWith: "שמעת בקולי"
   }, {
     matchWith: /תשמע בקול שלי|תישמע לי/g,
     replaceWith: "תשמע בקולי"
@@ -4914,6 +4929,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /^מקסיקו סיטי$/g,
     replaceWith: '"מקסיקו סיטי"'
   }, {
+    matchWith: /ידוע לי/g,
+    replaceWith: "אני יודע"
+  }, {
     matchWith: /במה אפשר עזור/g,
     replaceWith: "במה אוכל לעזור"
   }, {
@@ -4925,6 +4943,10 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /אני שמח עם זה/g,
     replaceWith: "זה משמח אותי"
+  },
+  {
+    matchWith: /בטמן/g,
+    replaceWith: "באטמן"
   }, {
     matchWith: /שתית שוב/g,
     replaceWith: "שוב שתית"
@@ -4944,11 +4966,20 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אני אומר לך מתוך ניסיון/g,
     replaceWith: "אני מדבר מניסיון"
   }, {
+    matchWith: /פולט שטויות/g,
+    replaceWith: "מדבר שטויות"
+  }, {
+    matchWith: /פולטת שטויות/g,
+    replaceWith: "מדברת שטויות"
+  }, {
     matchWith: /המון/g,
     replaceWith: "הרבה"
   }, { 
     matchWith: /קשורה בו/g,
     replaceWith: "קשורה אליו"
+  }, { 
+    matchWith: /פולניה|פולנייה/g,
+    replaceWith: "פולאקה"
   }, {
     matchWith: /אני לא יכולה יותר עם זה/g,
     replaceWith: "אני לא עומדת בזה"
@@ -5100,6 +5131,15 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /המחלקה ליחסי ציבור|שבמחלקה ליחסי הציבור|מחלקה ליחסי ציבור/g,
     replaceWith: "מחלקת יחסי ציבור"
   }, {
+    matchWith: /את מסיחה לי את הדעת/g,
+    replaceWith: "את מסיחה את דעתי"
+  }, {
+    matchWith: /עשרים ואחת/g,
+    replaceWith: "21"
+  }, {
+    matchWith: /ארבעים ושלוש שנים/g,
+    replaceWith: "43"
+  }, {
     matchWith: /זו אני/g,
     replaceWith: "זאת אני"
   }, {
@@ -5132,9 +5172,6 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, { 
     matchWith: /מרטה/g,
     replaceWith: "מרתה"
-  }, {
-    matchWith: /מריסה/g,
-    replaceWith: "מרסיה"
   }, {
     matchWith: / יכוה /g,
     replaceWith: " יכולה "
@@ -5171,6 +5208,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /תסתכלי היטב עליה/g,
     replaceWith: "תסתכלי עליה היטב"
+  }, {
+    matchWith: /מתחנת/g,
+    replaceWith: "מתחתנת"
   }, {
     matchWith: /לתפוח/g,
     replaceWith: "לפתוח"
@@ -5348,6 +5388,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /הגופה המתה שלי/g,
     replaceWith: "גופתי המתה"
+  }, {
+    matchWith: /אבריא אותך/g,
+    replaceWith: "ארפא אותך"
+  }, {
+    matchWith: /להבריא אותי/g,
+    replaceWith: "לרפא אותי"
   }, {
     matchWith: /בת עשרים שנים/g,
     replaceWith: "בת 20"
@@ -5556,7 +5602,7 @@ var areasOfSuspicion = [
         <div class="countup-timer">0</div>
         <div class="countup-timer">0</div>
       </div>
-      <video src="SOLAMENTE  063.mp4" autobuffer height="200px" controls></video>
+      <video src="SOLAMENTE VOS 102.mp4" autobuffer height="200px" controls></video>
       <br />
       <div id="playback-rate-area">
         <input type='number' id='playback-rate-control' />
