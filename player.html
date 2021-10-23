@@ -2105,6 +2105,9 @@ var commonErrors = [
     matchWith: /אני שומע אותך/,
     replaceWith: "אני מקשיב"
   }, {
+    matchWith: /אני מקשיב אותך/,
+    replaceWith: "אני מקשיב"
+  }, {
     matchWith: /אתה שומע את עצמך\?/,
     replaceWith: "אתה מקשיב לעצמך?"
   }, {
@@ -4203,6 +4206,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אני שומעת/g,
     replaceWith: "אני מקשיבה"
   }, {
+    matchWith: /אני מקשיבה אותך/g,
+    replaceWith: "אני מקשיבה"
+  }, {
     matchWith: /שומעת אותו/g,
     replaceWith: "מקשיבה לו"
   }, {
@@ -5134,8 +5140,17 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /את מסיחה לי את הדעת/g,
     replaceWith: "את מסיחה את דעתי"
   }, {
+    matchWith: /את הדעת שלו/g,
+    replaceWith: "את דעתו"
+  }, {
     matchWith: /עשרים ואחת/g,
     replaceWith: "21"
+  }, {
+    matchWith: /עשרים שנים/g,
+    replaceWith: "20 שנה"
+  }, {
+    matchWith: /שלושים/g,
+    replaceWith: "30"
   }, {
     matchWith: /ארבעים ושלוש שנים/g,
     replaceWith: "43"
@@ -5602,7 +5617,7 @@ var areasOfSuspicion = [
         <div class="countup-timer">0</div>
         <div class="countup-timer">0</div>
       </div>
-      <video src="SOLAMENTE VOS 102.mp4" autobuffer height="200px" controls></video>
+      <video src="SOLAMENTE VOS 135.mp4" autobuffer height="200px" controls></video>
       <br />
       <div id="playback-rate-area">
         <input type='number' id='playback-rate-control' />
@@ -5635,7 +5650,7 @@ var areasOfSuspicion = [
       </div>
     </div>
     <div id='editor' style="float: left; margin-left: 15px;">
-      <textarea id="editor-textarea" cols=29 rows=30 wrap="hard" dir='rtl'
+      <textarea id="editor-textarea" cols=29 rows=55 wrap="hard" dir='rtl'
             style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
     </div>
     <div id="fixes-section" style="float: left; margin-left: 15px">
