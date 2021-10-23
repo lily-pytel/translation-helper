@@ -126,7 +126,7 @@ function fixWhiteSpace(editor) {
   ,   message = ''
   ,   lines = text.split('\n')
   ,   charCounter = 0
-  ,   commonWhiteSpaceErrors = commonErrors.filter(err => err.whiteSpaceCorrector) 
+  ,   commonWhiteSpaceErrors = commonErrors.filter(err => err.whiteSpaceCorrector)
 
   for (var i = 0; i < commonWhiteSpaceErrors.length; i++) {
     for (var j = 0; j < lines.length; j++) {
@@ -145,7 +145,7 @@ function fixWhiteSpace(editor) {
 
   editor.val(text);
   message = `<table class="auto-fixes-table">${message}</table>`;
-  $('#fixes-section').html(message);   
+  $('#fixes-section').html(message);
 }
 
 function fixCommonErrors(editor) {
@@ -171,7 +171,7 @@ function fixCommonErrors(editor) {
 
   editor.val(text);
   message = `<table class="auto-fixes-table">${message}</table>`;
-  $('#fixes-section').html(message);   
+  $('#fixes-section').html(message);
 }
 
 function locateSuspiciousAreas(editor) {
@@ -197,7 +197,7 @@ function locateSuspiciousAreas(editor) {
 
   editor.val(text);
   message = `<table class="auto-fixes-table">${message}</table>`;
-  $('#fixes-section').html(message);   
+  $('#fixes-section').html(message);
 }
 
 function locateShortLines(editor) {
@@ -231,7 +231,7 @@ function locateShortLines(editor) {
 
   editor.val(text);
   message = `<table class="auto-fixes-table">${message}</table>`;
-  $('#fixes-section').html(message);   
+  $('#fixes-section').html(message);
 }
 
 function locateAwkwardPunctuation(editor) {
@@ -263,7 +263,7 @@ function locateAwkwardPunctuation(editor) {
 
   editor.val(text);
   message = `<table class="auto-fixes-table">${message}</table>`;
-  $('#fixes-section').html(message);   
+  $('#fixes-section').html(message);
 }
 
 function findCharNumber(text, lineNum) {
@@ -286,7 +286,7 @@ function goToLine(lineNum) {
   const selectionStart = findCharNumber(input.value, lineNum)
   input.focus()
   input.setSelectionRange(selectionStart, selectionStart + 10, "forward")
-  
+
   // we need to scroll to this row but scrolls are in pixels,
   // so we need to know a row's height, in pixels
   var lineHeight = input.clientHeight / input.rows
@@ -301,7 +301,7 @@ function goToLine(lineNum) {
 
 function seek(videoPlayer, value) {
   var seekToTime = videoPlayer.currentTime + value;
-  if( seekToTime < 0 || seekToTime > videoPlayer.duration ) 
+  if( seekToTime < 0 || seekToTime > videoPlayer.duration )
     return;
 
   videoPlayer.currentTime = seekToTime;
@@ -537,7 +537,7 @@ function resetCountdown(interval) {
         ? '#feffe7'
         : '#fae2e2'
 
-    $('body').css('background-color', bodyColor) 
+    $('body').css('background-color', bodyColor)
     $('.countup-timer').css('color', color)
     $('.countup-timer').html(seconds)
   }, speed);
@@ -571,6 +571,112 @@ function initHighlighter() {
     $("#fix-pattern").val(fixer.matchWith.source)
     $("#replace-with").val(fixer.replaceWith)
   })
+}
+
+
+class LatinLineClassifier {
+
+  static removeLatinLinesFromTextArea(textArea, latinLineThreshold) {
+    saveBuffer(textArea)
+    console.log("Saving buffer")
+    let lines = textArea.val().split("\n")
+    const linesBefore = lines.length;
+    const classifier = new LatinLineClassifier(latinLineThreshold)
+    lines = classifier.removeLatinLines(lines)
+    const linesAfter = lines.length
+    console.log(`Reduced ${linesBefore} lines to ${linesAfter} lines after removing Latin lines`)
+    textArea.val(lines.join("\n"))
+  }
+
+  constructor(latinLineThreshold, timingLineThreshold) {
+    this.latinLineThreshold = latinLineThreshold || 0.66
+    this.timingLineThreshold = timingLineThreshold || 0.66
+  }
+  /*
+  Convert a String into an Array of character codes. Hopefully nothing
+  is a multi-point character.
+  */
+  codePoints(line) {
+    return Array.from(line).map(c => c.codePointAt(0))
+  }
+
+  /*
+  Convert an Array of integers into an object mapping integers
+  to the number of times they appear. Because the code for space (32)
+  is so ubiquitous, it's ignore completely.
+  */
+  countFrom(collection) {
+    return collection.reduce((counter, value) => {
+      if (value == 32) {
+        return counter
+      }
+      if (counter[value] === undefined) {
+        counter[value] = 0
+      }
+      counter[value] += 1
+      return counter
+    }, {})
+  }
+
+  /*
+  Sum up the values of an object, assuming all values are numbers.
+  */
+  sumOf(counter) {
+    return Object.values(counter).reduce((acc, value) => acc + value, 0)
+  }
+
+  /*
+  Count the number of times each code point within the ASCII numerical range
+  for digit characters (48 -> 57 inclusive) appears from a counter object as
+  returned by countFrom(codePoints(line))
+  */
+  countNumericCodePoints(counter) {
+    let acc = 0;
+    for (let [key, value] of Object.entries(counter)) {
+      if (key >= 48 && key <= 57) {
+        acc += value
+      }
+    }
+    return acc
+  }
+
+  /*
+  Count the number of times each code point within the ASCII numerical range
+  0-255, excluding puctuation, appears from a counter object as returned by
+  countFrom(codePoints(line))
+  */
+  countValidASCII(counter) {
+    let acc = 0;
+    for (let [key, value] of Object.entries(counter)) {
+      if ((key <= 255) && (key != 63) && (key != 46) && (key != 33)) {
+        acc += value
+      }
+    }
+    return acc
+  }
+
+  isTimingLine(counter) {
+    const numericChars = this.countNumericCodePoints(counter)
+    const totalChars = this.sumOf(counter)
+    return numericChars / totalChars > this.timingLineThreshold
+  }
+
+  isLatinLine(counter) {
+    if (this.isTimingLine(counter)) {
+      return false
+    }
+
+    const latinChars = this.countValidASCII(counter)
+    const totalChars = this.sumOf(counter)
+    return latinChars / totalChars > this.latinLineThreshold
+  }
+
+  removeLatinLines(lines) {
+    return lines.filter((line) => {
+      let counts = this.countFrom(this.codePoints(line))
+      return !this.isLatinLine(counts)
+    })
+  }
 }
 
 
@@ -678,7 +784,7 @@ var commonErrors = [
   }, {
     matchWith: /אל תייחסי אליי/g,
     replaceWith: "תתעלמי ממני"
-  }, { 
+  }, {
     matchWith: /לגונב לך/g,
     replaceWith: "לגנוב לך"
   }, {
@@ -720,7 +826,7 @@ var commonErrors = [
   }, {
     matchWith: /אסקלטנה/g,
     replaceWith: "אסקלנטה"
-  }, { 
+  }, {
     matchWith: /בוסמנטה/g,
     replaceWith: "בוסטמנטה"
   }, {
@@ -762,7 +868,7 @@ var commonErrors = [
   }, {
     matchWith: /כוסית נוספת/g,
     replaceWith: "עוד כוסית"
-  }, { 
+  }, {
     matchWith: /כל הרצון שלי זה/g,
     replaceWith: "אני רק רוצה"
   }, {
@@ -834,7 +940,7 @@ var commonErrors = [
   }, {
     matchWith: /אני מבקש סליחה ממך/g,
     replaceWith: "אני מתנצל"
-  }, { 
+  }, {
     matchWith: /אני מבקשת סליחה ממך/g,
     replaceWith: "אני מתנצלת"
   }, {
@@ -858,7 +964,7 @@ var commonErrors = [
   }, {
     matchWith: /זה גם קורה לי|קורה לי אותו דבר/g,
     replaceWith: "זה קורה גם לי"
-  }, { 
+  }, {
     matchWith: /מה פתאום שתביאי|מה פתאום שתביא/g,
     replaceWith: "מה פתאום הבאת"
   }, {
@@ -909,10 +1015,10 @@ var commonErrors = [
   }, {
     matchWith: /לבקש סליחה ממני/g,
     replaceWith: "לבקש ממני סליחה"
-  }, { 
+  }, {
     matchWith: /יש לי זכיות/g,
     replaceWith: "יש לי זכויות"
-  }, { 
+  }, {
     matchWith: /את גם אימא/g,
     replaceWith: "גם את אימא"
   }, {
@@ -972,7 +1078,7 @@ var commonErrors = [
   }, {
     matchWith: /כפל אישיות/g,
     replaceWith: "פיצול אישיות"
-  }, { 
+  }, {
     matchWith: /אני משועממת קצת/g,
     replaceWith: "קצת משעמם לי"
   }, {
@@ -1005,7 +1111,7 @@ var commonErrors = [
   }, {
     matchWith: /הספקה/g,
     replaceWith: "הפסקה"
-  }, { 
+  }, {
     matchWith: /למשור/g,
     replaceWith: "לשמור"
   }, {
@@ -1098,7 +1204,7 @@ var commonErrors = [
   }, {
     matchWith: /הכול יש פה/g,
     replaceWith: "יש פה הכול"
-  }, { 
+  }, {
     matchWith: /מחשק/g,
     replaceWith: "משחק"
   }, {
@@ -1107,7 +1213,7 @@ var commonErrors = [
   }, {
     matchWith: /אחות שלך/g,
     replaceWith: "אחותך"
-  }, { 
+  }, {
     matchWith: /טרואמן/g,
     replaceWith: "טראומן"
   }, {
@@ -1131,7 +1237,7 @@ var commonErrors = [
   }, {
     matchWith: /אח שלי/g,
     replaceWith: "אחי"
-  }, { 
+  }, {
     matchWith: /הערסל/g,
     replaceWith: "עריסה"
   }, {
@@ -1158,7 +1264,7 @@ var commonErrors = [
   }, {
     matchWith: /בכול מקום/g,
     replaceWith: "בכל מקום"
-  }, { 
+  }, {
     matchWith: /אמרתי לך שלא תתקשר אלי/g,
     replaceWith: "אמרתי לך לא להתקשר אליי"
   }, {
@@ -1182,7 +1288,7 @@ var commonErrors = [
   }, {
     matchWith: /להגיד/g,
     replaceWith: "לומר"
-  }, { 
+  }, {
     matchWith: /שעכשיו הזמן|שעכשיו הזמן כדי/g,
     replaceWith: "שזה הזמן"
   }, {
@@ -1252,13 +1358,13 @@ var commonErrors = [
   }, {
     matchWith: /מי זו\?/g,
     replaceWith: "מי זאת\?"
-  }, {  
+  }, {
     matchWith: /סאונאיל/g,
     replaceWith: "סאוניאל"
   }, {
     matchWith: /תכסיני/g,
     replaceWith: "תכניסי"
-  }, { 
+  }, {
     matchWith: /הרגע היא\?/g,
     replaceWith: "היא הרגע\?"
   }, {
@@ -1276,7 +1382,7 @@ var commonErrors = [
   }, {
     matchWith: /מה פתאום לא שמתי לב|מה פתאום לא הבחנתי/g,
     replaceWith: "איך לא שמתי לב"
-  }, { 
+  }, {
     matchWith: /מה פתאום לא/g,
     replaceWith: "איך לא"
   }, {
@@ -1294,7 +1400,7 @@ var commonErrors = [
   }, {
     matchWith: /כמה שטוב יותר/g,
     replaceWith: "כמה שיותר טוב"
-  }, { 
+  }, {
     matchWith: /זאת מתכונת/g,
     replaceWith: "זה מתכון"
   }, {
@@ -1333,7 +1439,7 @@ var commonErrors = [
   }, {
     matchWith: /רואי לכלום/g,
     replaceWith: "ראוי לכלום"
-  }, { 
+  }, {
     matchWith: /לא יוכל לחיות/g,
     replaceWith: "לא יכול לחיות"
   }, {
@@ -1477,7 +1583,7 @@ var commonErrors = [
   }, {
     matchWith: /לא בסדר בכלל/g,
     replaceWith: "ממש לא בסדר"
-  }, { 
+  }, {
     matchWith: /יד ימין שלו/g,
     replaceWith: "יד ימינו"
   }, {
@@ -1543,7 +1649,7 @@ var commonErrors = [
   }, {
     matchWith: /שלא בנוח/g,
     replaceWith: "לא בנוח"
-  }, { 
+  }, {
     matchWith: /כל רצוני הוא|כל רצוני זה|כל רצוני|הדבר היחיד שאני רוצה הוא|הדבר היחיד שאני רוצה זה|הדבר היחיד שאני רוצה|כל מה שאני רוצה הוא|כל מה אני רוצה זה|כל מה שאני רוצה|מה שאני רוצה זה/g,
     replaceWith: "אני רק רוצה"
   }, {
@@ -1564,7 +1670,7 @@ var commonErrors = [
   }, {
     matchWith: /תאמרי לי/g,
     replaceWith: "תגידי לי"
-  }, { 
+  }, {
     matchWith: /עושה אותך עצובה/g,
     replaceWith: "מעציב אותך"
   }, {
@@ -1663,7 +1769,7 @@ var commonErrors = [
   }, {
     matchWith: /מיליוןם/g,
     replaceWith: "מיליונים"
-  }, { 
+  }, {
     matchWith: /פלורסניה/g,
     replaceWith: "פלורנסיה"
   }, {
@@ -1705,7 +1811,7 @@ var commonErrors = [
   }, {
     matchWith: /כאתן יודעות/g,
     replaceWith: "כידוע לכן"
-  }, { 
+  }, {
     matchWith: /אמצעי התקשרות/g,
     replaceWith: "אמצעי התקשורת"
   }, {
@@ -1786,7 +1892,7 @@ var commonErrors = [
   }, {
     matchWith: /עבריאן/g,
     replaceWith: "עבריין"
-  }, { 
+  }, {
     matchWith: /^וזב /g,
     replaceWith: "וזה "
   }, {
@@ -1810,7 +1916,7 @@ var commonErrors = [
   }, {
     matchWith: / תהי /g,
     replaceWith: " תהיי "
-  }, { 
+  }, {
     matchWith: /איך שהוא/g,
     replaceWith: "איך הוא"
   }, {
@@ -1867,7 +1973,7 @@ var commonErrors = [
   }, {
     matchWith: /כמעט זה/g,
     replaceWith: "זה כמעט"
-  }, { 
+  }, {
     matchWith: /עושה לעצמך סרט/g,
     replaceWith: "נכנס לסרט"
   }, {
@@ -2062,7 +2168,7 @@ var commonErrors = [
   }, {
     matchWith: /לונבמה/g,
     replaceWith: 'לומבנה'
-  }, { 
+  }, {
     matchWith: / לכן אני/g,
     replaceWith: ' בגלל זה אני'
   }, {
@@ -2278,7 +2384,7 @@ var commonErrors = [
   }, {
     matchWith: /פרידה הדודה/g,
     replaceWith: "דודה פרידה"
-  }, { 
+  }, {
     matchWith: /זקוק להן יותר/g,
     replaceWith: "הכי זקוק להן"
   }, {
@@ -2569,7 +2675,7 @@ var commonErrors = [
   }, {
     matchWith: /אמנות/g,
     replaceWith: "אומנות"
-  }, { 
+  }, {
     matchWith: /נאומנות/g,
     replaceWith: "נאמנות"
   }, {
@@ -2620,7 +2726,7 @@ var commonErrors = [
   }, {
     matchWith: /אין צ'קים יותר/g,
     replaceWith: "אין יותר צ'קים"
-  }, { 
+  }, {
     matchWith: /קרירד|קרדיד|קרריד/g,
     replaceWith: "קרידד"
   }, {
@@ -2878,7 +2984,7 @@ var commonErrors = [
   }, {
     matchWith: /באותו רגע ממש אנטש אותך/g,
     replaceWith: "אעזוב אותך מייד"
-  }, { 
+  }, {
     matchWith: /אלוסנו/g,
     replaceWith: "אלונסו"
   }, {
@@ -2905,7 +3011,7 @@ var commonErrors = [
   }, {
     matchWith: /אם יהיה משהו/g,
     replaceWith: "אם יהיה שינוי"
-  }, { 
+  }, {
     matchWith: /מבטיח לך/g,
     replaceWith: "מבטיח"
   }, {
@@ -2980,7 +3086,7 @@ var commonErrors = [
   }, {
     matchWith: /מי באמת אני/g,
     replaceWith: "מי אני באמת"
-  }, { 
+  }, {
     matchWith: /זה היה הדחיפה/g,
     replaceWith: "זאת הייתה הדחיפה"
   }, {
@@ -3049,7 +3155,7 @@ var commonErrors = [
   }, {
     matchWith: /קשה בשבילי/g,
     replaceWith: "קשה לי"
-  }, { 
+  }, {
     matchWith: /הייתה תמיד/g,
     replaceWith: "תמיד הייתה"
   }, {
@@ -3064,7 +3170,7 @@ var commonErrors = [
   }, {
     matchWith: /עכשיו לא הזמן /g,
     replaceWith: "זה לא הזמן"
-  }, { 
+  }, {
     matchWith: /להיות בשבילך/g,
     replaceWith: "להיות לצידך"
   }, {
@@ -3205,7 +3311,7 @@ var commonErrors = [
   }, {
     matchWith: /אני באמת אומר לך/g,
     replaceWith: "אני רציני"
-  }, { 
+  }, {
     matchWith: /אמון מספיק/g,
     replaceWith: "מספיק אמון"
   }, {
@@ -3217,7 +3323,7 @@ var commonErrors = [
   }, {
     matchWith: /ג'י פי אס|ג'י פי הס|ג' יפי הס /g,
     replaceWith: "ג'י.פי.אס"
-  }, { 
+  }, {
     matchWith: /מטיחה לך/g,
     replaceWith: "מבטיחה לך"
   }, {
@@ -3241,7 +3347,7 @@ var commonErrors = [
   }, {
     matchWith: /מהכולא/g,
     replaceWith: "מהכלא"
-  }, { 
+  }, {
     matchWith: /הכולים/g,
     replaceWith: "הכלים"
   }, {
@@ -3367,7 +3473,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /תתארי לעצמך/g,
     replaceWith: "תארי לעצמך"
-  }, { 
+  }, {
     matchWith: /הן אבא והן אימא/g,
     replaceWith: "אבא ואימא"
   }, {
@@ -3379,7 +3485,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /אי לא יודע/g,
     replaceWith: "אני לא יודע"
-  }, { 
+  }, {
     matchWith: /הלכתי לדבר/g,
     replaceWith: "דיברתי"
   }, {
@@ -3445,7 +3551,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /תישאר רגוע פה/g,
     replaceWith: "תישאר פה ותירגע"
-  }, { 
+  }, {
     matchWith: /גם האמנתי ל/g,
     replaceWith: "גם אני האמנתי ל"
   }, {
@@ -3454,7 +3560,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /השכונה כולה/g,
     replaceWith: "כל השכונה"
-  }, { 
+  }, {
     matchWith: /קשה מאוד לי/g,
     replaceWith: "קשה לי מאוד"
   }, {
@@ -3526,7 +3632,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /תולכ|תוכל/g,
     replaceWith: "אתה יכול"
-  }, {  
+  }, {
     matchWith: /לא את יכולה/g,
     replaceWith: "את לא יכולה"
   }, {
@@ -3548,7 +3654,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /תרצה(?! משהו)/g,
     replaceWith: "אתה רוצה"
   }, {
-     
+
     matchWith: /אם לא אתה רוצה/g,
     replaceWith: "אם אתה לא רוצה"
   }, {
@@ -3602,7 +3708,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /אני אמשה/g,
     replaceWith: "אני אשמה"
-  }, { 
+  }, {
     matchWith: /היא אפשר/g,
     replaceWith: "אי אפשר"
   }, {
@@ -3641,7 +3747,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /לדעת ממך/g,
     replaceWith: "לשמוע ממך"
-  }, { 
+  }, {
     matchWith: /אמרה לי/g,
     replaceWith: "אמרה"
   }, {
@@ -3707,7 +3813,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /תעשה את מה ש/g,
     replaceWith: "תעשה מה ש"
-  }, { 
+  }, {
     matchWith: /אתם מכונים/g,
     replaceWith: "אתם מוכנים"
   }, {
@@ -3719,13 +3825,13 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /צעד, צעד/g,
     replaceWith: "צעד אחר צעד"
-  }, { 
+  }, {
     matchWith: /אורחת בוקר/g,
     replaceWith: "ארוחת בוקר"
   }, {
     matchWith: /הלנה/g,
     replaceWith: "אלנה"
-  }, { 
+  }, {
     matchWith: /עשיתי הכרה/g,
     replaceWith: "הכרתי"
   }, {
@@ -3734,7 +3840,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /מפשט/g,
     replaceWith: "משפט"
-  }, { 
+  }, {
     matchWith: /זה רק שאת /g,
     replaceWith: "את פשוט "
   }, {
@@ -3776,7 +3882,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /הבחנת בכלל|הבחנת/g,
     replaceWith: "שמת לב"
-  }, { 
+  }, {
     matchWith: /שמת לב במשהו/g,
     replaceWith: "שמת לב למשהו"
   }, {
@@ -3797,7 +3903,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /רוק המקומי/g,
     replaceWith: "רוק הלאומי"
-  }, { 
+  }, {
     matchWith: / צרך /g,
     replaceWith: "צריך"
   }, {
@@ -3884,7 +3990,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /יד ימנית|יד ימינית/g,
     replaceWith: "יד ימין"
-  }, { 
+  }, {
     matchWith: /אני לא ידוע/g,
     replaceWith: "אני לא יודע"
   }, {
@@ -3911,7 +4017,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /תניחי אותנו כבר/g,
     replaceWith: "תניחי לנו כבר"
-  }, { 
+  }, {
     matchWith: /תהיה חסר לי/g,
     replaceWith: "תחסר לי"
   }, {
@@ -4022,7 +4128,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /שלא אגלה/g,
     replaceWith: "לא לגלות"
-  }, { 
+  }, {
     matchWith: /בכול השנים/g,
     replaceWith: "במשך כל השנים"
   }, {
@@ -4031,7 +4137,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /תתקרב אליי ככה שוב/g,
     replaceWith: "תשוב להתקרב אליי ככה"
-  }, { 
+  }, {
     matchWith: /תתראה אותי/g,
     replaceWith: "תראה אותי"
   }, {
@@ -4073,7 +4179,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /מבוגרת ממנה יותר/g,
     replaceWith: "מבוגרת ממנה"
-  }, { 
+  }, {
     matchWith: /אלחנדה/g,
     replaceWith: "אלחנדרה"
   }, {
@@ -4127,7 +4233,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /משהו שם/g,
     replaceWith: "שם משהו"
-  }, { 
+  }, {
     matchWith: /אלך להביא/g,
     replaceWith: "אביא"
   }, {
@@ -4136,7 +4242,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /ברייאן/g,
     replaceWith: "בריאן"
-  }, { 
+  }, {
     matchWith: /בשבילי לא קל/g,
     replaceWith: "לא קל לי"
   }, {
@@ -4232,7 +4338,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /הוא ראוי/g,
     replaceWith: "מגיע לו"
-  }, { 
+  }, {
     matchWith: /אני לא ידעת/g,
     replaceWith: "אני לא יודעת"
   }, {
@@ -4289,7 +4395,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /מייד תספרי לי/g,
     replaceWith: "תספרי לי מייד"
-  }, { 
+  }, {
     matchWith: /הפטרים/g,
     replaceWith: "הפרטים"
   }, {
@@ -4343,7 +4449,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /משמעות לזה/g,
     replaceWith: "לזה משמעות"
-  }, { 
+  }, {
     matchWith: /לידוע לשנינו/g,
     replaceWith: "שנינו יודעים"
   }, {
@@ -4484,7 +4590,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /מסתירה דברים ממני/g,
     replaceWith: "מסתירה ממני דברים"
-  }, { 
+  }, {
     matchWith: /מים קצת/g,
     replaceWith: "קצת מים"
   }, {
@@ -4496,7 +4602,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /עכשיו אני רוצה להבין/g,
     replaceWith: "אני רוצה להבין עכשיו"
-  }, { 
+  }, {
     matchWith: /נעשה כאילו /g,
     replaceWith: "נעמיד פנים ש"
   }, {
@@ -4559,7 +4665,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /דף נייר/g,
     replaceWith: "דף"
-  }, { 
+  }, {
     matchWith: /עכשיו מה בהמשך/g,
     replaceWith: "מה עכשיו"
   }, {
@@ -4625,7 +4731,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /הרואות/g,
     replaceWith: "הוראות"
-  }, { 
+  }, {
     matchWith: /ההוצאה להרוג/g,
     replaceWith: "ההוצאה להורג"
   }, {
@@ -4799,7 +4905,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: / נדר על/g,
     replaceWith: " נדבר על"
-  }, { 
+  }, {
     matchWith: /בשבילי יהיה חשוב/g,
     replaceWith: "חשוב לי"
   }, {
@@ -4980,10 +5086,10 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /המון/g,
     replaceWith: "הרבה"
-  }, { 
+  }, {
     matchWith: /קשורה בו/g,
     replaceWith: "קשורה אליו"
-  }, { 
+  }, {
     matchWith: /פולניה|פולנייה/g,
     replaceWith: "פולאקה"
   }, {
@@ -5007,7 +5113,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /לא עונים לי/g,
     replaceWith: "לא עונים"
-  }, { 
+  }, {
     matchWith: /בשורה שלא ייאמן|בשורה שלא תיאמן/g,
     replaceWith: "בשורה מדהימה"
   }, {
@@ -5184,7 +5290,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /קפה הגורמה|קפה הגומר/g,
     replaceWith: "קפה גורמה"
-  }, { 
+  }, {
     matchWith: /מרטה/g,
     replaceWith: "מרתה"
   }, {
@@ -5349,7 +5455,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /אשמה שלך/g,
     replaceWith: "אשמתך"
-  }, {  
+  }, {
     matchWith: /אתה באמת ראוי/g,
     replaceWith: "באמת מגיע לך"
   }, {
@@ -5482,10 +5588,10 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /קורנחו מחיה/g,
     replaceWith: "קורנחו מחייה"
   }
-]; 
+];
 
 var areasOfSuspicion = [
-  { 
+  {
     matchWith: /תרא(?!ות)/g,
     replaceWith: "תרא"
   }, {
@@ -5630,6 +5736,7 @@ var areasOfSuspicion = [
         <button onclick="locateShortLines(Editor)">Short Lines</button>
         <button onclick="locateAwkwardPunctuation(Editor)">Awkward Punctuation</button>
         <button onclick="locateSuspiciousAreas(Editor)">Suspicious Areas</button>
+        <button onclick="LatinLineClassifier.removeLatinLinesFromTextArea(Editor)">Ixnay Latin</button>
         <br><br>
         <button onclick="loadBufferFromRecovery(Editor);">Load (Recovery)</button>
         <button onclick='saveBuffer(Editor);'>Save Buffer</button>
@@ -5644,7 +5751,7 @@ var areasOfSuspicion = [
         </select><br>
         <button id="highlight-matches" style="margin-top: 5px;">Highlight</button> <span id='match-count'></span>
         <div id='error-fix-display-container'>
-        
+
         </div>
         <br>
       </div>
