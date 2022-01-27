@@ -663,7 +663,7 @@ class LatinLineClassifier {
 
   isLatinLine(counter) {
     if (this.isTimingLine(counter)) {
-      return false
+      return true
     }
 
     const latinChars = this.countValidASCII(counter)
