@@ -2046,6 +2046,9 @@ var commonErrors = [
     matchWith: /כף המוזנים/g,
     replaceWith: 'כף המאזניים'
   }, {
+    matchWith: /לוקס/g,
+    replaceWith: 'לוקאס'
+  },{
     matchWith: /מחלקות/g,
     replaceWith: 'מחלוקות'
   }, {
@@ -2496,8 +2499,32 @@ var commonErrors = [
     matchWith: /אמרה לי ש/g,
     replaceWith: "אמרה לי "
   }, {
+    matchWith: /יכנסו יותר לפה|ייכנסו יותר לפה/g,
+    replaceWith: "יכנסו לפה יותר"
+  }, {
     matchWith: /אמר לי ש/g,
     replaceWith: "אמר לי "
+  }, { 
+    matchWith: /מתסדר/g,
+    replaceWith: "מסתדר"
+  }, {
+    matchWith: /שונעת/g,
+    replaceWith: "שומעת"
+  }, { 
+    matchWith: /מסתצבך/g,
+    replaceWith: "מסתבך"
+  }, {
+    matchWith: /נשמיך/g,
+    replaceWith: "נמשיך"
+  }, {
+    matchWith: /יפויי/g,
+    replaceWith: "ייפוי"
+  }, {
+    matchWith: /צורפתיה/g,
+    replaceWith: "צרפתייה"
+  }, {
+    matchWith: /נאמס/g,
+    replaceWith: "נמאס"
   }, {
     matchWith: /תביא כפה/g,
     replaceWith: "תביא כיף"
@@ -2511,7 +2538,7 @@ var commonErrors = [
     matchWith: /אתה מדבר ברצינות|אתה מדברת ברצינות|אתה לוגע לי|אתה צוחק עליי|אתה מדברת ברציות/g,
     replaceWith: "אתה רציני"
   }, {
-    matchWith: /את מדברת ברצינות|את לועגת לי|את צוחקת עליי/g,
+    matchWith: /את מדברת ברצינות|את לועגת לי|את צוחקת עליי|את צדברת ברצינות/g,
     replaceWith: "את רצינית"
   }, {
     matchWith: /אני מדברת ברצינות/,
@@ -3829,8 +3856,14 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /אורחת בוקר/g,
     replaceWith: "ארוחת בוקר"
   }, {
+    matchWith: /גם זה קרה לי/g,
+    replaceWith: "גם לי זה קרה"
+  }, {
     matchWith: /הלנה/g,
     replaceWith: "אלנה"
+  }, { 
+    matchWith: /ארולנדו|אולדרנו/g,
+    replaceWith: "אורלנדו"
   }, {
     matchWith: /עשיתי הכרה/g,
     replaceWith: "הכרתי"
@@ -4694,7 +4727,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     replaceWith: "נדבר"
   }, {
     matchWith: /^ני |-ני |. ני |, ני /g,
-    replaceWith: "אני"
+    replaceWith: " אני"
   }, {
     matchWith: /^ה |-ה |. ה |, ה /g,
     replaceWith: "זה "
@@ -5414,9 +5447,6 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /קאוטיניו|קואיטיניו/g,
     replaceWith: "קוטיניו"
   }, {
-    matchWith: /איוון/g,
-    replaceWith: "איבון"
-  }, {
     matchWith: /ג'ררד/g,
     replaceWith: "ג'רארד"
   }, {
@@ -5723,7 +5753,7 @@ var areasOfSuspicion = [
         <div class="countup-timer">0</div>
         <div class="countup-timer">0</div>
       </div>
-      <video src="SOLAMENTE VOS 135.mp4" autobuffer height="200px" controls></video>
+      <video src="SOLAMENTE VOS 169.mp4" autobuffer height="200px" controls></video>
       <br />
       <div id="playback-rate-area">
         <input type='number' id='playback-rate-control' />
@@ -5757,7 +5787,7 @@ var areasOfSuspicion = [
       </div>
     </div>
     <div id='editor' style="float: left; margin-left: 15px;">
-      <textarea id="editor-textarea" cols=29 rows=55 wrap="hard" dir='rtl'
+      <textarea id="editor-textarea" cols=29 rows=30 wrap="hard" dir='rtl'
             style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
     </div>
     <div id="fixes-section" style="float: left; margin-left: 15px">
