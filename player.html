@@ -49,7 +49,7 @@
     }
 
     #fixes-section {
-      height: 450px;
+      height: 90vh;
       width: 350px;
       overflow: auto;
     }
@@ -1911,6 +1911,27 @@ var commonErrors = [
     matchWith: /בררה/g,
     replaceWith: "ברירה"
   }, {
+    matchWith: /דם יורד לך/g,
+    replaceWith: "יורד לך דם"
+  }, {
+    matchWith: /לס ווגס/g,
+    replaceWith: "לאס וגאס"
+  }, {
+    matchWith: /לא שמעתי ממנו מזמן/g,
+    replaceWith: "מזמן לא שמעתי ממנו"
+  }, {
+    matchWith: /מוראיל/g,
+    replaceWith: "מוריאל"
+  }, {
+    matchWith: /מטיאס/g,
+    replaceWith: "מתיאס"
+  }, {
+    matchWith: /יש מישהו פה/g,
+    replaceWith: "יש פה מישהו"
+  }, {
+    matchWith: /צפרת/g,
+    replaceWith: "צרפת"
+  }, {
     matchWith: /קברירה/g,
     replaceWith: "קבררה"
   }, {
@@ -1922,6 +1943,9 @@ var commonErrors = [
   }, {
     matchWith: /איך שאתם/g,
     replaceWith: "איך אתם"
+  }, {
+    matchWith: /מה הכנת לנו טעים/g,
+    replaceWith: "איזה דבר טעים הכנת לנו"
   }, {
     matchWith: /אין לי המון זמן/g,
     replaceWith: "אין לי הרבה זמן"
@@ -2745,11 +2769,17 @@ var commonErrors = [
     matchWith: /מה אני יודעת|מה אני יודע|מה אני ידעת|מה פתאום שאדע/g,
     replaceWith: "מאין לי לדעת"
   }, {
+    matchWith: /דברים לעשות חשובים יותר/g,
+    replaceWith: "דברים חשובים יותר לעשות"
+  }, {
     matchWith: /קשה בשביל/g,
     replaceWith: "קשה ל"
   }, {
+    matchWith: /מבכל הלב/g,
+    replaceWith: "מכל הלב"
+  }, {
     matchWith: /לבקש ממך /g,
-    replaceWith: "לבקש"
+    replaceWith: " לבקש"
   }, {
     matchWith: /אין צ'קים יותר/g,
     replaceWith: "אין יותר צ'קים"
@@ -2757,11 +2787,20 @@ var commonErrors = [
     matchWith: /קרירד|קרדיד|קרריד/g,
     replaceWith: "קרידד"
   }, {
+    matchWith: / ני /g,
+    replaceWith: " אני "
+  }, {
     matchWith: /יקרי,/g,
     replaceWith: "יקירי,"
   }, {
     matchWith: /מה יש לו לומר כבר/g,
     replaceWith: "מה כבר יש לו לומר"
+  }, {
+    matchWith: /גריפה/g,
+    replaceWith: "שפעת"
+  }, {
+    matchWith: /אני ל /g,
+    replaceWith: "אני לא "
   }, {
     matchWith: /אל אוכל/g,
     replaceWith: "לא אוכל"
@@ -4489,6 +4528,12 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מקסיקניןת/g,
     replaceWith: "מקסיקניות"
   }, {
+    matchWith: /עכשיו לא מתאים/g,
+    replaceWith: "זה לא זמן טוב"
+  }, {
+    matchWith: /ארטאגה/g,
+    replaceWith: "ארטיאגה"
+  }, {
     matchWith: /אשפר ל/g,
     replaceWith: "אפשר ל"
   }, {
@@ -4501,6 +4546,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /לחיות בלי רשות/g,
     replaceWith: "לחיות ללא רשות"
   }, { 
+    matchWith: / מה תה /g,
+    replaceWith: " מה אתה "
+  }, {
     matchWith: /המוןמ/g,
     replaceWith: "המון"
   }, {
@@ -4758,6 +4806,9 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /תכמת/g,
     replaceWith: "תמכת"
+  }, {
+    matchWith: /שידברת/g,
+    replaceWith: "שדיברת"
   }, {
     matchWith: /אנרסטו/g,
     replaceWith: "ארנסטו"
@@ -5189,11 +5240,17 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /מייד תצא מפה/g,
     replaceWith: "צא מפה מייד"
   }, {
+    matchWith: /היית איתי בסדר/g,
+    replaceWith: "היית בסדר כלפיי"
+  }, {
     matchWith: /לא עונה לי/g,
     replaceWith: "לא עונה"
   }, {
     matchWith: /זו לא הדרך לדבר/g,
     replaceWith: "זאת לא צורת דיבור"
+  }, {
+    matchWith: /אני רוצה לומר לך רק את זה/g,
+    replaceWith: "זה כל מה שאני רוצה לומר"
   }, {
     matchWith: /מאצת /g,
     replaceWith: "מצאת "
@@ -5416,9 +5473,18 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /מירים/g,
     replaceWith: "מרים"
+  }, { 
+    matchWith: /אחרת כך/g,
+    replaceWith: "אחר כך"
   }, {
     matchWith: / אר כך/g,
     replaceWith: " אחר כך"
+  }, {
+    matchWith: /הזהרה/g,
+    replaceWith: "אזהרה"
+  }, {
+    matchWith: /אח תדאגי/g,
+    replaceWith: "אל תדאגי"
   }, {
     matchWith: /ברטט/g,
     replaceWith: "על רטט"
@@ -5426,7 +5492,7 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
     matchWith: /שום דבר פסול/g,
     replaceWith: "שום דבר רע"
   }, {
-    matchWith: /שום דבר(?! רע| אחר| נוסף| ממשי| חדש| מוזר| ש)/g,
+    matchWith: /שום דבר(?! רע| אחר| נוסף| חשוד| ממשי| חדש| מוזר| ש)/g,
     replaceWith: "כלום"
   }, {
     matchWith: /כלום יותר/g,
@@ -5536,6 +5602,21 @@ matchWith: /עכשיו אני לא יכול לדבר/g,
   }, {
     matchWith: /הראש מתפוצץ לי/g,
     replaceWith: "הראש שלי מתפוצץ"
+  }, {
+    matchWith: /מפשחה/g,
+    replaceWith: "משפחה"
+  }, {
+    matchWith: /סלחיה/g,
+    replaceWith: "סליחה"
+  }, {
+    matchWith: /לעשת/g,
+    replaceWith: "לעשות"
+  }, { 
+    matchWith: /החותנה/g,
+    replaceWith: "החתונה"
+  }, {
+    matchWith: /צרכיה/g,
+    replaceWith: "צריכה"
   }, {
     matchWith: /אלברו/g,
     replaceWith: "אלוורו"
@@ -5661,6 +5742,12 @@ var areasOfSuspicion = [
     matchWith: /תרא(?!ות)/g,
     replaceWith: "תרא"
   }, {
+    matchWith: /שנים/g,
+    replaceWith: "שנים"
+  }, {
+    matchWith: /קצת/g,
+    replaceWith: "קצת"
+  }, {
     matchWith: /כמוך/g,
     replaceWith: "כמוך"
   }, {
@@ -5712,11 +5799,17 @@ var areasOfSuspicion = [
     matchWith: /התנשקנו/g,
     replaceWith: "התנשקנו"
   }, {
+    matchWith: /כמה ש/g,
+    replaceWith: "כמה ש"
+  }, {
     matchWith: /וו/g,
     replaceWith: "וו"
   }, {
     matchWith: /יותר/g,
     replaceWith: "יותר"
+  }, {
+    matchWith: /בשביל/g,
+    replaceWith: "בשביל"
   }, {
     matchWith: /המום/g,
     replaceWith: "המום"
@@ -5750,6 +5843,9 @@ var areasOfSuspicion = [
   }, {
     matchWith: /חבשתי/g,
     replaceWith: "חבשתי"
+  }, {
+    matchWith: /הינה/g,
+    replaceWith: "הינה"
   }, {
     matchWith: /כולה/g,
     replaceWith: "כולה"
@@ -5823,7 +5919,7 @@ var areasOfSuspicion = [
       </div>
     </div>
     <div id='editor' style="float: left; margin-left: 15px;">
-      <textarea id="editor-textarea" cols=29 rows=30 wrap="hard" dir='rtl'
+      <textarea id="editor-textarea" cols=29 rows=40 wrap="hard" dir='rtl'
             style="font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;"></textarea>
     </div>
     <div id="fixes-section" style="float: left; margin-left: 15px">
