@@ -1923,11 +1923,23 @@ var commonErrors = [
     matchWith: /מוראיל/g,
     replaceWith: "מוריאל"
   }, {
+    matchWith: /על הראש של הגנב בוער הכובע/g,
+    replaceWith: "על ראש הגנב בוער הכובע"
+  }, {
+    matchWith: /קונסאולו/g,
+    replaceWith: "קונסואלו"
+  }, {
+    matchWith: /תתראי לעצמך/g,
+    replaceWith: "תארי לעצמך"
+  }, {
     matchWith: /ויוי/g,
     replaceWith: "ויווי"
   }, {
     matchWith: /מטיאס/g,
     replaceWith: "מתיאס"
+  }, {
+    matchWith: /עשית לעצמך סרט בראש/g,
+    replaceWith: "נכנסת לסרט"
   }, {
     matchWith: /יש מישהו פה/g,
     replaceWith: "יש פה מישהו"
@@ -1971,8 +1983,29 @@ var commonErrors = [
     matchWith: /ג'יזל/g,
     replaceWith: "ג'יסל"
   }, {
+    matchWith: /עם עצמי טוב/g,
+    replaceWith: "טוב עם עצמי"
+  }, {
     matchWith: /קטם/g,
     replaceWith: "כתם"
+  }, {
+    matchWith: /משלינה/g,
+    replaceWith: "מלשינה"
+  }, { 
+    matchWith: /שקרים ששיקרת/g,
+    replaceWith: "שקרים שסיפרת"
+  }, {
+    matchWith: /עכשיו מה קרה איתו/g,
+    replaceWith: "מה קרה איתו עכשיו"
+  }, {
+    matchWith: /איתי בעיה/g,
+    replaceWith: "בעיה איתי"
+  }, {
+    matchWith: /תעשי בשבילי את זה/g,
+    replaceWith: "תעשי את זה בשבילי"
+  }, {
+    matchWith: /פשוט טיפה יותר/g,
+    replaceWith: "קצת יותר פשוט"
   }, {
     matchWith: /קרבן/g,
     replaceWith: "קורבן"
@@ -2001,8 +2034,11 @@ var commonErrors = [
     matchWith: /כמעט זה/g,
     replaceWith: "זה כמעט"
   }, {
-    matchWith: /עושה לעצמך סרט/g,
+    matchWith: /עושה לעצמך סרט|עושה לעצמו סרטים /g,
     replaceWith: "נכנס לסרט"
+  }, {
+    matchWith: /אעשה סרטים לעצמי/g,
+    replaceWith: "אכנס לסרט"
   }, {
     matchWith: /אעשה סרטים לעצמי/g,
     replaceWith: "אכנס לסרט"
@@ -2928,6 +2964,9 @@ var commonErrors = [
     matchWith: /אסטרייה|אסטרזה/g,
     replaceWith: "אסטרז'ה"
   }, {
+    matchWith: /להוציא לי אותה מהראש/g,
+    replaceWith: "להוציא אותה מהראש שלי"
+  }, {
     matchWith: /אסטרייס/g,
     replaceWith: "אסטרז'ס"
   }, {
@@ -2951,6 +2990,9 @@ var commonErrors = [
   }, {
     matchWith: /באם תרצה אחרת לא|באם תרצה או שלא/g,
     replaceWith: "גם אם זה לא נראה לך"
+  }, {
+    matchWith: /באם יאהבו אותם או שלא/g,
+    replaceWith: "גם אם זה לא נראה להם"
   }, {
     matchWith: /שישה חודשים/g,
     replaceWith: "חצי שנה"
